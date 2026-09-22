@@ -1,533 +1,807 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clipToPadding="false"
-    android:overScrollMode="never"
-    android:scrollbars="none"
-    android:background="@drawable/bg_screen">
+    android:background="@color/white">
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipChildren="false"
-        android:orientation="vertical"
-        android:paddingStart="16dp"
-        android:paddingTop="8dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="16dp">
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="@string/app_name"
-                    android:textColor="@color/text_dark"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="@string/tagline"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="15sp" />
-
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/imgNotification"
-                android:layout_width="26dp"
-                android:layout_height="26dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:contentDescription="@string/cd_notifications"
-                android:src="@drawable/ic_notification" />
-
-        </RelativeLayout>
-
-        <LinearLayout
-            android:id="@+id/heroCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/bg_hero"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingStart="16dp"
-            android:paddingTop="8dp"
-            android:paddingEnd="8dp"
-            android:paddingBottom="8dp">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="@string/hello"
-                    android:textColor="@color/text_dark"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="@string/hero_title"
-                    android:textColor="@color/text_dark"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="@string/hero_sub"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="11sp" />
-
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="110dp"
-                android:layout_height="92dp"
-                android:contentDescription="@string/cd_illustration"
-                android:scaleType="fitEnd"
-                android:src="@drawable/label_ic" />
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            android:layout_marginBottom="6dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/section_loan_calculators"
-            android:textColor="@color/text_dark"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
+        <!-- SINGLE DIRECT CHILD OF SCROLLVIEW -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="-6dp"
-            android:layout_marginEnd="-6dp"
-            android:baselineAligned="false"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
 
+            <!-- ================= HEADER ================= -->
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardLoanCalculator"
-                android:layout_width="0dp"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/card_green"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="2dp">
+                android:background="@drawable/bg_header_gradient"
+                android:paddingStart="20dp"
+                android:paddingTop="28dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="70dp">
+
+                <ImageView
+                    android:id="@+id/imgLogo"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_logo_square"
+                    android:padding="9dp"
+                    android:src="@drawable/logo_ic" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="14dp">
-
-                    <FrameLayout
-                        android:layout_width="34dp"
-                        android:layout_height="34dp"
-                        android:background="@drawable/bg_icon_box"
-                        android:backgroundTint="@color/icon_green">
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center"
-                            android:importantForAccessibility="no"
-                            android:src="@drawable/ic_calculator" />
-
-                    </FrameLayout>
+                    android:layout_marginStart="12dp"
+                    android:layout_toEndOf="@id/imgLogo"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="@string/loan_calculator"
-                        android:textColor="@color/text_dark"
-                        android:textSize="14sp"
+                        android:text="LoanSmart"
+                        android:textColor="@color/white"
+                        android:textSize="22sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="@string/calculate_emi"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="11sp" />
+                        android:text="Smart Calculations, Better Decisions"
+                        android:textColor="#C9D9F2"
+                        android:textSize="12sp" />
 
                 </LinearLayout>
 
-            </com.google.android.material.card.MaterialCardView>
+                <RelativeLayout
+                    android:id="@+id/btnNotification"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/bg_profile_circle"
+                    android:clickable="true"
+                    android:focusable="true">
 
-        </LinearLayout>
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_centerInParent="true"
+                        android:contentDescription="Notifications"
+                        android:src="@drawable/ic_notification" />
 
-        <FrameLayout
-            android:id="@+id/setting_native_layout1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                </RelativeLayout>
 
-            <include
-                android:id="@+id/native_shimmer_layout"
-                layout="@layout/shimmer_native_medium" />
+            </RelativeLayout>
 
-        </FrameLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="-6dp"
-            android:layout_marginEnd="-6dp"
-            android:baselineAligned="false"
-            android:orientation="horizontal">
-
-            <com.google.android.material.card.MaterialCardView
-                 android:id="@+id/cardBusinessLoan"
-                 android:layout_width="0dp"
-                 android:layout_height="wrap_content"
-                 android:layout_margin="6dp"
-                 android:layout_weight="1"
-                 android:clickable="true"
-                 android:focusable="true"
-                 android:foreground="?attr/selectableItemBackground"
-                 app:cardBackgroundColor="@color/card_blue"
-                 app:cardCornerRadius="20dp"
-                 app:cardElevation="2dp">
-
-                 <LinearLayout
-
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:orientation="vertical"
-                     android:padding="14dp">
-
-                     <FrameLayout
-                         android:layout_width="34dp"
-                         android:layout_height="34dp"
-                         android:background="@drawable/bg_icon_box"
-                         android:backgroundTint="@color/icon_blue">
-
-                         <ImageView
-                             android:layout_width="20dp"
-                             android:layout_height="20dp"
-                             android:layout_gravity="center"
-                             android:importantForAccessibility="no"
-                             android:src="@drawable/ic_business" />
-
-                     </FrameLayout>
-
-                     <TextView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginTop="10dp"
-                         android:fontFamily="sans-serif-medium"
-                         android:text="@string/business_loan"
-                         android:textColor="@color/text_dark"
-                         android:textSize="14sp"
-                         android:textStyle="bold" />
-
-                     <TextView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginTop="2dp"
-                         android:text="@string/calculate_emi"
-                         android:textColor="@color/text_secondary"
-                         android:textSize="11sp" />
-
-                 </LinearLayout>
-
-             </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardAutoLoan"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/card_purple"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="2dp">
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="-55dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/bg_hero_card"
+                android:orientation="horizontal"
+                android:padding="10dp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:orientation="vertical"
-                    android:padding="14dp">
+                    android:paddingStart="4dp">
 
-                    <FrameLayout
-                        android:layout_width="34dp"
-                        android:layout_height="34dp"
-                        android:background="@drawable/bg_icon_box"
-                        android:backgroundTint="@color/icon_purple">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:lineSpacingExtra="2dp"
+                        android:text="@string/hello"
+                        android:textColor="@color/blue"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Let's plan your finances"
+                        android:textColor="@color/blue"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Choose a calculator and get&#10;instant results."
+                        android:textColor="@color/grey"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@null"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/label_ic" />
+
+            </LinearLayout>
+
+            <!-- ================= LOAN CALCULATORS ================= -->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="20dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="4dp"
+                        android:layout_height="20dp"
+                        android:background="@color/light_blue" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Loan Calculators"
+                        android:textColor="@color/black"
+                        android:textSize="19sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <!-- ================= LOAN CALCULATOR ================= -->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardLoanCalculator"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_75sdp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardUseCompatPadding="false">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/loan_bg"
+                    android:padding="18dp">
+
+                    <ImageView
+                        android:id="@+id/iconLoanCalc"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/bg_icon_blue"
+                        android:contentDescription="@null"
+                        android:padding="8dp"
+                        android:src="@drawable/personal_ic" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toStartOf="@id/arrowLoanCalc"
+                        android:layout_toEndOf="@id/iconLoanCalc"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Loan Calculator"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Calculate your EMI, total interest&#10;and loan tenure."
+                            android:textColor="@color/grey"
+                            android:textSize="12.5sp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/arrowLoanCalc"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/bg_circle_arrow_blue"
+                        android:contentDescription="Open"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_arrow_forward" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- ================= BUSINESS + AUTO ================= -->
+
+            <FrameLayout
+                android:id="@+id/setting_native_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingEnd="@dimen/_20sdp">
+
+                <include
+                    android:id="@+id/native_shimmer_layout"
+                    layout="@layout/shimmer_native_medium" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal">
+
+                <!-- BUSINESS -->
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardBusinessLoan"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_120sdp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:cardUseCompatPadding="false">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/business_bg"
+                        android:padding="16dp">
 
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center"
-                            android:importantForAccessibility="no"
+                            android:id="@+id/cardBusinessIcon"
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/bg_icon_purple"
+                            android:contentDescription="@null"
+                            android:padding="8dp"
+                            android:src="@drawable/business_ic" />
+
+                        <TextView
+                            android:id="@+id/txtBusinessTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/cardBusinessIcon"
+                            android:layout_marginTop="14dp"
+                            android:text="Business Loan"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/txtBusinessDesc"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:maxLines="2"
+                                android:text="Calculate your EMI for business growth."
+                                android:textColor="@color/grey"
+                                android:textSize="10sp" />
+
+                            <ImageView
+                                android:id="@+id/ivBusinessArrow"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginStart="8dp"
+                                android:background="@drawable/bg_circle_arrow_purple"
+                                android:contentDescription="Open"
+                                android:padding="7dp"
+                                android:src="@drawable/ic_arrow_forward" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- AUTO -->
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardAutoLoan"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_120sdp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:cardUseCompatPadding="false">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/auto_bg"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:id="@+id/cardAutoIcon"
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/bg_icon_pink"
+                            android:contentDescription="@null"
+                            android:padding="8dp"
                             android:src="@drawable/ic_car" />
 
-                    </FrameLayout>
+                        <TextView
+                            android:id="@+id/txtAutoTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/cardAutoIcon"
+                            android:layout_marginTop="14dp"
+                            android:text="Auto Loan"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="@string/auto_loan"
-                        android:textColor="@color/text_dark"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="@string/calculate_emi"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="11sp" />
+                            <TextView
+                                android:id="@+id/txtAutoDesc"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:maxLines="2"
+                                android:text="Find your EMI and plan your dream ride."
+                                android:textColor="@color/grey"
+                                android:textSize="10sp" />
 
-                </LinearLayout>
+                            <ImageView
+                                android:id="@+id/ivAutoArrow"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginStart="8dp"
+                                android:background="@drawable/bg_circle_arrow_pink"
+                                android:contentDescription="Open"
+                                android:padding="7dp"
+                                android:src="@drawable/ic_arrow_forward" />
 
-            </com.google.android.material.card.MaterialCardView>
+                        </LinearLayout>
 
-        </LinearLayout>
+                    </RelativeLayout>
 
-        <FrameLayout
-            android:id="@+id/setting_native_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                </androidx.cardview.widget.CardView>
 
-            <include
-                android:id="@+id/native_shimmer_layout"
-                layout="@layout/shimmer_native_medium" />
+            </LinearLayout>
 
-        </FrameLayout>
+            <!-- ================= HOME + STUDENT ================= -->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="-6dp"
-            android:layout_marginEnd="-6dp"
-            android:baselineAligned="false"
-            android:orientation="horizontal">
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardHomeLoan"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:layout_weight="1"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal">
+
+                <!-- HOME -->
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardHomeLoan"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_120sdp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:cardUseCompatPadding="false">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/home_loan_bg"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:id="@+id/cardHomeIcon"
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/bg_icon_orange"
+                            android:contentDescription="@null"
+                            android:padding="8dp"
+                            android:src="@drawable/home_ic" />
+
+                        <TextView
+                            android:id="@+id/txtHomeTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/cardHomeIcon"
+                            android:layout_marginTop="14dp"
+                            android:text="Home Loan"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/txtHomeDesc"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:maxLines="2"
+                                android:text="Plan your home with easy EMI calculation."
+                                android:textColor="@color/grey"
+                                android:textSize="10sp" />
+
+                            <ImageView
+                                android:id="@+id/ivHomeArrow"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginStart="8dp"
+                                android:background="@drawable/bg_circle_arrow_orange"
+                                android:contentDescription="Open"
+                                android:padding="7dp"
+                                android:src="@drawable/ic_arrow_forward" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- STUDENT -->
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardStudentLoan"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_120sdp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:cardUseCompatPadding="false">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/student_bg"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:id="@+id/cardStudentIcon"
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/bg_icon_teal"
+                            android:contentDescription="@null"
+                            android:padding="8dp"
+                            android:src="@drawable/school_ic" />
+
+                        <TextView
+                            android:id="@+id/txtStudentTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/cardStudentIcon"
+                            android:layout_marginTop="14dp"
+                            android:text="Student Loan"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/txtStudentDesc"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:maxLines="2"
+                                android:text="Support your education with smart planning."
+                                android:textColor="@color/grey"
+                                android:textSize="10sp" />
+
+                            <ImageView
+                                android:id="@+id/ivStudentArrow"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginStart="8dp"
+                                android:background="@drawable/bg_circle_arrow_teal"
+                                android:contentDescription="Open"
+                                android:padding="7dp"
+                                android:src="@drawable/ic_arrow_forward" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+            <!-- ================= FINANCIAL ================= -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="5dp"
+                    android:layout_height="23dp"
+                    android:background="#25B86A" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="9dp"
+                    android:layout_weight="1"
+                    android:text="Financial"
+                    android:textColor="#14213D"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- ================= CASH ================= -->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardCash"
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="20dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/card_orange"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="2dp">
+                app:cardBackgroundColor="#F7F7F7"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="14dp">
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
 
-                    <FrameLayout
-                        android:layout_width="34dp"
-                        android:layout_height="34dp"
-                        android:background="@drawable/bg_icon_box"
-                        android:backgroundTint="@color/icon_orange">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bg_circle_green"
+                        android:contentDescription="Cash Calculator"
+                        android:padding="8dp"
+                        android:src="@drawable/cash_clc" />
 
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center"
-                            android:importantForAccessibility="no"
-                            android:src="@drawable/ic_home" />
-
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="@string/home_loan"
-                        android:textColor="@color/text_dark"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="@string/calculate_emi"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="11sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cash Calculator"
+                            android:textColor="#14213D"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="Calculate cash values"
+                            android:textColor="#7A8798"
+                            android:textSize="10sp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:contentDescription="Open"
+                        android:src="@drawable/forward_arrow" />
 
                 </LinearLayout>
 
-            </com.google.android.material.card.MaterialCardView>
+            </androidx.cardview.widget.CardView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardStudentLoan"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:layout_weight="1"
+            <!-- ================= FD ================= -->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardFd"
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/card_teal"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="2dp">
+                app:cardBackgroundColor="#F7F7F7"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="14dp">
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
 
-                    <FrameLayout
-                        android:layout_width="34dp"
-                        android:layout_height="34dp"
-                        android:background="@drawable/bg_icon_box"
-                        android:backgroundTint="@color/icon_teal">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bg_circle_purple"
+                        android:contentDescription="FD Calculator"
+                        android:padding="8dp"
+                        android:src="@drawable/fd_clc" />
 
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center"
-                            android:importantForAccessibility="no"
-                            android:src="@drawable/ic_school" />
-
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="@string/student_loan"
-                        android:textColor="@color/text_dark"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="@string/calculate_emi"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="11sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="FD Calculator"
+                            android:textColor="#14213D"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="Calculate fixed deposit returns"
+                            android:textColor="#7A8798"
+                            android:textSize="10sp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:contentDescription="Open"
+                        android:src="@drawable/forward_arrow" />
 
                 </LinearLayout>
 
-            </com.google.android.material.card.MaterialCardView>
+            </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
+            <!-- ================= RD ================= -->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="-6dp"
-            android:layout_marginEnd="-6dp"
-            android:baselineAligned="false"
-            android:orientation="horizontal">
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardLoanFreedom"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:layout_weight="1"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardRd"
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/card_red"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="2dp">
+                app:cardBackgroundColor="#F7F7F7"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="14dp">
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
 
-                    <FrameLayout
-                        android:layout_width="34dp"
-                        android:layout_height="34dp"
-                        android:background="@drawable/bg_icon_box"
-                        android:backgroundTint="@color/icon_red">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="56dp"
+                        android:background="@drawable/yello_bg_round"
+                        android:contentDescription="RD Calculator"
+                        android:padding="6dp"
+                        android:src="@drawable/rd_clc" />
 
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center"
-                            android:importantForAccessibility="no"
-                            android:src="@drawable/ic_timer" />
-
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="@string/loan_freedom"
-                        android:textColor="@color/text_dark"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="@string/countdown_calculator"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="11sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="RD Calculator"
+                            android:textColor="#14213D"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="Calculate recurring deposit returns"
+                            android:textColor="#7A8798"
+                            android:textSize="10sp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:contentDescription="Open"
+                        android:src="@drawable/forward_arrow" />
 
                 </LinearLayout>
 
-            </com.google.android.material.card.MaterialCardView>
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
-    </LinearLayout>
+    </ScrollView>
 
-</ScrollView>
+</RelativeLayout>

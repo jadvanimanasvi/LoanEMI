@@ -11,7 +11,7 @@
     <color name="nav_unselected">#8E93A3</color>
 
     <!-- hero + partner card gradients -->
-    <color name="hero_start">#D7E6FA</color>
+    <color name="hero_start">#78A1CF</color>
     <color name="hero_end">#EAF2FE</color>
     <color name="partner_start">#E1ECFA</color>
     <color name="partner_end">#F1F6FE</color>
@@ -57,4 +57,18 @@
     <color name="blue">#2287F6</color>
     <color name="grey">#888</color>
     <color name="shimmer_bg">@color/grey</color>
+    <color name="light_blue">#6485EA</color>
+    <color name="header_blue_light">#1A5FBF</color>
+    <color name="header_blue_dark">#0B2E6B</color>
+    <color name="hero_bg">#DCEBFB</color>
+    <color name="loan_card_bg">#DCEAFB</color>
+    <color name="accent_blue">#3B82F6</color>
+    <color name="business_card_bg">#E9E2FB</color>
+    <color name="business_icon_bg">#7C4FE0</color>
+    <color name="auto_card_bg">#FCE1E9</color>
+    <color name="auto_icon_bg">#E23B67</color>
+    <color name="home_card_bg">#FCEFD2</color>
+    <color name="home_icon_bg">#F5941B</color>
+    <color name="student_icon_bg">#12967A</color>
+    <color name="student_card_bg">#D8F3EA</color>
 </resources>

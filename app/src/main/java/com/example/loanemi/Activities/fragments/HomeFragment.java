@@ -1,14 +1,20 @@
 package com.example.loanemi.Activities.fragments;
 
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.example.loanemi.R;
@@ -16,13 +22,13 @@ import com.google.android.material.card.MaterialCardView;
 
 public class HomeFragment extends Fragment {
 
-    private ImageView imgNotification;
-    private MaterialCardView cardLoanCalculator;
-    private MaterialCardView cardBusinessLoan;
-    private MaterialCardView cardHomeLoan;
-    private MaterialCardView cardAutoLoan;
-    private MaterialCardView cardLoanFreedom;
-    private MaterialCardView cardStudentLoan;
+    private RelativeLayout btnNotification;
+    private TextView tvLoanSmart;
+    private CardView cardLoanCalculator;
+    private CardView cardBusinessLoan;
+    private CardView cardHomeLoan;
+    private CardView cardAutoLoan;
+    private CardView cardStudentLoan;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -36,25 +42,25 @@ public class HomeFragment extends Fragment {
 
         initViews(view);
         setupClickListeners();
+//        setupLoanSmartText();
 
         return view;
     }
 
     private void initViews(View view) {
 
-        imgNotification = view.findViewById(R.id.imgNotification);
-
+        btnNotification = view.findViewById(R.id.btnNotification);
         cardLoanCalculator = view.findViewById(R.id.cardLoanCalculator);
         cardBusinessLoan = view.findViewById(R.id.cardBusinessLoan);
         cardHomeLoan = view.findViewById(R.id.cardHomeLoan);
         cardAutoLoan = view.findViewById(R.id.cardAutoLoan);
-        cardLoanFreedom = view.findViewById(R.id.cardLoanFreedom);
+//        cardLoanFreedom = view.findViewById(R.id.cardLoanFreedom);
         cardStudentLoan = view.findViewById(R.id.cardStudentLoan);
     }
 
     private void setupClickListeners() {
 
-        imgNotification.setOnClickListener(v -> showMessage("Notifications clicked"));
+        btnNotification.setOnClickListener(v -> showMessage("Notifications clicked"));
 
         cardLoanCalculator.setOnClickListener(v -> openCalculator("Loan Calculator"));
 
@@ -64,10 +70,29 @@ public class HomeFragment extends Fragment {
 
         cardAutoLoan.setOnClickListener(v -> openCalculator("Auto Loan"));
 
-        cardLoanFreedom.setOnClickListener(v -> openCalculator("Loan Freedom"));
+//        cardLoanFreedom.setOnClickListener(v -> openCalculator("Loan Freedom"));
 
         cardStudentLoan.setOnClickListener(v -> openCalculator("Student Loan"));
     }
+
+    /*private void setupLoanSmartText() {
+
+        tvLoanSmart.post(() -> {
+
+            float height = tvLoanSmart.getHeight();
+
+            LinearGradient gradient = new LinearGradient(0, 0, 0, height, new int[]{Color.parseColor("#1F871E"), // Yellow
+                    Color.parseColor("#003A96"), // White
+                    Color.parseColor("#0A58D1"), // Soft Blue
+                    Color.parseColor("#0A58D1"), // Blue
+                    Color.parseColor("#011530")  // Deep Blue
+            }, new float[]{0.00f, 0.20f, 0.50f, 0.75f, 1.00f}, Shader.TileMode.CLAMP);
+
+            tvLoanSmart.getPaint().setShader(gradient);
+            tvLoanSmart.invalidate();
+        });
+    }*/
+
 
     private void openCalculator(String loanType) {
         showMessage(loanType + " selected");

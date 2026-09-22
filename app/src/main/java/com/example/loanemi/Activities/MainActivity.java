@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Util.hide(this);
         setupWindowInsets();
         initViews();
         setupBottomNavigation();
@@ -90,6 +91,5 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Util.hide(this);
     }
 }
