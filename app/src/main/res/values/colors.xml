@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="primary_blue">#1F6FEB</color>
+
+    <!-- screen + text -->
+    <color name="bg_top">#EEF3FF</color>
+    <color name="bg_bottom">#FFFFFF</color>
+    <color name="text_dark">#1B1F3B</color>
+    <color name="text_secondary">#4A4F63</color>
+    <color name="nav_unselected">#8E93A3</color>
+
+    <!-- hero + partner card gradients -->
+    <color name="hero_start">#D7E6FA</color>
+    <color name="hero_end">#EAF2FE</color>
+    <color name="partner_start">#E1ECFA</color>
+    <color name="partner_end">#F1F6FE</color>
+
+    <!-- calculator card backgrounds -->
+    <color name="card_green">#DDF5E3</color>
+    <color name="card_blue">#DCE8FB</color>
+    <color name="card_orange">#FDE8D8</color>
+    <color name="card_purple">#EBDDFB</color>
+    <color name="card_red">#FBDADA</color>
+    <color name="card_teal">#D6F1F3</color>
+
+    <!-- icon box colors -->
+    <color name="icon_green">#3CB85A</color>
+    <color name="icon_blue">#2F6FED</color>
+    <color name="icon_orange">#FF8A1F</color>
+    <color name="icon_purple">#9B30E8</color>
+    <color name="icon_red">#F0393B</color>
+    <color name="icon_teal">#1E9AA0</color>
+
+    <color name="green_button">#22B84C</color>
+    <color name="lightTransparent">#16000000</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="black">#FF000000</color>
+
+    <color name="icon_bg_blue">#E3EEFF</color>
+    <color name="icon_bg_green">#E1F7EA</color>
+    <color name="icon_bg_purple">#EFE7FF</color>
+    <color name="icon_bg_teal">#DFF3EE</color>
+    <color name="icon_bg_red">#FFE7E5</color>
+    <color name="icon_bg_lightblue">#E3F2FF</color>
+    <color name="card_green_bg">#E7F8EC</color>
+    <color name="card_mint_bg">#E7F7F0</color>
+    <color name="card_lav_bg">#EEEAFC</color>
+    <color name="card_purple_bg">#F1EBFC</color>
+    <color name="card_lilac_bg">#F1EAFB</color>
+    <color name="loan_banner_start">#EAF1FF</color>
+    <color name="loan_banner_end">#F3EEFF</color>
+    <color name="screen_bg">#F7F8FC</color>
+    <color name="shimer_base_color">#979595</color>
+    <color name="blue">#2287F6</color>
+    <color name="grey">#888</color>
+    <color name="shimmer_bg">@color/grey</color>
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LoanSmart</string>
+    <string name="tagline">Smart Calculations, Instant Results</string>
+
+    <string name="hello">Hello! 👋</string>
+    <string name="hero_title">Let\'s plan your finances</string>
+    <string name="hero_sub">Choose a calculator and get instant results.</string>
+
+    <string name="section_loan_calculators">Loan Calculators</string>
+    <string name="loan_calculator">Loan Calculator</string>
+    <string name="business_loan">Business Loan</string>
+    <string name="home_loan">Home Loan</string>
+    <string name="auto_loan">Auto Loan</string>
+    <string name="loan_freedom">Loan Freedom</string>
+    <string name="student_loan">Student Loan</string>
+    <string name="calculate_emi">Calculate your EMI</string>
+    <string name="countdown_calculator">Countdown Calculator</string>
+
+    <string name="partner_title">Your Financial Partner</string>
+    <string name="partner_sub">Easy • Fast • Reliable</string>
+    <string name="get_started">Get Started</string>
+
+    <string name="nav_home">Home</string>
+    <string name="nav_tools">Tools</string>
+    <string name="nav_history">History</string>
+    <string name="nav_setting">Setting</string>
+
+    <string name="cd_menu">Menu</string>
+    <string name="cd_notifications">Notifications</string>
+    <string name="cd_illustration">Illustration</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ad">Ad</string>
+    <string name="install">Install</string>
+</resources>
