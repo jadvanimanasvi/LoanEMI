@@ -328,6 +328,17 @@
 
         </LinearLayout>
 
+        <FrameLayout
+            android:id="@+id/setting_native_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                android:id="@+id/native_shimmer_layout"
+                layout="@layout/shimmer_native_medium" />
+
+        </FrameLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
