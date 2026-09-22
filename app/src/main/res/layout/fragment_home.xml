@@ -196,7 +196,7 @@
         </LinearLayout>
 
         <FrameLayout
-            android:id="@+id/setting_native_layout"
+            android:id="@+id/setting_native_layout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
