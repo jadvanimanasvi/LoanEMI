@@ -71,4 +71,5 @@
     <color name="home_icon_bg">#F5941B</color>
     <color name="student_icon_bg">#12967A</color>
     <color name="student_card_bg">#D8F3EA</color>
+    <color name="gradient_end">#2F6FED</color>
 </resources>

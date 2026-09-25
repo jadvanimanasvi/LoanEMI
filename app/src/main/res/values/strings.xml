@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">LoanSmart</string>
+    <string name="app_name">Loan EMI</string>
     <string name="tagline">Smart Calculations, Instant Results</string>
 
     <string name="hello">Hello! 👋</string>

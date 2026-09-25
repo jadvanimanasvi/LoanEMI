@@ -38,6 +38,7 @@ dependencies {
 
     implementation libs.ads.mobile.sdk
     implementation libs.shimmer
+    implementation libs.constraintlayout
 
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit

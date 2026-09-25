@@ -1,152 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
+    <!-- ================= HEADER ================= -->
+
+    <RelativeLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_header_gradient"
+        android:paddingStart="20dp"
+        android:paddingTop="28dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="70dp">
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_logo_square"
+            android:padding="9dp"
+            android:src="@drawable/logo_ic" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_toEndOf="@id/imgLogo"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Smart Calculations, Better Decisions"
+                android:textColor="#C9D9F2"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/btnNotification"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/bg_profile_circle"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:contentDescription="Notifications"
+                android:src="@drawable/ic_notification" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+    <!-- ================= MAIN CARD ================= -->
+
+    <LinearLayout
+        android:id="@+id/mainCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/headerLayout"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="-55dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/bg_hero_card"
+        android:elevation="4dp"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingStart="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Let's plan your finances"
+                android:textColor="@color/blue"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Choose a calculator and get&#10;instant results."
+                android:textColor="@color/grey"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/label_ic" />
+
+    </LinearLayout>
+
+
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/mainCard"
+        android:layout_marginTop="18dp"
         android:fillViewport="true"
         android:overScrollMode="never"
         android:scrollbars="none">
 
-        <!-- SINGLE DIRECT CHILD OF SCROLLVIEW -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingBottom="20dp">
 
-            <!-- ================= HEADER ================= -->
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_header_gradient"
-                android:paddingStart="20dp"
-                android:paddingTop="28dp"
-                android:paddingEnd="20dp"
-                android:paddingBottom="70dp">
-
-                <ImageView
-                    android:id="@+id/imgLogo"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/bg_logo_square"
-                    android:padding="9dp"
-                    android:src="@drawable/logo_ic" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_toEndOf="@id/imgLogo"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="LoanSmart"
-                        android:textColor="@color/white"
-                        android:textSize="22sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Smart Calculations, Better Decisions"
-                        android:textColor="#C9D9F2"
-                        android:textSize="12sp" />
-
-                </LinearLayout>
-
-                <RelativeLayout
-                    android:id="@+id/btnNotification"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentEnd="true"
-                    android:background="@drawable/bg_profile_circle"
-                    android:clickable="true"
-                    android:focusable="true">
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_centerInParent="true"
-                        android:contentDescription="Notifications"
-                        android:src="@drawable/ic_notification" />
-
-                </RelativeLayout>
-
-            </RelativeLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="-55dp"
-                android:layout_marginEnd="15dp"
-                android:background="@drawable/bg_hero_card"
-                android:orientation="horizontal"
-                android:padding="10dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:paddingStart="4dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:lineSpacingExtra="2dp"
-                        android:text="@string/hello"
-                        android:textColor="@color/blue"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="Let's plan your finances"
-                        android:textColor="@color/blue"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Choose a calculator and get&#10;instant results."
-                        android:textColor="@color/grey"
-                        android:textSize="13sp" />
-
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:layout_gravity="center_vertical"
-                    android:contentDescription="@null"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/label_ic" />
-
-            </LinearLayout>
-
-            <!-- ================= LOAN CALCULATORS ================= -->
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="24dp"
                 android:layout_marginEnd="20dp">
 
                 <LinearLayout
@@ -172,6 +171,7 @@
                 </LinearLayout>
 
             </RelativeLayout>
+
 
             <!-- ================= LOAN CALCULATOR ================= -->
 
@@ -216,7 +216,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Loan Calculator"
+                            android:text="Personal Loan"
                             android:textColor="@color/black"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -246,7 +246,8 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- ================= BUSINESS + AUTO ================= -->
+
+            <!-- ================= NATIVE AD ================= -->
 
             <FrameLayout
                 android:id="@+id/setting_native_layout"
@@ -262,6 +263,9 @@
 
             </FrameLayout>
 
+
+            <!-- ================= BUSINESS + AUTO ================= -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -269,6 +273,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="20dp"
                 android:orientation="horizontal">
+
 
                 <!-- BUSINESS -->
 
@@ -342,6 +347,7 @@
                     </RelativeLayout>
 
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- AUTO -->
 
@@ -418,6 +424,7 @@
 
             </LinearLayout>
 
+
             <!-- ================= HOME + STUDENT ================= -->
 
             <LinearLayout
@@ -427,6 +434,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="20dp"
                 android:orientation="horizontal">
+
 
                 <!-- HOME -->
 
@@ -500,6 +508,7 @@
                     </RelativeLayout>
 
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- STUDENT -->
 
@@ -576,6 +585,7 @@
 
             </LinearLayout>
 
+
             <!-- ================= FINANCIAL ================= -->
 
             <LinearLayout
@@ -603,6 +613,7 @@
                     android:textStyle="bold" />
 
             </LinearLayout>
+
 
             <!-- ================= CASH ================= -->
 
@@ -669,6 +680,7 @@
 
             </androidx.cardview.widget.CardView>
 
+
             <!-- ================= FD ================= -->
 
             <androidx.cardview.widget.CardView
@@ -733,6 +745,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
             <!-- ================= RD ================= -->
 

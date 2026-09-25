@@ -1,5 +1,6 @@
 package com.example.loanemi.Activities.fragments;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
@@ -17,6 +18,9 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import com.example.loanemi.Activities.Activities.AutoLoanActivity;
+import com.example.loanemi.Activities.Activities.BusinessLoanActivity;
+import com.example.loanemi.Activities.Activities.PersonalLoanActivity;
 import com.example.loanemi.R;
 import com.google.android.material.card.MaterialCardView;
 
@@ -62,13 +66,22 @@ public class HomeFragment extends Fragment {
 
         btnNotification.setOnClickListener(v -> showMessage("Notifications clicked"));
 
-        cardLoanCalculator.setOnClickListener(v -> openCalculator("Loan Calculator"));
+        cardLoanCalculator.setOnClickListener(v -> {
+            Intent i = new Intent(requireContext() , PersonalLoanActivity.class);
+            startActivity(i);
+        });
 
-        cardBusinessLoan.setOnClickListener(v -> openCalculator("Business Loan"));
+        cardBusinessLoan.setOnClickListener(v -> {
+            Intent i = new Intent(requireContext() , BusinessLoanActivity.class);
+            startActivity(i);
+        });
 
         cardHomeLoan.setOnClickListener(v -> openCalculator("Home Loan"));
 
-        cardAutoLoan.setOnClickListener(v -> openCalculator("Auto Loan"));
+        cardAutoLoan.setOnClickListener(v -> {
+            Intent i = new Intent(requireContext() , AutoLoanActivity.class);
+            startActivity(i);
+        });
 
 //        cardLoanFreedom.setOnClickListener(v -> openCalculator("Loan Freedom"));
 
