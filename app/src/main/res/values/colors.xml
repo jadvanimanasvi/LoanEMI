@@ -90,5 +90,5 @@
     <color name="cta_btn_change_color">#838AA3</color>
     <color name="transparent">#00000000</color>
     <color name="item_bg">#F0F0F0</color>
-
+    <color name="blue_icon_bg">#DCE9FF</color>
 </resources>

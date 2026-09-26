@@ -98,7 +98,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Let's plan your finances"
+                android:text="@string/hero_title"
                 android:textColor="@color/blue"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -107,7 +107,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Choose a calculator and get&#10;instant results."
+                android:text="@string/hero_sub"
                 android:textColor="@color/grey"
                 android:textSize="13sp" />
 
@@ -188,6 +188,7 @@
                 app:cardUseCompatPadding="false">
 
                 <RelativeLayout
+                    android:id="@+id/personalLoan"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/loan_bg"
@@ -217,7 +218,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Personal Loan"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_color"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
@@ -227,7 +228,7 @@
                             android:layout_marginTop="4dp"
                             android:text="Calculate your EMI, total interest&#10;and loan tenure."
                             android:textColor="@color/grey"
-                            android:textSize="12.5sp" />
+                            android:textSize="12sp" />
 
                     </LinearLayout>
 
@@ -289,6 +290,7 @@
                     app:cardUseCompatPadding="false">
 
                     <RelativeLayout
+                        android:id="@+id/businessLoan"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/business_bg"
@@ -323,12 +325,12 @@
 
                             <TextView
                                 android:id="@+id/txtBusinessDesc"
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:maxLines="2"
-                                android:text="Calculate your EMI for business growth."
+                                android:text="Calculate business loan easily."
                                 android:textColor="@color/grey"
                                 android:textSize="10sp" />
 
@@ -338,7 +340,6 @@
                                 android:layout_height="32dp"
                                 android:layout_marginStart="8dp"
                                 android:background="@drawable/bg_circle_arrow_purple"
-                                android:contentDescription="Open"
                                 android:padding="7dp"
                                 android:src="@drawable/ic_arrow_forward" />
 
@@ -363,6 +364,7 @@
                     app:cardUseCompatPadding="false">
 
                     <RelativeLayout
+                        android:id="@+id/autoLoan"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/auto_bg"
@@ -402,7 +404,7 @@
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:maxLines="2"
-                                android:text="Find your EMI and plan your dream ride."
+                                android:text="Calculate and plan your dream ride."
                                 android:textColor="@color/grey"
                                 android:textSize="10sp" />
 
@@ -412,7 +414,6 @@
                                 android:layout_height="32dp"
                                 android:layout_marginStart="8dp"
                                 android:background="@drawable/bg_circle_arrow_pink"
-                                android:contentDescription="Open"
                                 android:padding="7dp"
                                 android:src="@drawable/ic_arrow_forward" />
 
@@ -450,6 +451,7 @@
                     app:cardUseCompatPadding="false">
 
                     <RelativeLayout
+                        android:id="@+id/homeLoan"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/home_loan_bg"
@@ -489,7 +491,7 @@
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:maxLines="2"
-                                android:text="Plan your home with easy EMI calculation."
+                                android:text="Calculate your home loan EMI easily."
                                 android:textColor="@color/grey"
                                 android:textSize="10sp" />
 
@@ -499,7 +501,6 @@
                                 android:layout_height="32dp"
                                 android:layout_marginStart="8dp"
                                 android:background="@drawable/bg_circle_arrow_orange"
-                                android:contentDescription="Open"
                                 android:padding="7dp"
                                 android:src="@drawable/ic_arrow_forward" />
 
@@ -524,6 +525,7 @@
                     app:cardUseCompatPadding="false">
 
                     <RelativeLayout
+                        android:id="@+id/studentLoan"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/student_bg"
@@ -563,7 +565,7 @@
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:maxLines="2"
-                                android:text="Support your education with smart planning."
+                                android:text="Smart planning for your education"
                                 android:textColor="@color/grey"
                                 android:textSize="10sp" />
 
@@ -573,7 +575,6 @@
                                 android:layout_height="32dp"
                                 android:layout_marginStart="8dp"
                                 android:background="@drawable/bg_circle_arrow_teal"
-                                android:contentDescription="Open"
                                 android:padding="7dp"
                                 android:src="@drawable/ic_arrow_forward" />
 

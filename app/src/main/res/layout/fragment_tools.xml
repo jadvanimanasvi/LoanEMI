@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F7F9FC">
+    android:background="@color/background_color">
 
     <!-- HEADER -->
     <RelativeLayout
@@ -103,7 +103,7 @@
                     android:layout_marginStart="9dp"
                     android:layout_weight="1"
                     android:text="Converters"
-                    android:textColor="@color/blue"
+                    android:textColor="@color/text_color"
                     android:textSize="19sp"
                     android:textStyle="bold" />
 
@@ -119,7 +119,7 @@
                 android:focusable="true"
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="2dp"
-                app:cardBackgroundColor="#F5F5F5"
+                app:cardBackgroundColor="@color/card_background_clr"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="3dp">
 
@@ -155,7 +155,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Length Converter"
-                            android:textColor="#14213D"
+                            android:textColor="@color/text_color"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
@@ -164,7 +164,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
                             android:text="Convert between length units"
-                            android:textColor="#7A8798"
+                            android:textColor="@color/grey"
                             android:textSize="12sp" />
 
                     </LinearLayout>
@@ -186,7 +186,7 @@
                 android:layout_marginTop="10dp"
                 android:clickable="true"
                 android:focusable="true"
-                app:cardBackgroundColor="#F5F5F5"
+                app:cardBackgroundColor="@color/card_background_clr"
                 app:cardCornerRadius="16dp"
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="2dp"
@@ -224,7 +224,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Weight Converter"
-                            android:textColor="#14213D"
+                            android:textColor="@color/text_color"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
@@ -233,7 +233,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
                             android:text="Convert between weight units"
-                            android:textColor="#7A8798"
+                            android:textColor="@color/grey"
                             android:textSize="12sp" />
 
                     </LinearLayout>
@@ -242,7 +242,7 @@
                         android:layout_width="18dp"
                         android:layout_height="18dp"
                         android:src="@drawable/forward_arrow"
-                        app:tint="#F45858" />
+                        app:tint="#3B97D3" />
 
                 </LinearLayout>
 
@@ -256,7 +256,7 @@
                 android:layout_marginTop="10dp"
                 android:clickable="true"
                 android:focusable="true"
-                app:cardBackgroundColor="#F5F5F5"
+                app:cardBackgroundColor="@color/card_background_clr"
                 app:cardCornerRadius="16dp"
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="2dp"
@@ -294,7 +294,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Age Calculation"
-                            android:textColor="#14213D"
+                            android:textColor="@color/text_color"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
@@ -303,7 +303,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
                             android:text="Calculate your exact age"
-                            android:textColor="#7A8798"
+                            android:textColor="@color/grey"
                             android:textSize="12sp" />
 
                     </LinearLayout>
@@ -312,7 +312,7 @@
                         android:layout_width="18dp"
                         android:layout_height="18dp"
                         android:src="@drawable/forward_arrow"
-                        app:tint="#14A594" />
+                        app:tint="#3B97D3" />
 
                 </LinearLayout>
 
@@ -337,7 +337,7 @@
                 android:layout_marginTop="10dp"
                 android:clickable="true"
                 android:focusable="true"
-                app:cardBackgroundColor="#F5F5F5"
+                app:cardBackgroundColor="@color/card_background_clr"
                 app:cardCornerRadius="16dp"
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="2dp"
@@ -360,7 +360,8 @@
                             android:layout_height="30dp"
                             android:layout_gravity="center"
                             android:contentDescription="Speed Converter"
-                            android:src="@drawable/speed_ic" />
+                            android:src="@drawable/speed_ic"
+                            android:tint="@color/fd_icon"/>
 
                     </FrameLayout>
 
@@ -375,7 +376,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Speed Converter"
-                            android:textColor="#14213D"
+                            android:textColor="@color/text_color"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
@@ -384,7 +385,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
                             android:text="Convert between speed units"
-                            android:textColor="#7A8798"
+                            android:textColor="@color/grey"
                             android:textSize="12sp" />
 
                     </LinearLayout>
@@ -393,7 +394,7 @@
                         android:layout_width="18dp"
                         android:layout_height="18dp"
                         android:src="@drawable/forward_arrow"
-                        app:tint="#6330D9" />
+                        app:tint="#3B97D3" />
 
 
                 </LinearLayout>
@@ -408,7 +409,7 @@
                 android:layout_marginTop="10dp"
                 android:clickable="true"
                 android:focusable="true"
-                app:cardBackgroundColor="#F5F5F5"
+                app:cardBackgroundColor="@color/card_background_clr"
                 app:cardCornerRadius="16dp"
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="2dp"
@@ -446,7 +447,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Temperature"
-                            android:textColor="#14213D"
+                            android:textColor="@color/text_color"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
@@ -455,7 +456,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
                             android:text="Convert temperature units"
-                            android:textColor="#7A8798"
+                            android:textColor="@color/grey"
                             android:textSize="12sp" />
 
                     </LinearLayout>
@@ -465,7 +466,7 @@
                         android:layout_width="18dp"
                         android:layout_height="18dp"
                         android:src="@drawable/forward_arrow"
-                        app:tint="#488FF7" />
+                        app:tint="#3B97D3" />
 
                 </LinearLayout>
 
@@ -479,7 +480,7 @@
                 android:layout_marginTop="10dp"
                 android:clickable="true"
                 android:focusable="true"
-                app:cardBackgroundColor="#F5F5F5"
+                app:cardBackgroundColor="@color/card_background_clr"
                 app:cardCornerRadius="16dp"
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="2dp"
@@ -518,7 +519,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Exchange Rate"
-                            android:textColor="#14213D"
+                            android:textColor="@color/text_color"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
@@ -527,7 +528,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
                             android:text="Convert between currencies"
-                            android:textColor="#7A8798"
+                            android:textColor="@color/grey"
                             android:textSize="12sp" />
 
                     </LinearLayout>
@@ -536,7 +537,7 @@
                         android:layout_width="18dp"
                         android:layout_height="18dp"
                         android:src="@drawable/forward_arrow"
-                        app:tint="#F4A93C" />
+                        app:tint="#3B97D3" />
 
                 </LinearLayout>
 

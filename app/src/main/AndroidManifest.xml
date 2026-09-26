@@ -11,7 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoanSmart"
         tools:targetApi="31">
-
+        <activity
+            android:name=".Activities.Activities.RdCalculatorActivity"
+            android:exported="false" />
         <activity
             android:name=".Activities.introflow.GetStartActivity"
             android:exported="false" />
@@ -20,6 +22,12 @@
             android:exported="false" />
         <activity
             android:name=".Activities.language.LanguageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Activities.FdCalculatorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Activities.CashCalculatorActivity"
             android:exported="false" />
         <activity
             android:name=".Activities.Activities.StudentLoanActivity"
@@ -38,11 +46,9 @@
             android:exported="false" />
         <activity
             android:name=".Activities.MainActivity"
-            android:exported="true">
-
-        </activity>
-
-        <activity android:name=".Activities.SplashActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".Activities.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
