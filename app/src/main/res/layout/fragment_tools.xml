@@ -319,7 +319,7 @@
             </androidx.cardview.widget.CardView>
 
             <FrameLayout
-                android:id="@+id/setting_native_layout"
+                android:id="@+id/tools_native_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp">

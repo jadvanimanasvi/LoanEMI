@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -21,7 +22,10 @@ import androidx.fragment.app.Fragment;
 import com.example.loanemi.Activities.Activities.AutoLoanActivity;
 import com.example.loanemi.Activities.Activities.BusinessLoanActivity;
 import com.example.loanemi.Activities.Activities.PersonalLoanActivity;
+import com.example.loanemi.Activities.Ads.NativeAdPreloader;
+import com.example.loanemi.Activities.utils.Util;
 import com.example.loanemi.R;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.card.MaterialCardView;
 
 public class HomeFragment extends Fragment {
@@ -46,9 +50,24 @@ public class HomeFragment extends Fragment {
 
         initViews(view);
         setupClickListeners();
+        setupAds(view);
 //        setupLoanSmartText();
 
         return view;
+    }
+
+    private void setupAds(@NonNull View view) {
+        if (Util.isInternetAvailable(this.requireActivity())) {
+            FrameLayout nativeLayout = view.findViewById(R.id.home_native_layout);
+            ShimmerFrameLayout shimmerNative = view.findViewById(R.id.nativeShimmerLayout);
+
+            NativeAdPreloader.show(
+                    requireActivity(),
+                    nativeLayout,
+                    getString(R.string.home_native_medium),
+                    shimmerNative
+            );
+        }
     }
 
     private void initViews(View view) {

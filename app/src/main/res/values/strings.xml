@@ -33,4 +33,47 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="ad">Ad</string>
     <string name="install">Install</string>
+    <string name="language">Language</string>
+    <string name="lang_desc">Please select language to continue</string>
+    <string name="please_wait">Please wait…</string>
+    <string name="loading_ads">Ads Loading…</string>
+    <string name="skip_in">Skip in %1$d\u0073</string>
+    <string name="please_select_language">Please Select Language</string>
+    <string name="get_start_title">Keep Your Memories \n<font color="#2196F3">Safe &amp; Private</font></string>
+    <string name="getstart_dis">Protect your photos and videos with privacy and security.</string>
+    <string name="get_start">Get Start</string>
+    <string name="smart_gallery_for_every_moment">Smart Gallery\n For <font color="#2196F3">Every Moment</font></string>
+    <string name="all_your_memories_organized_beautifully_in_one_place">All your memories organized \nbeautifully in one place.</string>
+    <string name="next">Next</string>
+    <string name="fast_access_to_nyour_photos_amp_videos">Fast Access to \nYour <font color="#2196F3">Photos &amp; Videos</font></string>
+    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">Quickly find and view all your\nfavorite photos and videos.</string>
+    <string name="fragment_3_title">Create &amp; Manage  \nYour <font color="#2196F3">Albums</font></string>
+    <string name="fragment_3_dis">Organize your memories into albums and keep them stored.</string>
+
+
+
+    <!--test ad id-->
+    <string name="admob_app_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
+
+    <string name="home_native_medium" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="tools_native_medium" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="splash_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
+    <string name="splash_inter_1" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="splash_inter_2" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="language_first_native_1" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="language_first_native_2" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="language_second_native_1" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="language_second_native_2" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="done_inter_language_1" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="done_inter_language_2" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="language_done_fullscreen_native_1" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="language_done_fullscreen_native_2" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="first_onboarding_native_1" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="first_onboarding_native_2" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="full_first_native_1" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="full_first_native_2" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="full_second_native_1" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="full_second_native_2" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="native_get_started_1" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="native_get_started_2" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
 </resources>

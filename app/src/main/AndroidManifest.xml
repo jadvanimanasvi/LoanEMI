@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name=".Activities.utils.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,6 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoanSmart"
         tools:targetApi="31">
+
+        <activity
+            android:name=".Activities.introflow.GetStartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.introflow.AllScreenIntro"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.language.LanguageActivity"
+            android:exported="false" />
         <activity
             android:name=".Activities.Activities.StudentLoanActivity"
             android:exported="false" />
@@ -27,6 +38,11 @@
             android:exported="false" />
         <activity
             android:name=".Activities.MainActivity"
+            android:exported="true">
+
+        </activity>
+
+        <activity android:name=".Activities.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

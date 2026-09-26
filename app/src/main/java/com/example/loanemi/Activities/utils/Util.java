@@ -2,7 +2,11 @@ package com.example.loanemi.Activities.utils;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.Configuration;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.os.Build;
 import android.view.View;
 import android.view.Window;
@@ -18,7 +22,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.loanemi.R;
 
 public class Util {
-
+    public static boolean isUserAdClicked = false;
     @SuppressLint("ObsoleteSdkInt")
     public static void hide(Activity activity) {
         Window window = activity.getWindow();
@@ -76,5 +80,32 @@ public class Util {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+
+    public static boolean isInternetAvailable(Context context) {
+
+        ConnectivityManager connectivityManager =
+                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        if (connectivityManager == null) {
+            return false;
+        }
+
+        Network activeNetwork = connectivityManager.getActiveNetwork();
+        if (activeNetwork == null) {
+            return false;
+        }
+
+        NetworkCapabilities networkCapabilities =
+                connectivityManager.getNetworkCapabilities(activeNetwork);
+
+        if (networkCapabilities == null) {
+            return false;
+        }
+
+        return networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
+                networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
+                networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET);
     }
 }

@@ -3,6 +3,9 @@
     <color name="white">#FFFFFF</color>
     <color name="primary_blue">#1F6FEB</color>
 
+    <color name="background_color">#FFFFFF</color>
+    <color name="text_color">#FF000000</color>
+
     <!-- screen + text -->
     <color name="bg_top">#EEF3FF</color>
     <color name="bg_bottom">#FFFFFF</color>
@@ -42,6 +45,7 @@
     <color name="icon_bg_blue">#E3EEFF</color>
     <color name="icon_bg_green">#E1F7EA</color>
     <color name="icon_bg_purple">#EFE7FF</color>
+    <color name="icon_bg_yellow">#FAEDD9</color>
     <color name="icon_bg_teal">#DFF3EE</color>
     <color name="icon_bg_red">#FFE7E5</color>
     <color name="icon_bg_lightblue">#E3F2FF</color>
@@ -56,7 +60,7 @@
     <color name="shimer_base_color">#979595</color>
     <color name="blue">#2287F6</color>
     <color name="grey">#888</color>
-    <color name="shimmer_bg">@color/grey</color>
+    <color name="shimmer_bg">#E4E4E4</color>
     <color name="light_blue">#6485EA</color>
     <color name="header_blue_light">#1A5FBF</color>
     <color name="header_blue_dark">#0B2E6B</color>
@@ -71,5 +75,20 @@
     <color name="home_icon_bg">#F5941B</color>
     <color name="student_icon_bg">#12967A</color>
     <color name="student_card_bg">#D8F3EA</color>
+    <color name="native_bg_color">#f3f7fa</color>
+    <color name="card_background_clr">#F7F7F7</color>
+    <color name="fd_icon">#8C2DB2</color>
+    <color name="ad_area_bg">#E8EAF2</color>
+    <color name="ad_shimmer_base">#C8CCD6</color>
+    <color name="ad_shimmer_highlight">#F4F5F8</color>
+    <color name="ad_shimmer_bone">#33000000</color>
+    <color name="colorPrimaryDark">#000</color>
+    <color name="colorAccent">#00ff00</color>
+    <color name="colorPrimary">#00ff00</color>
+    <color name="textColorDescription">#424242</color>
     <color name="gradient_end">#2F6FED</color>
+    <color name="cta_btn_change_color">#838AA3</color>
+    <color name="transparent">#00000000</color>
+    <color name="item_bg">#F0F0F0</color>
+
 </resources>
