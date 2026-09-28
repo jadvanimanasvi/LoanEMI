@@ -75,4 +75,7 @@
     <string name="native_get_started_1" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
     <string name="native_get_started_2" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
     <string name="investment_amount">Investment Amount</string>
+    <string name="loan_information">Loan Information</string>
+    <string name="result_after_calculation">Result After Calculation</string>
+    <string name="share_pdf">📄 Share PDF</string>
 </resources>

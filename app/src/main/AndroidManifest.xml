@@ -11,6 +11,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoanSmart"
         tools:targetApi="31">
+
+        <activity android:name=".Activities.Activities.AutoLoanResultActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".Activities.Activities.CurrencyUnitActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Activities.Tools.AgeCalculationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Activities.Tools.ExchangeRateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Activities.Tools.TemperatureConverterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Activities.Tools.SpeedConverterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Activities.Tools.WeightConverterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Activities.Tools.LengthConverterActivity"
+            android:exported="false" />
         <activity
             android:name=".Activities.Activities.RdCalculatorActivity"
             android:exported="false" />
@@ -46,7 +70,7 @@
             android:exported="false" />
         <activity
             android:name=".Activities.MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Activities.SplashActivity"
             android:exported="true">
