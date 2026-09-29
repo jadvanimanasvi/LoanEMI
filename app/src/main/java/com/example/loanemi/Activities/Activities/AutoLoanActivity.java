@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -15,8 +17,10 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.loanemi.Activities.Ads.AdsHelper;
 import com.example.loanemi.Activities.utils.Util;
 import com.example.loanemi.R;
+import com.google.android.libraries.ads.mobile.sdk.banner.AdView;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -100,6 +104,8 @@ public class AutoLoanActivity extends AppCompatActivity {
     // =========================================================
 
     private final NumberFormat indianNumberFormat = NumberFormat.getNumberInstance(new Locale("en", "IN"));
+    private AdView bannerAdView;
+    private FrameLayout adContainer;
 
 
     // =========================================================
@@ -121,6 +127,7 @@ public class AutoLoanActivity extends AppCompatActivity {
         setupLoanAmountFormatting();
 
         setupListeners();
+        setUpAd();
     }
 
 
@@ -135,10 +142,6 @@ public class AutoLoanActivity extends AppCompatActivity {
         Util.hide(this);
     }
 
-
-    // =========================================================
-    // INIT VIEWS
-    // =========================================================
 
     private void initViews() {
 
@@ -170,6 +173,19 @@ public class AutoLoanActivity extends AppCompatActivity {
         btnReset = findViewById(R.id.btnReset);
 
         btnCalculate = findViewById(R.id.btnCalculate);
+        adContainer = findViewById(R.id.bannerContainer);
+    }
+
+    private void setUpAd() {
+        if (!Util.isInternetAvailable(this) || adContainer == null) {
+            return;
+        }
+        bannerAdView = new AdView(this);
+        if (bannerAdView.getParent() != null) {
+            ((ViewGroup) bannerAdView.getParent()).removeView(bannerAdView);
+        }
+        adContainer.addView(bannerAdView);
+        AdsHelper.loadAdaptiveBanner(bannerAdView, this, getString(R.string.auto_loan_banner));
     }
 
 
@@ -984,4 +1000,5 @@ public class AutoLoanActivity extends AppCompatActivity {
 
         etLoanAmount.requestFocus();
     }
+
 }

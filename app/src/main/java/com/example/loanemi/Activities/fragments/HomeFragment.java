@@ -1,10 +1,13 @@
 package com.example.loanemi.Activities.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
+import android.net.ConnectivityManager;
+import android.net.Network;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +32,7 @@ import com.example.loanemi.Activities.Activities.PersonalLoanActivity;
 import com.example.loanemi.Activities.Activities.RdCalculatorActivity;
 import com.example.loanemi.Activities.Activities.StudentLoanActivity;
 import com.example.loanemi.Activities.Ads.NativeAdPreloader;
+import com.example.loanemi.Activities.introflow.LoanStartFlowAdHelper;
 import com.example.loanemi.Activities.utils.Util;
 import com.example.loanemi.R;
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -40,6 +44,8 @@ public class HomeFragment extends Fragment {
     private TextView tvLoanSmart;
     public RelativeLayout cardLoanCalculator,cardBusinessLoan,cardHomeLoan,cardAutoLoan,cardStudentLoan;
     public CardView cardCash,cardFd,cardRd;
+    FrameLayout home_native_layout;
+    private View native_shimmer_layout;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -59,19 +65,6 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-    private void setupAds(@NonNull View view) {
-        if (Util.isInternetAvailable(this.requireActivity())) {
-            FrameLayout nativeLayout = view.findViewById(R.id.home_native_layout);
-            ShimmerFrameLayout shimmerNative = view.findViewById(R.id.nativeShimmerLayout);
-
-            NativeAdPreloader.show(
-                    requireActivity(),
-                    nativeLayout,
-                    getString(R.string.home_native_medium),
-                    shimmerNative
-            );
-        }
-    }
 
     private void initViews(View view) {
 
@@ -87,6 +80,21 @@ public class HomeFragment extends Fragment {
         cardRd = view.findViewById(R.id.cardRd);
         setLoanCardBackgrounds();
     }
+
+    private void setupAds(@NonNull View view) {
+        if (Util.isInternetAvailable(this.requireActivity())) {
+            FrameLayout nativeLayout = view.findViewById(R.id.home_native_layout);
+            ShimmerFrameLayout shimmerNative = view.findViewById(R.id.nativeShimmerLayout);
+
+            NativeAdPreloader.show(
+                    requireActivity(),
+                    nativeLayout,
+                    getString(R.string.home_native_medium),
+                    shimmerNative
+            );
+        }
+    }
+
 
     private void setupClickListeners() {
 
@@ -154,9 +162,7 @@ public class HomeFragment extends Fragment {
     }*/
 
     private void setLoanCardBackgrounds() {
-
         if (isDarkMode()) {
-
             // Dark mode images
             cardLoanCalculator.setBackgroundResource(R.drawable.loan_dark_bg);
             cardBusinessLoan.setBackgroundResource(R.drawable.business_bg_dark);
@@ -165,7 +171,6 @@ public class HomeFragment extends Fragment {
             cardStudentLoan.setBackgroundResource(R.drawable.student_bg_dark);
 
         } else {
-
             // Light mode images
             cardLoanCalculator.setBackgroundResource(R.drawable.loan_bg);
             cardBusinessLoan.setBackgroundResource(R.drawable.business_bg);
@@ -187,4 +192,6 @@ public class HomeFragment extends Fragment {
             Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
         }
     }
+
+
 }

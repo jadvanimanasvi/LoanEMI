@@ -20,6 +20,7 @@ import com.example.loanemi.Activities.Activities.Tools.SpeedConverterActivity;
 import com.example.loanemi.Activities.Activities.Tools.TemperatureConverterActivity;
 import com.example.loanemi.Activities.Activities.Tools.WeightConverterActivity;
 import com.example.loanemi.Activities.Ads.NativeAdPreloader;
+import com.example.loanemi.Activities.introflow.LoanStartFlowAdHelper;
 import com.example.loanemi.Activities.utils.Util;
 import com.example.loanemi.R;
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -27,6 +28,8 @@ import com.facebook.shimmer.ShimmerFrameLayout;
 public class ToolsFragment extends Fragment {
 
     private LinearLayout length, ExchangeRate, Weight, Age, speed, Temperature;
+    FrameLayout tools_native_layout;
+    private View native_shimmer_layout;
 
     @Nullable
     @Override
@@ -34,8 +37,8 @@ public class ToolsFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_tools, container, false);
 
-        setupAds(view);
         initViews(view);
+        setupAds(view);
         setupClickListeners();
         return view;
     }
@@ -97,4 +100,6 @@ public class ToolsFragment extends Fragment {
             );
         }
     }
+
+
 }

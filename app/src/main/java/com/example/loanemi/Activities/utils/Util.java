@@ -7,12 +7,14 @@ import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
+import android.net.NetworkRequest;
 import android.os.Build;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -22,6 +24,9 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.loanemi.R;
 
 public class Util {
+    private static ConnectivityManager connectivityManager;
+    private static ConnectivityManager.NetworkCallback networkCallback;
+
     public static boolean isUserAdClicked = false;
     @SuppressLint("ObsoleteSdkInt")
     public static void hide(Activity activity) {
@@ -108,4 +113,5 @@ public class Util {
                 networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
                 networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET);
     }
+
 }

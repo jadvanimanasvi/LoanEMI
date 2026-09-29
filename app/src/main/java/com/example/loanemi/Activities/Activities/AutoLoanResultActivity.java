@@ -3,13 +3,16 @@ package com.example.loanemi.Activities.Activities;
 import static com.example.loanemi.Activities.utils.Util.setupEdgeToEdge;
 
 import android.os.Bundle;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.loanemi.Activities.Ads.NativeAdPreloader;
 import com.example.loanemi.Activities.utils.Util;
 import com.example.loanemi.R;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -35,8 +38,10 @@ public class AutoLoanResultActivity extends AppCompatActivity {
         setupEdgeToEdge(this, R.id.main);
 
         initViews();
+        setUpAds();
         loadResult();
     }
+
 
     @Override
     protected void onResume() {
@@ -58,6 +63,20 @@ public class AutoLoanResultActivity extends AppCompatActivity {
         tvTotalPayment = findViewById(R.id.tvTotalPayment);
 
         ivBack.setOnClickListener(v -> finish());
+    }
+
+    private void setUpAds() {
+        if (Util.isInternetAvailable(this)) {
+            FrameLayout nativeLayout = findViewById(R.id.autoLoan_native_layout);
+            ShimmerFrameLayout shimmerNative = findViewById(R.id.nativeShimmerLayout);
+
+            NativeAdPreloader.show(
+                    this,
+                    nativeLayout,
+                    getString(R.string.home_native_medium),
+                    shimmerNative
+            );
+        }
     }
 
     private void loadResult() {

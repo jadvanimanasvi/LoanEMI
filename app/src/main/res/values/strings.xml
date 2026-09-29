@@ -74,6 +74,24 @@
     <string name="full_second_native_2" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
     <string name="native_get_started_1" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
     <string name="native_get_started_2" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="auto_loan_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
+    <string name="age_calc_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
+    <string name="exchange_rate_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
+    <string name="length_convert_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
+    <string name="speed_convert_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
+    <string name="temperature_convert_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
+    <string name="weight_convert_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
+    <string name="business_loan_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
+    <string name="cash_calc_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
+    <string name="currency_unit_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
+    <string name="fd_loan_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
+    <string name="home_loan_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
+    <string name="personal_loan_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
+    <string name="rd_calc_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
+    <string name="student_loan_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
+
+
+
     <string name="investment_amount">Investment Amount</string>
     <string name="loan_information">Loan Information</string>
     <string name="result_after_calculation">Result After Calculation</string>
