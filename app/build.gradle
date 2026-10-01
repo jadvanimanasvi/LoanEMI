@@ -52,4 +52,5 @@ dependencies {
     implementation libs.ssp.android
     implementation libs.glide
     implementation(libs.androidx.lifecycle.process)
+    implementation libs.lottie
 }

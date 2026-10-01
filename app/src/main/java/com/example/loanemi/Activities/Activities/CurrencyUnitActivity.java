@@ -25,25 +25,17 @@ import java.util.List;
 public class CurrencyUnitActivity extends AppCompatActivity {
 
     public static final String EXTRA_SELECTED_CODE = "extra_selected_code";
-
     public static final String EXTRA_SELECTED_COUNTRY = "extra_selected_country";
-
-    // Currency symbol/icon
     public static final String EXTRA_SELECTED_CURRENCY_ICON = "extra_selected_currency_icon";
-
-    // Country flag
     public static final String EXTRA_SELECTED_FLAG = "extra_selected_flag";
-
     public static final String EXTRA_CURRENT_CODE = "extra_current_code";
-
     public static final String EXTRA_CURRENCY_SELECT_TYPE = "currency_select_type";
 
     private CurrencyAdapter adapter;
-
     private CurrencyItem selectedItem;
+
     private AdView bannerAdView;
     private FrameLayout adContainer;
-
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -54,22 +46,17 @@ public class CurrencyUnitActivity extends AppCompatActivity {
 
         setupEdgeToEdge(this, R.id.main);
 
-
         List<CurrencyItem> currencies = buildCurrencyList();
 
         String currentCode = getIntent().getStringExtra(EXTRA_CURRENT_CODE);
 
-
         if (currentCode == null || currentCode.trim().isEmpty()) {
-
             currentCode = getIntent().getStringExtra(EXTRA_SELECTED_CODE);
         }
 
         int initialPosition = findPositionByCode(currencies, currentCode);
 
-
         if (initialPosition >= 0) {
-
             selectedItem = currencies.get(initialPosition);
         }
 
@@ -77,9 +64,7 @@ public class CurrencyUnitActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-
         adapter = new CurrencyAdapter(currencies, initialPosition, (item, position) -> {
-
             selectedItem = item;
         });
 
@@ -88,19 +73,26 @@ public class CurrencyUnitActivity extends AppCompatActivity {
         findViewById(R.id.btnBack).setOnClickListener(v -> finish());
 
         findViewById(R.id.btnConfirm).setOnClickListener(v -> confirmSelection());
+
         adContainer = findViewById(R.id.bannerContainer);
+
         setUpAd();
     }
 
     private void setUpAd() {
+
         if (!Util.isInternetAvailable(this) || adContainer == null) {
             return;
         }
+
         bannerAdView = new AdView(this);
+
         if (bannerAdView.getParent() != null) {
             ((ViewGroup) bannerAdView.getParent()).removeView(bannerAdView);
         }
+
         adContainer.addView(bannerAdView);
+
         AdsHelper.loadAdaptiveBanner(bannerAdView, this, getString(R.string.currency_unit_banner));
     }
 
@@ -118,20 +110,18 @@ public class CurrencyUnitActivity extends AppCompatActivity {
         // Currency Name
         result.putExtra(EXTRA_SELECTED_COUNTRY, selectedItem.getName());
 
+        // Currency Icon
         result.putExtra(EXTRA_SELECTED_CURRENCY_ICON, selectedItem.getCurrencyIconResId());
 
+        // Country Flag
         result.putExtra(EXTRA_SELECTED_FLAG, selectedItem.getFlagResId());
 
-
-        // Selection type
+        // Selection Type
         String selectType = getIntent().getStringExtra(EXTRA_CURRENCY_SELECT_TYPE);
-
 
         result.putExtra(EXTRA_CURRENCY_SELECT_TYPE, selectType);
 
-
         setResult(RESULT_OK, result);
-
 
         finish();
     }
@@ -139,7 +129,6 @@ public class CurrencyUnitActivity extends AppCompatActivity {
     private int findPositionByCode(List<CurrencyItem> list, String code) {
 
         if (code == null || code.trim().isEmpty()) {
-
             return -1;
         }
 
@@ -147,9 +136,7 @@ public class CurrencyUnitActivity extends AppCompatActivity {
 
             CurrencyItem item = list.get(i);
 
-
             if (item.getCode().equalsIgnoreCase(code)) {
-
                 return i;
             }
         }
@@ -160,7 +147,6 @@ public class CurrencyUnitActivity extends AppCompatActivity {
     private List<CurrencyItem> buildCurrencyList() {
 
         List<CurrencyItem> list = new ArrayList<>();
-
 
         list.add(new CurrencyItem("GBP", "UK Pound", R.drawable.gbp_currency, R.drawable.icn_flagengland));
 
@@ -181,7 +167,6 @@ public class CurrencyUnitActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-
         super.onResume();
 
         Util.hide(this);

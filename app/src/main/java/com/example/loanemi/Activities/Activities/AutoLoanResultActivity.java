@@ -73,7 +73,7 @@ public class AutoLoanResultActivity extends AppCompatActivity {
             NativeAdPreloader.show(
                     this,
                     nativeLayout,
-                    getString(R.string.home_native_medium),
+                    getString(R.string.auto_loan_result_native_medium),
                     shimmerNative
             );
         }
@@ -112,15 +112,6 @@ public class AutoLoanResultActivity extends AppCompatActivity {
             loanTermUnit = "Month";
         }
 
-        /*
-         * Indian number format
-         *
-         * Examples:
-         * 2000       -> 2,000
-         * 20000      -> 20,000
-         * 100000     -> 1,00,000
-         * 2000000    -> 20,00,000
-         */
         NumberFormat formatter = NumberFormat.getNumberInstance(new Locale("en", "IN"));
 
         formatter.setMaximumFractionDigits(2);
@@ -155,16 +146,6 @@ public class AutoLoanResultActivity extends AppCompatActivity {
         tvTotalPayment.setText(formatCurrency(totalPayment, currencyCode, formatter));
     }
 
-    /**
-     * Formats amount with currency symbol at the END.
-     * <p>
-     * Examples:
-     * <p>
-     * USD -> 2,000$
-     * INR -> 2,00,000₹
-     * GBP -> 2,000£
-     * EUR -> 2,000€
-     */
     private String formatCurrency(double amount, String currencyCode, NumberFormat formatter) {
 
         String formattedAmount = formatter.format(amount);
@@ -174,9 +155,6 @@ public class AutoLoanResultActivity extends AppCompatActivity {
         return formattedAmount + currencySymbol;
     }
 
-    /**
-     * Returns currency symbol based on currency code.
-     */
     private String getCurrencySymbol(String currencyCode) {
 
         if (currencyCode == null || currencyCode.trim().isEmpty()) {
@@ -186,56 +164,39 @@ public class AutoLoanResultActivity extends AppCompatActivity {
 
         switch (currencyCode.toUpperCase(Locale.US)) {
 
-            case "USD":
-                return "$";
+            case "USD": return "$";
 
-            case "INR":
-                return "₹";
+            case "INR": return "₹";
 
-            case "GBP":
-                return "£";
+            case "GBP": return "£";
 
-            case "EUR":
-                return "€";
+            case "EUR": return "€";
 
-            case "JPY":
-                return "¥";
+            case "JPY": return "¥";
 
-            case "CNY":
-                return "¥";
+            case "CNY": return "¥";
 
-            case "KRW":
-                return "₩";
+            case "KRW": return "₩";
 
-            case "THB":
-                return "฿";
+            case "THB": return "฿";
 
-            case "VND":
-                return "₫";
+            case "VND": return "₫";
 
-            case "IDR":
-                return "Rp";
+            case "IDR": return "Rp";
 
-            case "AUD":
-                return "A$";
+            case "AUD": return "A$";
 
-            case "CAD":
-                return "C$";
+            case "CAD": return "C$";
 
-            case "SGD":
-                return "S$";
+            case "SGD": return "S$";
 
-            case "HKD":
-                return "HK$";
+            case "HKD": return "HK$";
 
-            case "NZD":
-                return "NZ$";
+            case "NZD": return "NZ$";
 
-            case "CHF":
-                return "CHF";
+            case "CHF": return "CHF";
 
-            default:
-                return "$";
+            default: return "$";
         }
     }
 

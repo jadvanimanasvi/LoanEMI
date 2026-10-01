@@ -13,7 +13,7 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:background="@color/white"
         android:gravity="center_vertical"
         android:paddingStart="18dp"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="12dp"
-            android:text="Cash Calculator"
+            android:text="@string/cash_calculator"
             android:textColor="@color/header_blue_dark"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -73,6 +73,7 @@
                 android:paddingEnd="8dp">
 
                 <TextView
+                    android:id="@+id/titleCurrency"
                     android:layout_width="34dp"
                     android:layout_height="34dp"
                     android:background="@drawable/bg_rupee_chip"
@@ -92,7 +93,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Currency"
+                        android:text="@string/currency"
                         android:textColor="@color/text_dark"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -100,13 +101,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Select currency"
+                        android:text="@string/select_currency"
                         android:textColor="@color/grey"
                         android:textSize="12sp" />
 
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/currencySelector"
                     android:layout_width="wrap_content"
                     android:layout_height="36dp"
                     android:background="@drawable/bg_currency_pill"
@@ -115,16 +117,18 @@
                     android:paddingHorizontal="12dp">
 
                     <TextView
+                        android:id="@+id/tvCurrencyFlag"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="🇺🇸"
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/tvCurrencyCode"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="6dp"
-                        android:text="USD"
+                        android:text="INR"
                         android:textColor="@color/blue"
                         android:textSize="15sp"
                         android:textStyle="bold" />
@@ -177,7 +181,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
-                            android:text="Denomination"
+                            android:text="@string/denomination"
                             android:textColor="@color/header_blue_dark"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -201,7 +205,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
-                            android:text="Number of Notes"
+                            android:text="@string/number_of_notes"
                             android:textColor="@color/header_blue_dark"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -236,6 +240,7 @@
                             android:background="@drawable/bg_rupee_chip">
 
                             <TextView
+                                android:id="@+id/tvSymbol10"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -298,6 +303,7 @@
                             android:background="@drawable/bg_rupee_chip">
 
                             <TextView
+                                android:id="@+id/tvSymbol20"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -360,6 +366,7 @@
                             android:background="@drawable/bg_rupee_chip">
 
                             <TextView
+                                android:id="@+id/tvSymbol50"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -422,6 +429,7 @@
                             android:background="@drawable/bg_rupee_chip">
 
                             <TextView
+                                android:id="@+id/tvSymbol100"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -484,6 +492,7 @@
                             android:background="@drawable/bg_rupee_chip">
 
                             <TextView
+                                android:id="@+id/tvSymbol200"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -545,6 +554,7 @@
                             android:background="@drawable/bg_rupee_chip">
 
                             <TextView
+                                android:id="@+id/tvSymbol500"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -613,7 +623,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Total Amount"
+                        android:text="@string/total_amount"
                         android:textColor="@color/header_blue_light"
                         android:textSize="15sp" />
 
@@ -668,7 +678,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="Reset Fields"
+                android:text="@string/reset_fields"
                 android:textColor="@color/header_blue_light"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -700,16 +710,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="Calculate"
+                android:text="@string/calculate"
                 android:textColor="@color/white"
-                android:textSize="15sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
-
-            <ImageView
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="8dp"
-                android:src="@drawable/ic_arrow_forward" />
 
         </LinearLayout>
 

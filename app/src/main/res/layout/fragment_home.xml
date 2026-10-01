@@ -8,7 +8,6 @@
     android:layout_height="match_parent"
     android:background="@color/background_color">
 
-    <!-- ================= HEADER ================= -->
 
     <RelativeLayout
         android:id="@+id/headerLayout"
@@ -72,8 +71,6 @@
 
     </RelativeLayout>
 
-
-    <!-- ================= MAIN CARD ================= -->
 
     <LinearLayout
         android:id="@+id/mainCard"
@@ -163,7 +160,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="Loan Calculators"
+                        android:text="@string/loan_calculators"
                         android:textColor="@color/text_color"
                         android:textSize="19sp"
                         android:textStyle="bold" />
@@ -172,8 +169,6 @@
 
             </RelativeLayout>
 
-
-            <!-- ================= LOAN CALCULATOR ================= -->
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardLoanCalculator"
@@ -217,7 +212,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Personal Loan"
+                            android:text="@string/personal_loan"
                             android:textColor="@color/text_color"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -226,7 +221,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="Calculate your EMI, total interest&#10;and loan tenure."
+                            android:text="@string/calculate_your_emi_total_interest_10_and_loan_tenure"
                             android:textColor="@color/grey"
                             android:textSize="12sp" />
 
@@ -248,8 +243,6 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- ================= NATIVE AD ================= -->
-
             <FrameLayout
                 android:id="@+id/home_native_layout"
                 android:layout_width="match_parent"
@@ -264,8 +257,6 @@
 
             </FrameLayout>
 
-
-            <!-- ================= BUSINESS + AUTO ================= -->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -311,7 +302,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@id/cardBusinessIcon"
                             android:layout_marginTop="14dp"
-                            android:text="Business Loan"
+                            android:text="@string/business_loan"
                             android:textColor="@color/text_color"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -330,7 +321,7 @@
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:maxLines="2"
-                                android:text="Calculate business loan easily."
+                                android:text="@string/calculate_business_loan_easily"
                                 android:textColor="@color/grey"
                                 android:textSize="10sp" />
 
@@ -349,8 +340,6 @@
 
                 </androidx.cardview.widget.CardView>
 
-
-                <!-- AUTO -->
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardAutoLoan"
@@ -385,7 +374,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@id/cardAutoIcon"
                             android:layout_marginTop="14dp"
-                            android:text="Auto Loan"
+                            android:text="@string/auto_loan"
                             android:textColor="@color/text_color"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -404,7 +393,7 @@
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:maxLines="2"
-                                android:text="Calculate and plan your dream ride."
+                                android:text="@string/calculate_and_plan_your_dream_ride"
                                 android:textColor="@color/grey"
                                 android:textSize="10sp" />
 
@@ -425,8 +414,6 @@
 
             </LinearLayout>
 
-
-            <!-- ================= HOME + STUDENT ================= -->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -472,7 +459,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@id/cardHomeIcon"
                             android:layout_marginTop="14dp"
-                            android:text="Home Loan"
+                            android:text="@string/home_loan"
                             android:textColor="@color/text_color"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -491,7 +478,7 @@
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:maxLines="2"
-                                android:text="Calculate your home loan EMI easily."
+                                android:text="@string/calculate_your_home_loan_emi_easily"
                                 android:textColor="@color/grey"
                                 android:textSize="10sp" />
 
@@ -510,8 +497,6 @@
 
                 </androidx.cardview.widget.CardView>
 
-
-                <!-- STUDENT -->
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardStudentLoan"
@@ -546,7 +531,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@id/cardStudentIcon"
                             android:layout_marginTop="14dp"
-                            android:text="Student Loan"
+                            android:text="@string/student_loan"
                             android:textColor="@color/text_color"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -565,7 +550,7 @@
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:maxLines="2"
-                                android:text="Smart planning for your education"
+                                android:text="@string/smart_planning_for_your_education"
                                 android:textColor="@color/grey"
                                 android:textSize="10sp" />
 
@@ -586,9 +571,6 @@
 
             </LinearLayout>
 
-
-            <!-- ================= FINANCIAL ================= -->
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -608,15 +590,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="9dp"
                     android:layout_weight="1"
-                    android:text="Financial"
+                    android:text="@string/financial_calculator"
                     android:textColor="@color/text_color"
                     android:textSize="19sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
 
-
-            <!-- ================= CASH ================= -->
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardCash"
@@ -656,7 +636,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Cash Calculator"
+                            android:text="@string/cash_calculator"
                             android:textColor="@color/text_color"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -665,7 +645,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="Calculate cash values"
+                            android:text="@string/calculate_cash_values"
                             android:textColor="@color/grey"
                             android:textSize="10sp" />
 
@@ -682,8 +662,6 @@
 
             </androidx.cardview.widget.CardView>
 
-
-            <!-- ================= FD ================= -->
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardFd"
@@ -724,7 +702,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="FD Calculator"
+                            android:text="@string/fd_calculator"
                             android:textColor="@color/text_color"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -733,7 +711,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="Calculate fixed deposit returns"
+                            android:text="@string/calculate_fixed_deposit_returns"
                             android:textColor="@color/grey"
                             android:textSize="10sp" />
 
@@ -750,8 +728,6 @@
 
             </androidx.cardview.widget.CardView>
 
-
-            <!-- ================= RD ================= -->
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardRd"
@@ -792,7 +768,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="RD Calculator"
+                            android:text="@string/rd_calculator"
                             android:textColor="@color/text_color"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -801,7 +777,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="Calculate recurring deposit returns"
+                            android:text="@string/calculate_recurring_deposit_returns"
                             android:textColor="@color/grey"
                             android:textSize="10sp" />
 

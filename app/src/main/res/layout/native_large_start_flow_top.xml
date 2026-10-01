@@ -21,7 +21,7 @@
             android:gravity="center"
             android:text="@string/install"
             android:textAllCaps="false"
-            android:textColor="@android:color/white"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
 

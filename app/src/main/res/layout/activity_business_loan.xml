@@ -9,11 +9,10 @@
     android:layout_height="match_parent"
     android:background="@color/screen_bg">
 
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
-        android:layout_height="@dimen/_40sdp"
+        android:layout_height="64dp"
         android:background="@color/screen_bg"
         android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,20 +21,21 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/ivBack"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:src="@drawable/back_ic"
             app:tint="@color/header_blue_dark" />
 
-        <!-- Center Title -->
+
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Business Loan"
+            android:text="@string/business_loan"
             android:textColor="@color/header_blue_dark"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
@@ -59,7 +59,6 @@
             android:paddingHorizontal="10dp">
 
 
-            <!-- ============ LOAN AMOUNT CARD ============ -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -100,7 +99,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Loan Amount"
+                            android:text="@string/loan_amount"
                             android:textColor="@color/header_blue_light"
                             android:textSize="17sp"
                             android:textStyle="bold" />
@@ -108,7 +107,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Enter the loan amount"
+                            android:text="@string/enter_the_loan_amount"
                             android:textColor="@color/grey"
                             android:textSize="13sp" />
 
@@ -132,27 +131,31 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@null"
-                        android:hint="Loan Amount"
+                        android:hint="@string/loan_amount"
                         android:textColorHint="@color/grey"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:inputType="numberDecimal" />
 
                     <LinearLayout
+                        android:id="@+id/layoutCurrency"
                         android:layout_width="wrap_content"
                         android:layout_height="36dp"
                         android:orientation="horizontal"
                         android:gravity="center_vertical"
                         android:background="@drawable/bg_currency_pill"
-                        android:paddingHorizontal="12dp">
+                        android:paddingHorizontal="12dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:id="@+id/ivFromFlag"
+                            android:layout_width="20dp"
+                            android:layout_height="26dp"
+                            android:src="@drawable/icn_flagus" />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="🇺🇸"
-                            android:textSize="16sp" />
-
-                        <TextView
+                            android:id="@+id/tvCurrencyCode"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="6dp"
@@ -175,7 +178,6 @@
             </LinearLayout>
 
 
-            <!-- ============ INTEREST RATE CARD ============ -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -216,7 +218,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Interest Rate"
+                            android:text="@string/interest_rate"
                             android:textColor="@color/header_blue_light"
                             android:textSize="17sp"
                             android:textStyle="bold" />
@@ -224,7 +226,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Enter annual interest rate"
+                            android:text="@string/enter_annual_interest_rate"
                             android:textColor="@color/grey"
                             android:textSize="13sp" />
 
@@ -248,7 +250,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@null"
-                        android:hint="Interest Rate"
+                        android:hint="@string/interest_rate"
                         android:textColorHint="@color/grey"
                         android:textColor="@color/black"
                         android:textSize="16sp"
@@ -267,7 +269,6 @@
             </LinearLayout>
 
 
-            <!-- ============ LOAN TERM CARD ============ -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -315,7 +316,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Select loan term and unit"
+                            android:text="@string/select_loan_term_and_unit"
                             android:textColor="@color/grey"
                             android:textSize="13sp" />
 
@@ -330,7 +331,6 @@
                     android:layout_marginTop="14dp"
                     android:orientation="horizontal">
 
-                    <!-- Loan Term -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -340,25 +340,20 @@
                         android:background="@drawable/bg_input_field"
                         android:paddingHorizontal="16dp">
 
-                        <TextView
+                        <EditText
                             android:id="@+id/tvLoanTerm"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Loan Term"
-                            android:textColor="@color/grey"
-                            android:textSize="16sp" />
-
-                        <ImageView
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:src="@drawable/ic_dropdown"
-                            app:tint="@color/header_blue_dark" />
+                            android:background="@null"
+                            android:hint="@string/loan_term"
+                            android:textColorHint="@color/grey"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:inputType="numberDecimal" />
 
                     </LinearLayout>
 
-
-                    <!-- Unit -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -374,7 +369,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Month"
+                            android:text="@string/months"
                             android:textColor="@color/header_blue_light"
                             android:textStyle="bold"
                             android:textSize="16sp" />
@@ -396,7 +391,6 @@
 
     </androidx.core.widget.NestedScrollView>
 
-
     <LinearLayout
         android:id="@+id/bottomButtons"
         android:layout_width="0dp"
@@ -411,7 +405,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Reset -->
         <LinearLayout
             android:id="@+id/btnReset"
             android:layout_width="0dp"
@@ -432,7 +425,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="Reset Fields"
+                android:text="@string/reset_fields"
                 android:textColor="@color/header_blue_light"
                 android:textStyle="bold"
                 android:textSize="15sp" />
@@ -440,7 +433,6 @@
         </LinearLayout>
 
 
-        <!-- Calculate -->
         <LinearLayout
             android:id="@+id/btnCalculate"
             android:layout_width="0dp"
@@ -463,23 +455,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="Calculate"
+                android:text="@string/calculate"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:textSize="15sp" />
-
-            <ImageView
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="8dp"
-                android:src="@drawable/ic_arrow_forward" />
 
         </LinearLayout>
 
     </LinearLayout>
 
 
-    <!-- ===================== BANNER AD AT ABSOLUTE BOTTOM ===================== -->
     <FrameLayout
         android:id="@+id/bannerContainer"
         android:layout_width="match_parent"

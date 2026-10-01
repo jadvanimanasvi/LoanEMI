@@ -34,9 +34,6 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
         this.listener = listener;
     }
 
-    // =====================================================
-    // CREATE VIEW HOLDER
-    // =====================================================
 
     @NonNull
     @Override
@@ -47,9 +44,6 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
         return new CurrencyViewHolder(view);
     }
 
-    // =====================================================
-    // BIND VIEW HOLDER
-    // =====================================================
 
     @Override
     public void onBindViewHolder(@NonNull CurrencyViewHolder holder, int position) {
@@ -114,19 +108,12 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
         });
     }
 
-    // =====================================================
-    // ITEM COUNT
-    // =====================================================
-
     @Override
     public int getItemCount() {
 
         return currencyList.size();
     }
 
-    // =====================================================
-    // VIEW HOLDER
-    // =====================================================
 
     static class CurrencyViewHolder extends RecyclerView.ViewHolder {
 

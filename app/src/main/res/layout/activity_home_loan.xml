@@ -8,7 +8,6 @@
     android:layout_height="match_parent"
     android:background="@color/screen_bg">
 
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
@@ -33,7 +32,7 @@
             android:layout_gravity="center"
             android:text="Home Loan"
             android:textColor="@color/header_blue_dark"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
@@ -96,7 +95,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Loan Amount"
+                            android:text="@string/loan_amount"
                             android:textColor="@color/header_blue_light"
                             android:textSize="17sp"
                             android:textStyle="bold" />
@@ -104,7 +103,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Enter the loan amount"
+                            android:text="@string/enter_the_loan_amount"
                             android:textColor="@color/grey"
                             android:textSize="13sp" />
 
@@ -128,27 +127,31 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@null"
-                        android:hint="Loan Amount"
+                        android:hint="@string/loan_amount"
                         android:inputType="numberDecimal"
                         android:textColor="@color/black"
                         android:textColorHint="@color/grey"
                         android:textSize="16sp" />
 
                     <LinearLayout
+                        android:id="@+id/currencySelector"
                         android:layout_width="wrap_content"
                         android:layout_height="36dp"
                         android:background="@drawable/bg_currency_pill"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
                         android:paddingHorizontal="12dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="🇺🇸"
-                            android:textSize="16sp" />
+                        <ImageView
+                            android:id="@+id/ivCurrencyFlag"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/icn_flagus" />
 
                         <TextView
+                            android:id="@+id/tvCurrencyCode"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="6dp"
@@ -209,7 +212,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Down Payment"
+                            android:text="@string/down_payment"
                             android:textColor="@color/header_blue_light"
                             android:textSize="17sp"
                             android:textStyle="bold" />
@@ -217,7 +220,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Select loan term and unit"
+                            android:text="@string/select_loan_term_and_unit"
                             android:textColor="@color/grey"
                             android:textSize="13sp" />
 
@@ -246,7 +249,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Enter Amount"
+                            android:text="@string/enter_amount"
                             android:textColor="@color/grey"
                             android:textSize="16sp" />
 
@@ -276,7 +279,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Enter Rate"
+                            android:text="@string/enter_rate"
                             android:textColor="@color/grey"
                             android:textSize="16sp" />
 
@@ -332,7 +335,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Interest Rate"
+                            android:text="@string/interest_rate"
                             android:textColor="@color/header_blue_light"
                             android:textSize="17sp"
                             android:textStyle="bold" />
@@ -340,7 +343,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Enter annual interest rate"
+                            android:text="@string/enter_annual_interest_rate"
                             android:textColor="@color/grey"
                             android:textSize="13sp" />
 
@@ -364,7 +367,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@null"
-                        android:hint="Interest Rate"
+                        android:hint="@string/interest_rate"
                         android:inputType="numberDecimal"
                         android:textColor="@color/black"
                         android:textColorHint="@color/grey"
@@ -422,7 +425,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Loan Term"
+                            android:text="@string/loan_term"
                             android:textColor="@color/header_blue_light"
                             android:textSize="17sp"
                             android:textStyle="bold" />
@@ -430,7 +433,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Select loan term and unit"
+                            android:text="@string/select_loan_term_and_unit"
                             android:textColor="@color/grey"
                             android:textSize="13sp" />
 
@@ -454,20 +457,18 @@
                         android:orientation="horizontal"
                         android:paddingHorizontal="16dp">
 
-                        <TextView
+
+                        <EditText
                             android:id="@+id/tvLoanTerm"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Loan Term"
-                            android:textColor="@color/grey"
+                            android:background="@null"
+                            android:hint="@string/loan_term"
+                            android:inputType="numberDecimal"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/grey"
                             android:textSize="16sp" />
-
-                        <ImageView
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:src="@drawable/ic_dropdown"
-                            app:tint="@color/header_blue_dark" />
 
                     </LinearLayout>
 
@@ -488,7 +489,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Month"
+                            android:text="@string/months"
                             android:textColor="@color/header_blue_light"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -545,7 +546,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="Reset Fields"
+                android:text="@string/reset_fields"
                 android:textColor="@color/header_blue_light"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -574,16 +575,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="Calculate"
+                android:text="@string/calculate"
                 android:textColor="@color/white"
-                android:textSize="15sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="8dp"
-                android:src="@drawable/ic_arrow_forward" />
 
         </LinearLayout>
 

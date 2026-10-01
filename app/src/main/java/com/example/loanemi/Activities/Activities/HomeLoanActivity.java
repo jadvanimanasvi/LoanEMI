@@ -46,4 +46,10 @@ public class HomeLoanActivity extends AppCompatActivity {
         adContainer.addView(bannerAdView);
         AdsHelper.loadAdaptiveBanner(bannerAdView, this, getString(R.string.home_loan_banner));
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Util.hide(this);
+    }
 }

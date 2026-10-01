@@ -10,6 +10,7 @@
     <string name="loan_calculator">Loan Calculator</string>
     <string name="business_loan">Business Loan</string>
     <string name="home_loan">Home Loan</string>
+    <string name="home_loan_result">Home Loan Result</string>
     <string name="auto_loan">Auto Loan</string>
     <string name="loan_freedom">Loan Freedom</string>
     <string name="student_loan">Student Loan</string>
@@ -55,6 +56,7 @@
 
     <string name="home_native_medium" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
     <string name="tools_native_medium" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="auto_loan_result_native_medium" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
     <string name="splash_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
     <string name="splash_inter_1" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
     <string name="splash_inter_2" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
@@ -91,9 +93,87 @@
     <string name="student_loan_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
 
 
-
     <string name="investment_amount">Investment Amount</string>
     <string name="loan_information">Loan Information</string>
     <string name="result_after_calculation">Result After Calculation</string>
     <string name="share_pdf">📄 Share PDF</string>
+    <string name="age_calculator">Age Calculator</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="years">Years</string>
+    <string name="calculate_age">Calculate Age</string>
+    <string name="your_age">Your Age</string>
+    <string name="as_of_today">As of today</string>
+    <string name="months">Months</string>
+    <string name="days">Days</string>
+    <string name="next_birthday">Next Birthday</string>
+    <string name="loan_amount">Loan Amount</string>
+    <string name="interest_rate">Interest Rate</string>
+    <string name="loan_term">Loan Term</string>
+    <string name="start_date">Start Date</string>
+    <string name="reset_fields">Reset Fields</string>
+    <string name="calculate">Calculate</string>
+    <string name="auto_loan_result">Auto Loan Result</string>
+    <string name="monthly_payment">Monthly Payment</string>
+    <string name="total_payment">Total Payment</string>
+    <string name="total_interest_paid">Total Interest Paid</string>
+    <string name="pay_off_date">Pay-Off date</string>
+    <string name="enter_the_loan_amount">Enter the loan amount</string>
+    <string name="enter_annual_interest_rate">Enter annual interest rate</string>
+    <string name="select_loan_term_and_unit">Select loan term and unit</string>
+    <string name="select_the_loan_start_date">Select the loan start date</string>
+    <string name="cash_calculator">Cash Calculator</string>
+    <string name="currency">Currency</string>
+    <string name="select_currency">Select currency</string>
+    <string name="denomination">Denomination</string>
+    <string name="number_of_notes">Number of Notes</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="currency_unit">Currency Unit</string>
+    <string name="exchange_rate">Exchange Rate</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="fd_calculator">FD Calculator</string>
+    <string name="enter_the_investment_amount">Enter the investment amount</string>
+    <string name="expected_interest_rate">Expected Interest Rate</string>
+    <string name="time_interest">Time Interest</string>
+    <string name="number_of_time_interest">Number of time interest</string>
+    <string name="fix_deposite_result">Fix Deposite Result</string>
+    <string name="down_payment">Down payment</string>
+    <string name="total_investment_amount">Total Investment Amount</string>
+    <string name="total_interest_value">Total Interest Value</string>
+    <string name="maturity_value">Maturity Value</string>
+    <string name="enter_amount">Enter Amount</string>
+    <string name="enter_rate">Enter Rate</string>
+    <string name="length_converter">Length Converter</string>
+    <string name="personal_loan">Personal Loan</string>
+    <string name="personal_loan_result">Personal Loan Result</string>
+    <string name="rd_calculator">RD Calculator</string>
+    <string name="monthly">Monthly</string>
+    <string name="speed_converter">Speed Converter</string>
+    <string name="temperature_converter">Temperature Converter</string>
+    <string name="weight_converter">Weight Converter</string>
+    <string name="history">History</string>
+    <string name="loan_calculators">Loan Calculators</string>
+    <string name="calculate_your_emi_total_interest_10_and_loan_tenure">Calculate your EMI, total interest\nand loan tenure.</string>
+    <string name="calculate_business_loan_easily">Calculate business loan easily.</string>
+    <string name="calculate_and_plan_your_dream_ride">Calculate and plan your dream ride.</string>
+    <string name="calculate_your_home_loan_emi_easily">Calculate your home loan EMI easily.</string>
+    <string name="smart_planning_for_your_education">Smart planning for your education</string>
+    <string name="financial_calculator">Financial Calculator</string>
+    <string name="calculate_cash_values">Calculate cash values</string>
+    <string name="calculate_fixed_deposit_returns">Calculate fixed deposit returns</string>
+    <string name="calculate_recurring_deposit_returns">Calculate recurring deposit returns</string>
+    <string name="tools">Tools</string>
+    <string name="useful_calculator_and_converter">Useful Calculator and Converter</string>
+    <string name="converters">Converters</string>
+    <string name="convert_between_currencies">Convert between currencies</string>
+    <string name="convert_between_length_units">Convert between length units</string>
+    <string name="convert_between_weight_units">Convert between weight units</string>
+    <string name="calculate_your_exact_age">Calculate your exact age</string>
+    <string name="convert_between_speed_units">Convert between speed units</string>
+    <string name="convert_temperature_units">Convert temperature units</string>
+    <string name="month">Month</string>
+    <string name="select_investment_term_unit">Select Investment Term Unit</string>
+    <string name="cancel">Cancel</string>
+    <string name="compounding_frequency">Compounding Frequency</string>
+    <string name="recurring_deposit_result">Recurring Deposit Result</string>
 </resources>

@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color"
     android:orientation="vertical">
 
-    <!-- ================= TOOLBAR ================= -->
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/headerLayout"
@@ -26,15 +24,17 @@
             android:layout_width="22dp"
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
+            android:contentDescription="@null"
             android:src="@drawable/back_ic"
             app:tint="@color/header_blue_dark" />
 
         <TextView
+            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="12dp"
-            android:text="Age Calculator"
+            android:text="@string/age_calculator"
             android:textColor="@color/header_blue_dark"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -42,9 +42,8 @@
     </com.google.android.material.appbar.MaterialToolbar>
 
 
-    <!-- ================= CONTENT ================= -->
-
     <LinearLayout
+        android:id="@+id/contentLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -54,9 +53,8 @@
         android:paddingBottom="16dp">
 
 
-        <!-- ================= DATE OF BIRTH CARD ================= -->
-
         <LinearLayout
+            android:id="@+id/dobCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -65,14 +63,16 @@
             android:padding="16dp">
 
             <TextView
+                android:id="@+id/tvDobLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Date of Birth"
+                android:text="@string/date_of_birth"
                 android:textColor="@color/header_blue_dark"
                 android:textSize="17sp"
                 android:textStyle="bold" />
 
             <LinearLayout
+                android:id="@+id/dobInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginStart="2dp"
@@ -86,6 +86,7 @@
                 android:paddingEnd="16dp">
 
                 <ImageView
+                    android:id="@+id/ivCalendar"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:contentDescription="@null"
@@ -112,13 +113,12 @@
                     android:id="@+id/btnClear"
                     android:layout_width="20dp"
                     android:layout_height="25dp"
+                    android:contentDescription="@null"
                     android:src="@drawable/close_img"
                     app:tint="@color/grey" />
 
             </LinearLayout>
 
-
-            <!-- CALCULATE BUTTON -->
 
             <LinearLayout
                 android:id="@+id/btnCalculate"
@@ -132,16 +132,19 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/ivCalculate"
                     android:layout_width="26dp"
                     android:layout_height="26dp"
+                    android:contentDescription="@null"
                     android:src="@drawable/calculator_ic"
                     app:tint="@color/white" />
 
                 <TextView
+                    android:id="@+id/tvCalculate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
-                    android:text="Calculate Age"
+                    android:text="@string/calculate_age"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -150,10 +153,8 @@
 
         </LinearLayout>
 
-
-        <!-- ================= RESULT CARD ================= -->
-
         <LinearLayout
+            android:id="@+id/resultCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -162,9 +163,8 @@
             android:padding="12dp">
 
 
-            <!-- TITLE ROW -->
-
             <LinearLayout
+                android:id="@+id/resultTitleLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
@@ -172,11 +172,13 @@
                 android:padding="4dp">
 
                 <FrameLayout
+                    android:id="@+id/ageIconContainer"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:background="@drawable/bg_circle_blue">
 
                     <ImageView
+                        android:id="@+id/ivAgeProfile"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
@@ -186,17 +188,18 @@
 
                 </FrameLayout>
 
-
                 <LinearLayout
+                    android:id="@+id/ageTitleLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tvYourAge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Your Age"
+                        android:text="@string/your_age"
                         android:textColor="@color/header_blue_dark"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -206,7 +209,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="As of today (28 Sep 2026)"
+                        android:text="@string/as_of_today"
                         android:textColor="@color/grey"
                         android:textSize="14sp" />
 
@@ -215,9 +218,8 @@
             </LinearLayout>
 
 
-            <!-- WHITE INNER CARD -->
-
             <LinearLayout
+                android:id="@+id/ageDetailsCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -226,17 +228,15 @@
                 android:padding="16dp">
 
 
-                <!-- YEARS / MONTHS / DAYS -->
-
                 <LinearLayout
+                    android:id="@+id/ageValuesLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
 
-                    <!-- YEARS -->
-
                     <LinearLayout
+                        android:id="@+id/yearsLayout"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -244,11 +244,13 @@
                         android:orientation="vertical">
 
                         <FrameLayout
+                            android:id="@+id/yearsIconContainer"
                             android:layout_width="44dp"
                             android:layout_height="44dp"
                             android:background="@drawable/bg_circle_blue">
 
                             <ImageView
+                                android:id="@+id/ivYears"
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
                                 android:layout_gravity="center"
@@ -259,10 +261,11 @@
                         </FrameLayout>
 
                         <TextView
+                            android:id="@+id/tvYearsLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Years"
+                            android:text="@string/years"
                             android:textColor="@color/header_blue_light"
                             android:textSize="15sp" />
 
@@ -282,6 +285,7 @@
                     <!-- DIVIDER -->
 
                     <View
+                        android:id="@+id/dividerOne"
                         android:layout_width="1dp"
                         android:layout_height="match_parent"
                         android:layout_marginTop="8dp"
@@ -292,6 +296,7 @@
                     <!-- MONTHS -->
 
                     <LinearLayout
+                        android:id="@+id/monthsLayout"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -299,11 +304,13 @@
                         android:orientation="vertical">
 
                         <FrameLayout
+                            android:id="@+id/monthsIconContainer"
                             android:layout_width="44dp"
                             android:layout_height="44dp"
                             android:background="@drawable/bg_circle_purple">
 
                             <ImageView
+                                android:id="@+id/ivMonths"
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
                                 android:layout_gravity="center"
@@ -314,10 +321,11 @@
                         </FrameLayout>
 
                         <TextView
+                            android:id="@+id/tvMonthsLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Months"
+                            android:text="@string/months"
                             android:textColor="@color/header_blue_light"
                             android:textSize="15sp" />
 
@@ -337,6 +345,7 @@
                     <!-- DIVIDER -->
 
                     <View
+                        android:id="@+id/dividerTwo"
                         android:layout_width="1dp"
                         android:layout_height="match_parent"
                         android:layout_marginTop="8dp"
@@ -347,6 +356,7 @@
                     <!-- DAYS -->
 
                     <LinearLayout
+                        android:id="@+id/daysLayout"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -354,11 +364,13 @@
                         android:orientation="vertical">
 
                         <FrameLayout
+                            android:id="@+id/daysIconContainer"
                             android:layout_width="44dp"
                             android:layout_height="44dp"
                             android:background="@drawable/bg_circle_green">
 
                             <ImageView
+                                android:id="@+id/ivDays"
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
                                 android:layout_gravity="center"
@@ -369,10 +381,11 @@
                         </FrameLayout>
 
                         <TextView
+                            android:id="@+id/tvDaysLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Days"
+                            android:text="@string/days"
                             android:textColor="@color/header_blue_light"
                             android:textSize="15sp" />
 
@@ -392,6 +405,7 @@
 
 
                 <LinearLayout
+                    android:id="@+id/nextBirthdayCard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -401,42 +415,47 @@
                     android:padding="12dp">
 
                     <FrameLayout
+                        android:id="@+id/birthdayIconContainer"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="@drawable/bg_circle_blue">
 
                         <ImageView
+                            android:id="@+id/ivBirthday"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_gravity="center"
+                            android:contentDescription="@null"
                             android:src="@drawable/cake_ic"
                             app:tint="@color/primary_blue" />
 
                     </FrameLayout>
 
-
                     <View
+                        android:id="@+id/birthdayDivider"
                         android:layout_width="1dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="14dp"
                         android:background="#CFE0F7" />
 
-
                     <LinearLayout
+                        android:id="@+id/birthdayTextLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="14dp"
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/tvNextBirthdayLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Next Birthday"
+                            android:text="@string/next_birthday"
                             android:textColor="@color/header_blue_dark"
                             android:textSize="15sp"
                             android:textStyle="bold" />
 
                         <LinearLayout
+                            android:id="@+id/birthdayInfoLayout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
@@ -452,6 +471,7 @@
                                 android:textSize="14sp" />
 
                             <View
+                                android:id="@+id/birthdayInfoDivider"
                                 android:layout_width="1dp"
                                 android:layout_height="14dp"
                                 android:layout_marginStart="10dp"
@@ -490,6 +510,7 @@
             layout="@layout/banner_shimmer_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
     </FrameLayout>
 
 </LinearLayout>

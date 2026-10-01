@@ -12,7 +12,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
-        android:layout_height="@dimen/_40sdp"
+        android:layout_height="64dp"
         android:background="@color/screen_bg"
         android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
             android:layout_gravity="center"
             android:text="@string/auto_loan"
             android:textColor="@color/header_blue_dark"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
@@ -101,7 +101,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Loan Amount"
+                            android:text="@string/loan_amount"
                             android:textColor="@color/header_blue_light"
                             android:textSize="17sp"
                             android:textStyle="bold" />
@@ -109,7 +109,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Enter the loan amount"
+                            android:text="@string/enter_the_loan_amount"
                             android:textColor="@color/grey"
                             android:textSize="13sp" />
 
@@ -133,7 +133,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@null"
-                        android:hint="Loan Amount"
+                        android:hint="@string/loan_amount"
                         android:inputType="numberDecimal"
                         android:textColor="@color/black"
                         android:textColorHint="@color/grey"
@@ -221,7 +221,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Interest Rate"
+                            android:text="@string/interest_rate"
                             android:textColor="@color/header_blue_light"
                             android:textSize="17sp"
                             android:textStyle="bold" />
@@ -229,7 +229,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Enter annual interest rate"
+                            android:text="@string/enter_annual_interest_rate"
                             android:textColor="@color/grey"
                             android:textSize="13sp" />
 
@@ -253,7 +253,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@null"
-                        android:hint="Interest Rate"
+                        android:hint="@string/interest_rate"
                         android:inputType="numberDecimal"
                         android:textColor="@color/black"
                         android:textColorHint="@color/grey"
@@ -314,7 +314,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Loan Term"
+                            android:text="@string/loan_term"
                             android:textColor="@color/header_blue_light"
                             android:textSize="17sp"
                             android:textStyle="bold" />
@@ -322,7 +322,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Select loan term and unit"
+                            android:text="@string/select_loan_term_and_unit"
                             android:textColor="@color/grey"
                             android:textSize="13sp" />
 
@@ -354,7 +354,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:background="@null"
-                            android:hint="Loan Term"
+                            android:hint="@string/loan_term"
                             android:inputType="number"
                             android:textColor="@color/black"
                             android:textColorHint="@color/grey"
@@ -381,7 +381,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Month"
+                            android:text="@string/months"
                             android:textColor="@color/header_blue_light"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -441,7 +441,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Start Date"
+                            android:text="@string/start_date"
                             android:textColor="@color/header_blue_light"
                             android:textSize="17sp"
                             android:textStyle="bold" />
@@ -449,7 +449,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Select the loan start date"
+                            android:text="@string/select_the_loan_start_date"
                             android:textColor="@color/grey"
                             android:textSize="13sp" />
 
@@ -494,8 +494,6 @@
     </androidx.core.widget.NestedScrollView>
 
 
-    <!-- BOTTOM BUTTONS -->
-
     <LinearLayout
         android:id="@+id/bottomButtons"
         android:layout_width="0dp"
@@ -510,7 +508,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <!-- Reset -->
 
         <LinearLayout
             android:id="@+id/btnReset"
@@ -534,7 +531,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="Reset Fields"
+                android:text="@string/reset_fields"
                 android:textColor="@color/header_blue_light"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -568,7 +565,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="Calculate"
+                android:text="@string/calculate"
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 android:textStyle="bold" />

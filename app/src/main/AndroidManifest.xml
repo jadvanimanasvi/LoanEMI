@@ -11,9 +11,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoanSmart"
         tools:targetApi="31">
-
-        <activity android:name=".Activities.Activities.AutoLoanResultActivity"
-            android:exported="false"/>
+        <activity
+            android:name=".Activities.Activities.HomeLoanResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Activities.RdCalculatorResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Activities.StudentLoanRsultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Activities.FdCalculatorResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Activities.BusinessLoanResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Activities.AutoLoanResultActivity"
+            android:exported="false" />
         <activity
             android:name=".Activities.Activities.CurrencyUnitActivity"
             android:exported="false" />

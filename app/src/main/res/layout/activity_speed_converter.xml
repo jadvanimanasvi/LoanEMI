@@ -31,9 +31,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="12dp"
-            android:text="Speed Converter"
+            android:text="@string/speed_converter"
             android:textColor="@color/header_blue_dark"
-            android:textSize="22sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
     </com.google.android.material.appbar.MaterialToolbar>
@@ -46,7 +46,6 @@
         android:orientation="vertical"
         android:padding="12dp">
 
-        <!-- ===== FROM CARD ===== -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,7 +56,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="From"
+                android:text="@string/from"
                 android:textColor="@color/grey"
                 android:textSize="15sp" />
 
@@ -100,7 +99,7 @@
                 android:paddingEnd="14dp">
 
                 <EditText
-                    android:id="@+id/etFrom"
+                    android:id="@+id/etSpeedFrom"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -109,7 +108,7 @@
                     android:inputType="numberDecimal"
                     android:text="0"
                     android:textColor="@color/text_color"
-                    android:textSize="26sp"
+                    android:textSize="23sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -178,7 +177,6 @@
         </LinearLayout>
 
 
-        <!-- ===== TO CARD ===== -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -189,7 +187,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="To"
+                android:text="@string/to"
                 android:textColor="@color/grey"
                 android:textSize="15sp" />
 
@@ -231,8 +229,8 @@
                 android:paddingStart="14dp"
                 android:paddingEnd="14dp">
 
-                <EditText
-                    android:id="@+id/etTo"
+                <TextView
+                    android:id="@+id/etSpeedTo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -241,7 +239,7 @@
                     android:inputType="numberDecimal"
                     android:text="0"
                     android:textColor="@color/text_color"
-                    android:textSize="26sp"
+                    android:textSize="23sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -266,14 +264,12 @@
 
         </LinearLayout>
 
-        <!-- spacer pushes buttons down -->
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:minHeight="48dp" />
 
-        <!-- ===== BUTTONS ===== -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -301,7 +297,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="Reset Fields"
+                    android:text="@string/reset_fields"
                     android:textColor="@color/header_blue_light"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -330,7 +326,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="Calculate"
+                    android:text="@string/calculate"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold" />

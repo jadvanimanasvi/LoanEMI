@@ -33,7 +33,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tools"
+                android:text="@string/tools"
                 android:textColor="@color/white"
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Useful Calculator and Converter"
+                android:text="@string/useful_calculator_and_converter"
                 android:textColor="#C9D9F2"
                 android:textSize="12sp" />
 
@@ -101,7 +101,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="9dp"
                     android:layout_weight="1"
-                    android:text="Converters"
+                    android:text="@string/converters"
                     android:textColor="@color/text_color"
                     android:textSize="19sp"
                     android:textStyle="bold" />
@@ -154,7 +154,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Exchange Rate"
+                            android:text="@string/exchange_rate"
                             android:textColor="@color/text_color"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -163,7 +163,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="Convert between currencies"
+                            android:text="@string/convert_between_currencies"
                             android:textColor="@color/grey"
                             android:textSize="12sp" />
 
@@ -225,7 +225,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Length Converter"
+                            android:text="@string/length_converter"
                             android:textColor="@color/text_color"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -234,7 +234,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="Convert between length units"
+                            android:text="@string/convert_between_length_units"
                             android:textColor="@color/grey"
                             android:textSize="12sp" />
 
@@ -295,7 +295,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Weight Converter"
+                            android:text="@string/weight_converter"
                             android:textColor="@color/text_color"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -304,7 +304,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="Convert between weight units"
+                            android:text="@string/convert_between_weight_units"
                             android:textColor="@color/grey"
                             android:textSize="12sp" />
 
@@ -380,7 +380,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Age Calculation"
+                            android:text="@string/age_calculator"
                             android:textColor="@color/text_color"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -389,7 +389,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="Calculate your exact age"
+                            android:text="@string/calculate_your_exact_age"
                             android:textColor="@color/grey"
                             android:textSize="12sp" />
 
@@ -452,7 +452,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Speed Converter"
+                            android:text="@string/speed_converter"
                             android:textColor="@color/text_color"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -461,7 +461,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="Convert between speed units"
+                            android:text="@string/convert_between_speed_units"
                             android:textColor="@color/grey"
                             android:textSize="12sp" />
 
@@ -525,7 +525,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Temperature Converter"
+                            android:text="@string/temperature_converter"
                             android:textColor="@color/text_color"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -534,7 +534,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="Convert temperature units"
+                            android:text="@string/convert_temperature_units"
                             android:textColor="@color/grey"
                             android:textSize="12sp" />
 

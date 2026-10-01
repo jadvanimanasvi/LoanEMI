@@ -10,6 +10,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.loanemi.Activities.fragments.HistoryFragment;
 import com.example.loanemi.Activities.fragments.HomeFragment;
 import com.example.loanemi.Activities.fragments.ToolsFragment;
 import com.example.loanemi.Activities.utils.Util;
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             } else if (id == R.id.nav_history) {
-                // loadFragment(new HistoryFragment());
+                 loadFragment(new HistoryFragment());
                 return true;
 
             } else if (id == R.id.nav_setting) {

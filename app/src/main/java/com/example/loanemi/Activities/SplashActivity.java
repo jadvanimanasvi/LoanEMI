@@ -1,8 +1,10 @@
 package com.example.loanemi.Activities;
 
+import android.animation.Animator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -25,6 +27,7 @@ import com.example.loanemi.Activities.language.LocaleHelper;
 import com.example.loanemi.Activities.utils.AppPreference;
 import com.example.loanemi.Activities.utils.Constant;
 import com.example.loanemi.Activities.utils.MyApplication;
+import com.example.loanemi.Activities.utils.Util;
 import com.example.loanemi.R;
 import com.example.loanemi.databinding.ActivitySplashBinding;
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -34,6 +37,9 @@ import com.google.android.libraries.ads.mobile.sdk.common.LoadAdError;
 @SuppressLint("CustomSplashScreen")
 public class SplashActivity extends AppCompatActivity {
 
+    // Stored in its own prefs file so it does not depend on AppPreference's API
+    private static final String SPLASH_PREFS = "splash_prefs";
+    private static final String KEY_SPLASH_ANIM_PLAYED = "splash_anim_played";
     public Boolean isAdClicked = false;
     public Handler mHandler = new Handler();
     Runnable r;
@@ -48,6 +54,9 @@ public class SplashActivity extends AppCompatActivity {
     private String[] splashWaitMessages;
     private int splashMsgIndex = 0;
     private StartFlowConsentManager consentManager;
+    // Lottie speed: 1f = normal, lower = slower
+    private static final float FIRST_LAUNCH_SPEED = 0.5f;   // full animation: about 5.4 s
+    private static final float REPEAT_LAUNCH_SPEED = 0.5f;  // repeat animation: about 4.1 s
     private final Runnable consentWaitTimeout = this::continueIfConsentStuck;
 
     @Override
@@ -80,7 +89,38 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             }
         });
+        setupSplashLogo();
         init();
+    }
+
+    private void setupSplashLogo() {
+        if (binding == null) {
+            return;
+        }
+        final SharedPreferences sp = getSharedPreferences(SPLASH_PREFS, MODE_PRIVATE);
+        boolean animPlayed = sp.getBoolean(KEY_SPLASH_ANIM_PLAYED, false);
+
+        binding.lottieSplash.setRepeatCount(0); // never loop
+
+        if (animPlayed) {
+            // 2nd launch onwards: icon animation first, then text animation
+            binding.lottieSplash.setAnimation(R.raw.loanemi_splash_repeat_transparent);
+            binding.lottieSplash.setSpeed(REPEAT_LAUNCH_SPEED);
+            binding.lottieSplash.playAnimation();
+        } else {
+            // 1st launch: full animation
+            binding.lottieSplash.setAnimation(R.raw.loanemi_splash_animated_transparent);
+            binding.lottieSplash.addAnimatorListener(new Animator.AnimatorListener() {
+                @Override public void onAnimationStart(Animator animation) { }
+                @Override public void onAnimationEnd(Animator animation) {
+                    sp.edit().putBoolean(KEY_SPLASH_ANIM_PLAYED, true).apply();
+                }
+                @Override public void onAnimationCancel(Animator animation) { }
+                @Override public void onAnimationRepeat(Animator animation) { }
+            });
+            binding.lottieSplash.setSpeed(FIRST_LAUNCH_SPEED);
+            binding.lottieSplash.playAnimation();
+        }
     }
 
     private void init() {
@@ -110,7 +150,7 @@ public class SplashActivity extends AppCompatActivity {
                 if (binding == null || isFinishing() || isDestroyed()) {
                     return;
                 }
-                if (elapsedTime < 9500) {
+                if (elapsedTime < 6500) {
                     elapsedTime += 50;
                     binding.progressBar.setProgress((int) ((elapsedTime * 100) / 10000));
                     if (splashWaitMessages != null && splashWaitMessages.length > 0) {
@@ -376,5 +416,6 @@ public class SplashActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         LoanActivityTracker.setCurrentActivity(this);
+        Util.hide(this);
     }
 }

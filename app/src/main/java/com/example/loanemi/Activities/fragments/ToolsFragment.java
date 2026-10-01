@@ -28,8 +28,6 @@ import com.facebook.shimmer.ShimmerFrameLayout;
 public class ToolsFragment extends Fragment {
 
     private LinearLayout length, ExchangeRate, Weight, Age, speed, Temperature;
-    FrameLayout tools_native_layout;
-    private View native_shimmer_layout;
 
     @Nullable
     @Override
