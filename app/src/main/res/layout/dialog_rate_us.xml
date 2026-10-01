@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="20dp">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_menu"
+        android:orientation="vertical"
+        android:paddingBottom="10dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:gravity="center"
+            android:text="@string/thanks_for_your_support"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/_18ssp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:text="@string/rate_desc"
+            android:textColor="@color/text_color"
+            android:textSize="15sp" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layoutStars"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/star1"
+                style="@style/starStyle"
+                android:layout_weight="1"
+                android:contentDescription="@null"
+                app:tint="@color/yellow_color_picker" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/star2"
+                style="@style/starStyle"
+                android:layout_weight="1"
+                android:contentDescription="@null"
+                app:tint="@color/yellow_color_picker" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/star3"
+                style="@style/starStyle"
+                android:layout_weight="1"
+                android:contentDescription="@null"
+                app:tint="@color/yellow_color_picker" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/star4"
+                style="@style/starStyle"
+                android:layout_weight="1"
+                android:contentDescription="@null"
+                app:tint="@color/yellow_color_picker" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/star5"
+                style="@style/starStyle"
+                android:layout_weight="1"
+                android:contentDescription="@null"
+                app:tint="@color/yellow_color_picker" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRatingMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/the_best_we_can_get"
+                android:textColor="@color/blue"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:src="@drawable/ic_rate_arrow"
+                app:tint="@color/blue"
+                tools:ignore="ContentDescription" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRate"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_button"
+            android:backgroundTint="@color/blue"
+            android:text="@string/rate"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnClose"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="19dp"
+        app:cardElevation="4dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:padding="5dp"
+            android:src="@drawable/close_img"
+            app:tint="#000000" />
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

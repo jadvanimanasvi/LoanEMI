@@ -12,6 +12,7 @@ import android.provider.Settings;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -171,6 +172,29 @@ public class MyApplication extends Application {
                 return;
             }
             mobileAdsReadyCallbacks.add(action);
+        }
+    }
+
+    public static void applyTheme() {
+        String theme = AppPreference.getInstance(context).getString(AppPreference.KEY_THEME, AppPreference.DEFAULT);
+        switch (theme) {
+            case "dark":
+                AppCompatDelegate.setDefaultNightMode(
+                        AppCompatDelegate.MODE_NIGHT_YES
+                );
+                break;
+
+            case "light":
+                AppCompatDelegate.setDefaultNightMode(
+                        AppCompatDelegate.MODE_NIGHT_NO
+                );
+                break;
+
+            default: // system default
+                AppCompatDelegate.setDefaultNightMode(
+                        AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+                );
+                break;
         }
     }
 

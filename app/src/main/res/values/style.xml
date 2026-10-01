@@ -9,4 +9,11 @@
         <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:targetApi="35">true</item>
         <!--        <item name="android:windowLayoutInDisplayCutoutMode" tools:targetApi="35">always</item>-->
     </style>
+
+    <style name="starStyle">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:src">@drawable/star_img</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
 </resources>

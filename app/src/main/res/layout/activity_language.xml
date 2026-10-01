@@ -14,25 +14,26 @@
 
         <ImageView
             android:id="@+id/ivBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginStart="@dimen/_10sdp"
             android:src="@drawable/back_ic"
             android:visibility="gone"
+            app:tint="@color/text_color"
             tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/Lock"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/_14sdp"
             android:gravity="center"
             android:includeFontPadding="false"
             android:singleLine="true"
             android:text="@string/language"
             android:textColor="@color/text_color"
+            android:textStyle="bold"
             android:textSize="@dimen/_18ssp"
             tools:ignore="RelativeOverlap" />
 

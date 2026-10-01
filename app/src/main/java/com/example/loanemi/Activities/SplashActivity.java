@@ -19,6 +19,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.loanemi.Activities.Ads.AdCallback;
 import com.example.loanemi.Activities.Ads.AdConfig;
 import com.example.loanemi.Activities.Ads.ApNativeAd;
+import com.example.loanemi.Activities.Ads.NativeAdPreloader;
 import com.example.loanemi.Activities.Ads.StartFlowConsentManager;
 import com.example.loanemi.Activities.introflow.LoanActivityTracker;
 import com.example.loanemi.Activities.introflow.LoanStartFlowAdHelper;
@@ -65,6 +66,8 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     public void onCreate(Bundle bundle) {
+        MyApplication.applyTheme();
+
         super.onCreate(bundle);
         binding = ActivitySplashBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -91,7 +94,10 @@ public class SplashActivity extends AppCompatActivity {
         });
         setupSplashLogo();
         init();
+        setupAds();
     }
+
+
 
     private void setupSplashLogo() {
         if (binding == null) {
@@ -128,6 +134,17 @@ public class SplashActivity extends AppCompatActivity {
         startSplashProgress();
         startConsentThenAds();
         mHandler.postDelayed(consentWaitTimeout, 8000);
+    }
+
+    private void setupAds() {
+        if (!Util.isInternetAvailable(this)) {
+            return;
+        }
+
+        NativeAdPreloader.preloadIfNeeded(
+                this,
+                getString(R.string.home_native_medium)
+        );
     }
 
     private void startSplashProgress() {
@@ -415,7 +432,7 @@ public class SplashActivity extends AppCompatActivity {
 
     public void onResume() {
         super.onResume();
-        LoanActivityTracker.setCurrentActivity(this);
         Util.hide(this);
+        LoanActivityTracker.setCurrentActivity(this);
     }
 }

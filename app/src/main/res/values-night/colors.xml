@@ -16,6 +16,6 @@
     <color name="ad_shimmer_bone">#33FFFFFF</color>
     <color name="textColorDescription">#C4C4C4</color>
     <color name="item_bg">#303030</color>
-
+    <color name="popup_color">#282828</color>
 
 </resources>

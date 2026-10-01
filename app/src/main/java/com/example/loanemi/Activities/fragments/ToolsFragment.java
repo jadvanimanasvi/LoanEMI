@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -20,6 +21,7 @@ import com.example.loanemi.Activities.Activities.Tools.SpeedConverterActivity;
 import com.example.loanemi.Activities.Activities.Tools.TemperatureConverterActivity;
 import com.example.loanemi.Activities.Activities.Tools.WeightConverterActivity;
 import com.example.loanemi.Activities.Ads.NativeAdPreloader;
+import com.example.loanemi.Activities.MainActivity;
 import com.example.loanemi.Activities.introflow.LoanStartFlowAdHelper;
 import com.example.loanemi.Activities.utils.Util;
 import com.example.loanemi.R;
@@ -38,6 +40,7 @@ public class ToolsFragment extends Fragment {
         initViews(view);
         setupAds(view);
         setupClickListeners();
+        setupBackPressed();
         return view;
     }
 
@@ -98,6 +101,30 @@ public class ToolsFragment extends Fragment {
             );
         }
     }
+
+    private void setupBackPressed() {
+
+        requireActivity().getOnBackPressedDispatcher().addCallback(
+                getViewLifecycleOwner(),
+                new OnBackPressedCallback(true) {
+
+                    @Override
+                    public void handleOnBackPressed() {
+
+                        requireActivity()
+                                .getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.fragmentContainer, new HomeFragment())
+                                .commit();
+
+                        if (requireActivity() instanceof MainActivity) {
+                            ((MainActivity) requireActivity()).selectHomeTab();
+                        }
+                    }
+                }
+        );
+    }
+
 
 
 }

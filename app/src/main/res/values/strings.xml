@@ -56,6 +56,7 @@
 
     <string name="home_native_medium" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
     <string name="tools_native_medium" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="setting_native_medium" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
     <string name="auto_loan_result_native_medium" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
     <string name="splash_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
     <string name="splash_inter_1" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
@@ -97,6 +98,27 @@
     <string name="loan_information">Loan Information</string>
     <string name="result_after_calculation">Result After Calculation</string>
     <string name="share_pdf">📄 Share PDF</string>
+    <string name="setting">Setting</string>
+    <string name="change_language">Change Language</string>
+    <string name="theme">Theme</string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="share_app">Share App</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="version">Version</string>
+    <string name="we_maintain_our_policy">We Maintain Our Policy…</string>
+    <string name="privacy_policy_url" translatable="false"></string>
+    <string name="share_text" translatable="false">LoanEMI App with Privacy. Click here…: https://play.google.com/store/apps/details?id=</string>
+    <string name="rate_select_star">Please select a star to rate us</string>
+    <string name="thanks_for_your_support">Thanks for your support!\n😍</string>
+    <string name="rate_desc">We are working hard for a better user experience.\nWe’d greatly appreciate if you can rate us.</string>
+    <string name="the_best_we_can_get">The best we can get</string>
+    <string name="rate">Rate</string>
+    <string name="choose_your_theme">Choose Your Theme</string>
+    <string name="_default">Default</string>
+    <string name="dark_theme">Dark Theme</string>
+    <string name="light_theme">Light Theme</string>
+    <string name="save">Save</string>
+
     <string name="age_calculator">Age Calculator</string>
     <string name="date_of_birth">Date of Birth</string>
     <string name="years">Years</string>

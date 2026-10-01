@@ -50,6 +50,8 @@ public class LanguageActivity extends BaseActivity {
     boolean isLanguageSelected = false;
     boolean isLangClick = false;
     FrameLayout ivDone;
+    ImageView ivBack;
+    boolean fromSettings;
     ArrayList<LanguageModel> languageModels = new ArrayList<>();
     RecyclerView rvLanguage;
     AppPreference zwePreferences;
@@ -69,29 +71,58 @@ public class LanguageActivity extends BaseActivity {
         zwePreferences = AppPreference.Companion.getInstance(this);
         LoanActivityTracker.setCurrentActivity(this);
         MyApplication.instance.applyStartFlowSystemBars(this, findViewById(R.id.main));
+        fromSettings = getIntent() != null
+                && getIntent().getBooleanExtra(
+                AppPreference.EXTRA_LANG_OPENED_IN_SETTINGS,
+                false
+        );
+
         isLangClick = false;
         bindViews();
         initView();
         addListener();
-        showNativeOne();
 
-        boolean fromSettings = getIntent() != null && getIntent().getBooleanExtra(AppPreference.EXTRA_LANG_OPENED_IN_SETTINGS, false);
-        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                if (fromSettings) {
-                    Constant.isLanguageChanging = false;
+        if (fromSettings) {
+
+           binding.ivBack.setVisibility(View.VISIBLE);
+            ivDone.setVisibility(View.VISIBLE);
+            showNativeOne();
+        } else {
+            binding.ivBack.setVisibility(View.GONE);
+            showNativeOne();
+        }
+
+//        showNativeOne();
+
+        getOnBackPressedDispatcher().addCallback(
+                this,
+                new OnBackPressedCallback(true) {
+
+                    @Override
+                    public void handleOnBackPressed() {
+                        if (fromSettings) {
+                            Constant.isLanguageChanging = false;
+                        }
+
+                        finish();
+                    }
                 }
-                finish();
-            }
-        });
+        );
 
-        if (!fromSettings && LoanStartFlowAdHelper.isFlagOn(this, AppPreference.is_first_intro_native_show, true)) {
+        // Only normal first-time flow
+        if (!fromSettings
+                && LoanStartFlowAdHelper.isFlagOn(
+                this,
+                AppPreference.is_first_intro_native_show,
+                true
+        )) {
             preloadIntroFirst();
         }
     }
 
+
     private void bindViews() {
+        ivBack = findViewById(R.id.ivBack);
         ivDone = findViewById(R.id.ivDone);
         rvLanguage = findViewById(R.id.rvLanguage);
     }
@@ -248,6 +279,10 @@ public class LanguageActivity extends BaseActivity {
 
     private void addListener() {
         ivDone.setOnClickListener(v -> onDoneClicked());
+        binding.ivBack.setOnClickListener(v -> {
+            Constant.isLanguageChanging = false;
+            finish();
+        });
     }
 
     public void showNativeOne() {
@@ -305,7 +340,13 @@ public class LanguageActivity extends BaseActivity {
             }
             isDoneClicked = true;
             saveLanguage();
-            if (getIntent() != null && getIntent().getBooleanExtra(AppPreference.EXTRA_LANG_OPENED_IN_SETTINGS, false)) {
+            /*if (getIntent() != null && getIntent().getBooleanExtra(AppPreference.EXTRA_LANG_OPENED_IN_SETTINGS, false)) {
+                setResult(RESULT_OK);
+                finish();
+                return;
+            }*/
+            if (fromSettings) {
+                Constant.isLanguageChanging = false;
                 setResult(RESULT_OK);
                 finish();
                 return;

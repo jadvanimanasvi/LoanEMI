@@ -91,4 +91,7 @@
     <color name="transparent">#00000000</color>
     <color name="item_bg">#F0F0F0</color>
     <color name="blue_icon_bg">#DCE9FF</color>
+    <color name="popup_color">#FFFFFFFF</color>
+    <color name="yellow_color_picker">#FBE870</color>
+    <color name="light_grey">#E6E6E6</color>
 </resources>

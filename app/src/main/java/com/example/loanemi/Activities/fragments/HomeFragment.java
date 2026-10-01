@@ -44,8 +44,6 @@ public class HomeFragment extends Fragment {
     private TextView tvLoanSmart;
     public RelativeLayout cardLoanCalculator,cardBusinessLoan,cardHomeLoan,cardAutoLoan,cardStudentLoan;
     public CardView cardCash,cardFd,cardRd;
-    FrameLayout home_native_layout;
-    private View native_shimmer_layout;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -82,16 +80,27 @@ public class HomeFragment extends Fragment {
     }
 
     private void setupAds(@NonNull View view) {
-        if (Util.isInternetAvailable(this.requireActivity())) {
-            FrameLayout nativeLayout = view.findViewById(R.id.home_native_layout);
-            ShimmerFrameLayout shimmerNative = view.findViewById(R.id.nativeShimmerLayout);
+        if (!isAdded()) {
+            return;
+        }
 
+        if (Util.isInternetAvailable(requireActivity())) {
+
+            FrameLayout nativeLayout = view.findViewById(R.id.home_native_layout);
+            ShimmerFrameLayout shimmerNative =
+                    view.findViewById(R.id.nativeShimmerLayout);
+
+            // Show Home native ad
             NativeAdPreloader.show(
                     requireActivity(),
                     nativeLayout,
                     getString(R.string.home_native_medium),
                     shimmerNative
             );
+
+            // Preload Tools native ad
+            NativeAdPreloader.preloadIfNeeded(requireActivity(), getString(R.string.tools_native_medium));
+            NativeAdPreloader.preloadIfNeeded(requireActivity(), getString(R.string.setting_native_medium));
         }
     }
 

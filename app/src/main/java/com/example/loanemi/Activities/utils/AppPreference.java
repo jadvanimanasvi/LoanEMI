@@ -11,6 +11,10 @@ public class AppPreference {
     public static final String SELECTED_LANGUAGE = "selected_language";
     public static final String SELECT_LAN = "select_lan";
     private static final String PREF_NAME = "camera_pref";
+    public static final String KEY_USER_RATING = "user_rating";
+    public static final String KEY_USER_RATE = "user_rate";
+    public static final String KEY_THEME = "key_theme";
+    public static final String DEFAULT = "default";
     public static String is_splash_inter_show = "is_splash_inter_show";
     public static String is_splash_banner_show = "is_splash_banner_show";
     public static String is_language_native1_show = "is_language_native1_show";
