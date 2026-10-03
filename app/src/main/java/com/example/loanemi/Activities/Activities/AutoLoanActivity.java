@@ -56,7 +56,6 @@ public class AutoLoanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_auto_loan);
-
         setupEdgeToEdge(this, R.id.main);
 
         initViews();
