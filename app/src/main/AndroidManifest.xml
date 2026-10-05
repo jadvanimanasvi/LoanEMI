@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
-        android:name=".Activities.utils.MyApplication"
+        android:name="com.loanemi.calculator.utils.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -12,82 +12,82 @@
         android:theme="@style/Theme.LoanSmart"
         tools:targetApi="31">
         <activity
-            android:name=".Activities.Activities.HomeLoanResultActivity"
+            android:name="com.loanemi.calculator.Activities.HomeLoanResultActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Activities.RdCalculatorResultActivity"
+            android:name="com.loanemi.calculator.Activities.RdCalculatorResultActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Activities.StudentLoanRsultActivity"
+            android:name="com.loanemi.calculator.Activities.StudentLoanRsultActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Activities.FdCalculatorResultActivity"
+            android:name="com.loanemi.calculator.Activities.FdCalculatorResultActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Activities.BusinessLoanResultActivity"
+            android:name="com.loanemi.calculator.Activities.BusinessLoanResultActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Activities.AutoLoanResultActivity"
+            android:name="com.loanemi.calculator.Activities.AutoLoanResultActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Activities.CurrencyUnitActivity"
+            android:name="com.loanemi.calculator.Activities.CurrencyUnitActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Activities.Tools.AgeCalculationActivity"
+            android:name="com.loanemi.calculator.Activities.Tools.AgeCalculationActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Activities.Tools.ExchangeRateActivity"
+            android:name="com.loanemi.calculator.Activities.Tools.ExchangeRateActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Activities.Tools.TemperatureConverterActivity"
+            android:name="com.loanemi.calculator.Activities.Tools.TemperatureConverterActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Activities.Tools.SpeedConverterActivity"
+            android:name="com.loanemi.calculator.Activities.Tools.SpeedConverterActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Activities.Tools.WeightConverterActivity"
+            android:name="com.loanemi.calculator.Activities.Tools.WeightConverterActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Activities.Tools.LengthConverterActivity"
+            android:name="com.loanemi.calculator.Activities.Tools.LengthConverterActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Activities.RdCalculatorActivity"
+            android:name="com.loanemi.calculator.Activities.RdCalculatorActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.introflow.GetStartActivity"
+            android:name="com.loanemi.calculator.introflow.GetStartActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.introflow.AllScreenIntro"
+            android:name="com.loanemi.calculator.introflow.AllScreenIntro"
             android:exported="false" />
         <activity
-            android:name=".Activities.language.LanguageActivity"
+            android:name="com.loanemi.calculator.language.LanguageActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Activities.FdCalculatorActivity"
+            android:name="com.loanemi.calculator.Activities.FdCalculatorActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Activities.CashCalculatorActivity"
+            android:name="com.loanemi.calculator.Activities.CashCalculatorActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Activities.StudentLoanActivity"
+            android:name="com.loanemi.calculator.Activities.StudentLoanActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Activities.HomeLoanActivity"
+            android:name="com.loanemi.calculator.Activities.HomeLoanActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Activities.AutoLoanActivity"
+            android:name="com.loanemi.calculator.Activities.AutoLoanActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Activities.BusinessLoanActivity"
+            android:name="com.loanemi.calculator.Activities.BusinessLoanActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Activities.PersonalLoanActivity"
+            android:name="com.loanemi.calculator.Activities.PersonalLoanActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.MainActivity"
+            android:name="com.loanemi.calculator.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".Activities.SplashActivity"
+            android:name="com.loanemi.calculator.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

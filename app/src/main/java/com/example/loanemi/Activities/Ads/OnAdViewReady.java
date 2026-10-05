@@ -1,8 +1,0 @@
-package com.example.loanemi.Activities.Ads;
-
-
-import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdView;
-
-public interface OnAdViewReady {
-    void onAdViewReady(NativeAdView nativeAdView);
-}
