@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<com.loanemi.calculator.utils.CheckableLinearLayout
+<com.loanemi.calculator.emi.utils.CheckableLinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rowRoot"
     android:layout_width="match_parent"
@@ -51,4 +51,4 @@
         android:layout_height="24dp"
         android:src="@drawable/ic_radio_selector" />
 
-</com.loanemi.calculator.utils.CheckableLinearLayout>
+</com.loanemi.calculator.emi.utils.CheckableLinearLayout>

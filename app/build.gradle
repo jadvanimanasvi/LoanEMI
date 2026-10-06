@@ -1,13 +1,14 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
-    namespace 'com.example.loanemi'
+    namespace 'com.loanemi.calculator.emi'
     compileSdk 36
 
     defaultConfig {
-        applicationId "com.example.loanemi"
+        applicationId "com.loanemi.calculator.emi"
         minSdk 24
         targetSdk 36
         versionCode 1
@@ -38,6 +39,7 @@ android {
 
 dependencies {
     implementation libs.appcompat
+    implementation libs.firebase.messaging
     implementation libs.material
     implementation libs.activity
 

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "38307310040",
+    "project_id": "loanemi-a700e",
+    "storage_bucket": "loanemi-a700e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38307310040:android:2ae93e4ccd343c3c7caaad",
+        "android_client_info": {
+          "package_name": "com.loanemi.calculator.emi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7dV0FVA61w0199j_r72GiSruhVA5eu0o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
