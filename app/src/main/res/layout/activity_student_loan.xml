@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:src="@drawable/back_ic"
-            app:tint="@color/header_blue_dark" />
+            app:tint="@color/history_txt" />
 
         <TextView
             android:id="@+id/tvTitle"
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/student_loan"
-            android:textColor="@color/header_blue_dark"
+            android:textColor="@color/history_txt"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -98,7 +98,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/loan_amount"
-                            android:textColor="@color/header_blue_light"
+                            android:textColor="@color/reset_txt"
                             android:textSize="17sp"
                             android:textStyle="bold" />
 
@@ -131,7 +131,7 @@
                         android:background="@null"
                         android:hint="@string/loan_amount"
                         android:textColorHint="@color/grey"
-                        android:textColor="@color/black"
+                        android:textColor="@color/text_color"
                         android:textSize="16sp"
                         android:inputType="numberDecimal" />
 
@@ -159,7 +159,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="6dp"
                             android:text="USD"
-                            android:textColor="@color/blue"
+                            android:textColor="@color/reset_txt"
                             android:textStyle="bold"
                             android:textSize="15sp" />
 
@@ -168,7 +168,7 @@
                             android:layout_height="18dp"
                             android:layout_marginStart="2dp"
                             android:src="@drawable/ic_dropdown"
-                            app:tint="@color/header_blue_dark" />
+                            app:tint="@color/reset_txt" />
 
                     </LinearLayout>
 
@@ -204,7 +204,8 @@
                             android:layout_height="20dp"
                             android:layout_gravity="center"
                             android:padding="2dp"
-                            android:src="@drawable/percentage_ic" />
+                            android:src="@drawable/percentage_ic"
+                            app:tint="@color/setting_ic"/>
 
                     </FrameLayout>
 
@@ -218,7 +219,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/interest_rate"
-                            android:textColor="@color/header_blue_light"
+                            android:textColor="@color/reset_txt"
                             android:textSize="17sp"
                             android:textStyle="bold" />
 
@@ -251,7 +252,7 @@
                         android:background="@null"
                         android:hint="@string/interest_rate"
                         android:textColorHint="@color/grey"
-                        android:textColor="@color/black"
+                        android:textColor="@color/text_color"
                         android:textSize="16sp"
                         android:inputType="numberDecimal" />
 
@@ -259,7 +260,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="%"
-                        android:textColor="@color/blue"
+                        android:textColor="@color/reset_txt"
                         android:textStyle="bold"
                         android:textSize="16sp" />
 
@@ -294,7 +295,8 @@
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/calendar_ic" />
+                            android:src="@drawable/calendar_ic"
+                            app:tint="@color/setting_ic"/>
 
                     </FrameLayout>
 
@@ -308,7 +310,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/loan_term"
-                            android:textColor="@color/header_blue_light"
+                            android:textColor="@color/reset_txt"
                             android:textSize="17sp"
                             android:textStyle="bold" />
 
@@ -347,7 +349,7 @@
                             android:background="@null"
                             android:hint="@string/loan_term"
                             android:textColorHint="@color/grey"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_color"
                             android:textSize="16sp"
                             android:inputType="numberDecimal" />
                     </LinearLayout>
@@ -378,7 +380,7 @@
                             android:layout_width="18dp"
                             android:layout_height="18dp"
                             android:src="@drawable/ic_dropdown"
-                            app:tint="@color/header_blue_dark" />
+                            app:tint="@color/reset_txt" />
 
                     </LinearLayout>
 
@@ -419,14 +421,15 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/reset_ic" />
+                android:src="@drawable/reset_ic"
+                app:tint="@color/reset_txt"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="@string/reset_fields"
-                android:textColor="@color/header_blue_light"
+                android:textColor="@color/reset_txt"
                 android:textStyle="bold"
                 android:textSize="15sp" />
 

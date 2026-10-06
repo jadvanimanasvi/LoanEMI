@@ -17,5 +17,20 @@
     <color name="textColorDescription">#C4C4C4</color>
     <color name="item_bg">#303030</color>
     <color name="popup_color">#282828</color>
-
+    <color name="icon_bg_blue">#1C2B44</color>
+    <color name="setting_ic">#62ABF8</color>
+    <color name="history_txt">@color/white</color>
+    <color name="length_txt">#8CBDF6</color>
+    <color name="fill_bg">#333232</color>
+    <color name="input_fil">#333232</color>
+    <color name="reset_txt">@color/white</color>
+    <color name="cash_card">#242424</color>
+    <color name="bg_border">#58585B</color>
+    <color name="currency_bg">#1C2B44</color>
+    <color name="term_bg">#1C2B44</color>
+    <color name="icon_border">#2F6FED</color>
+    <color name="cash_result_bg">#354A66</color>
+    <color name="blue_icon_bg">#45516D</color>
+    <color name="icon_bg_red">#5D4D4D</color>
+    <color name="tools_icon_bg_blue">#555A64</color>
 </resources>

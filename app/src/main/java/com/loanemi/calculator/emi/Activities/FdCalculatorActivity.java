@@ -6,7 +6,9 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.InputType;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
@@ -16,11 +18,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import com.loanemi.calculator.emi.R;
+
 import com.google.android.libraries.ads.mobile.sdk.banner.AdView;
 import com.loanemi.calculator.emi.Ads.AdsHelper;
+import com.loanemi.calculator.emi.R;
+import com.loanemi.calculator.emi.utils.LoanHistoryManager;
 import com.loanemi.calculator.emi.utils.Util;
 
 import java.text.NumberFormat;
@@ -31,28 +36,44 @@ import java.util.Locale;
 public class FdCalculatorActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
+
     private EditText etLoanAmount;
     private EditText etInterestRate;
     private EditText tvLoanTerm;
+
     private TextView tvLoanUnit;
     private TextView etTimeInterest;
     private TextView tvStartDate;
+
     private LinearLayout btnReset;
     private LinearLayout btnCalculate;
+
     private FrameLayout adContainer;
     private AdView bannerAdView;
+
     private LinearLayout currencySelector;
     private ImageView ivCurrencyFlag;
     private TextView tvCurrencyCode;
+
     private String selectedCurrencyCode = "USD";
     private String selectedCurrencyCountry = "United States";
     private String selectedCurrencySymbol = "$";
+
     private int selectedCurrencyFlag = R.drawable.icn_flagus;
+
     private static final int REQUEST_CURRENCY = 1001;
+
     private Calendar selectedDate;
+
     private String selectedLoanUnit = "Month";
+
     private int compoundingFrequency = 1;
+
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+
+    private final NumberFormat indianNumberFormat = NumberFormat.getNumberInstance(new Locale("en", "IN"));
+
+    private LoanHistoryManager loanHistoryManager;
 
 
     @Override
@@ -64,44 +85,70 @@ public class FdCalculatorActivity extends AppCompatActivity {
         setupEdgeToEdge(this, R.id.main);
 
         initViews();
+
+        loanHistoryManager = new LoanHistoryManager(this);
+
         setupToolbar();
+
         setupDefaultValues();
+
+        setupLoanAmountFormatting();
+
         setupClickListeners();
+
+        setupCurrencySelector();
+
         setUpAd();
     }
+
 
     private void initViews() {
 
         toolbar = findViewById(R.id.toolbar);
+
         etLoanAmount = findViewById(R.id.etLoanAmount);
+
         etInterestRate = findViewById(R.id.etInterestRate);
+
         tvLoanTerm = findViewById(R.id.tvLoanTerm);
+
         tvLoanUnit = findViewById(R.id.tvLoanUnit);
+
         etTimeInterest = findViewById(R.id.etTimeInterest);
+
         tvStartDate = findViewById(R.id.tvStartDate);
+
         btnReset = findViewById(R.id.btnReset);
+
         btnCalculate = findViewById(R.id.btnCalculate);
+
         adContainer = findViewById(R.id.bannerContainer);
+
         currencySelector = findViewById(R.id.currencySelector);
+
         ivCurrencyFlag = findViewById(R.id.ivCurrencyFlag);
+
         tvCurrencyCode = findViewById(R.id.tvCurrencyCode);
 
 
-        // Make amount field numeric decimal.
         if (etLoanAmount != null) {
+
             etLoanAmount.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         }
 
-        // Interest rate.
+
         if (etInterestRate != null) {
+
             etInterestRate.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         }
 
-        // Term should be integer.
+
         if (tvLoanTerm != null) {
+
             tvLoanTerm.setInputType(InputType.TYPE_CLASS_NUMBER);
         }
     }
+
 
     private void setupToolbar() {
 
@@ -122,66 +169,296 @@ public class FdCalculatorActivity extends AppCompatActivity {
         }
     }
 
+
     private void setupDefaultValues() {
 
-        // Investment amount
         etLoanAmount.setText("");
 
-        // Interest rate
         etInterestRate.setText("");
 
-        // Term
         tvLoanTerm.setText("");
 
-        // Default unit
-        selectedLoanUnit = "Month";
-        tvLoanUnit.setText("Month");
 
-        // Default compounding
+        selectedLoanUnit = "Month";
+
+        tvLoanUnit.setText(selectedLoanUnit);
+
+
         compoundingFrequency = 1;
+
         etTimeInterest.setText("1");
 
-        // Current date
+
         selectedDate = Calendar.getInstance();
 
         updateStartDateText();
+
+
         setupDefaultCurrency();
     }
 
+
+    private void setupLoanAmountFormatting() {
+
+        if (etLoanAmount == null) {
+            return;
+        }
+
+        etLoanAmount.addTextChangedListener(new TextWatcher() {
+
+            private boolean isFormatting = false;
+
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                if (isFormatting) {
+                    return;
+                }
+
+                isFormatting = true;
+
+                try {
+
+                    String input = editable.toString();
+
+                    String cleanInput = input.replace(",", "").replaceAll("[^0-9.]", "");
+
+
+                    if (cleanInput.isEmpty()) {
+
+                        etLoanAmount.setText("");
+
+                        return;
+                    }
+
+
+                    /*
+                     * Keep decimal part if user enters one.
+                     */
+                    String[] parts = cleanInput.split("\\.", -1);
+
+                    String integerPart = parts[0];
+
+                    String decimalPart = parts.length > 1 ? parts[1] : null;
+
+
+                    if (!integerPart.isEmpty()) {
+
+                        try {
+
+                            long value = Long.parseLong(integerPart);
+
+                            String formatted = indianNumberFormat.format(value);
+
+
+                            if (decimalPart != null) {
+
+                                formatted = formatted + "." + decimalPart;
+                            }
+
+
+                            if (!formatted.equals(editable.toString())) {
+
+                                etLoanAmount.setText(formatted);
+
+                                etLoanAmount.setSelection(formatted.length());
+                            }
+
+                        } catch (NumberFormatException ignored) {
+                        }
+                    }
+
+                } finally {
+
+                    isFormatting = false;
+                }
+            }
+        });
+    }
+
+
     private void setupClickListeners() {
 
-        tvStartDate.setOnClickListener(v -> showDatePicker());
+        if (tvStartDate != null) {
 
-        View startDateParent = (View) tvStartDate.getParent();
+            tvStartDate.setOnClickListener(v -> showDatePicker());
 
-        if (startDateParent != null) {
+            View startDateParent = (View) tvStartDate.getParent();
 
-            startDateParent.setOnClickListener(v -> showDatePicker());
-        }
+            if (startDateParent != null) {
 
-        tvLoanUnit.setOnClickListener(v -> showLoanUnitDialog());
-
-        View unitParent = (View) tvLoanUnit.getParent();
-
-        if (unitParent != null) {
-
-            unitParent.setOnClickListener(v -> showLoanUnitDialog());
+                startDateParent.setOnClickListener(v -> showDatePicker());
+            }
         }
 
 
-        etTimeInterest.setOnClickListener(v -> showCompoundingDialog());
+        if (tvLoanUnit != null) {
 
-        View frequencyParent = (View) etTimeInterest.getParent();
+            tvLoanUnit.setOnClickListener(v -> showLoanUnitDialog());
 
-        if (frequencyParent != null) {
+            View unitParent = (View) tvLoanUnit.getParent();
 
-            frequencyParent.setOnClickListener(v -> showCompoundingDialog());
+            if (unitParent != null) {
+
+                unitParent.setOnClickListener(v -> showLoanUnitDialog());
+            }
         }
 
 
-        btnReset.setOnClickListener(v -> resetFields());
+        if (etTimeInterest != null) {
 
-        btnCalculate.setOnClickListener(v -> calculateFD());
+            etTimeInterest.setOnClickListener(v -> showCompoundingDialog());
+
+            View frequencyParent = (View) etTimeInterest.getParent();
+
+            if (frequencyParent != null) {
+
+                frequencyParent.setOnClickListener(v -> showCompoundingDialog());
+            }
+        }
+
+
+        if (btnReset != null) {
+
+            btnReset.setOnClickListener(v -> resetFields());
+        }
+
+
+        if (btnCalculate != null) {
+
+            btnCalculate.setOnClickListener(v -> calculateFD());
+        }
+    }
+
+
+    private void setupCurrencySelector() {
+
+        if (currencySelector == null) {
+            return;
+        }
+
+        currencySelector.setOnClickListener(v -> openCurrencyActivity());
+    }
+
+
+    private void openCurrencyActivity() {
+
+        Intent intent = new Intent(FdCalculatorActivity.this, CurrencyUnitActivity.class);
+
+
+        intent.putExtra(CurrencyUnitActivity.EXTRA_CURRENT_CODE, selectedCurrencyCode);
+
+
+        intent.putExtra(CurrencyUnitActivity.EXTRA_CURRENCY_SELECT_TYPE, "FD_CALCULATOR");
+
+
+        startActivityForResult(intent, REQUEST_CURRENCY);
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+        if (requestCode != REQUEST_CURRENCY || resultCode != RESULT_OK || data == null) {
+
+            return;
+        }
+
+
+        String code = data.getStringExtra(CurrencyUnitActivity.EXTRA_SELECTED_CODE);
+
+
+        String country = data.getStringExtra(CurrencyUnitActivity.EXTRA_SELECTED_COUNTRY);
+
+
+        String symbol = data.getStringExtra(CurrencyUnitActivity.EXTRA_SELECTED_CURRENCY_ICON);
+
+
+        int flag = data.getIntExtra(CurrencyUnitActivity.EXTRA_SELECTED_FLAG, R.drawable.icn_flagus);
+
+
+        /*
+         * Currency code
+         */
+        if (code != null && !code.trim().isEmpty()) {
+
+            selectedCurrencyCode = code.trim().toUpperCase(Locale.US);
+        }
+
+
+        /*
+         * Currency country/name
+         */
+        if (country != null && !country.trim().isEmpty()) {
+
+            selectedCurrencyCountry = country.trim();
+        }
+
+
+        /*
+         * Currency symbol.
+         *
+         * CurrencyUnitActivity may return the symbol
+         * as a String. If your current CurrencyUnitActivity
+         * returns an integer drawable instead, use the
+         * EXTRA_SELECTED_CURRENCY_ICON integer value below.
+         */
+        if (symbol != null && !symbol.trim().isEmpty()) {
+
+            selectedCurrencySymbol = symbol.trim();
+        }
+
+
+        /*
+         * Flag
+         */
+        selectedCurrencyFlag = flag;
+
+
+        updateCurrencyUI();
+    }
+
+
+    private void updateCurrencyUI() {
+
+        if (tvCurrencyCode != null) {
+
+            tvCurrencyCode.setText(selectedCurrencyCode);
+        }
+
+
+        if (ivCurrencyFlag != null) {
+
+            ivCurrencyFlag.setImageResource(selectedCurrencyFlag);
+        }
+    }
+
+
+    private void setupDefaultCurrency() {
+
+        selectedCurrencyCode = "USD";
+
+        selectedCurrencyCountry = "United States";
+
+        selectedCurrencySymbol = "$";
+
+        selectedCurrencyFlag = R.drawable.icn_flagus;
+
+        updateCurrencyUI();
     }
 
 
@@ -189,7 +466,9 @@ public class FdCalculatorActivity extends AppCompatActivity {
 
         final String[] units = {"Month", "Year"};
 
+
         int selectedPosition = selectedLoanUnit.equalsIgnoreCase("Month") ? 0 : 1;
+
 
         AlertDialog dialog = new AlertDialog.Builder(this).setTitle(R.string.select_investment_term_unit).setSingleChoiceItems(units, selectedPosition, (dialogInterface, which) -> {
 
@@ -200,16 +479,29 @@ public class FdCalculatorActivity extends AppCompatActivity {
             dialogInterface.dismiss();
         }).create();
 
+
         dialog.show();
     }
 
+
     private void showCompoundingDialog() {
+
+        /*
+         * 1 = Annually
+         * 4 = Quarterly
+         * 12 = Monthly
+         */
 
         String[] frequencyNames = {"1", "4", "12"};
 
+
         final int[] frequencyValues = {1, 4, 12};
 
-        AlertDialog dialog = new AlertDialog.Builder(this).setTitle(R.string.compounding_frequency).setSingleChoiceItems(frequencyNames, getFrequencyPosition(), (dialogInterface, which) -> {
+
+        int selectedPosition = getFrequencyPosition();
+
+
+        AlertDialog dialog = new AlertDialog.Builder(this).setTitle(R.string.compounding_frequency).setSingleChoiceItems(frequencyNames, selectedPosition, (dialogInterface, which) -> {
 
             compoundingFrequency = frequencyValues[which];
 
@@ -218,24 +510,20 @@ public class FdCalculatorActivity extends AppCompatActivity {
             dialogInterface.dismiss();
         }).setNegativeButton(R.string.cancel, null).create();
 
+
         dialog.show();
     }
+
 
     private int getFrequencyPosition() {
 
         switch (compoundingFrequency) {
 
-            case 2:
+            case 4:
                 return 1;
 
-            case 4:
-                return 2;
-
             case 12:
-                return 3;
-
-            case 365:
-                return 4;
+                return 2;
 
             case 1:
             default:
@@ -243,17 +531,21 @@ public class FdCalculatorActivity extends AppCompatActivity {
         }
     }
 
+
     private void showDatePicker() {
 
         if (selectedDate == null) {
+
             selectedDate = Calendar.getInstance();
         }
+
 
         int year = selectedDate.get(Calendar.YEAR);
 
         int month = selectedDate.get(Calendar.MONTH);
 
         int day = selectedDate.get(Calendar.DAY_OF_MONTH);
+
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, (DatePicker view, int selectedYear, int selectedMonth, int selectedDay) -> {
 
@@ -266,8 +558,10 @@ public class FdCalculatorActivity extends AppCompatActivity {
             updateStartDateText();
         }, year, month, day);
 
+
         datePickerDialog.show();
     }
+
 
     private void updateStartDateText() {
 
@@ -277,11 +571,11 @@ public class FdCalculatorActivity extends AppCompatActivity {
         }
     }
 
+
     private boolean validateInputs() {
 
-        String amountText = etLoanAmount.getText().toString().trim();
+        String amountText = etLoanAmount.getText().toString().trim().replace(",", "");
 
-        amountText = amountText.replace(",", "");
 
         if (amountText.isEmpty()) {
 
@@ -292,7 +586,9 @@ public class FdCalculatorActivity extends AppCompatActivity {
             return false;
         }
 
+
         double amount;
+
 
         try {
 
@@ -307,6 +603,7 @@ public class FdCalculatorActivity extends AppCompatActivity {
             return false;
         }
 
+
         if (amount <= 0) {
 
             etLoanAmount.setError("Amount must be greater than 0");
@@ -319,6 +616,7 @@ public class FdCalculatorActivity extends AppCompatActivity {
 
         String interestText = etInterestRate.getText().toString().trim();
 
+
         if (interestText.isEmpty()) {
 
             etInterestRate.setError("Enter interest rate");
@@ -328,7 +626,9 @@ public class FdCalculatorActivity extends AppCompatActivity {
             return false;
         }
 
+
         double interestRate;
+
 
         try {
 
@@ -343,6 +643,7 @@ public class FdCalculatorActivity extends AppCompatActivity {
             return false;
         }
 
+
         if (interestRate < 0) {
 
             etInterestRate.setError("Interest rate cannot be negative");
@@ -351,6 +652,7 @@ public class FdCalculatorActivity extends AppCompatActivity {
 
             return false;
         }
+
 
         if (interestRate > 100) {
 
@@ -361,7 +663,9 @@ public class FdCalculatorActivity extends AppCompatActivity {
             return false;
         }
 
+
         String termText = tvLoanTerm.getText().toString().trim();
+
 
         if (termText.isEmpty()) {
 
@@ -372,7 +676,9 @@ public class FdCalculatorActivity extends AppCompatActivity {
             return false;
         }
 
+
         int term;
+
 
         try {
 
@@ -384,6 +690,7 @@ public class FdCalculatorActivity extends AppCompatActivity {
 
             return false;
         }
+
 
         if (term <= 0) {
 
@@ -412,6 +719,7 @@ public class FdCalculatorActivity extends AppCompatActivity {
             }
         }
 
+
         if (compoundingFrequency <= 0) {
 
             Toast.makeText(this, "Please select compounding frequency", Toast.LENGTH_SHORT).show();
@@ -419,8 +727,10 @@ public class FdCalculatorActivity extends AppCompatActivity {
             return false;
         }
 
+
         return true;
     }
+
 
     private void calculateFD() {
 
@@ -428,17 +738,24 @@ public class FdCalculatorActivity extends AppCompatActivity {
             return;
         }
 
+
         String amountText = etLoanAmount.getText().toString().trim().replace(",", "");
+
 
         double principal = Double.parseDouble(amountText);
 
+
         double annualRate = Double.parseDouble(etInterestRate.getText().toString().trim());
+
 
         int term = Integer.parseInt(tvLoanTerm.getText().toString().trim());
 
+
         int frequency = compoundingFrequency;
 
+
         double timeInYears;
+
 
         if (selectedLoanUnit.equalsIgnoreCase("Year")) {
 
@@ -449,9 +766,12 @@ public class FdCalculatorActivity extends AppCompatActivity {
             timeInYears = term / 12.0;
         }
 
+
         double rateDecimal = annualRate / 100.0;
 
+
         double maturityAmount;
+
 
         if (annualRate == 0) {
 
@@ -461,7 +781,9 @@ public class FdCalculatorActivity extends AppCompatActivity {
 
             double base = 1.0 + (rateDecimal / frequency);
 
+
             double exponent = frequency * timeInYears;
+
 
             maturityAmount = principal * Math.pow(base, exponent);
         }
@@ -469,62 +791,146 @@ public class FdCalculatorActivity extends AppCompatActivity {
 
         double totalInterest = maturityAmount - principal;
 
-        // Prevent tiny floating point negative values.
+
         if (totalInterest < 0 && totalInterest > -0.01) {
 
             totalInterest = 0;
         }
 
+
         Calendar maturityDate = calculateMaturityDate(selectedDate, term, selectedLoanUnit);
+
 
         String formattedPrincipal = formatCurrency(principal);
 
+
         String formattedInterest = formatCurrency(totalInterest);
+
 
         String formattedMaturity = formatCurrency(maturityAmount);
 
+
         String formattedStartDate = dateFormat.format(selectedDate.getTime());
+
 
         String formattedMaturityDate = dateFormat.format(maturityDate.getTime());
 
 
+        /*
+         * =====================================================
+         * SAVE FD CALCULATION TO HISTORY
+         * =====================================================
+         */
+
+        int totalMonths;
+
+        if (selectedLoanUnit.equalsIgnoreCase("Year")) {
+
+            totalMonths = term * 12;
+
+        } else {
+
+            totalMonths = term;
+        }
+
+
+        /*
+         * FD does not have EMI.
+         * Therefore monthlyEmi is saved as 0.
+         *
+         * totalInterest = FD interest
+         * totalPayment = maturity amount
+         */
+        loanHistoryManager.addHistory(
+
+                "Fixed Deposit",
+
+                formattedStartDate,
+
+                principal,
+
+                annualRate,
+
+                term,
+
+                selectedLoanUnit,
+
+                totalMonths,
+
+                0.0,
+
+                totalInterest,
+
+                maturityAmount,
+
+                formattedStartDate,
+
+                selectedCurrencyCode,
+
+                selectedCurrencySymbol,
+
+                R.drawable.fd_clc);
+
+
         Intent intent = new Intent(FdCalculatorActivity.this, FdCalculatorResultActivity.class);
 
-        // Principal
+
         intent.putExtra("investment_amount", principal);
 
-        // Interest rate
+
         intent.putExtra("interest_rate", annualRate);
 
-        // Term
+
         intent.putExtra("investment_term", term);
 
-        // Month / Year
+
         intent.putExtra("investment_term_unit", selectedLoanUnit);
 
-        // Compounding frequency
+
         intent.putExtra("compounding_frequency", frequency);
 
-        // Time in years
+
         intent.putExtra("time_in_years", timeInYears);
 
-        // Interest
+
         intent.putExtra("total_interest", totalInterest);
 
-        // Maturity amount
+
         intent.putExtra("maturity_amount", maturityAmount);
 
-        // Dates
+
         intent.putExtra("start_date", formattedStartDate);
+
 
         intent.putExtra("maturity_date", formattedMaturityDate);
 
-        // Optional formatted values
+
         intent.putExtra("formatted_principal", formattedPrincipal);
+
 
         intent.putExtra("formatted_interest", formattedInterest);
 
+
         intent.putExtra("formatted_maturity", formattedMaturity);
+
+
+        /*
+         * Currency information
+         */
+        intent.putExtra("currency_code", selectedCurrencyCode);
+
+
+        intent.putExtra("currency_country", selectedCurrencyCountry);
+
+
+        intent.putExtra("currency_symbol", selectedCurrencySymbol);
+
+
+        intent.putExtra("currency_flag", selectedCurrencyFlag);
+
+
+        intent.putExtra("loan_type", "Fixed Deposit");
+
 
         startActivity(intent);
     }
@@ -537,17 +943,23 @@ public class FdCalculatorActivity extends AppCompatActivity {
 
         int originalDay = result.get(Calendar.DAY_OF_MONTH);
 
+
         if (unit.equalsIgnoreCase("Year")) {
 
             int originalMonth = result.get(Calendar.MONTH);
 
+
             result.set(Calendar.DAY_OF_MONTH, 1);
+
 
             result.add(Calendar.YEAR, term);
 
+
             result.set(Calendar.MONTH, originalMonth);
 
+
             int maxDay = result.getActualMaximum(Calendar.DAY_OF_MONTH);
+
 
             result.set(Calendar.DAY_OF_MONTH, Math.min(originalDay, maxDay));
 
@@ -555,25 +967,34 @@ public class FdCalculatorActivity extends AppCompatActivity {
 
             result.set(Calendar.DAY_OF_MONTH, 1);
 
+
             result.add(Calendar.MONTH, term);
 
+
             int maxDay = result.getActualMaximum(Calendar.DAY_OF_MONTH);
+
 
             result.set(Calendar.DAY_OF_MONTH, Math.min(originalDay, maxDay));
         }
 
+
         return result;
     }
+
 
     private String formatCurrency(double amount) {
 
         NumberFormat formatter = NumberFormat.getNumberInstance(Locale.getDefault());
 
+
         formatter.setMinimumFractionDigits(2);
+
         formatter.setMaximumFractionDigits(2);
+
 
         return formatter.format(amount);
     }
+
 
     private void resetFields() {
 
@@ -583,22 +1004,31 @@ public class FdCalculatorActivity extends AppCompatActivity {
 
         tvLoanTerm.setText("");
 
+
         selectedLoanUnit = "Month";
 
         tvLoanUnit.setText("Month");
+
 
         compoundingFrequency = 1;
 
         etTimeInterest.setText("1");
 
+
         selectedDate = Calendar.getInstance();
 
         updateStartDateText();
 
+
+        setupDefaultCurrency();
+
+
         etLoanAmount.requestFocus();
+
 
         Toast.makeText(this, "Fields reset", Toast.LENGTH_SHORT).show();
     }
+
 
     private void setUpAd() {
 
@@ -607,39 +1037,22 @@ public class FdCalculatorActivity extends AppCompatActivity {
             return;
         }
 
+
         bannerAdView = new AdView(this);
+
 
         if (bannerAdView.getParent() != null) {
 
             ((ViewGroup) bannerAdView.getParent()).removeView(bannerAdView);
         }
 
+
         adContainer.addView(bannerAdView);
+
 
         AdsHelper.loadAdaptiveBanner(bannerAdView, this, getString(R.string.fd_loan_banner));
     }
 
-
-    private void setupDefaultCurrency() {
-
-        selectedCurrencyCode = "USD";
-        selectedCurrencyCountry = "United States";
-        selectedCurrencySymbol = "$";
-        selectedCurrencyFlag = R.drawable.icn_flagus;
-
-        updateCurrencyUI();
-    }
-
-    private void updateCurrencyUI() {
-
-        if (tvCurrencyCode != null) {
-            tvCurrencyCode.setText(selectedCurrencyCode);
-        }
-
-        if (ivCurrencyFlag != null) {
-            ivCurrencyFlag.setImageResource(selectedCurrencyFlag);
-        }
-    }
 
     @Override
     protected void onResume() {
@@ -649,6 +1062,7 @@ public class FdCalculatorActivity extends AppCompatActivity {
         Util.hide(this);
     }
 
+
     @Override
     protected void onDestroy() {
 
@@ -656,15 +1070,18 @@ public class FdCalculatorActivity extends AppCompatActivity {
 
             ViewGroup parent = (ViewGroup) bannerAdView.getParent();
 
+
             if (parent != null) {
 
                 parent.removeView(bannerAdView);
             }
 
+
             bannerAdView.destroy();
 
             bannerAdView = null;
         }
+
 
         super.onDestroy();
     }

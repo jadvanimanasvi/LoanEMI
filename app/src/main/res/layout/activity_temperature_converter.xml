@@ -24,7 +24,7 @@
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
             android:src="@drawable/back_ic"
-            app:tint="@color/header_blue_dark" />
+            app:tint="@color/history_txt" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -32,7 +32,7 @@
             android:layout_gravity="center"
             android:layout_marginStart="12dp"
             android:text="@string/temperature_converter"
-            android:textColor="@color/header_blue_dark"
+            android:textColor="@color/history_txt"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -77,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Celsius"
-                    android:textColor="@color/header_blue_light"
+                    android:textColor="@color/length_txt"
                     android:textSize="21sp"
                     android:textStyle="bold" />
 
@@ -209,7 +209,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Fahrenheit"
-                    android:textColor="@color/header_blue_light"
+                    android:textColor="@color/length_txt"
                     android:textSize="21sp"
                     android:textStyle="bold" />
 
@@ -295,14 +295,15 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/reset_ic" />
+                    android:src="@drawable/reset_ic"
+                    app:tint="@color/reset_txt" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:text="@string/reset_fields"
-                    android:textColor="@color/header_blue_light"
+                    android:textColor="@color/reset_txt"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 

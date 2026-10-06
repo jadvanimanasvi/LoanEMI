@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/cash_card"/>
-    <corners android:radius="16dp"/>
+    <solid android:color="@color/tools_icon_bg_blue"/>
+    <corners android:radius="10dp"/>
 </shape>

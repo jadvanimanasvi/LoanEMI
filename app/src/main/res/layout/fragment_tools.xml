@@ -55,7 +55,7 @@
             android:layout_height="@dimen/_65sdp"
             android:layout_alignParentEnd="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/toolbar_img" />
+            android:src="@drawable/setting_toolbar_img" />
 
     </RelativeLayout>
 
@@ -204,7 +204,7 @@
                     <FrameLayout
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:background="@drawable/bg_circle_blue">
+                        android:background="@drawable/tools_blue_bg">
 
                         <ImageView
                             android:layout_width="30dp"
@@ -504,7 +504,7 @@
                     <FrameLayout
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:background="@drawable/bg_circle_blue">
+                        android:background="@drawable/tools_blue_bg">
 
                         <ImageView
                             android:layout_width="30dp"

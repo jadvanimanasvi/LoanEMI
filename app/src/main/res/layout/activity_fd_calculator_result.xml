@@ -25,7 +25,7 @@
             android:layout_marginStart="12dp"
             android:padding="9dp"
             android:src="@drawable/back_ic"
-            app:tint="@color/header_blue_dark" />
+            app:tint="@color/history_txt" />
 
         <TextView
             android:id="@+id/tvTitle"
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/fix_deposite_result"
-            android:textColor="@color/header_blue_dark"
+            android:textColor="@color/history_txt"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -46,7 +46,7 @@
             android:layout_marginEnd="12dp"
             android:padding="9dp"
             android:src="@drawable/result_home_ic"
-            app:tint="@color/header_blue_dark" />
+            app:tint="@color/history_txt" />
 
     </RelativeLayout>
 
@@ -59,7 +59,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:text="@string/loan_information"
-        android:textColor="@color/header_blue_dark"
+        android:textColor="@color/history_txt"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -196,7 +196,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="14dp"
         android:text="@string/result_after_calculation"
-        android:textColor="@color/header_blue_dark"
+        android:textColor="@color/history_txt"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"

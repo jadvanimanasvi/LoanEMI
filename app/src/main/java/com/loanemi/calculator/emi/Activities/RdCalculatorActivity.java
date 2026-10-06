@@ -15,11 +15,14 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import com.loanemi.calculator.emi.R;
+
 import com.google.android.libraries.ads.mobile.sdk.banner.AdView;
 import com.loanemi.calculator.emi.Ads.AdsHelper;
+import com.loanemi.calculator.emi.R;
+import com.loanemi.calculator.emi.utils.LoanHistoryManager;
 import com.loanemi.calculator.emi.utils.Util;
 
 import java.text.DecimalFormat;
@@ -29,10 +32,6 @@ import java.util.Locale;
 
 public class RdCalculatorActivity extends AppCompatActivity {
 
-    // ============================================================
-    // Views
-    // ============================================================
-
     private EditText etLoanAmount;
     private EditText etInterestRate;
     private EditText etTimeInterest;
@@ -40,8 +39,8 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
     private TextView tvLoanUnit;
     private TextView tvStartDate;
-
     private TextView tvCurrencyCode;
+
     private ImageView ivCurrencyFlag;
 
     private LinearLayout currencySelector;
@@ -51,27 +50,25 @@ public class RdCalculatorActivity extends AppCompatActivity {
     private FrameLayout bannerContainer;
     private AdView bannerAdView;
 
-    // ============================================================
-    // Values
-    // ============================================================
-
     private Calendar selectedDate;
 
     private String selectedCurrencyCode = "USD";
     private String selectedCurrencyCountry = "United States";
+    private String selectedCurrencySymbol = "$";
+
+    private int selectedCurrencyFlag = R.drawable.icn_flagus;
 
     private String selectedLoanUnit = "Months";
     private String selectedCompounding = "Monthly";
 
-    // ============================================================
-    // Currency request
-    // ============================================================
-
     public static final int REQUEST_CURRENCY = 1001;
 
-    // ============================================================
-    // onCreate
-    // ============================================================
+    // =========================================================
+    // HISTORY MANAGER
+    // =========================================================
+
+    private LoanHistoryManager loanHistoryManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +79,12 @@ public class RdCalculatorActivity extends AppCompatActivity {
         setupEdgeToEdge(this, R.id.main);
 
         initViews();
+
+        // =====================================================
+        // INITIALIZE HISTORY MANAGER
+        // =====================================================
+
+        loanHistoryManager = new LoanHistoryManager(this);
 
         setupDefaultValues();
 
@@ -100,123 +103,165 @@ public class RdCalculatorActivity extends AppCompatActivity {
         setUpAd();
     }
 
-    // ============================================================
-    // Initialize views
-    // ============================================================
+
+    // =========================================================
+    // INIT VIEWS
+    // =========================================================
 
     private void initViews() {
 
         etLoanAmount = findViewById(R.id.etLoanAmount);
+
         etInterestRate = findViewById(R.id.etInterestRate);
+
         etTimeInterest = findViewById(R.id.etTimeInterest);
 
         tvLoanTerm = findViewById(R.id.tvLoanTerm);
+
         tvLoanUnit = findViewById(R.id.tvLoanUnit);
+
         tvStartDate = findViewById(R.id.tvStartDate);
 
         tvCurrencyCode = findViewById(R.id.tvCurrencyCode);
+
         ivCurrencyFlag = findViewById(R.id.ivCurrencyFlag);
 
         currencySelector = findViewById(R.id.currencySelector);
 
         btnReset = findViewById(R.id.btnReset);
+
         btnCalculate = findViewById(R.id.btnCalculate);
 
         bannerContainer = findViewById(R.id.bannerContainer);
     }
 
-    // ============================================================
-    // Default values
-    // ============================================================
+
+    // =========================================================
+    // DEFAULT VALUES
+    // =========================================================
 
     private void setupDefaultValues() {
 
-        // --------------------------------------------------------
-        // Currency
-        // --------------------------------------------------------
-
         selectedCurrencyCode = "USD";
+
         selectedCurrencyCountry = "United States";
 
-        tvCurrencyCode.setText(selectedCurrencyCode);
+        selectedCurrencySymbol = "$";
 
-        setCurrencyFlag(selectedCurrencyCode);
+        selectedCurrencyFlag = R.drawable.icn_flagus;
+
+        updateCurrencyUI();
+
 
         selectedLoanUnit = "Months";
 
         tvLoanUnit.setText(selectedLoanUnit);
 
-        // --------------------------------------------------------
-        // Compounding
-        // --------------------------------------------------------
 
         selectedCompounding = "Monthly";
 
         etTimeInterest.setText(selectedCompounding);
 
         etTimeInterest.setFocusable(false);
+
         etTimeInterest.setFocusableInTouchMode(false);
+
         etTimeInterest.setClickable(true);
 
-        // --------------------------------------------------------
-        // Date
-        // --------------------------------------------------------
 
         selectedDate = Calendar.getInstance();
 
         updateStartDateText();
     }
 
-    // ============================================================
-    // Amount formatting
-    // ============================================================
+
+    // =========================================================
+    // CURRENCY UI
+    // =========================================================
+
+    private void updateCurrencyUI() {
+
+        if (tvCurrencyCode != null) {
+
+            tvCurrencyCode.setText(selectedCurrencyCode);
+        }
+
+
+        if (ivCurrencyFlag != null) {
+
+            ivCurrencyFlag.setImageResource(selectedCurrencyFlag);
+        }
+    }
+
+
+    // =========================================================
+    // AMOUNT FORMATTING
+    // =========================================================
 
     private void setupAmountFormatting() {
+
+        if (etLoanAmount == null) {
+
+            return;
+        }
+
 
         etLoanAmount.addTextChangedListener(new TextWatcher() {
 
             private boolean isFormatting = false;
+
 
             @Override
             public void beforeTextChanged(
                     CharSequence s,
                     int start,
                     int count,
-                    int after) {
+                    int after
+            ) {
             }
+
 
             @Override
             public void onTextChanged(
                     CharSequence s,
                     int start,
                     int before,
-                    int count) {
+                    int count
+            ) {
             }
+
 
             @Override
             public void afterTextChanged(Editable editable) {
 
                 if (isFormatting) {
+
                     return;
                 }
+
 
                 String value = editable.toString();
 
+
                 if (value.isEmpty()) {
+
                     return;
                 }
 
-                // Remove commas
-                String cleanValue = value.replace(",", "");
 
-                // Keep only numbers and decimal point
-                cleanValue = cleanValue.replaceAll(
-                        "[^0-9.]",
-                        ""
-                );
+                String cleanValue = value
+                        .replace(",", "")
+                        .replaceAll("[^0-9.]", "");
 
-                // Prevent multiple decimal points
+
+                if (cleanValue.isEmpty()) {
+
+                    return;
+                }
+
+
                 int firstDot = cleanValue.indexOf('.');
+
 
                 if (firstDot >= 0) {
 
@@ -224,25 +269,27 @@ public class RdCalculatorActivity extends AppCompatActivity {
                             cleanValue.substring(0, firstDot);
 
                     String afterDot =
-                            cleanValue.substring(firstDot + 1)
+                            cleanValue
+                                    .substring(firstDot + 1)
                                     .replace(".", "");
 
                     cleanValue =
                             beforeDot + "." + afterDot;
                 }
 
-                if (cleanValue.isEmpty()) {
+
+                if (cleanValue.equals(".")) {
+
                     return;
                 }
 
-                if (cleanValue.equals(".")) {
-                    return;
-                }
 
                 try {
 
                     String integerPart;
+
                     String decimalPart = null;
+
 
                     if (cleanValue.contains(".")) {
 
@@ -251,50 +298,62 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
                         integerPart = parts[0];
 
-                        decimalPart = parts.length > 1
-                                ? parts[1]
-                                : "";
+                        decimalPart =
+                                parts.length > 1
+                                        ? parts[1]
+                                        : "";
 
                     } else {
 
                         integerPart = cleanValue;
                     }
 
+
                     if (integerPart.isEmpty()) {
+
                         integerPart = "0";
                     }
 
-                    // Remove unnecessary leading zeros
+
                     integerPart =
                             integerPart.replaceFirst(
                                     "^0+(?!$)",
                                     ""
                             );
 
+
                     DecimalFormat formatter =
                             new DecimalFormat("#,##0");
+
 
                     long integerValue =
                             Long.parseLong(integerPart);
 
+
                     String formatted =
                             formatter.format(integerValue);
+
 
                     if (decimalPart != null) {
 
                         formatted += "." + decimalPart;
                     }
 
+
                     if (!formatted.equals(value)) {
 
                         isFormatting = true;
 
+
                         int oldCursor =
                                 etLoanAmount.getSelectionStart();
 
+
                         if (oldCursor < 0) {
+
                             oldCursor = value.length();
                         }
+
 
                         int commasBefore =
                                 countCommas(
@@ -307,22 +366,33 @@ public class RdCalculatorActivity extends AppCompatActivity {
                                         )
                                 );
 
+
                         etLoanAmount.setText(formatted);
+
+
+                        int cursorWithoutFormatting =
+                                Math.min(
+                                        oldCursor,
+                                        formatted.length()
+                                );
+
 
                         int commasAfter =
                                 countCommas(
                                         formatted.substring(
                                                 0,
                                                 Math.min(
-                                                        oldCursor + 3,
+                                                        cursorWithoutFormatting,
                                                         formatted.length()
                                                 )
                                         )
                                 );
 
+
                         int newCursor =
-                                oldCursor +
-                                        (commasAfter - commasBefore);
+                                oldCursor
+                                        + (commasAfter - commasBefore);
+
 
                         newCursor =
                                 Math.max(
@@ -333,7 +403,9 @@ public class RdCalculatorActivity extends AppCompatActivity {
                                         )
                                 );
 
+
                         etLoanAmount.setSelection(newCursor);
+
 
                         isFormatting = false;
                     }
@@ -344,23 +416,28 @@ public class RdCalculatorActivity extends AppCompatActivity {
         });
     }
 
+
     private int countCommas(String value) {
 
         int count = 0;
 
+
         for (int i = 0; i < value.length(); i++) {
 
             if (value.charAt(i) == ',') {
+
                 count++;
             }
         }
 
+
         return count;
     }
 
-    // ============================================================
-    // Get investment amount
-    // ============================================================
+
+    // =========================================================
+    // GET INVESTMENT AMOUNT
+    // =========================================================
 
     private double getInvestmentAmount() {
 
@@ -371,22 +448,35 @@ public class RdCalculatorActivity extends AppCompatActivity {
                         .replace(",", "")
                         .trim();
 
+
         if (value.isEmpty()) {
+
             return 0;
         }
 
+
         try {
+
             return Double.parseDouble(value);
+
         } catch (Exception e) {
+
             return 0;
         }
     }
 
-    // ============================================================
-    // Currency selector
-    // ============================================================
+
+    // =========================================================
+    // CURRENCY SELECTOR
+    // =========================================================
 
     private void setupCurrencySelector() {
+
+        if (currencySelector == null) {
+
+            return;
+        }
+
 
         currencySelector.setOnClickListener(v -> {
 
@@ -396,20 +486,18 @@ public class RdCalculatorActivity extends AppCompatActivity {
                             CurrencyUnitActivity.class
                     );
 
+
             intent.putExtra(
                     CurrencyUnitActivity.EXTRA_CURRENT_CODE,
                     selectedCurrencyCode
             );
 
-            intent.putExtra(
-                    CurrencyUnitActivity.EXTRA_SELECTED_CODE,
-                    selectedCurrencyCode
-            );
 
             intent.putExtra(
                     CurrencyUnitActivity.EXTRA_CURRENCY_SELECT_TYPE,
-                    "CURRENCY"
+                    "RD"
             );
+
 
             startActivityForResult(
                     intent,
@@ -418,15 +506,13 @@ public class RdCalculatorActivity extends AppCompatActivity {
         });
     }
 
-    // ============================================================
-    // Currency result
-    // ============================================================
 
     @Override
     protected void onActivityResult(
             int requestCode,
             int resultCode,
-            Intent data) {
+            Intent data
+    ) {
 
         super.onActivityResult(
                 requestCode,
@@ -434,33 +520,35 @@ public class RdCalculatorActivity extends AppCompatActivity {
                 data
         );
 
-        if (requestCode != REQUEST_CURRENCY) {
+
+        if (
+                requestCode != REQUEST_CURRENCY
+                        || resultCode != RESULT_OK
+                        || data == null
+        ) {
+
             return;
         }
 
-        if (resultCode != RESULT_OK || data == null) {
-            return;
-        }
 
         String code =
                 data.getStringExtra(
                         CurrencyUnitActivity.EXTRA_SELECTED_CODE
                 );
 
+
         if (code != null && !code.trim().isEmpty()) {
 
             selectedCurrencyCode =
                     code.trim().toUpperCase(Locale.US);
-
-            tvCurrencyCode.setText(
-                    selectedCurrencyCode
-            );
         }
+
 
         String country =
                 data.getStringExtra(
                         CurrencyUnitActivity.EXTRA_SELECTED_COUNTRY
                 );
+
 
         if (country != null && !country.trim().isEmpty()) {
 
@@ -468,120 +556,217 @@ public class RdCalculatorActivity extends AppCompatActivity {
                     country.trim();
         }
 
-        int selectedFlag =
+
+        int flag =
                 data.getIntExtra(
                         CurrencyUnitActivity.EXTRA_SELECTED_FLAG,
                         0
                 );
 
-        if (selectedFlag != 0) {
 
-            ivCurrencyFlag.setImageResource(
-                    selectedFlag
-            );
+        if (flag != 0) {
+
+            selectedCurrencyFlag = flag;
 
         } else {
 
-            setCurrencyFlag(
-                    selectedCurrencyCode
-            );
+            setCurrencyFlag(selectedCurrencyCode);
         }
+
+
+        selectedCurrencySymbol =
+                getCurrencySymbol(
+                        selectedCurrencyCode
+                );
+
+
+        updateCurrencyUI();
     }
 
-    // ============================================================
-    // Currency flag
-    // ============================================================
+
+    // =========================================================
+    // CURRENCY FLAG
+    // =========================================================
 
     private void setCurrencyFlag(String code) {
 
         if (code == null) {
+
             code = "USD";
         }
+
 
         switch (code.toUpperCase(Locale.US)) {
 
             case "USD":
-                ivCurrencyFlag.setImageResource(
-                        R.drawable.icn_flagus
-                );
+
+                selectedCurrencyFlag =
+                        R.drawable.icn_flagus;
+
                 break;
+
 
             case "GBP":
-                ivCurrencyFlag.setImageResource(
-                        R.drawable.icn_flagengland
-                );
+
+                selectedCurrencyFlag =
+                        R.drawable.icn_flagengland;
+
                 break;
+
 
             case "CNY":
-                ivCurrencyFlag.setImageResource(
-                        R.drawable.icn_flagchinese
-                );
+
+                selectedCurrencyFlag =
+                        R.drawable.icn_flagchinese;
+
                 break;
+
 
             case "INR":
-                ivCurrencyFlag.setImageResource(
-                        R.drawable.icn_flaghindi
-                );
+
+                selectedCurrencyFlag =
+                        R.drawable.icn_flaghindi;
+
                 break;
+
 
             case "VND":
-                ivCurrencyFlag.setImageResource(
-                        R.drawable.icn_flagvietnamese
-                );
+
+                selectedCurrencyFlag =
+                        R.drawable.icn_flagvietnamese;
+
                 break;
+
 
             case "THB":
-                ivCurrencyFlag.setImageResource(
-                        R.drawable.icn_flagthailand
-                );
+
+                selectedCurrencyFlag =
+                        R.drawable.icn_flagthailand;
+
                 break;
+
 
             case "IDR":
-                ivCurrencyFlag.setImageResource(
-                        R.drawable.icn_flagindonesia
-                );
+
+                selectedCurrencyFlag =
+                        R.drawable.icn_flagindonesia;
+
                 break;
 
+
             default:
-                ivCurrencyFlag.setImageResource(
-                        R.drawable.icn_flagus
-                );
+
+                selectedCurrencyFlag =
+                        R.drawable.icn_flagus;
+
                 break;
         }
     }
 
-    // ============================================================
-    // RD term selector
-    // ============================================================
+
+    // =========================================================
+    // CURRENCY SYMBOL
+    // =========================================================
+
+    private String getCurrencySymbol(String code) {
+
+        if (code == null) {
+
+            return "$";
+        }
+
+
+        switch (code.toUpperCase(Locale.US)) {
+
+            case "GBP":
+                return "£";
+
+            case "USD":
+                return "$";
+
+            case "CNY":
+                return "¥";
+
+            case "INR":
+                return "₹";
+
+            case "VND":
+                return "₫";
+
+            case "THB":
+                return "฿";
+
+            case "IDR":
+                return "Rp";
+
+            case "AUD":
+                return "A$";
+
+            case "CAD":
+                return "C$";
+
+            case "EUR":
+                return "€";
+
+            case "JPY":
+                return "¥";
+
+            case "KRW":
+                return "₩";
+
+            case "SGD":
+                return "S$";
+
+            case "MYR":
+                return "RM";
+
+            default:
+                return "$";
+        }
+    }
+
+
+    // =========================================================
+    // LOAN TERM SELECTOR
+    // =========================================================
 
     private void setupLoanUnitSelector() {
+
+        if (tvLoanUnit == null) {
+
+            return;
+        }
+
 
         View unitLayout =
                 (View) tvLoanUnit.getParent();
 
+
         if (unitLayout != null) {
 
-            unitLayout.setOnClickListener(v ->
-                    showLoanUnitDialog()
+            unitLayout.setOnClickListener(
+                    v -> showLoanUnitDialog()
             );
         }
 
-        tvLoanUnit.setOnClickListener(v ->
-                showLoanUnitDialog()
+
+        tvLoanUnit.setOnClickListener(
+                v -> showLoanUnitDialog()
         );
     }
 
+
     private void showLoanUnitDialog() {
 
-        final String[] units = {
-                "Months",
-                "Years"
-        };
+        final String[] units =
+                {"Months", "Years"};
+
 
         int selectedIndex =
                 selectedLoanUnit.equalsIgnoreCase("Years")
                         ? 1
                         : 0;
+
 
         new AlertDialog.Builder(this)
                 .setTitle("Select RD Term Unit")
@@ -603,9 +788,10 @@ public class RdCalculatorActivity extends AppCompatActivity {
                 .show();
     }
 
-    // ============================================================
-    // Total months
-    // ============================================================
+
+    // =========================================================
+    // TOTAL MONTHS
+    // =========================================================
 
     private int getTotalMonths() {
 
@@ -615,11 +801,15 @@ public class RdCalculatorActivity extends AppCompatActivity {
                         .toString()
                         .trim();
 
+
         if (termText.isEmpty()) {
+
             return 0;
         }
 
+
         int term;
+
 
         try {
 
@@ -631,73 +821,100 @@ public class RdCalculatorActivity extends AppCompatActivity {
             return 0;
         }
 
+
         if (term <= 0) {
+
             return 0;
         }
 
-        if (selectedLoanUnit.equalsIgnoreCase("Years")) {
+
+        if (
+                selectedLoanUnit
+                        .equalsIgnoreCase("Years")
+        ) {
 
             if (term > 50) {
+
                 return 0;
             }
+
 
             return term * 12;
         }
 
+
         if (term > 600) {
+
             return 0;
         }
+
 
         return term;
     }
 
-    // ============================================================
-    // Compounding selector
-    // ============================================================
+
+    // =========================================================
+    // COMPOUNDING
+    // =========================================================
 
     private void setupCompoundingSelector() {
 
+        if (etTimeInterest == null) {
+
+            return;
+        }
+
+
         etTimeInterest.setFocusable(false);
+
         etTimeInterest.setFocusableInTouchMode(false);
+
         etTimeInterest.setClickable(true);
 
-        etTimeInterest.setOnClickListener(v ->
-                showCompoundingDialog()
+
+        etTimeInterest.setOnClickListener(
+                v -> showCompoundingDialog()
         );
+
 
         View parent =
                 (View) etTimeInterest.getParent();
 
+
         if (parent != null) {
 
-            parent.setOnClickListener(v ->
-                    showCompoundingDialog()
+            parent.setOnClickListener(
+                    v -> showCompoundingDialog()
             );
         }
     }
+
 
     private void showCompoundingDialog() {
 
         final String[] frequencyNames = {
                 "Annually",
-                "Half-Yearly",
                 "Quarterly",
-                "Monthly",
-                "Daily"
+                "Monthly"
         };
 
-        int selectedIndex = 3;
+
+        int selectedIndex = 2;
+
 
         for (int i = 0; i < frequencyNames.length; i++) {
 
-            if (frequencyNames[i].equals(
-                    selectedCompounding
-            )) {
+            if (
+                    frequencyNames[i]
+                            .equals(selectedCompounding)
+            ) {
 
                 selectedIndex = i;
+
                 break;
             }
         }
+
 
         new AlertDialog.Builder(this)
                 .setTitle("Compounding Frequency")
@@ -719,26 +936,36 @@ public class RdCalculatorActivity extends AppCompatActivity {
                 .show();
     }
 
-    // ============================================================
-    // Date selector
-    // ============================================================
+
+    // =========================================================
+    // START DATE
+    // =========================================================
 
     private void setupStartDateSelector() {
+
+        if (tvStartDate == null) {
+
+            return;
+        }
+
 
         View parent =
                 (View) tvStartDate.getParent();
 
+
         if (parent != null) {
 
-            parent.setOnClickListener(v ->
-                    showDatePicker()
+            parent.setOnClickListener(
+                    v -> showDatePicker()
             );
         }
 
-        tvStartDate.setOnClickListener(v ->
-                showDatePicker()
+
+        tvStartDate.setOnClickListener(
+                v -> showDatePicker()
         );
     }
+
 
     private void showDatePicker() {
 
@@ -747,31 +974,38 @@ public class RdCalculatorActivity extends AppCompatActivity {
                         ? selectedDate
                         : Calendar.getInstance();
 
+
         DatePickerDialog datePickerDialog =
                 new DatePickerDialog(
                         this,
-                        (DatePicker view,
-                         int year,
-                         int month,
-                         int dayOfMonth) -> {
+                        (
+                                DatePicker view,
+                                int year,
+                                int month,
+                                int dayOfMonth
+                        ) -> {
 
                             selectedDate =
                                     Calendar.getInstance();
+
 
                             selectedDate.set(
                                     Calendar.YEAR,
                                     year
                             );
 
+
                             selectedDate.set(
                                     Calendar.MONTH,
                                     month
                             );
 
+
                             selectedDate.set(
                                     Calendar.DAY_OF_MONTH,
                                     dayOfMonth
                             );
+
 
                             updateStartDateText();
                         },
@@ -786,20 +1020,28 @@ public class RdCalculatorActivity extends AppCompatActivity {
                         )
                 );
 
+
         datePickerDialog.show();
     }
 
+
     private void updateStartDateText() {
 
-        if (selectedDate == null) {
+        if (
+                selectedDate == null
+                        || tvStartDate == null
+        ) {
+
             return;
         }
+
 
         SimpleDateFormat dateFormat =
                 new SimpleDateFormat(
                         "dd/MM/yyyy",
                         Locale.getDefault()
                 );
+
 
         tvStartDate.setText(
                 dateFormat.format(
@@ -808,63 +1050,86 @@ public class RdCalculatorActivity extends AppCompatActivity {
         );
     }
 
-    // ============================================================
-    // Buttons
-    // ============================================================
+
+    // =========================================================
+    // BUTTONS
+    // =========================================================
 
     private void setupButtons() {
 
-        btnReset.setOnClickListener(v ->
-                resetFields()
-        );
+        if (btnReset != null) {
 
-        btnCalculate.setOnClickListener(v ->
-                calculateRD()
-        );
+            btnReset.setOnClickListener(
+                    v -> resetFields()
+            );
+        }
+
+
+        if (btnCalculate != null) {
+
+            btnCalculate.setOnClickListener(
+                    v -> calculateRD()
+            );
+        }
     }
 
-    // ============================================================
-    // Reset
-    // ============================================================
+
+    // =========================================================
+    // RESET
+    // =========================================================
 
     private void resetFields() {
 
         etLoanAmount.setText("");
+
         etInterestRate.setText("");
 
+        tvLoanTerm.setText("");
+
+
         selectedLoanUnit = "Months";
+
         tvLoanUnit.setText("Months");
 
+
         selectedCompounding = "Monthly";
+
         etTimeInterest.setText("Monthly");
 
+
         selectedCurrencyCode = "USD";
+
         selectedCurrencyCountry = "United States";
 
-        tvCurrencyCode.setText("USD");
+        selectedCurrencySymbol = "$";
 
-        setCurrencyFlag("USD");
+        selectedCurrencyFlag =
+                R.drawable.icn_flagus;
+
+
+        updateCurrencyUI();
+
 
         selectedDate =
                 Calendar.getInstance();
 
+
         updateStartDateText();
+
 
         etLoanAmount.requestFocus();
     }
 
-    // ============================================================
-    // Calculate RD
-    // ============================================================
+
+    // =========================================================
+    // CALCULATE RD
+    // =========================================================
 
     private void calculateRD() {
 
-        // --------------------------------------------------------
-        // Monthly investment
-        // --------------------------------------------------------
-
         double monthlyDeposit =
                 getInvestmentAmount();
+
 
         if (monthlyDeposit <= 0) {
 
@@ -877,15 +1142,13 @@ public class RdCalculatorActivity extends AppCompatActivity {
             return;
         }
 
-        // --------------------------------------------------------
-        // Interest rate
-        // --------------------------------------------------------
 
         String interestText =
                 etInterestRate
                         .getText()
                         .toString()
                         .trim();
+
 
         if (interestText.isEmpty()) {
 
@@ -898,7 +1161,9 @@ public class RdCalculatorActivity extends AppCompatActivity {
             return;
         }
 
+
         double annualRate;
+
 
         try {
 
@@ -918,8 +1183,8 @@ public class RdCalculatorActivity extends AppCompatActivity {
             return;
         }
 
-        if (annualRate < 0 ||
-                annualRate > 100) {
+
+        if (annualRate < 0 || annualRate > 100) {
 
             etInterestRate.setError(
                     "Interest rate must be between 0 and 100"
@@ -930,15 +1195,13 @@ public class RdCalculatorActivity extends AppCompatActivity {
             return;
         }
 
-        // --------------------------------------------------------
-        // Term
-        // --------------------------------------------------------
 
         String termText =
                 tvLoanTerm
                         .getText()
                         .toString()
                         .trim();
+
 
         if (termText.isEmpty()) {
 
@@ -951,7 +1214,9 @@ public class RdCalculatorActivity extends AppCompatActivity {
             return;
         }
 
+
         int enteredTerm;
+
 
         try {
 
@@ -969,6 +1234,7 @@ public class RdCalculatorActivity extends AppCompatActivity {
             return;
         }
 
+
         if (enteredTerm <= 0) {
 
             tvLoanTerm.setError(
@@ -980,8 +1246,12 @@ public class RdCalculatorActivity extends AppCompatActivity {
             return;
         }
 
-        if (selectedLoanUnit.equalsIgnoreCase("Years")
-                && enteredTerm > 50) {
+
+        if (
+                selectedLoanUnit
+                        .equalsIgnoreCase("Years")
+                        && enteredTerm > 50
+        ) {
 
             tvLoanTerm.setError(
                     "Maximum RD term is 50 years"
@@ -992,8 +1262,12 @@ public class RdCalculatorActivity extends AppCompatActivity {
             return;
         }
 
-        if (selectedLoanUnit.equalsIgnoreCase("Months")
-                && enteredTerm > 600) {
+
+        if (
+                selectedLoanUnit
+                        .equalsIgnoreCase("Months")
+                        && enteredTerm > 600
+        ) {
 
             tvLoanTerm.setError(
                     "Maximum RD term is 600 months"
@@ -1004,8 +1278,10 @@ public class RdCalculatorActivity extends AppCompatActivity {
             return;
         }
 
+
         int totalMonths =
                 getTotalMonths();
+
 
         if (totalMonths <= 0) {
 
@@ -1018,9 +1294,10 @@ public class RdCalculatorActivity extends AppCompatActivity {
             return;
         }
 
-        // --------------------------------------------------------
-        // Calculate maturity
-        // --------------------------------------------------------
+
+        // =====================================================
+        // CALCULATE RD
+        // =====================================================
 
         double maturityValue =
                 calculateRDMaturity(
@@ -1030,20 +1307,55 @@ public class RdCalculatorActivity extends AppCompatActivity {
                         selectedCompounding
                 );
 
+
         double totalInvestment =
                 monthlyDeposit * totalMonths;
 
-        double totalInterest =
-                maturityValue -
-                        totalInvestment;
 
-        if (totalInterest < 0) {
+        double totalInterest =
+                maturityValue - totalInvestment;
+
+
+        if (
+                totalInterest < 0
+                        && totalInterest > -0.01
+        ) {
+
             totalInterest = 0;
         }
 
-        // --------------------------------------------------------
-        // Open result
-        // --------------------------------------------------------
+
+        if (totalInterest < 0) {
+
+            totalInterest = 0;
+        }
+
+
+        String startDate =
+                tvStartDate != null
+                        ? tvStartDate.getText().toString()
+                        : "";
+
+
+        // =====================================================
+        // SAVE TO HISTORY
+        // =====================================================
+
+        saveRDHistory(
+                monthlyDeposit,
+                annualRate,
+                enteredTerm,
+                selectedLoanUnit,
+                totalMonths,
+                totalInterest,
+                maturityValue,
+                startDate
+        );
+
+
+        // =====================================================
+        // OPEN RESULT
+        // =====================================================
 
         Intent intent =
                 new Intent(
@@ -1051,181 +1363,358 @@ public class RdCalculatorActivity extends AppCompatActivity {
                         RdCalculatorResultActivity.class
                 );
 
+
         intent.putExtra(
                 "monthly_deposit",
                 monthlyDeposit
         );
+
+
+        intent.putExtra(
+                "investment_amount",
+                monthlyDeposit
+        );
+
 
         intent.putExtra(
                 "interest_rate",
                 annualRate
         );
 
+
         intent.putExtra(
                 "loan_term",
-                termText
+                enteredTerm
         );
+
+
+        intent.putExtra(
+                "investment_term",
+                enteredTerm
+        );
+
 
         intent.putExtra(
                 "loan_term_unit",
                 selectedLoanUnit
         );
 
+
+        intent.putExtra(
+                "investment_term_unit",
+                selectedLoanUnit
+        );
+
+
         intent.putExtra(
                 "total_months",
                 totalMonths
         );
+
 
         intent.putExtra(
                 "compounding",
                 selectedCompounding
         );
 
+
+        intent.putExtra(
+                "compounding_frequency",
+                getCompoundingFrequency(
+                        selectedCompounding
+                )
+        );
+
+
         intent.putExtra(
                 "start_date",
-                tvStartDate.getText().toString()
+                startDate
         );
+
 
         intent.putExtra(
                 "total_investment",
                 totalInvestment
         );
 
+
         intent.putExtra(
                 "total_interest",
                 totalInterest
         );
+
 
         intent.putExtra(
                 "maturity_value",
                 maturityValue
         );
 
+
         intent.putExtra(
                 "currency_code",
                 selectedCurrencyCode
         );
+
 
         intent.putExtra(
                 "currency_country",
                 selectedCurrencyCountry
         );
 
+
+        intent.putExtra(
+                "currency_name",
+                selectedCurrencyCountry
+        );
+
+
+        intent.putExtra(
+                "currency_symbol",
+                selectedCurrencySymbol
+        );
+
+
+        intent.putExtra(
+                "currency_flag",
+                selectedCurrencyFlag
+        );
+
+
+        intent.putExtra(
+                "loan_type",
+                "Recurring Deposit"
+        );
+
+
         startActivity(intent);
     }
 
-    // ============================================================
-    // RD maturity calculation
-    // ============================================================
+
+    // =========================================================
+    // SAVE RD HISTORY
+    // =========================================================
+
+    private void saveRDHistory(
+            double monthlyDeposit,
+            double annualRate,
+            int enteredTerm,
+            String termUnit,
+            int totalMonths,
+            double totalInterest,
+            double maturityValue,
+            String startDate
+    ) {
+
+        if (loanHistoryManager == null) {
+
+            loanHistoryManager =
+                    new LoanHistoryManager(this);
+        }
+
+
+        // Current date for history item.
+        SimpleDateFormat historyDateFormat =
+                new SimpleDateFormat(
+                        "dd/MM/yyyy",
+                        Locale.getDefault()
+                );
+
+
+        String historyDate =
+                historyDateFormat.format(
+                        Calendar.getInstance().getTime()
+                );
+
+
+        /*
+         * HistoryItem does not have a separate RD-specific
+         * field for monthly deposit.
+         *
+         * Therefore:
+         *
+         * loanAmount    = monthly deposit
+         * monthlyEmi    = monthly deposit
+         * totalPayment  = maturity value
+         * totalInterest = RD interest
+         */
+
+        loanHistoryManager.addHistory(
+
+                "Recurring Deposit",
+
+                historyDate,
+
+                monthlyDeposit,
+
+                annualRate,
+
+                enteredTerm,
+
+                termUnit,
+
+                totalMonths,
+
+                monthlyDeposit,
+
+                totalInterest,
+
+                maturityValue,
+
+                startDate,
+
+                selectedCurrencyCode,
+
+                selectedCurrencySymbol,
+
+                R.drawable.rd_clc
+        );
+    }
+
+
+    // =========================================================
+    // COMPOUNDING FREQUENCY
+    // =========================================================
+
+    private int getCompoundingFrequency(
+            String compounding
+    ) {
+
+        if (compounding == null) {
+
+            return 12;
+        }
+
+
+        switch (compounding) {
+
+            case "Annually":
+
+                return 1;
+
+
+            case "Quarterly":
+
+                return 4;
+
+
+            case "Monthly":
+
+            default:
+
+                return 12;
+        }
+    }
+
+
+    // =========================================================
+    // RD MATURITY CALCULATION
+    // =========================================================
 
     private double calculateRDMaturity(
             double monthlyDeposit,
             double annualRate,
             int months,
-            String compounding) {
+            String compounding
+    ) {
 
-        if (monthlyDeposit <= 0 ||
-                months <= 0) {
+        if (
+                monthlyDeposit <= 0
+                        || months <= 0
+        ) {
 
             return 0;
         }
+
 
         if (annualRate <= 0) {
 
             return monthlyDeposit * months;
         }
 
-        int compoundsPerYear;
 
-        switch (compounding) {
+        int compoundsPerYear =
+                getCompoundingFrequency(
+                        compounding
+                );
 
-            case "Annually":
-                compoundsPerYear = 1;
-                break;
-
-            case "Half-Yearly":
-                compoundsPerYear = 2;
-                break;
-
-            case "Quarterly":
-                compoundsPerYear = 4;
-                break;
-
-            case "Daily":
-                compoundsPerYear = 365;
-                break;
-
-            case "Monthly":
-            default:
-                compoundsPerYear = 12;
-                break;
-        }
 
         double annualRateDecimal =
                 annualRate / 100.0;
 
-        /*
-         * Convert the selected annual compounding
-         * method into an equivalent monthly growth rate.
-         */
+
         double monthlyRate =
                 Math.pow(
-                        1.0 +
-                                annualRateDecimal /
-                                        compoundsPerYear,
+                        1.0
+                                + annualRateDecimal
+                                / compoundsPerYear,
                         compoundsPerYear / 12.0
                 ) - 1.0;
 
+
         double maturityValue = 0;
 
-        for (int month = 0;
-             month < months;
-             month++) {
+
+        for (
+                int month = 0;
+                month < months;
+                month++
+        ) {
 
             int remainingMonths =
                     months - month;
 
+
             double installmentValue =
-                    monthlyDeposit *
-                            Math.pow(
-                                    1.0 + monthlyRate,
-                                    remainingMonths
-                            );
+                    monthlyDeposit
+                            * Math.pow(
+                            1.0 + monthlyRate,
+                            remainingMonths
+                    );
+
 
             maturityValue +=
                     installmentValue;
         }
 
+
         return maturityValue;
     }
 
-    // ============================================================
-    // Banner
-    // ============================================================
+
+    // =========================================================
+    // BANNER AD
+    // =========================================================
 
     private void setUpAd() {
 
-        if (!Util.isInternetAvailable(this)
-                || bannerContainer == null) {
+        if (
+                !Util.isInternetAvailable(this)
+                        || bannerContainer == null
+        ) {
 
             return;
         }
 
+
         bannerAdView =
                 new AdView(this);
 
+
         if (bannerAdView.getParent() != null) {
 
-            ((ViewGroup)
-                    bannerAdView.getParent())
-                    .removeView(
-                            bannerAdView
-                    );
+            (
+                    (ViewGroup)
+                            bannerAdView.getParent()
+            ).removeView(
+                    bannerAdView
+            );
         }
+
 
         bannerContainer.addView(
                 bannerAdView
         );
+
 
         AdsHelper.loadAdaptiveBanner(
                 bannerAdView,
@@ -1236,9 +1725,10 @@ public class RdCalculatorActivity extends AppCompatActivity {
         );
     }
 
-    // ============================================================
-    // Resume
-    // ============================================================
+
+    // =========================================================
+    // RESUME
+    // =========================================================
 
     @Override
     protected void onResume() {
@@ -1246,5 +1736,37 @@ public class RdCalculatorActivity extends AppCompatActivity {
         super.onResume();
 
         Util.hide(this);
+    }
+
+
+    // =========================================================
+    // DESTROY
+    // =========================================================
+
+    @Override
+    protected void onDestroy() {
+
+        if (bannerAdView != null) {
+
+            ViewGroup parent =
+                    (ViewGroup)
+                            bannerAdView.getParent();
+
+
+            if (parent != null) {
+
+                parent.removeView(
+                        bannerAdView
+                );
+            }
+
+
+            bannerAdView.destroy();
+
+            bannerAdView = null;
+        }
+
+
+        super.onDestroy();
     }
 }

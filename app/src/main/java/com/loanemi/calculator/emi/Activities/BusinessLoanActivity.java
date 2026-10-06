@@ -1,6 +1,7 @@
 package com.loanemi.calculator.emi.Activities;
 
 import static com.loanemi.calculator.emi.utils.Util.setupEdgeToEdge;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,14 +13,19 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import com.loanemi.calculator.emi.R;
+
 import com.google.android.libraries.ads.mobile.sdk.banner.AdView;
 import com.loanemi.calculator.emi.Ads.AdsHelper;
+import com.loanemi.calculator.emi.R;
+import com.loanemi.calculator.emi.utils.LoanHistoryManager;
 import com.loanemi.calculator.emi.utils.Util;
 
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 public class BusinessLoanActivity extends AppCompatActivity {
@@ -41,19 +47,19 @@ public class BusinessLoanActivity extends AppCompatActivity {
     private LinearLayout btnCalculate;
 
     private FrameLayout bannerContainer;
-
     private AdView bannerAdView;
 
     private String selectedCurrencyCode = "USD";
     private String selectedCurrencyName = "US Dollar";
 
     private int selectedCurrencyFlag = R.drawable.icn_flagus;
-
     private int selectedCurrencyIcon = R.drawable.usd_currency;
 
     private String selectedLoanUnit = "Month";
 
     private final NumberFormat indianNumberFormat = NumberFormat.getNumberInstance(new Locale("en", "IN"));
+
+    private LoanHistoryManager loanHistoryManager;
 
 
     @Override
@@ -66,14 +72,12 @@ public class BusinessLoanActivity extends AppCompatActivity {
 
         initViews();
 
+        loanHistoryManager = new LoanHistoryManager(this);
+
         setupDefaultValues();
-
         setupLoanAmountFormatting();
-
         setupLoanUnit();
-
         setupListeners();
-
         setupBanner();
     }
 
@@ -89,23 +93,18 @@ public class BusinessLoanActivity extends AppCompatActivity {
     private void initViews() {
 
         etLoanAmount = findViewById(R.id.etLoanAmount);
-
         etInterestRate = findViewById(R.id.etInterestRate);
-
         tvLoanTerm = findViewById(R.id.tvLoanTerm);
 
         tvLoanUnit = findViewById(R.id.tvLoanUnit);
-
         tvCurrencyCode = findViewById(R.id.tvCurrencyCode);
 
         ivFromFlag = findViewById(R.id.ivFromFlag);
-
         ivBack = findViewById(R.id.ivBack);
 
         layoutCurrency = findViewById(R.id.layoutCurrency);
 
         btnReset = findViewById(R.id.btnReset);
-
         btnCalculate = findViewById(R.id.btnCalculate);
 
         bannerContainer = findViewById(R.id.bannerContainer);
@@ -115,30 +114,22 @@ public class BusinessLoanActivity extends AppCompatActivity {
     private void setupDefaultValues() {
 
         selectedCurrencyCode = "USD";
-
         selectedCurrencyName = "US Dollar";
 
         selectedCurrencyFlag = R.drawable.icn_flagus;
-
         selectedCurrencyIcon = R.drawable.usd_currency;
 
-
         if (tvCurrencyCode != null) {
-
             tvCurrencyCode.setText(selectedCurrencyCode);
         }
 
-
         if (ivFromFlag != null) {
-
             ivFromFlag.setImageResource(selectedCurrencyFlag);
         }
-
 
         selectedLoanUnit = "Month";
 
         if (tvLoanUnit != null) {
-
             tvLoanUnit.setText(selectedLoanUnit);
         }
     }
@@ -147,25 +138,18 @@ public class BusinessLoanActivity extends AppCompatActivity {
     private void setupListeners() {
 
         if (ivBack != null) {
-
             ivBack.setOnClickListener(v -> finish());
         }
 
-
         if (layoutCurrency != null) {
-
             layoutCurrency.setOnClickListener(v -> openCurrencyActivity());
         }
 
-
         if (btnReset != null) {
-
             btnReset.setOnClickListener(v -> resetFields());
         }
 
-
         if (btnCalculate != null) {
-
             btnCalculate.setOnClickListener(v -> calculateLoan());
         }
     }
@@ -175,12 +159,9 @@ public class BusinessLoanActivity extends AppCompatActivity {
 
         Intent intent = new Intent(BusinessLoanActivity.this, CurrencyUnitActivity.class);
 
-
         intent.putExtra(CurrencyUnitActivity.EXTRA_CURRENT_CODE, selectedCurrencyCode);
 
-
         intent.putExtra(CurrencyUnitActivity.EXTRA_CURRENCY_SELECT_TYPE, "BUSINESS_LOAN");
-
 
         startActivityForResult(intent, REQUEST_CURRENCY);
     }
@@ -191,57 +172,42 @@ public class BusinessLoanActivity extends AppCompatActivity {
 
         super.onActivityResult(requestCode, resultCode, data);
 
-
         if (requestCode != REQUEST_CURRENCY || resultCode != RESULT_OK || data == null) {
 
             return;
         }
 
-
         String code = data.getStringExtra(CurrencyUnitActivity.EXTRA_SELECTED_CODE);
-
 
         String name = data.getStringExtra(CurrencyUnitActivity.EXTRA_SELECTED_COUNTRY);
 
-
         int flag = data.getIntExtra(CurrencyUnitActivity.EXTRA_SELECTED_FLAG, 0);
 
-
         int currencyIcon = data.getIntExtra(CurrencyUnitActivity.EXTRA_SELECTED_CURRENCY_ICON, 0);
-
 
         if (code != null && !code.trim().isEmpty()) {
 
             selectedCurrencyCode = code.trim().toUpperCase(Locale.US);
 
-
             if (tvCurrencyCode != null) {
-
                 tvCurrencyCode.setText(selectedCurrencyCode);
             }
         }
 
-
         if (name != null && !name.trim().isEmpty()) {
-
             selectedCurrencyName = name.trim();
         }
-
 
         if (flag != 0) {
 
             selectedCurrencyFlag = flag;
 
-
             if (ivFromFlag != null) {
-
                 ivFromFlag.setImageResource(selectedCurrencyFlag);
             }
         }
 
-
         if (currencyIcon != 0) {
-
             selectedCurrencyIcon = currencyIcon;
         }
     }
@@ -253,21 +219,17 @@ public class BusinessLoanActivity extends AppCompatActivity {
             return;
         }
 
-
         etLoanAmount.addTextChangedListener(new TextWatcher() {
 
             private boolean isFormatting = false;
-
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
             }
-
 
             @Override
             public void afterTextChanged(Editable editable) {
@@ -276,14 +238,11 @@ public class BusinessLoanActivity extends AppCompatActivity {
                     return;
                 }
 
-
                 isFormatting = true;
-
 
                 try {
 
                     String cleanInput = editable.toString().replace(",", "").replaceAll("[^0-9]", "");
-
 
                     if (!cleanInput.isEmpty()) {
 
@@ -291,9 +250,7 @@ public class BusinessLoanActivity extends AppCompatActivity {
 
                             long value = Long.parseLong(cleanInput);
 
-
                             String formatted = indianNumberFormat.format(value);
-
 
                             if (!formatted.equals(editable.toString())) {
 
@@ -325,11 +282,9 @@ public class BusinessLoanActivity extends AppCompatActivity {
             return;
         }
 
-
         selectedLoanUnit = "Month";
 
         tvLoanUnit.setText(selectedLoanUnit);
-
 
         tvLoanUnit.setOnClickListener(v -> showLoanUnitDialog());
     }
@@ -339,21 +294,16 @@ public class BusinessLoanActivity extends AppCompatActivity {
 
         final String[] units = {"Month", "Year"};
 
-
         int selectedPosition = selectedLoanUnit.equalsIgnoreCase("Year") ? 1 : 0;
-
 
         AlertDialog dialog = new AlertDialog.Builder(this).setTitle("Select Loan Term Unit").setSingleChoiceItems(units, selectedPosition, (dialogInterface, which) -> {
 
             selectedLoanUnit = units[which];
 
-
             tvLoanUnit.setText(selectedLoanUnit);
-
 
             dialogInterface.dismiss();
         }).create();
-
 
         dialog.show();
     }
@@ -362,7 +312,6 @@ public class BusinessLoanActivity extends AppCompatActivity {
     private void calculateLoan() {
 
         String amountText = etLoanAmount.getText().toString().trim().replace(",", "");
-
 
         if (amountText.isEmpty()) {
 
@@ -373,9 +322,7 @@ public class BusinessLoanActivity extends AppCompatActivity {
             return;
         }
 
-
         double principal;
-
 
         try {
 
@@ -390,7 +337,6 @@ public class BusinessLoanActivity extends AppCompatActivity {
             return;
         }
 
-
         if (principal <= 0) {
 
             etLoanAmount.setError("Loan amount must be greater than 0");
@@ -403,7 +349,6 @@ public class BusinessLoanActivity extends AppCompatActivity {
 
         String interestText = etInterestRate.getText().toString().trim();
 
-
         if (interestText.isEmpty()) {
 
             etInterestRate.setError("Enter interest rate");
@@ -413,9 +358,7 @@ public class BusinessLoanActivity extends AppCompatActivity {
             return;
         }
 
-
         double annualRate;
-
 
         try {
 
@@ -430,7 +373,6 @@ public class BusinessLoanActivity extends AppCompatActivity {
             return;
         }
 
-
         if (annualRate < 0) {
 
             etInterestRate.setError("Interest rate cannot be negative");
@@ -439,7 +381,6 @@ public class BusinessLoanActivity extends AppCompatActivity {
 
             return;
         }
-
 
         if (annualRate > 100) {
 
@@ -453,7 +394,6 @@ public class BusinessLoanActivity extends AppCompatActivity {
 
         String termText = tvLoanTerm.getText().toString().trim();
 
-
         if (termText.isEmpty()) {
 
             tvLoanTerm.setError("Enter loan term");
@@ -463,9 +403,7 @@ public class BusinessLoanActivity extends AppCompatActivity {
             return;
         }
 
-
         int term;
-
 
         try {
 
@@ -480,7 +418,6 @@ public class BusinessLoanActivity extends AppCompatActivity {
             return;
         }
 
-
         if (term <= 0) {
 
             tvLoanTerm.setError("Loan term must be greater than 0");
@@ -492,7 +429,6 @@ public class BusinessLoanActivity extends AppCompatActivity {
 
 
         int totalMonths;
-
 
         if (selectedLoanUnit.equalsIgnoreCase("Year")) {
 
@@ -514,9 +450,7 @@ public class BusinessLoanActivity extends AppCompatActivity {
 
         double monthlyRate = annualRate / 12.0 / 100.0;
 
-
         double monthlyEMI;
-
 
         if (monthlyRate == 0) {
 
@@ -526,16 +460,13 @@ public class BusinessLoanActivity extends AppCompatActivity {
 
             double power = Math.pow(1.0 + monthlyRate, totalMonths);
 
-
             monthlyEMI = principal * monthlyRate * power / (power - 1.0);
         }
 
 
         double totalPayment = monthlyEMI * totalMonths;
 
-
         double totalInterest = totalPayment - principal;
-
 
         if (totalInterest < 0 && totalInterest > -0.01) {
 
@@ -543,90 +474,166 @@ public class BusinessLoanActivity extends AppCompatActivity {
         }
 
 
-        Intent intent = new Intent(BusinessLoanActivity.this, BusinessLoanResultActivity.class);
+        // =====================================================
+        // SAVE HISTORY
+        // =====================================================
 
+        String currentDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
+
+
+        String currencySymbol = getCurrencySymbol(selectedCurrencyCode);
+
+
+        loanHistoryManager.addHistory(
+
+                "Business Loan",
+
+                currentDate,
+
+                principal,
+
+                annualRate,
+
+                term,
+
+                selectedLoanUnit,
+
+                totalMonths,
+
+                monthlyEMI,
+
+                totalInterest,
+
+                totalPayment,
+
+                currentDate,
+
+                selectedCurrencyCode,
+
+                currencySymbol,
+
+                R.drawable.business_ic);
+
+
+        // =====================================================
+        // OPEN RESULT
+        // =====================================================
+
+        Intent intent = new Intent(BusinessLoanActivity.this, BusinessLoanResultActivity.class);
 
         intent.putExtra("loan_amount", principal);
 
-
         intent.putExtra("interest_rate", annualRate);
-
 
         intent.putExtra("loan_term", term);
 
-
         intent.putExtra("loan_term_unit", selectedLoanUnit);
-
 
         intent.putExtra("total_months", totalMonths);
 
-
         intent.putExtra("monthly_emi", monthlyEMI);
-
 
         intent.putExtra("total_interest", totalInterest);
 
-
         intent.putExtra("total_payment", totalPayment);
-
 
         intent.putExtra("currency_code", selectedCurrencyCode);
 
-
         intent.putExtra("currency_name", selectedCurrencyName);
-
 
         intent.putExtra("currency_icon", selectedCurrencyIcon);
 
-
         intent.putExtra("currency_flag", selectedCurrencyFlag);
-
 
         intent.putExtra("loan_type", "Business Loan");
 
-
         startActivity(intent);
+    }
+
+
+    private String getCurrencySymbol(String code) {
+
+        if (code == null) {
+            return "$";
+        }
+
+        switch (code.toUpperCase(Locale.US)) {
+
+            case "USD":
+                return "$";
+
+            case "INR":
+                return "₹";
+
+            case "GBP":
+                return "£";
+
+            case "EUR":
+                return "€";
+
+            case "JPY":
+                return "¥";
+
+            case "CNY":
+                return "¥";
+
+            case "AUD":
+                return "A$";
+
+            case "CAD":
+                return "C$";
+
+            case "SGD":
+                return "S$";
+
+            case "AED":
+                return "د.إ";
+
+            case "SAR":
+                return "﷼";
+
+            case "VND":
+                return "₫";
+
+            case "THB":
+                return "฿";
+
+            case "IDR":
+                return "Rp";
+
+            default:
+                return "$";
+        }
     }
 
 
     private void resetFields() {
 
         etLoanAmount.setText("");
-
         etInterestRate.setText("");
-
         tvLoanTerm.setText("");
 
-
         etLoanAmount.setError(null);
-
         etInterestRate.setError(null);
-
         tvLoanTerm.setError(null);
-
 
         selectedLoanUnit = "Month";
 
         tvLoanUnit.setText(selectedLoanUnit);
 
-
         selectedCurrencyCode = "USD";
-
         selectedCurrencyName = "US Dollar";
 
         selectedCurrencyFlag = R.drawable.icn_flagus;
 
         selectedCurrencyIcon = R.drawable.usd_currency;
 
-
         tvCurrencyCode.setText(selectedCurrencyCode);
-
 
         if (ivFromFlag != null) {
 
             ivFromFlag.setImageResource(selectedCurrencyFlag);
         }
-
 
         etLoanAmount.requestFocus();
     }
@@ -638,20 +645,16 @@ public class BusinessLoanActivity extends AppCompatActivity {
             return;
         }
 
-
         if (!Util.isInternetAvailable(this)) {
             return;
         }
 
-
         bannerAdView = new AdView(this);
-
 
         if (bannerAdView.getParent() != null) {
 
             ((ViewGroup) bannerAdView.getParent()).removeView(bannerAdView);
         }
-
 
         bannerContainer.addView(bannerAdView);
 

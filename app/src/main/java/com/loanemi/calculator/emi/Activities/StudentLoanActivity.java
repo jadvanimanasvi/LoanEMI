@@ -13,34 +13,48 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
-import com.loanemi.calculator.emi.R;
+
 import com.google.android.libraries.ads.mobile.sdk.banner.AdView;
 import com.loanemi.calculator.emi.Ads.AdsHelper;
+import com.loanemi.calculator.emi.R;
+import com.loanemi.calculator.emi.utils.LoanHistoryManager;
 import com.loanemi.calculator.emi.utils.Util;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
 public class StudentLoanActivity extends AppCompatActivity {
 
     private static final int REQUEST_CURRENCY = 1001;
+
     private AdView bannerAdView;
     private FrameLayout adContainer;
+
     private EditText etLoanAmount;
     private EditText etInterestRate;
+
     private TextView tvLoanTerm;
     private TextView tvLoanUnit;
+
     private LinearLayout btnCalculate;
     private LinearLayout btnReset;
     private LinearLayout currencySelector;
+
     private TextView tvCurrencyCode;
     private TextView tvCurrencyFlag;
+
     private String selectedCurrencyCode = "USD";
     private String selectedCountry = "US Dollar";
+
     private int selectedCurrencyIconResId = R.drawable.usd_currency;
 
     private int selectedFlagResId = R.drawable.icn_flagus;
+
+    private LoanHistoryManager loanHistoryManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,12 +66,18 @@ public class StudentLoanActivity extends AppCompatActivity {
 
         initViews();
 
-        // Loan amount comma formatting
+        loanHistoryManager = new LoanHistoryManager(this);
+
         setupLoanAmountFormatter();
+
         setupCurrencySelector();
+
         setupLoanUnitSelector();
+
         setupButtons();
+
         setUpAd();
+
         updateCurrencyUI();
     }
 
@@ -94,13 +114,16 @@ public class StudentLoanActivity extends AppCompatActivity {
 
             private boolean isFormatting = false;
 
+
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
             }
+
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -136,9 +159,7 @@ public class StudentLoanActivity extends AppCompatActivity {
 
                     etLoanAmount.setSelection(formatted.length());
 
-                } catch (NumberFormatException e) {
-
-                    // Ignore invalid number
+                } catch (NumberFormatException ignored) {
                 }
 
                 isFormatting = false;
@@ -187,22 +208,26 @@ public class StudentLoanActivity extends AppCompatActivity {
 
         if (code != null && !code.trim().isEmpty()) {
 
-            selectedCurrencyCode = code;
+            selectedCurrencyCode = code.trim().toUpperCase(Locale.US);
         }
 
         String country = data.getStringExtra(CurrencyUnitActivity.EXTRA_SELECTED_COUNTRY);
 
         if (country != null && !country.trim().isEmpty()) {
 
-            selectedCountry = country;
+            selectedCountry = country.trim();
         }
+
 
         selectedCurrencyIconResId = data.getIntExtra(CurrencyUnitActivity.EXTRA_SELECTED_CURRENCY_ICON, getDefaultCurrencyIcon());
 
+
         selectedFlagResId = data.getIntExtra(CurrencyUnitActivity.EXTRA_SELECTED_FLAG, getDefaultFlag());
+
 
         updateCurrencyUI();
     }
+
 
     private void updateCurrencyUI() {
 
@@ -216,6 +241,7 @@ public class StudentLoanActivity extends AppCompatActivity {
             tvCurrencyFlag.setText(getFlagEmoji(selectedCurrencyCode));
         }
     }
+
 
     private int getDefaultCurrencyIcon() {
 
@@ -245,6 +271,7 @@ public class StudentLoanActivity extends AppCompatActivity {
         }
     }
 
+
     private int getDefaultFlag() {
 
         switch (selectedCurrencyCode.toUpperCase(Locale.US)) {
@@ -272,6 +299,7 @@ public class StudentLoanActivity extends AppCompatActivity {
                 return R.drawable.icn_flagus;
         }
     }
+
 
     private String getFlagEmoji(String code) {
 
@@ -301,6 +329,27 @@ public class StudentLoanActivity extends AppCompatActivity {
 
             case "IDR":
                 return "🇮🇩";
+
+            case "AUD":
+                return "🇦🇺";
+
+            case "CAD":
+                return "🇨🇦";
+
+            case "EUR":
+                return "🇪🇺";
+
+            case "JPY":
+                return "🇯🇵";
+
+            case "KRW":
+                return "🇰🇷";
+
+            case "SGD":
+                return "🇸🇬";
+
+            case "MYR":
+                return "🇲🇾";
 
             default:
                 return "🇺🇸";
@@ -374,9 +423,11 @@ public class StudentLoanActivity extends AppCompatActivity {
             return;
         }
 
+
         double loanAmount;
         double interestRate;
         double loanTerm;
+
 
         try {
 
@@ -407,6 +458,14 @@ public class StudentLoanActivity extends AppCompatActivity {
             return;
         }
 
+
+        if (interestRate > 100) {
+
+            etInterestRate.setError("Interest rate cannot exceed 100%");
+
+            return;
+        }
+
         if (loanTerm <= 0) {
 
             Toast.makeText(this, "Loan term must be greater than 0", Toast.LENGTH_SHORT).show();
@@ -415,6 +474,7 @@ public class StudentLoanActivity extends AppCompatActivity {
         }
 
         int totalMonths;
+
 
         if (unit.equalsIgnoreCase("Years")) {
 
@@ -425,6 +485,7 @@ public class StudentLoanActivity extends AppCompatActivity {
             totalMonths = (int) Math.round(loanTerm);
         }
 
+
         if (totalMonths <= 0) {
 
             Toast.makeText(this, "Invalid loan term", Toast.LENGTH_SHORT).show();
@@ -432,9 +493,18 @@ public class StudentLoanActivity extends AppCompatActivity {
             return;
         }
 
+        if (totalMonths > 360) {
+
+            Toast.makeText(this, "Loan term cannot exceed 30 years", Toast.LENGTH_SHORT).show();
+
+            return;
+        }
+
         double monthlyRate = interestRate / 12.0 / 100.0;
 
+
         double monthlyPayment;
+
 
         if (monthlyRate == 0) {
 
@@ -444,22 +514,69 @@ public class StudentLoanActivity extends AppCompatActivity {
 
             double factor = Math.pow(1 + monthlyRate, totalMonths);
 
+
             monthlyPayment = loanAmount * monthlyRate * factor / (factor - 1);
         }
 
+
         double totalPayment = monthlyPayment * totalMonths;
+
 
         double totalInterest = totalPayment - loanAmount;
 
+
+        if (totalInterest < 0 && totalInterest > -0.01) {
+
+            totalInterest = 0;
+        }
+
         Calendar startCalendar = Calendar.getInstance();
 
-        String startDate = String.format(Locale.getDefault(), "%02d/%02d/%04d", startCalendar.get(Calendar.DAY_OF_MONTH), startCalendar.get(Calendar.MONTH) + 1, startCalendar.get(Calendar.YEAR));
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
 
-        Calendar payoffCalendar = Calendar.getInstance();
+        String startDate = dateFormat.format(startCalendar.getTime());
+
+        Calendar payoffCalendar = (Calendar) startCalendar.clone();
 
         payoffCalendar.add(Calendar.MONTH, totalMonths);
 
-        String payoffDate = String.format(Locale.getDefault(), "%02d/%02d/%04d", payoffCalendar.get(Calendar.DAY_OF_MONTH), payoffCalendar.get(Calendar.MONTH) + 1, payoffCalendar.get(Calendar.YEAR));
+        String payoffDate = dateFormat.format(payoffCalendar.getTime());
+
+        if (loanHistoryManager == null) {
+
+            loanHistoryManager = new LoanHistoryManager(this);
+        }
+
+
+        loanHistoryManager.addHistory(
+
+                "Student Loan",
+
+                startDate,
+
+                loanAmount,
+
+                interestRate,
+
+                loanTerm,
+
+                unit,
+
+                totalMonths,
+
+                monthlyPayment,
+
+                totalInterest,
+
+                totalPayment,
+
+                startDate,
+
+                selectedCurrencyCode,
+
+                getCurrencySymbol(selectedCurrencyCode),
+
+                selectedCurrencyIconResId);
 
         Intent intent = new Intent(StudentLoanActivity.this, StudentLoanRsultActivity.class);
 
@@ -484,17 +601,76 @@ public class StudentLoanActivity extends AppCompatActivity {
 
         intent.putExtra("currency_country", selectedCountry);
 
+        intent.putExtra("currency_name", selectedCountry);
+
         intent.putExtra("currency_icon", selectedCurrencyIconResId);
 
         intent.putExtra("currency_flag", selectedFlagResId);
 
-        // Dates
+        intent.putExtra("currency_symbol", getCurrencySymbol(selectedCurrencyCode));
+
         intent.putExtra("start_date", startDate);
 
         intent.putExtra("payoff_date", payoffDate);
 
         startActivity(intent);
     }
+
+    private String getCurrencySymbol(String code) {
+
+        if (code == null) {
+            return "$";
+        }
+
+        switch (code.toUpperCase(Locale.US)) {
+
+            case "USD":
+                return "$";
+
+            case "GBP":
+                return "£";
+
+            case "EUR":
+                return "€";
+
+            case "INR":
+                return "₹";
+
+            case "CNY":
+                return "¥";
+
+            case "JPY":
+                return "¥";
+
+            case "VND":
+                return "₫";
+
+            case "THB":
+                return "฿";
+
+            case "IDR":
+                return "Rp";
+
+            case "AUD":
+                return "A$";
+
+            case "CAD":
+                return "C$";
+
+            case "KRW":
+                return "₩";
+
+            case "SGD":
+                return "S$";
+
+            case "MYR":
+                return "RM";
+
+            default:
+                return "$";
+        }
+    }
+
 
     private void resetFields() {
 
@@ -544,5 +720,29 @@ public class StudentLoanActivity extends AppCompatActivity {
         super.onResume();
 
         Util.hide(this);
+    }
+
+
+    @Override
+    protected void onDestroy() {
+
+        if (bannerAdView != null) {
+
+            ViewGroup parent = (ViewGroup) bannerAdView.getParent();
+
+
+            if (parent != null) {
+
+                parent.removeView(bannerAdView);
+            }
+
+
+            bannerAdView.destroy();
+
+            bannerAdView = null;
+        }
+
+
+        super.onDestroy();
     }
 }

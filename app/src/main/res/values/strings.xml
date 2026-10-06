@@ -1,55 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+    <resources>
+
     <string name="app_name">Loan EMI</string>
-    <string name="tagline">Smart Calculations, Instant Results</string>
-
-    <string name="hero_title">Let\'s plan your finances</string>
-    <string name="hero_sub">Choose a calculator and get instant results.</string>
-
-    <string name="section_loan_calculators">Loan Calculators</string>
-    <string name="loan_calculator">Loan Calculator</string>
-    <string name="business_loan">Business Loan</string>
-    <string name="home_loan">Home Loan</string>
-    <string name="home_loan_result">Home Loan Result</string>
-    <string name="auto_loan">Auto Loan</string>
-    <string name="loan_freedom">Loan Freedom</string>
-    <string name="student_loan">Student Loan</string>
-    <string name="calculate_emi">Calculate your EMI</string>
-    <string name="countdown_calculator">Countdown Calculator</string>
-
-    <string name="partner_title">Your Financial Partner</string>
-    <string name="partner_sub">Easy • Fast • Reliable</string>
-    <string name="get_started">Get Started</string>
-
-    <string name="nav_home">Home</string>
-    <string name="nav_tools">Tools</string>
-    <string name="nav_history">History</string>
-    <string name="nav_setting">Setting</string>
-
-    <string name="cd_menu">Menu</string>
-    <string name="cd_notifications">Notifications</string>
-    <string name="cd_illustration">Illustration</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="ad">Ad</string>
-    <string name="install">Install</string>
-    <string name="language">Language</string>
-    <string name="lang_desc">Please select language to continue</string>
-    <string name="please_wait">Please wait…</string>
-    <string name="loading_ads">Ads Loading…</string>
-    <string name="skip_in">Skip in %1$d\u0073</string>
-    <string name="please_select_language">Please Select Language</string>
-    <string name="get_start_title">Keep Your Memories \n<font color="#2196F3">Safe &amp; Private</font></string>
-    <string name="getstart_dis">Protect your photos and videos with privacy and security.</string>
-    <string name="get_start">Get Start</string>
-    <string name="smart_gallery_for_every_moment">Smart Gallery\n For <font color="#2196F3">Every Moment</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">All your memories organized \nbeautifully in one place.</string>
-    <string name="next">Next</string>
-    <string name="fast_access_to_nyour_photos_amp_videos">Fast Access to \nYour <font color="#2196F3">Photos &amp; Videos</font></string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">Quickly find and view all your\nfavorite photos and videos.</string>
-    <string name="fragment_3_title">Create &amp; Manage  \nYour <font color="#2196F3">Albums</font></string>
-    <string name="fragment_3_dis">Organize your memories into albums and keep them stored.</string>
-
 
     <!--test ad id-->
     <string name="admob_app_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
@@ -94,6 +46,52 @@
     <string name="student_loan_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
 
 
+    <string name="privacy_policy_url" translatable="false"></string>
+    <string name="share_text" translatable="false">LoanEMI App with Privacy. Click here…: https://play.google.com/store/apps/details?id=</string>
+
+    <string name="tagline">Smart Calculations, Instant Results</string>
+    <string name="hero_title">Let\'s plan your finances</string>
+    <string name="we_maintain_our_policy">We Maintain Our Policy…</string>
+    <string name="hero_sub">Choose a calculator and get instant results.</string>
+    <string name="section_loan_calculators">Loan Calculators</string>
+    <string name="loan_calculator">Loan Calculator</string>
+    <string name="business_loan">Business Loan</string>
+    <string name="home_loan">Home Loan</string>
+    <string name="home_loan_result">Home Loan Result</string>
+    <string name="auto_loan">Auto Loan</string>
+    <string name="loan_freedom">Loan Freedom</string>
+    <string name="student_loan">Student Loan</string>
+    <string name="calculate_emi">Calculate your EMI</string>
+    <string name="countdown_calculator">Countdown Calculator</string>
+    <string name="partner_title">Your Financial Partner</string>
+    <string name="partner_sub">Easy • Fast • Reliable</string>
+    <string name="get_started">Get Started</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_tools">Tools</string>
+    <string name="nav_history">History</string>
+    <string name="nav_setting">Setting</string>
+    <string name="cd_menu">Menu</string>
+    <string name="cd_notifications">Notifications</string>
+    <string name="cd_illustration">Illustration</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ad">Ad</string>
+    <string name="install">Install</string>
+    <string name="language">Language</string>
+    <string name="lang_desc">Please select language to continue</string>
+    <string name="please_wait">Please wait…</string>
+    <string name="loading_ads">Ads Loading…</string>
+    <string name="skip_in">Skip in %1$d\u0073</string>
+    <string name="please_select_language">Please Select Language</string>
+    <string name="get_start_title">Keep Your Memories \n<font color="#2196F3">Safe &amp; Private</font></string>
+    <string name="getstart_dis">Protect your photos and videos with privacy and security.</string>
+    <string name="get_start">Get Start</string>
+    <string name="smart_gallery_for_every_moment">Smart Gallery\n For <font color="#2196F3">Every Moment</font></string>
+    <string name="all_your_memories_organized_beautifully_in_one_place">All your memories organized \nbeautifully in one place.</string>
+    <string name="next">Next</string>
+    <string name="fast_access_to_nyour_photos_amp_videos">Fast Access to \nYour <font color="#2196F3">Photos &amp; Videos</font></string>
+    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">Quickly find and view all your\nfavorite photos and videos.</string>
+    <string name="fragment_3_title">Create &amp; Manage  \nYour <font color="#2196F3">Albums</font></string>
+    <string name="fragment_3_dis">Organize your memories into albums and keep them stored.</string>
     <string name="investment_amount">Investment Amount</string>
     <string name="loan_information">Loan Information</string>
     <string name="result_after_calculation">Result After Calculation</string>
@@ -105,9 +103,6 @@
     <string name="share_app">Share App</string>
     <string name="rate_us">Rate Us</string>
     <string name="version">Version</string>
-    <string name="we_maintain_our_policy">We Maintain Our Policy…</string>
-    <string name="privacy_policy_url" translatable="false"></string>
-    <string name="share_text" translatable="false">LoanEMI App with Privacy. Click here…: https://play.google.com/store/apps/details?id=</string>
     <string name="rate_select_star">Please select a star to rate us</string>
     <string name="thanks_for_your_support">Thanks for your support!\n😍</string>
     <string name="rate_desc">We are working hard for a better user experience.\nWe’d greatly appreciate if you can rate us.</string>
@@ -118,7 +113,6 @@
     <string name="dark_theme">Dark Theme</string>
     <string name="light_theme">Light Theme</string>
     <string name="save">Save</string>
-
     <string name="age_calculator">Age Calculator</string>
     <string name="date_of_birth">Date of Birth</string>
     <string name="years">Years</string>
@@ -186,6 +180,7 @@
     <string name="calculate_recurring_deposit_returns">Calculate recurring deposit returns</string>
     <string name="tools">Tools</string>
     <string name="useful_calculator_and_converter">Useful Calculator and Converter</string>
+    <string name="setting_subtitle">Manage preferences and app settings</string>
     <string name="converters">Converters</string>
     <string name="convert_between_currencies">Convert between currencies</string>
     <string name="convert_between_length_units">Convert between length units</string>
@@ -198,4 +193,5 @@
     <string name="cancel">Cancel</string>
     <string name="compounding_frequency">Compounding Frequency</string>
     <string name="recurring_deposit_result">Recurring Deposit Result</string>
+
 </resources>

@@ -164,7 +164,7 @@ public class HomeFragment extends Fragment {
             // Dark mode images
             cardLoanCalculator.setBackgroundResource(R.drawable.loan_dark_bg);
             cardBusinessLoan.setBackgroundResource(R.drawable.business_bg_dark);
-            //cardAutoLoan.setBackgroundResource(R.drawable.auto_bg_dark);
+            cardAutoLoan.setBackgroundResource(R.drawable.auto_bg_dark);
             cardHomeLoan.setBackgroundResource(R.drawable.home_loan_bg_dark);
             cardStudentLoan.setBackgroundResource(R.drawable.student_bg_dark);
 

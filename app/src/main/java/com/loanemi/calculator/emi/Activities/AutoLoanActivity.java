@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.loanemi.calculator.emi.R;
+import com.loanemi.calculator.emi.utils.LoanHistoryManager;
 import com.loanemi.calculator.emi.utils.Util;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -107,10 +108,8 @@ public class AutoLoanActivity extends AppCompatActivity {
 
         selectedCurrencyFlag = R.drawable.icn_flagus;
 
-        // Show USD
         tvCurrencyCode.setText(selectedCurrencyCode);
 
-        // Show US country flag
         ivFromFlag.setImageResource(selectedCurrencyFlag);
 
         selectedLoanUnit = "Month";
@@ -153,7 +152,6 @@ public class AutoLoanActivity extends AppCompatActivity {
 
         super.onActivityResult(requestCode, resultCode, data);
 
-
         if (requestCode != REQUEST_CURRENCY || resultCode != RESULT_OK || data == null) {
 
             return;
@@ -184,23 +182,18 @@ public class AutoLoanActivity extends AppCompatActivity {
 
     private void showLoanUnitDialog() {
 
-        final String[] units = {getString(R.string.month), getString(R.string.years)};
+        final String[] units = {"Month", "Year"};
 
-
-        int selectedPosition = selectedLoanUnit.equals("Month") ? 0 : 1;
-
+        int selectedPosition = selectedLoanUnit.equalsIgnoreCase("Month") ? 0 : 1;
 
         AlertDialog dialog = new AlertDialog.Builder(this).setTitle("Select Loan Term Unit").setSingleChoiceItems(units, selectedPosition, (dialogInterface, which) -> {
 
             selectedLoanUnit = units[which];
 
-
             tvLoanUnit.setText(selectedLoanUnit);
-
 
             dialogInterface.dismiss();
         }).create();
-
 
         dialog.show();
     }
@@ -208,7 +201,6 @@ public class AutoLoanActivity extends AppCompatActivity {
     private void showDatePicker() {
 
         Calendar calendar = selectedDate != null ? selectedDate : Calendar.getInstance();
-
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, (view, year, month, dayOfMonth) -> {
 
@@ -222,7 +214,6 @@ public class AutoLoanActivity extends AppCompatActivity {
 
             updateStartDateText();
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
-
 
         datePickerDialog.show();
     }
@@ -265,19 +256,15 @@ public class AutoLoanActivity extends AppCompatActivity {
 
                     String cleanInput = editable.toString().replace(",", "").replaceAll("[^0-9]", "");
 
-
                     if (!cleanInput.isEmpty()) {
 
                         try {
 
                             long value = Long.parseLong(cleanInput);
 
-
                             String formatted = indianNumberFormat.format(value);
 
-
                             etLoanAmount.setText(formatted);
-
 
                             etLoanAmount.setSelection(formatted.length());
 
@@ -297,13 +284,11 @@ public class AutoLoanActivity extends AppCompatActivity {
         });
     }
 
-
     private void calculateLoan() {
 
         String amountText = etLoanAmount.getText().toString().trim();
 
         amountText = amountText.replace(",", "");
-
 
         if (amountText.isEmpty()) {
 
@@ -339,7 +324,6 @@ public class AutoLoanActivity extends AppCompatActivity {
         }
 
         String interestText = etInterestRate.getText().toString().trim();
-
 
         if (interestText.isEmpty()) {
 
@@ -385,7 +369,6 @@ public class AutoLoanActivity extends AppCompatActivity {
 
         String termText = tvLoanTerm.getText().toString().trim();
 
-
         if (termText.isEmpty()) {
 
             tvLoanTerm.setError("Enter loan term");
@@ -421,7 +404,7 @@ public class AutoLoanActivity extends AppCompatActivity {
 
         int totalMonths;
 
-        if (selectedLoanUnit.equals("Year")) {
+        if (selectedLoanUnit.equalsIgnoreCase("Year")) {
 
             if (term > MAX_YEARS) {
 
@@ -445,15 +428,12 @@ public class AutoLoanActivity extends AppCompatActivity {
                 return;
             }
 
-
             totalMonths = term;
         }
 
         double monthlyRate = annualRate / 12.0 / 100.0;
 
-
         double monthlyEMI;
-
 
         if (monthlyRate == 0) {
 
@@ -470,7 +450,6 @@ public class AutoLoanActivity extends AppCompatActivity {
 
         double totalInterest = totalPayment - principal;
 
-
         if (totalInterest < 0 && totalInterest > -0.01) {
 
             totalInterest = 0;
@@ -483,6 +462,41 @@ public class AutoLoanActivity extends AppCompatActivity {
         String startDate = formatDate(selectedDate);
 
         String payoffDate = formatDate(payoffCalendar);
+
+        String currencySymbol = getCurrencySymbol(selectedCurrencyCode);
+
+        LoanHistoryManager historyManager = new LoanHistoryManager(AutoLoanActivity.this);
+
+        historyManager.addHistory(
+
+                "Auto Loan",
+
+                startDate,
+
+                principal,
+
+                annualRate,
+
+                term,
+
+                selectedLoanUnit,
+
+                totalMonths,
+
+                monthlyEMI,
+
+                totalInterest,
+
+                totalPayment,
+
+                startDate,
+
+                selectedCurrencyCode,
+
+                currencySymbol,
+
+                R.drawable.ic_car);
+
 
         Intent intent = new Intent(AutoLoanActivity.this, AutoLoanResultActivity.class);
 
@@ -524,6 +538,52 @@ public class AutoLoanActivity extends AppCompatActivity {
 
 
         return sdf.format(calendar.getTime());
+    }
+
+    private String getCurrencySymbol(String currencyCode) {
+
+        if (currencyCode == null) {
+            return "$";
+        }
+
+        switch (currencyCode.toUpperCase(Locale.US)) {
+
+            case "USD": return "$";
+
+            case "EUR": return "€";
+
+            case "GBP": return "£";
+
+            case "INR": return "₹";
+
+            case "JPY": return "¥";
+
+            case "CNY": return "¥";
+
+            case "AUD": return "A$";
+
+            case "CAD": return "C$";
+
+            case "SGD": return "S$";
+
+            case "HKD": return "HK$";
+
+            case "NZD": return "NZ$";
+
+            case "CHF": return "CHF ";
+
+            case "AED": return "د.إ ";
+
+            case "SAR": return "﷼";
+
+            case "THB": return "฿";
+
+            case "VND": return "₫";
+
+            case "IDR": return "Rp ";
+
+            default: return "$";
+        }
     }
 
     private void resetFields() {

@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:src="@drawable/back_ic"
-            app:tint="@color/header_blue_dark" />
+            app:tint="@color/history_txt" />
 
         <TextView
             android:id="@+id/tvTitle"
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/fd_calculator"
-            android:textColor="@color/header_blue_dark"
+            android:textColor="@color/history_txt"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -99,7 +99,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/interest_rate"
-                            android:textColor="@color/header_blue_light"
+                            android:textColor="@color/reset_txt"
                             android:textSize="17sp"
                             android:textStyle="bold" />
 
@@ -132,7 +132,7 @@
                         android:background="@null"
                         android:hint="@string/investment_amount"
                         android:textColorHint="@color/grey"
-                        android:textColor="@color/black"
+                        android:textColor="@color/text_color"
                         android:textSize="16sp"
                         android:inputType="numberDecimal" />
 
@@ -161,7 +161,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="6dp"
                             android:text="USD"
-                            android:textColor="@color/blue"
+                            android:textColor="@color/reset_txt"
                             android:textStyle="bold"
                             android:textSize="15sp" />
 
@@ -170,7 +170,7 @@
                             android:layout_height="18dp"
                             android:layout_marginStart="3dp"
                             android:src="@drawable/ic_dropdown"
-                            app:tint="@color/header_blue_dark" />
+                            app:tint="@color/reset_txt" />
 
                     </LinearLayout>
 
@@ -206,7 +206,8 @@
                             android:layout_height="20dp"
                             android:layout_gravity="center"
                             android:padding="2dp"
-                            android:src="@drawable/percentage_ic" />
+                            android:src="@drawable/percentage_ic"
+                            app:tint="@color/setting_ic" />
 
                     </FrameLayout>
 
@@ -220,7 +221,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/expected_interest_rate"
-                            android:textColor="@color/header_blue_light"
+                            android:textColor="@color/reset_txt"
                             android:textSize="17sp"
                             android:textStyle="bold" />
 
@@ -253,7 +254,7 @@
                         android:background="@null"
                         android:hint="@string/interest_rate"
                         android:textColorHint="@color/grey"
-                        android:textColor="@color/black"
+                        android:textColor="@color/text_color"
                         android:textSize="16sp"
                         android:inputType="numberDecimal" />
 
@@ -261,7 +262,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="%"
-                        android:textColor="@color/blue"
+                        android:textColor="@color/reset_txt"
                         android:textStyle="bold"
                         android:textSize="16sp" />
 
@@ -296,7 +297,8 @@
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/calendar_ic" />
+                            android:src="@drawable/calendar_ic"
+                            app:tint="@color/setting_ic" />
 
                     </FrameLayout>
 
@@ -310,7 +312,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/loan_term"
-                            android:textColor="@color/header_blue_light"
+                            android:textColor="@color/reset_txt"
                             android:textSize="17sp"
                             android:textStyle="bold" />
 
@@ -324,7 +326,6 @@
                     </LinearLayout>
 
                 </LinearLayout>
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -349,13 +350,12 @@
                             android:background="@null"
                             android:hint="Loan Term"
                             android:textColorHint="@color/grey"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_color"
                             android:textSize="16sp"
                             android:inputType="numberDecimal" />
 
 
                     </LinearLayout>
-
 
                     <!-- Unit -->
                     <LinearLayout
@@ -382,7 +382,7 @@
                             android:layout_width="18dp"
                             android:layout_height="18dp"
                             android:src="@drawable/ic_dropdown"
-                            app:tint="@color/header_blue_dark" />
+                            app:tint="@color/reset_txt" />
 
                     </LinearLayout>
 
@@ -417,7 +417,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:src="@drawable/time_interest_ic"
-                            app:tint="#1A5FBF" />
+                            app:tint="@color/setting_ic" />
 
                     </FrameLayout>
 
@@ -431,7 +431,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/time_interest"
-                            android:textColor="@color/header_blue_light"
+                            android:textColor="@color/reset_txt"
                             android:textSize="17sp"
                             android:textStyle="bold" />
 
@@ -464,7 +464,7 @@
                         android:background="@null"
                         android:hint="1"
                         android:textColorHint="@color/grey"
-                        android:textColor="@color/black"
+                        android:textColor="@color/text_color"
                         android:textSize="18sp"
                         android:inputType="numberDecimal" />
 
@@ -472,7 +472,7 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/ic_dropdown"
-                        app:tint="@color/blue" />
+                        app:tint="@color/reset_txt" />
 
                 </LinearLayout>
 
@@ -504,7 +504,8 @@
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/calendar_ic" />
+                            android:src="@drawable/calendar_ic"
+                            app:tint="@color/setting_ic" />
 
                     </FrameLayout>
 
@@ -518,7 +519,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/start_date"
-                            android:textColor="@color/header_blue_light"
+                            android:textColor="@color/reset_txt"
                             android:textSize="17sp"
                             android:textStyle="bold" />
 
@@ -549,7 +550,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="12/09/2026"
-                        android:textColor="@color/header_blue_light"
+                        android:textColor="@color/reset_txt"
                         android:textSize="16sp"
                         android:textStyle="bold"/>
 
@@ -557,7 +558,7 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/calendar_ic"
-                        app:tint="@color/header_blue_light" />
+                        app:tint="@color/reset_txt" />
 
                 </LinearLayout>
 

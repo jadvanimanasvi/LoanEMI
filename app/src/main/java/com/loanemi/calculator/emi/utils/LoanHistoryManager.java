@@ -2,11 +2,13 @@ package com.loanemi.calculator.emi.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+
 import com.loanemi.calculator.emi.R;
 import com.loanemi.calculator.emi.Models.HistoryItem;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,10 +22,7 @@ public class LoanHistoryManager {
 
     public LoanHistoryManager(Context context) {
 
-        preferences = context.getSharedPreferences(
-                PREF_NAME,
-                Context.MODE_PRIVATE
-        );
+        preferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
     }
 
 
@@ -31,44 +30,13 @@ public class LoanHistoryManager {
     // ADD FULL HISTORY
     // =========================================================
 
-    public void addHistory(
-            String loanType,
-            String date,
-            double loanAmount,
-            double interestRate,
-            double loanTerm,
-            String loanTermUnit,
-            int totalMonths,
-            double monthlyEmi,
-            double totalInterest,
-            double totalPayment,
-            String startDate,
-            String currencyCode,
-            String currencySymbol,
-            int iconRes
-    ) {
+    public void addHistory(String loanType, String date, double loanAmount, double interestRate, double loanTerm, String loanTermUnit, int totalMonths, double monthlyEmi, double totalInterest, double totalPayment, String startDate, String currencyCode, String currencySymbol, int iconRes) {
 
         List<HistoryItem> historyList = getHistory();
 
         long id = System.currentTimeMillis();
 
-        HistoryItem item = new HistoryItem(
-                id,
-                loanType,
-                date,
-                loanAmount,
-                interestRate,
-                loanTerm,
-                loanTermUnit,
-                totalMonths,
-                monthlyEmi,
-                totalInterest,
-                totalPayment,
-                startDate,
-                currencyCode,
-                currencySymbol,
-                iconRes
-        );
+        HistoryItem item = new HistoryItem(id, loanType, date, loanAmount, interestRate, loanTerm, loanTermUnit, totalMonths, monthlyEmi, totalInterest, totalPayment, startDate, currencyCode, currencySymbol, iconRes);
 
         // Newest history at top
         historyList.add(0, item);
@@ -101,81 +69,35 @@ public class LoanHistoryManager {
 
                 HistoryItem item = new HistoryItem(
 
-                        object.optLong(
-                                "id",
-                                System.currentTimeMillis()
-                        ),
+                        object.optLong("id", System.currentTimeMillis()),
 
-                        object.optString(
-                                "loanType",
-                                "Personal Loan"
-                        ),
+                        object.optString("loanType", "Personal Loan"),
 
-                        object.optString(
-                                "date",
-                                ""
-                        ),
+                        object.optString("date", ""),
 
-                        object.optDouble(
-                                "loanAmount",
-                                0
-                        ),
+                        object.optDouble("loanAmount", 0),
 
-                        object.optDouble(
-                                "interestRate",
-                                0
-                        ),
+                        object.optDouble("interestRate", 0),
 
-                        object.optDouble(
-                                "loanTerm",
-                                0
-                        ),
+                        object.optDouble("loanTerm", 0),
 
-                        object.optString(
-                                "loanTermUnit",
-                                "Months"
-                        ),
+                        object.optString("loanTermUnit", "Months"),
 
-                        object.optInt(
-                                "totalMonths",
-                                0
-                        ),
+                        object.optInt("totalMonths", 0),
 
-                        object.optDouble(
-                                "monthlyEmi",
-                                0
-                        ),
+                        object.optDouble("monthlyEmi", 0),
 
-                        object.optDouble(
-                                "totalInterest",
-                                0
-                        ),
+                        object.optDouble("totalInterest", 0),
 
-                        object.optDouble(
-                                "totalPayment",
-                                0
-                        ),
+                        object.optDouble("totalPayment", 0),
 
-                        object.optString(
-                                "startDate",
-                                ""
-                        ),
+                        object.optString("startDate", ""),
 
-                        object.optString(
-                                "currencyCode",
-                                "USD"
-                        ),
+                        object.optString("currencyCode", "USD"),
 
-                        object.optString(
-                                "currencySymbol",
-                                "$"
-                        ),
+                        object.optString("currencySymbol", "$"),
 
-                        object.optInt(
-                                "iconRes",
-                                R.drawable.personal_ic
-                        )
-                );
+                        object.optInt("iconRes", R.drawable.personal_ic));
 
                 historyList.add(item);
             }
@@ -202,80 +124,35 @@ public class LoanHistoryManager {
 
                 JSONObject object = new JSONObject();
 
-                object.put(
-                        "id",
-                        item.getId()
-                );
+                object.put("id", item.getId());
 
-                object.put(
-                        "loanType",
-                        item.getLoanType()
-                );
+                object.put("loanType", item.getLoanType());
 
-                object.put(
-                        "date",
-                        item.getDate()
-                );
+                object.put("date", item.getDate());
 
-                object.put(
-                        "loanAmount",
-                        item.getLoanAmount()
-                );
+                object.put("loanAmount", item.getLoanAmount());
 
-                object.put(
-                        "interestRate",
-                        item.getInterestRate()
-                );
+                object.put("interestRate", item.getInterestRate());
 
-                object.put(
-                        "loanTerm",
-                        item.getLoanTerm()
-                );
+                object.put("loanTerm", item.getLoanTerm());
 
-                object.put(
-                        "loanTermUnit",
-                        item.getLoanTermUnit()
-                );
+                object.put("loanTermUnit", item.getLoanTermUnit());
 
-                object.put(
-                        "totalMonths",
-                        item.getTotalMonths()
-                );
+                object.put("totalMonths", item.getTotalMonths());
 
-                object.put(
-                        "monthlyEmi",
-                        item.getMonthlyEmi()
-                );
+                object.put("monthlyEmi", item.getMonthlyEmi());
 
-                object.put(
-                        "totalInterest",
-                        item.getTotalInterest()
-                );
+                object.put("totalInterest", item.getTotalInterest());
 
-                object.put(
-                        "totalPayment",
-                        item.getTotalPayment()
-                );
+                object.put("totalPayment", item.getTotalPayment());
 
-                object.put(
-                        "startDate",
-                        item.getStartDate()
-                );
+                object.put("startDate", item.getStartDate());
 
-                object.put(
-                        "currencyCode",
-                        item.getCurrencyCode()
-                );
+                object.put("currencyCode", item.getCurrencyCode());
 
-                object.put(
-                        "currencySymbol",
-                        item.getCurrencySymbol()
-                );
+                object.put("currencySymbol", item.getCurrencySymbol());
 
-                object.put(
-                        "iconRes",
-                        item.getIconRes()
-                );
+                object.put("iconRes", item.getIconRes());
 
                 jsonArray.put(object);
             }
@@ -284,12 +161,7 @@ public class LoanHistoryManager {
             e.printStackTrace();
         }
 
-        preferences.edit()
-                .putString(
-                        KEY_HISTORY,
-                        jsonArray.toString()
-                )
-                .apply();
+        preferences.edit().putString(KEY_HISTORY, jsonArray.toString()).apply();
     }
 
 
@@ -319,9 +191,7 @@ public class LoanHistoryManager {
 
     public void deleteAllHistory() {
 
-        preferences.edit()
-                .remove(KEY_HISTORY)
-                .apply();
+        preferences.edit().remove(KEY_HISTORY).apply();
     }
 
 
@@ -335,9 +205,7 @@ public class LoanHistoryManager {
 
         for (int i = historyList.size() - 1; i >= 0; i--) {
 
-            if (selectedIds.contains(
-                    historyList.get(i).getId()
-            )) {
+            if (selectedIds.contains(historyList.get(i).getId())) {
 
                 historyList.remove(i);
             }
