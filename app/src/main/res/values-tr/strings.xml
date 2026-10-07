@@ -12,7 +12,7 @@
     <string name="auto_loan">Taşıt Kredisi</string>
     <string name="loan_freedom">Borç Özgürlüğü</string>
     <string name="student_loan">Öğrenci Kredisi</string>
-    <string name="calculate_emi">EMI'nizi Hesaplayın</string>
+    <string name="calculate_emi">EMI\'nizi Hesaplayın</string>
     <string name="countdown_calculator">Geri Sayım Hesaplayıcı</string>
     <string name="partner_title">Finansal Ortağınız</string>
     <string name="partner_sub">Kolay • Hızlı • Güvenilir</string>
@@ -46,7 +46,7 @@
     <string name="investment_amount">Yatırım Tutarı</string>
     <string name="loan_information">Kredi Bilgileri</string>
     <string name="result_after_calculation">Hesaplama Sonucu</string>
-    <string name="share_pdf">📄 PDF'yi Paylaş</string>
+    <string name="share_pdf">📄 PDF\'yi Paylaş</string>
     <string name="setting">Ayarlar</string>
 
     <string name="change_language">Dili Değiştir</string>
@@ -122,10 +122,10 @@
     <string name="history">Geçmiş</string>
 
     <string name="loan_calculators">Kredi Hesaplayıcıları</string>
-    <string name="calculate_your_emi_total_interest_10_and_loan_tenure">EMI'nizi, toplam faizi\nve kredi vadesini hesaplayın.</string>
+    <string name="calculate_your_emi_total_interest_10_and_loan_tenure">EMI\'nizi, toplam faizi\nve kredi vadesini hesaplayın.</string>
     <string name="calculate_business_loan_easily">İşletme kredisini kolayca hesaplayın.</string>
     <string name="calculate_and_plan_your_dream_ride">Hayalinizdeki aracı hesaplayın ve planlayın.</string>
-    <string name="calculate_your_home_loan_emi_easily">Konut kredisi EMI'nizi kolayca hesaplayın.</string>
+    <string name="calculate_your_home_loan_emi_easily">Konut kredisi EMI\'nizi kolayca hesaplayın.</string>
     <string name="smart_planning_for_your_education">Eğitiminiz için akıllı planlama</string>
     <string name="financial_calculator">Finansal Hesaplayıcı</string>
     <string name="calculate_cash_values">Nakit değerlerini hesaplayın</string>
