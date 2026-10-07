@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tagline">Умные расчёты, мгновенные результаты</string>
+    <string name="hero_title">Давайте спланируем ваши финансы</string>
+    <string name="we_maintain_our_policy">Мы соблюдаем нашу политику…</string>
+    <string name="hero_sub">Выберите калькулятор и получите мгновенный результат.</string>
+    <string name="section_loan_calculators">Кредитные калькуляторы</string>
+    <string name="loan_calculator">Кредитный калькулятор</string>
+    <string name="business_loan">Бизнес-кредит</string>
+    <string name="home_loan">Ипотека</string>
+    <string name="home_loan_result">Результат расчёта ипотеки</string>
+    <string name="auto_loan">Автокредит</string>
+    <string name="loan_freedom">Свобода от кредитов</string>
+    <string name="student_loan">Студенческий кредит</string>
+    <string name="calculate_emi">Рассчитайте свой EMI</string>
+    <string name="countdown_calculator">Калькулятор обратного отсчёта</string>
+    <string name="partner_title">Ваш финансовый партнёр</string>
+    <string name="partner_sub">Просто • Быстро • Надёжно</string>
+    <string name="get_started">Начать</string>
+    <string name="nav_home">Главная</string>
+    <string name="nav_tools">Инструменты</string>
+    <string name="nav_history">История</string>
+    <string name="nav_setting">Настройки</string>
+    <string name="cd_menu">Меню</string>
+    <string name="cd_notifications">Уведомления</string>
+    <string name="cd_illustration">Иллюстрация</string>
+    <string name="hello_blank_fragment">Привет, пустой фрагмент</string>
+    <string name="ad">Реклама</string>
+    <string name="install">Установить</string>
+    <string name="language">Язык</string>
+    <string name="lang_desc">Пожалуйста, выберите язык, чтобы продолжить</string>
+    <string name="please_wait">Пожалуйста, подождите…</string>
+    <string name="loading_ads">Загрузка рекламы…</string>
+    <string name="skip_in">Пропустить через %1$d с</string>
+    <string name="please_select_language">Пожалуйста, выберите язык</string>
+
+    <string name="get_start_title">Храните свои воспоминания \n<font color="#2196F3">в безопасности и конфиденциальности</font></string>
+    <string name="getstart_dis">Защитите свои фотографии и видео с помощью конфиденциальности и безопасности.</string>
+    <string name="get_start">Начать</string>
+    <string name="smart_gallery_for_every_moment">Умная галерея\n<font color="#2196F3">для каждого момента</font></string>
+    <string name="all_your_memories_organized_beautifully_in_one_place">Все ваши воспоминания собраны\nкрасиво и удобно в одном месте.</string>
+    <string name="next">Далее</string>
+    <string name="fast_access_to_nyour_photos_amp_videos">Быстрый доступ к вашим\n<font color="#2196F3">фотографиям и видео</font></string>
+    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">Быстро находите и просматривайте\nлюбимые фотографии и видео.</string>
+    <string name="fragment_3_title">Создавайте и управляйте\nсвоими <font color="#2196F3">альбомами</font></string>
+    <string name="fragment_3_dis">Организуйте свои воспоминания в альбомы и храните их в безопасности.</string>
+    <string name="investment_amount">Сумма инвестиций</string>
+    <string name="loan_information">Информация о кредите</string>
+    <string name="result_after_calculation">Результат после расчёта</string>
+    <string name="share_pdf">📄 Поделиться PDF</string>
+    <string name="setting">Настройки</string>
+
+    <string name="change_language">Изменить язык</string>
+    <string name="theme">Тема</string>
+    <string name="privacy_policy">Политика конфиденциальности</string>
+    <string name="share_app">Поделиться приложением</string>
+    <string name="rate_us">Оцените нас</string>
+    <string name="version">Версия</string>
+    <string name="rate_select_star">Пожалуйста, выберите количество звёзд для оценки</string>
+    <string name="thanks_for_your_support">Спасибо за вашу поддержку!\n😍</string>
+    <string name="rate_desc">Мы усердно работаем над улучшением пользовательского опыта.\nМы будем очень благодарны, если вы оцените нас.</string>
+    <string name="the_best_we_can_get">Лучшее, что мы можем получить</string>
+    <string name="rate">Оценить</string>
+    <string name="choose_your_theme">Выберите тему</string>
+    <string name="_default">По умолчанию</string>
+    <string name="dark_theme">Тёмная тема</string>
+    <string name="light_theme">Светлая тема</string>
+    <string name="save">Сохранить</string>
+
+    <string name="age_calculator">Калькулятор возраста</string>
+    <string name="date_of_birth">Дата рождения</string>
+    <string name="years">Лет</string>
+    <string name="calculate_age">Рассчитать возраст</string>
+    <string name="your_age">Ваш возраст</string>
+    <string name="as_of_today">На сегодняшний день</string>
+    <string name="months">Месяцев</string>
+    <string name="days">Дней</string>
+    <string name="next_birthday">Следующий день рождения</string>
+
+    <string name="loan_amount">Сумма кредита</string>
+    <string name="interest_rate">Процентная ставка</string>
+    <string name="loan_term">Срок кредита</string>
+    <string name="start_date">Дата начала</string>
+    <string name="reset_fields">Сбросить поля</string>
+    <string name="calculate">Рассчитать</string>
+    <string name="auto_loan_result">Результат расчёта автокредита</string>
+    <string name="monthly_payment">Ежемесячный платёж</string>
+    <string name="total_payment">Общая сумма платежей</string>
+    <string name="total_interest_paid">Общая сумма выплаченных процентов</string>
+    <string name="pay_off_date">Дата полного погашения</string>
+    <string name="enter_the_loan_amount">Введите сумму кредита</string>
+    <string name="enter_annual_interest_rate">Введите годовую процентную ставку</string>
+    <string name="select_loan_term_and_unit">Выберите срок кредита и единицу измерения</string>
+    <string name="select_the_loan_start_date">Выберите дату начала кредита</string>
+
+    <string name="cash_calculator">Калькулятор наличных</string>
+    <string name="currency">Валюта</string>
+    <string name="select_currency">Выберите валюту</string>
+    <string name="denomination">Номинал</string>
+    <string name="number_of_notes">Количество купюр</string>
+    <string name="total_amount">Общая сумма</string>
+    <string name="currency_unit">Денежная единица</string>
+    <string name="exchange_rate">Обменный курс</string>
+    <string name="from">Из</string>
+    <string name="to">В</string>
+
+    <string name="fd_calculator">Калькулятор FD</string>
+    <string name="enter_the_investment_amount">Введите сумму инвестиций</string>
+    <string name="expected_interest_rate">Ожидаемая процентная ставка</string>
+    <string name="time_interest">Срок начисления процентов</string>
+    <string name="number_of_time_interest">Количество периодов начисления процентов</string>
+    <string name="fix_deposite_result">Результат расчёта фиксированного депозита</string>
+    <string name="down_payment">Первоначальный взнос</string>
+    <string name="total_investment_amount">Общая сумма инвестиций</string>
+    <string name="total_interest_value">Общая сумма процентов</string>
+    <string name="maturity_value">Сумма к погашению</string>
+    <string name="enter_amount">Введите сумму</string>
+    <string name="enter_rate">Введите ставку</string>
+
+    <string name="length_converter">Конвертер длины</string>
+    <string name="personal_loan">Персональный кредит</string>
+    <string name="personal_loan_result">Результат расчёта персонального кредита</string>
+    <string name="rd_calculator">Калькулятор RD</string>
+    <string name="monthly">Ежемесячно</string>
+    <string name="speed_converter">Конвертер скорости</string>
+    <string name="temperature_converter">Конвертер температуры</string>
+    <string name="weight_converter">Конвертер веса</string>
+    <string name="history">История</string>
+
+    <string name="loan_calculators">Кредитные калькуляторы</string>
+    <string name="calculate_your_emi_total_interest_10_and_loan_tenure">Рассчитайте EMI, общую сумму процентов\nи срок кредита.</string>
+    <string name="calculate_business_loan_easily">Легко рассчитайте бизнес-кредит.</string>
+    <string name="calculate_and_plan_your_dream_ride">Рассчитайте и спланируйте покупку автомобиля своей мечты.</string>
+    <string name="calculate_your_home_loan_emi_easily">Легко рассчитайте EMI по ипотеке.</string>
+    <string name="smart_planning_for_your_education">Умное планирование вашего образования</string>
+    <string name="financial_calculator">Финансовый калькулятор</string>
+    <string name="calculate_cash_values">Рассчитайте суммы наличных</string>
+    <string name="calculate_fixed_deposit_returns">Рассчитайте доходность фиксированного депозита</string>
+    <string name="calculate_recurring_deposit_returns">Рассчитайте доходность регулярного депозита</string>
+    <string name="tools">Инструменты</string>
+    <string name="useful_calculator_and_converter">Полезные калькуляторы и конвертеры</string>
+    <string name="setting_subtitle">Управляйте предпочтениями и настройками приложения</string>
+    <string name="converters">Конвертеры</string>
+    <string name="convert_between_currencies">Конвертируйте между валютами</string>
+    <string name="convert_between_length_units">Конвертируйте единицы длины</string>
+    <string name="convert_between_weight_units">Конвертируйте единицы веса</string>
+    <string name="calculate_your_exact_age">Рассчитайте свой точный возраст</string>
+    <string name="convert_between_speed_units">Конвертируйте единицы скорости</string>
+    <string name="convert_temperature_units">Конвертируйте единицы температуры</string>
+    <string name="month">Месяц</string>
+    <string name="select_investment_term_unit">Выберите единицу срока инвестирования</string>
+    <string name="cancel">Отмена</string>
+    <string name="compounding_frequency">Частота начисления сложных процентов</string>
+    <string name="recurring_deposit_result">Результат расчёта регулярного депозита</string>
+</resources>
