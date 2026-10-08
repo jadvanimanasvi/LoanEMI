@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tagline">स्मार्ट गणना, त्वरित निकाल</string>
+    <string name="hero_title">चला, तुमच्या आर्थिक नियोजनाला सुरुवात करूया</string>
+    <string name="we_maintain_our_policy">आम्ही आमचे धोरण कायम राखतो…</string>
+    <string name="hero_sub">कॅल्क्युलेटर निवडा आणि त्वरित निकाल मिळवा.</string>
+    <string name="section_loan_calculators">कर्ज कॅल्क्युलेटर</string>
+    <string name="loan_calculator">कर्ज कॅल्क्युलेटर</string>
+    <string name="business_loan">व्यवसाय कर्ज</string>
+    <string name="home_loan">गृह कर्ज</string>
+    <string name="home_loan_result">गृह कर्जाचा निकाल</string>
+    <string name="auto_loan">वाहन कर्ज</string>
+    <string name="loan_freedom">कर्जमुक्ती</string>
+    <string name="student_loan">शैक्षणिक कर्ज</string>
+    <string name="calculate_emi">तुमचा EMI मोजा</string>
+    <string name="countdown_calculator">काउंटडाउन कॅल्क्युलेटर</string>
+    <string name="partner_title">तुमचा आर्थिक भागीदार</string>
+    <string name="partner_sub">सोपे • जलद • विश्वासार्ह</string>
+    <string name="get_started">सुरुवात करा</string>
+    <string name="nav_home">मुख्यपृष्ठ</string>
+    <string name="nav_tools">साधने</string>
+    <string name="nav_history">इतिहास</string>
+    <string name="nav_setting">सेटिंग्ज</string>
+    <string name="cd_menu">मेनू</string>
+    <string name="cd_notifications">सूचना</string>
+    <string name="cd_illustration">चित्रण</string>
+    <string name="hello_blank_fragment">हॅलो ब्लँक फ्रॅगमेंट</string>
+    <string name="ad">जाहिरात</string>
+    <string name="install">इन्स्टॉल करा</string>
+    <string name="language">भाषा</string>
+    <string name="lang_desc">सुरू ठेवण्यासाठी कृपया भाषा निवडा</string>
+    <string name="please_wait">कृपया प्रतीक्षा करा…</string>
+    <string name="loading_ads">जाहिराती लोड होत आहेत…</string>
+    <string name="skip_in">%1$d सेकंदांत वगळा</string>
+    <string name="please_select_language">कृपया भाषा निवडा</string>
+
+    <string name="get_start_title">तुमच्या आठवणी \n<font color="#2196F3">सुरक्षित आणि खाजगी ठेवा</font></string>
+    <string name="getstart_dis">तुमचे फोटो आणि व्हिडिओ गोपनीयता व सुरक्षिततेसह सुरक्षित ठेवा.</string>
+    <string name="get_start">सुरुवात करा</string>
+
+    <string name="smart_gallery_for_every_moment">प्रत्येक क्षणासाठी\n<font color="#2196F3">स्मार्ट गॅलरी</font></string>
+    <string name="all_your_memories_organized_beautifully_in_one_place">तुमच्या सर्व आठवणी एका ठिकाणी\nसुंदरपणे व्यवस्थित ठेवा.</string>
+    <string name="next">पुढे</string>
+
+    <string name="fast_access_to_nyour_photos_amp_videos">तुमच्या <font color="#2196F3">फोटो आणि व्हिडिओंना</font>\nजलद प्रवेश</string>
+    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">तुमचे आवडते फोटो आणि व्हिडिओ\nत्वरित शोधा आणि पहा.</string>
+
+    <string name="fragment_3_title">तुमचे <font color="#2196F3">अल्बम</font> तयार करा\nआणि व्यवस्थापित करा</string>
+    <string name="fragment_3_dis">तुमच्या आठवणी अल्बममध्ये व्यवस्थित करा आणि त्या सुरक्षित ठेवा.</string>
+
+    <string name="investment_amount">गुंतवणूक रक्कम</string>
+    <string name="loan_information">कर्जाची माहिती</string>
+    <string name="result_after_calculation">गणनेनंतरचा निकाल</string>
+    <string name="share_pdf">📄 PDF शेअर करा</string>
+    <string name="setting">सेटिंग्ज</string>
+    <string name="change_language">भाषा बदला</string>
+    <string name="theme">थीम</string>
+    <string name="privacy_policy">गोपनीयता धोरण</string>
+    <string name="share_app">अॅप शेअर करा</string>
+    <string name="rate_us">आम्हाला रेट करा</string>
+    <string name="version">आवृत्ती</string>
+    <string name="rate_select_star">रेट करण्यासाठी कृपया एक स्टार निवडा</string>
+    <string name="thanks_for_your_support">तुमच्या समर्थनाबद्दल धन्यवाद!\n😍</string>
+    <string name="rate_desc">चांगला वापरकर्ता अनुभव देण्यासाठी आम्ही मेहनत घेत आहोत.\nतुम्ही आम्हाला रेट केल्यास आम्हाला खूप आनंद होईल.</string>
+    <string name="the_best_we_can_get">आम्हाला मिळू शकणारे सर्वोत्तम</string>
+    <string name="rate">रेट करा</string>
+    <string name="choose_your_theme">तुमची थीम निवडा</string>
+    <string name="_default">डीफॉल्ट</string>
+    <string name="dark_theme">डार्क थीम</string>
+    <string name="light_theme">लाइट थीम</string>
+    <string name="save">जतन करा</string>
+
+    <string name="age_calculator">वय कॅल्क्युलेटर</string>
+    <string name="date_of_birth">जन्मतारीख</string>
+    <string name="years">वर्षे</string>
+    <string name="calculate_age">वय मोजा</string>
+    <string name="your_age">तुमचे वय</string>
+    <string name="as_of_today">आजच्या तारखेप्रमाणे</string>
+    <string name="months">महिने</string>
+    <string name="days">दिवस</string>
+    <string name="next_birthday">पुढील वाढदिवस</string>
+
+    <string name="loan_amount">कर्जाची रक्कम</string>
+    <string name="interest_rate">व्याजदर</string>
+    <string name="loan_term">कर्जाचा कालावधी</string>
+    <string name="start_date">सुरुवातीची तारीख</string>
+    <string name="reset_fields">फील्ड रीसेट करा</string>
+    <string name="calculate">गणना करा</string>
+    <string name="auto_loan_result">वाहन कर्जाचा निकाल</string>
+    <string name="monthly_payment">मासिक हप्ता</string>
+    <string name="total_payment">एकूण भरणा</string>
+    <string name="total_interest_paid">एकूण भरलेले व्याज</string>
+    <string name="pay_off_date">कर्जफेडीची तारीख</string>
+    <string name="enter_the_loan_amount">कर्जाची रक्कम प्रविष्ट करा</string>
+    <string name="enter_annual_interest_rate">वार्षिक व्याजदर प्रविष्ट करा</string>
+    <string name="select_loan_term_and_unit">कर्जाचा कालावधी आणि एकक निवडा</string>
+    <string name="select_the_loan_start_date">कर्जाची सुरुवातीची तारीख निवडा</string>
+
+    <string name="cash_calculator">रोख रक्कम कॅल्क्युलेटर</string>
+    <string name="currency">चलन</string>
+    <string name="select_currency">चलन निवडा</string>
+    <string name="denomination">चलन मूल्य</string>
+    <string name="number_of_notes">नोटांची संख्या</string>
+    <string name="total_amount">एकूण रक्कम</string>
+    <string name="currency_unit">चलन एकक</string>
+    <string name="exchange_rate">विनिमय दर</string>
+    <string name="from">पासून</string>
+    <string name="to">पर्यंत</string>
+
+    <string name="fd_calculator">FD कॅल्क्युलेटर</string>
+    <string name="enter_the_investment_amount">गुंतवणुकीची रक्कम प्रविष्ट करा</string>
+    <string name="expected_interest_rate">अपेक्षित व्याजदर</string>
+    <string name="time_interest">व्याज कालावधी</string>
+    <string name="number_of_time_interest">व्याज कालावधीची संख्या</string>
+    <string name="fix_deposite_result">मुदत ठेवीचा निकाल</string>
+    <string name="down_payment">आगाऊ भरणा</string>
+    <string name="total_investment_amount">एकूण गुंतवणूक रक्कम</string>
+    <string name="total_interest_value">एकूण व्याज रक्कम</string>
+    <string name="maturity_value">परिपक्वता मूल्य</string>
+    <string name="enter_amount">रक्कम प्रविष्ट करा</string>
+    <string name="enter_rate">दर प्रविष्ट करा</string>
+
+    <string name="length_converter">लांबी रूपांतरक</string>
+    <string name="personal_loan">वैयक्तिक कर्ज</string>
+    <string name="personal_loan_result">वैयक्तिक कर्जाचा निकाल</string>
+    <string name="rd_calculator">RD कॅल्क्युलेटर</string>
+    <string name="monthly">मासिक</string>
+    <string name="speed_converter">वेग रूपांतरक</string>
+    <string name="temperature_converter">तापमान रूपांतरक</string>
+    <string name="weight_converter">वजन रूपांतरक</string>
+    <string name="history">इतिहास</string>
+
+    <string name="loan_calculators">कर्ज कॅल्क्युलेटर</string>
+    <string name="calculate_your_emi_total_interest_10_and_loan_tenure">तुमचा EMI, एकूण व्याज\nआणि कर्जाचा कालावधी मोजा.</string>
+    <string name="calculate_business_loan_easily">व्यवसाय कर्जाची सहज गणना करा.</string>
+    <string name="calculate_and_plan_your_dream_ride">तुमच्या स्वप्नातील वाहनाची गणना आणि नियोजन करा.</string>
+    <string name="calculate_your_home_loan_emi_easily">तुमच्या गृहकर्जाच्या EMI ची सहज गणना करा.</string>
+    <string name="smart_planning_for_your_education">तुमच्या शिक्षणासाठी स्मार्ट नियोजन</string>
+
+    <string name="financial_calculator">आर्थिक कॅल्क्युलेटर</string>
+    <string name="calculate_cash_values">रोख रकमेची गणना करा</string>
+    <string name="calculate_fixed_deposit_returns">मुदत ठेवीवरील परताव्याची गणना करा</string>
+    <string name="calculate_recurring_deposit_returns">आवर्ती ठेवीवरील परताव्याची गणना करा</string>
+
+    <string name="tools">साधने</string>
+    <string name="useful_calculator_and_converter">उपयुक्त कॅल्क्युलेटर आणि रूपांतरक</string>
+    <string name="setting_subtitle">प्राधान्ये आणि अॅप सेटिंग्ज व्यवस्थापित करा</string>
+    <string name="converters">रूपांतरक</string>
+    <string name="convert_between_currencies">चलनांमध्ये रूपांतर करा</string>
+    <string name="convert_between_length_units">लांबीच्या एककांमध्ये रूपांतर करा</string>
+    <string name="convert_between_weight_units">वजनाच्या एककांमध्ये रूपांतर करा</string>
+    <string name="calculate_your_exact_age">तुमचे अचूक वय मोजा</string>
+    <string name="convert_between_speed_units">वेगाच्या एककांमध्ये रूपांतर करा</string>
+    <string name="convert_temperature_units">तापमानाच्या एककांमध्ये रूपांतर करा</string>
+
+    <string name="month">महिना</string>
+    <string name="select_investment_term_unit">गुंतवणुकीचा कालावधी आणि एकक निवडा</string>
+    <string name="cancel">रद्द करा</string>
+    <string name="compounding_frequency">चक्रवाढीची वारंवारता</string>
+    <string name="recurring_deposit_result">आवर्ती ठेवीचा निकाल</string>
+</resources>

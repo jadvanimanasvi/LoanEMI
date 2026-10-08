@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="tagline">Cálculos Inteligentes, Resultados Instantâneos</string>
+    <string name="hero_title">Vamos planejar suas finanças</string>
+    <string name="we_maintain_our_policy">Mantemos nossa política…</string>
+    <string name="hero_sub">Escolha uma calculadora e obtenha resultados instantâneos.</string>
+    <string name="section_loan_calculators">Calculadoras de Empréstimos</string>
+    <string name="loan_calculator">Calculadora de Empréstimo</string>
+    <string name="business_loan">Empréstimo Empresarial</string>
+    <string name="home_loan">Empréstimo Imobiliário</string>
+    <string name="home_loan_result">Resultado do Empréstimo Imobiliário</string>
+    <string name="auto_loan">Empréstimo para Automóvel</string>
+    <string name="loan_freedom">Liberdade Financeira</string>
+    <string name="student_loan">Empréstimo Estudantil</string>
+    <string name="calculate_emi">Calcule sua parcela</string>
+    <string name="countdown_calculator">Calculadora de Contagem Regressiva</string>
+    <string name="partner_title">Seu Parceiro Financeiro</string>
+    <string name="partner_sub">Fácil • Rápido • Confiável</string>
+    <string name="get_started">Começar</string>
+    <string name="nav_home">Início</string>
+    <string name="nav_tools">Ferramentas</string>
+    <string name="nav_history">Histórico</string>
+    <string name="nav_setting">Configurações</string>
+    <string name="cd_menu">Menu</string>
+    <string name="cd_notifications">Notificações</string>
+    <string name="cd_illustration">Ilustração</string>
+    <string name="hello_blank_fragment">Olá, fragmento em branco</string>
+    <string name="ad">Anúncio</string>
+    <string name="install">Instalar</string>
+    <string name="language">Idioma</string>
+    <string name="lang_desc">Selecione um idioma para continuar</string>
+    <string name="please_wait">Aguarde…</string>
+    <string name="loading_ads">Carregando anúncios…</string>
+    <string name="skip_in">Pular em %1$d\u0073</string>
+    <string name="please_select_language">Selecione um idioma</string>
+
+    <string name="get_start_title">Mantenha suas memórias \n<font color="#2196F3">Seguras e Privadas</font></string>
+    <string name="getstart_dis">Proteja suas fotos e vídeos com privacidade e segurança.</string>
+    <string name="get_start">Começar</string>
+
+    <string name="smart_gallery_for_every_moment">Galeria Inteligente\n Para <font color="#2196F3">Todos os Momentos</font></string>
+    <string name="all_your_memories_organized_beautifully_in_one_place">Todas as suas memórias organizadas \nlindamente em um só lugar.</string>
+    <string name="next">Próximo</string>
+
+    <string name="fast_access_to_nyour_photos_amp_videos">Acesso Rápido às \nSuas <font color="#2196F3">Fotos e Vídeos</font></string>
+    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">Encontre e visualize rapidamente todas as suas\nfotos e vídeos favoritos.</string>
+
+    <string name="fragment_3_title">Crie e Gerencie  \nSeus <font color="#2196F3">Álbuns</font></string>
+    <string name="fragment_3_dis">Organize suas memórias em álbuns e mantenha tudo armazenado.</string>
+
+    <string name="investment_amount">Valor do Investimento</string>
+    <string name="loan_information">Informações do Empréstimo</string>
+    <string name="result_after_calculation">Resultado do Cálculo</string>
+    <string name="share_pdf">📄 Compartilhar PDF</string>
+    <string name="setting">Configurações</string>
+
+    <string name="change_language">Alterar idioma</string>
+    <string name="theme">Tema</string>
+    <string name="privacy_policy">Política de privacidade</string>
+    <string name="share_app">Compartilhar aplicativo</string>
+    <string name="rate_us">Avalie-nos</string>
+    <string name="version">Versão</string>
+    <string name="rate_select_star">Selecione uma estrela para nos avaliar</string>
+    <string name="thanks_for_your_support">Obrigado pelo seu apoio!\n😍</string>
+    <string name="rate_desc">Estamos trabalhando para oferecer uma experiência cada vez melhor.\nAgradeceríamos muito se você pudesse nos avaliar.</string>
+    <string name="the_best_we_can_get">O melhor que podemos receber</string>
+    <string name="rate">Avaliar</string>
+    <string name="choose_your_theme">Escolha seu tema</string>
+    <string name="_default">Padrão</string>
+    <string name="dark_theme">Tema escuro</string>
+    <string name="light_theme">Tema claro</string>
+    <string name="save">Salvar</string>
+    <string name="age_calculator">Calculadora de Idade</string>
+    <string name="date_of_birth">Data de Nascimento</string>
+    <string name="years">Anos</string>
+    <string name="calculate_age">Calcular Idade</string>
+    <string name="your_age">Sua Idade</string>
+    <string name="as_of_today">Até hoje</string>
+    <string name="months">Meses</string>
+    <string name="days">Dias</string>
+    <string name="next_birthday">Próximo Aniversário</string>
+    <string name="loan_amount">Valor do Empréstimo</string>
+    <string name="interest_rate">Taxa de Juros</string>
+    <string name="loan_term">Prazo do Empréstimo</string>
+    <string name="start_date">Data de Início</string>
+    <string name="reset_fields">Redefinir Campos</string>
+    <string name="calculate">Calcular</string>
+    <string name="auto_loan_result">Resultado do Empréstimo para Automóvel</string>
+    <string name="monthly_payment">Pagamento Mensal</string>
+    <string name="total_payment">Pagamento Total</string>
+    <string name="total_interest_paid">Total de Juros Pagos</string>
+    <string name="pay_off_date">Data de Quitação</string>
+    <string name="enter_the_loan_amount">Digite o valor do empréstimo</string>
+    <string name="enter_annual_interest_rate">Digite a taxa de juros anual</string>
+    <string name="select_loan_term_and_unit">Selecione o prazo e a unidade do empréstimo</string>
+    <string name="select_the_loan_start_date">Selecione a data de início do empréstimo</string>
+    <string name="cash_calculator">Calculadora de Dinheiro</string>
+    <string name="currency">Moeda</string>
+    <string name="select_currency">Selecionar moeda</string>
+    <string name="denomination">Denominação</string>
+    <string name="number_of_notes">Número de Cédulas</string>
+    <string name="total_amount">Valor Total</string>
+    <string name="currency_unit">Unidade Monetária</string>
+    <string name="exchange_rate">Taxa de Câmbio</string>
+    <string name="from">De</string>
+    <string name="to">Para</string>
+    <string name="fd_calculator">Calculadora de Renda Fixa</string>
+    <string name="enter_the_investment_amount">Digite o valor do investimento</string>
+    <string name="expected_interest_rate">Taxa de Juros Esperada</string>
+    <string name="time_interest">Período de Investimento</string>
+    <string name="number_of_time_interest">Número de períodos de juros</string>
+    <string name="fix_deposite_result">Resultado da Renda Fixa</string>
+    <string name="down_payment">Entrada</string>
+    <string name="total_investment_amount">Valor Total do Investimento</string>
+    <string name="total_interest_value">Valor Total dos Juros</string>
+    <string name="maturity_value">Valor no Vencimento</string>
+    <string name="enter_amount">Digite o Valor</string>
+    <string name="enter_rate">Digite a Taxa</string>
+    <string name="length_converter">Conversor de Comprimento</string>
+    <string name="personal_loan">Empréstimo Pessoal</string>
+    <string name="personal_loan_result">Resultado do Empréstimo Pessoal</string>
+    <string name="rd_calculator">Calculadora de Depósito Recorrente</string>
+    <string name="monthly">Mensal</string>
+    <string name="speed_converter">Conversor de Velocidade</string>
+    <string name="temperature_converter">Conversor de Temperatura</string>
+    <string name="weight_converter">Conversor de Peso</string>
+    <string name="history">Histórico</string>
+
+    <string name="loan_calculators">Calculadoras de Empréstimos</string>
+    <string name="calculate_your_emi_total_interest_10_and_loan_tenure">Calcule sua parcela, juros totais\ne prazo do empréstimo.</string>
+    <string name="calculate_business_loan_easily">Calcule seu empréstimo empresarial facilmente.</string>
+    <string name="calculate_and_plan_your_dream_ride">Calcule e planeje seu veículo dos sonhos.</string>
+    <string name="calculate_your_home_loan_emi_easily">Calcule facilmente a parcela do seu empréstimo imobiliário.</string>
+    <string name="smart_planning_for_your_education">Planejamento inteligente para sua educação</string>
+    <string name="financial_calculator">Calculadora Financeira</string>
+    <string name="calculate_cash_values">Calcule valores em dinheiro</string>
+    <string name="calculate_fixed_deposit_returns">Calcule os rendimentos da renda fixa</string>
+    <string name="calculate_recurring_deposit_returns">Calcule os rendimentos do depósito recorrente</string>
+    <string name="tools">Ferramentas</string>
+    <string name="useful_calculator_and_converter">Calculadoras e Conversores Úteis</string>
+    <string name="setting_subtitle">Gerencie preferências e configurações do aplicativo</string>
+    <string name="converters">Conversores</string>
+    <string name="convert_between_currencies">Converta entre moedas</string>
+    <string name="convert_between_length_units">Converta entre unidades de comprimento</string>
+    <string name="convert_between_weight_units">Converta entre unidades de peso</string>
+    <string name="calculate_your_exact_age">Calcule sua idade exata</string>
+    <string name="convert_between_speed_units">Converta entre unidades de velocidade</string>
+    <string name="convert_temperature_units">Converta unidades de temperatura</string>
+    <string name="month">Mês</string>
+    <string name="select_investment_term_unit">Selecione a unidade do prazo do investimento</string>
+    <string name="cancel">Cancelar</string>
+    <string name="compounding_frequency">Frequência de Capitalização</string>
+    <string name="recurring_deposit_result">Resultado do Depósito Recorrente</string>
+
+
+</resources>

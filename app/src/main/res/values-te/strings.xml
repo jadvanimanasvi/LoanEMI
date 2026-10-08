@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tagline">స్మార్ట్ లెక్కలు, తక్షణ ఫలితాలు</string>
+    <string name="hero_title">మీ ఆర్థిక ప్రణాళికను ప్రారంభిద్దాం</string>
+    <string name="we_maintain_our_policy">మేము మా విధానాన్ని పాటిస్తాము…</string>
+    <string name="hero_sub">క్యాలిక్యులేటర్‌ను ఎంచుకుని తక్షణ ఫలితాలను పొందండి.</string>
+    <string name="section_loan_calculators">లోన్ క్యాలిక్యులేటర్లు</string>
+    <string name="loan_calculator">లోన్ క్యాలిక్యులేటర్</string>
+    <string name="business_loan">బిజినెస్ లోన్</string>
+    <string name="home_loan">హోమ్ లోన్</string>
+    <string name="home_loan_result">హోమ్ లోన్ ఫలితం</string>
+    <string name="auto_loan">ఆటో లోన్</string>
+    <string name="loan_freedom">లోన్ విముక్తి</string>
+    <string name="student_loan">స్టూడెంట్ లోన్</string>
+    <string name="calculate_emi">మీ EMIని లెక్కించండి</string>
+    <string name="countdown_calculator">కౌంట్‌డౌన్ క్యాలిక్యులేటర్</string>
+    <string name="partner_title">మీ ఆర్థిక భాగస్వామి</string>
+    <string name="partner_sub">సులభం • వేగవంతం • నమ్మదగినది</string>
+    <string name="get_started">ప్రారంభించండి</string>
+    <string name="nav_home">హోమ్</string>
+    <string name="nav_tools">టూల్స్</string>
+    <string name="nav_history">చరిత్ర</string>
+    <string name="nav_setting">సెట్టింగ్</string>
+    <string name="cd_menu">మెనూ</string>
+    <string name="cd_notifications">నోటిఫికేషన్లు</string>
+    <string name="cd_illustration">చిత్రం</string>
+    <string name="hello_blank_fragment">హలో బ్లాంక్ ఫ్రాగ్మెంట్</string>
+    <string name="ad">ప్రకటన</string>
+    <string name="install">ఇన్‌స్టాల్ చేయండి</string>
+    <string name="language">భాష</string>
+    <string name="lang_desc">కొనసాగించడానికి దయచేసి భాషను ఎంచుకోండి</string>
+    <string name="please_wait">దయచేసి వేచి ఉండండి…</string>
+    <string name="loading_ads">ప్రకటనలు లోడ్ అవుతున్నాయి…</string>
+    <string name="skip_in">%1$d సెకన్లలో దాటవేయండి</string>
+    <string name="please_select_language">దయచేసి భాషను ఎంచుకోండి</string>
+
+    <string name="get_start_title">మీ జ్ఞాపకాలను \n<font color="#2196F3">సురక్షితంగా &amp; ప్రైవేట్‌గా ఉంచండి</font></string>
+    <string name="getstart_dis">మీ ఫోటోలు మరియు వీడియోలను గోప్యత మరియు భద్రతతో రక్షించండి.</string>
+    <string name="get_start">ప్రారంభించండి</string>
+
+    <string name="smart_gallery_for_every_moment">ప్రతి క్షణం కోసం\n<font color="#2196F3">స్మార్ట్ గ్యాలరీ</font></string>
+    <string name="all_your_memories_organized_beautifully_in_one_place">మీ జ్ఞాపకాలన్నింటినీ ఒకే చోట\nఅందంగా క్రమబద్ధీకరించండి.</string>
+    <string name="next">తదుపరి</string>
+
+    <string name="fast_access_to_nyour_photos_amp_videos">మీ <font color="#2196F3">ఫోటోలు &amp; వీడియోలకు</font>\nవేగవంతమైన యాక్సెస్</string>
+    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">మీకు ఇష్టమైన ఫోటోలు మరియు వీడియోలను\nత్వరగా కనుగొని వీక్షించండి.</string>
+
+    <string name="fragment_3_title">మీ <font color="#2196F3">ఆల్బమ్‌లను</font>\nసృష్టించి &amp; నిర్వహించండి</string>
+    <string name="fragment_3_dis">మీ జ్ఞాపకాలను ఆల్బమ్‌లలో క్రమబద్ధీకరించి సురక్షితంగా ఉంచండి.</string>
+
+    <string name="investment_amount">పెట్టుబడి మొత్తం</string>
+    <string name="loan_information">లోన్ సమాచారం</string>
+    <string name="result_after_calculation">లెక్కింపు తర్వాత ఫలితం</string>
+    <string name="share_pdf">📄 PDF షేర్ చేయండి</string>
+    <string name="setting">సెట్టింగ్</string>
+    <string name="change_language">భాషను మార్చండి</string>
+    <string name="theme">థీమ్</string>
+    <string name="privacy_policy">గోప్యతా విధానం</string>
+    <string name="share_app">యాప్‌ను షేర్ చేయండి</string>
+    <string name="rate_us">మాకు రేటింగ్ ఇవ్వండి</string>
+    <string name="version">వెర్షన్</string>
+    <string name="rate_select_star">మాకు రేటింగ్ ఇవ్వడానికి దయచేసి ఒక స్టార్‌ను ఎంచుకోండి</string>
+    <string name="thanks_for_your_support">మీ మద్దతుకు ధన్యవాదాలు!\n😍</string>
+    <string name="rate_desc">మెరుగైన వినియోగదారు అనుభవం కోసం మేము కష్టపడి పనిచేస్తున్నాము.\nమీరు మాకు రేటింగ్ ఇస్తే మేము ఎంతో అభినందిస్తాము.</string>
+    <string name="the_best_we_can_get">మాకు లభించగల అత్యుత్తమమైనది</string>
+    <string name="rate">రేటింగ్ ఇవ్వండి</string>
+    <string name="choose_your_theme">మీ థీమ్‌ను ఎంచుకోండి</string>
+    <string name="_default">డిఫాల్ట్</string>
+    <string name="dark_theme">డార్క్ థీమ్</string>
+    <string name="light_theme">లైట్ థీమ్</string>
+    <string name="save">సేవ్ చేయండి</string>
+
+    <string name="age_calculator">వయస్సు క్యాలిక్యులేటర్</string>
+    <string name="date_of_birth">పుట్టిన తేదీ</string>
+    <string name="years">సంవత్సరాలు</string>
+    <string name="calculate_age">వయస్సును లెక్కించండి</string>
+    <string name="your_age">మీ వయస్సు</string>
+    <string name="as_of_today">ఈ రోజు నాటికి</string>
+    <string name="months">నెలలు</string>
+    <string name="days">రోజులు</string>
+    <string name="next_birthday">తదుపరి పుట్టినరోజు</string>
+
+    <string name="loan_amount">లోన్ మొత్తం</string>
+    <string name="interest_rate">వడ్డీ రేటు</string>
+    <string name="loan_term">లోన్ కాలవ్యవధి</string>
+    <string name="start_date">ప్రారంభ తేదీ</string>
+    <string name="reset_fields">ఫీల్డ్‌లను రీసెట్ చేయండి</string>
+    <string name="calculate">లెక్కించండి</string>
+    <string name="auto_loan_result">ఆటో లోన్ ఫలితం</string>
+    <string name="monthly_payment">నెలవారీ చెల్లింపు</string>
+    <string name="total_payment">మొత్తం చెల్లింపు</string>
+    <string name="total_interest_paid">చెల్లించిన మొత్తం వడ్డీ</string>
+    <string name="pay_off_date">లోన్ పూర్తిగా చెల్లించే తేదీ</string>
+    <string name="enter_the_loan_amount">లోన్ మొత్తాన్ని నమోదు చేయండి</string>
+    <string name="enter_annual_interest_rate">వార్షిక వడ్డీ రేటును నమోదు చేయండి</string>
+    <string name="select_loan_term_and_unit">లోన్ కాలవ్యవధి మరియు యూనిట్‌ను ఎంచుకోండి</string>
+    <string name="select_the_loan_start_date">లోన్ ప్రారంభ తేదీని ఎంచుకోండి</string>
+
+    <string name="cash_calculator">నగదు క్యాలిక్యులేటర్</string>
+    <string name="currency">కరెన్సీ</string>
+    <string name="select_currency">కరెన్సీని ఎంచుకోండి</string>
+    <string name="denomination">నోటు విలువ</string>
+    <string name="number_of_notes">నోట్ల సంఖ్య</string>
+    <string name="total_amount">మొత్తం మొత్తం</string>
+    <string name="currency_unit">కరెన్సీ యూనిట్</string>
+    <string name="exchange_rate">మారకపు రేటు</string>
+    <string name="from">నుండి</string>
+    <string name="to">కు</string>
+
+    <string name="fd_calculator">FD క్యాలిక్యులేటర్</string>
+    <string name="enter_the_investment_amount">పెట్టుబడి మొత్తాన్ని నమోదు చేయండి</string>
+    <string name="expected_interest_rate">అంచనా వడ్డీ రేటు</string>
+    <string name="time_interest">వడ్డీ కాలవ్యవధి</string>
+    <string name="number_of_time_interest">వడ్డీ కాలవ్యవధి సంఖ్య</string>
+    <string name="fix_deposite_result">ఫిక్స్‌డ్ డిపాజిట్ ఫలితం</string>
+    <string name="down_payment">డౌన్ పేమెంట్</string>
+    <string name="total_investment_amount">మొత్తం పెట్టుబడి మొత్తం</string>
+    <string name="total_interest_value">మొత్తం వడ్డీ విలువ</string>
+    <string name="maturity_value">మెచ్యూరిటీ విలువ</string>
+    <string name="enter_amount">మొత్తాన్ని నమోదు చేయండి</string>
+    <string name="enter_rate">రేటును నమోదు చేయండి</string>
+
+    <string name="length_converter">పొడవు కన్వర్టర్</string>
+    <string name="personal_loan">పర్సనల్ లోన్</string>
+    <string name="personal_loan_result">పర్సనల్ లోన్ ఫలితం</string>
+    <string name="rd_calculator">RD క్యాలిక్యులేటర్</string>
+    <string name="monthly">నెలవారీ</string>
+    <string name="speed_converter">వేగం కన్వర్టర్</string>
+    <string name="temperature_converter">ఉష్ణోగ్రత కన్వర్టర్</string>
+    <string name="weight_converter">బరువు కన్వర్టర్</string>
+    <string name="history">చరిత్ర</string>
+
+    <string name="loan_calculators">లోన్ క్యాలిక్యులేటర్లు</string>
+    <string name="calculate_your_emi_total_interest_10_and_loan_tenure">మీ EMI, మొత్తం వడ్డీ\nమరియు లోన్ కాలవ్యవధిని లెక్కించండి.</string>
+    <string name="calculate_business_loan_easily">బిజినెస్ లోన్‌ను సులభంగా లెక్కించండి.</string>
+    <string name="calculate_and_plan_your_dream_ride">మీ కలల వాహనం కోసం లెక్కించి ప్రణాళిక రూపొందించండి.</string>
+    <string name="calculate_your_home_loan_emi_easily">మీ హోమ్ లోన్ EMIని సులభంగా లెక్కించండి.</string>
+    <string name="smart_planning_for_your_education">మీ విద్య కోసం స్మార్ట్ ప్రణాళిక</string>
+
+    <string name="financial_calculator">ఆర్థిక క్యాలిక్యులేటర్</string>
+    <string name="calculate_cash_values">నగదు విలువలను లెక్కించండి</string>
+    <string name="calculate_fixed_deposit_returns">ఫిక్స్‌డ్ డిపాజిట్ రాబడిని లెక్కించండి</string>
+    <string name="calculate_recurring_deposit_returns">రికరింగ్ డిపాజిట్ రాబడిని లెక్కించండి</string>
+
+    <string name="tools">టూల్స్</string>
+    <string name="useful_calculator_and_converter">ఉపయోగకరమైన క్యాలిక్యులేటర్ మరియు కన్వర్టర్</string>
+    <string name="setting_subtitle">ప్రాధాన్యతలు మరియు యాప్ సెట్టింగ్‌లను నిర్వహించండి</string>
+    <string name="converters">కన్వర్టర్లు</string>
+    <string name="convert_between_currencies">కరెన్సీల మధ్య మార్చండి</string>
+    <string name="convert_between_length_units">పొడవు యూనిట్ల మధ్య మార్చండి</string>
+    <string name="convert_between_weight_units">బరువు యూనిట్ల మధ్య మార్చండి</string>
+    <string name="calculate_your_exact_age">మీ ఖచ్చితమైన వయస్సును లెక్కించండి</string>
+    <string name="convert_between_speed_units">వేగం యూనిట్ల మధ్య మార్చండి</string>
+    <string name="convert_temperature_units">ఉష్ణోగ్రత యూనిట్లను మార్చండి</string>
+    <string name="month">నెల</string>
+    <string name="select_investment_term_unit">పెట్టుబడి కాలవ్యవధి యూనిట్‌ను ఎంచుకోండి</string>
+    <string name="cancel">రద్దు చేయండి</string>
+    <string name="compounding_frequency">చక్రవడ్డీ తరచుదనం</string>
+    <string name="recurring_deposit_result">రికరింగ్ డిపాజిట్ ఫలితం</string>
+</resources>

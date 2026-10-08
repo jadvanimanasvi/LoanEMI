@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tagline">ஸ்மார்ட் கணக்கீடுகள், உடனடி முடிவுகள்</string>
+    <string name="hero_title">உங்கள் நிதியைத் திட்டமிடுவோம்</string>
+    <string name="we_maintain_our_policy">எங்கள் கொள்கையை நாங்கள் கடைப்பிடிக்கிறோம்…</string>
+    <string name="hero_sub">ஒரு கால்குலேட்டரைத் தேர்ந்தெடுத்து உடனடி முடிவுகளைப் பெறுங்கள்.</string>
+    <string name="section_loan_calculators">கடன் கால்குலேட்டர்கள்</string>
+    <string name="loan_calculator">கடன் கால்குலேட்டர்</string>
+    <string name="business_loan">வணிகக் கடன்</string>
+    <string name="home_loan">வீட்டுக் கடன்</string>
+    <string name="home_loan_result">வீட்டுக் கடன் முடிவு</string>
+    <string name="auto_loan">வாகனக் கடன்</string>
+    <string name="loan_freedom">கடன் விடுதலை</string>
+    <string name="student_loan">மாணவர் கடன்</string>
+    <string name="calculate_emi">உங்கள் EMI-ஐ கணக்கிடுங்கள்</string>
+    <string name="countdown_calculator">கவுண்ட்டவுன் கால்குலேட்டர்</string>
+    <string name="partner_title">உங்கள் நிதி கூட்டாளர்</string>
+    <string name="partner_sub">எளிதானது • வேகமானது • நம்பகமானது</string>
+    <string name="get_started">தொடங்குங்கள்</string>
+    <string name="nav_home">முகப்பு</string>
+    <string name="nav_tools">கருவிகள்</string>
+    <string name="nav_history">வரலாறு</string>
+    <string name="nav_setting">அமைப்புகள்</string>
+    <string name="cd_menu">மெனு</string>
+    <string name="cd_notifications">அறிவிப்புகள்</string>
+    <string name="cd_illustration">விளக்கப்படம்</string>
+    <string name="hello_blank_fragment">ஹலோ பிளாங்க் ஃபிராக்மென்ட்</string>
+    <string name="ad">விளம்பரம்</string>
+    <string name="install">நிறுவவும்</string>
+    <string name="language">மொழி</string>
+    <string name="lang_desc">தொடர தயவுசெய்து மொழியைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="please_wait">தயவுசெய்து காத்திருக்கவும்…</string>
+    <string name="loading_ads">விளம்பரங்கள் ஏற்றப்படுகின்றன…</string>
+    <string name="skip_in">%1$d வினாடிகளில் தவிர்க்கவும்</string>
+    <string name="please_select_language">தயவுசெய்து மொழியைத் தேர்ந்தெடுக்கவும்</string>
+
+    <string name="get_start_title">உங்கள் நினைவுகளை \n<font color="#2196F3">பாதுகாப்பாகவும் தனிப்பட்டதாகவும் வைத்திருங்கள்</font></string>
+    <string name="getstart_dis">உங்கள் புகைப்படங்கள் மற்றும் வீடியோக்களை தனியுரிமை மற்றும் பாதுகாப்புடன் பாதுகாக்கவும்.</string>
+    <string name="get_start">தொடங்குங்கள்</string>
+
+    <string name="smart_gallery_for_every_moment">ஒவ்வொரு தருணத்திற்கும்\n<font color="#2196F3">ஸ்மார்ட் கேலரி</font></string>
+    <string name="all_your_memories_organized_beautifully_in_one_place">உங்கள் அனைத்து நினைவுகளையும் ஒரே இடத்தில்\nஅழகாக ஒழுங்குபடுத்துங்கள்.</string>
+    <string name="next">அடுத்து</string>
+
+    <string name="fast_access_to_nyour_photos_amp_videos">உங்கள் <font color="#2196F3">புகைப்படங்கள் &amp; வீடியோக்களுக்கு</font>\nவிரைவான அணுகல்</string>
+    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">உங்களுக்குப் பிடித்த புகைப்படங்கள் மற்றும் வீடியோக்களை\nவிரைவாகக் கண்டுபிடித்து பார்க்கவும்.</string>
+
+    <string name="fragment_3_title">உங்கள் <font color="#2196F3">ஆல்பங்களை</font>\nஉருவாக்கி நிர்வகிக்கவும்</string>
+    <string name="fragment_3_dis">உங்கள் நினைவுகளை ஆல்பங்களில் ஒழுங்குபடுத்தி பாதுகாப்பாக வைத்திருக்கவும்.</string>
+
+    <string name="investment_amount">முதலீட்டுத் தொகை</string>
+    <string name="loan_information">கடன் தகவல்</string>
+    <string name="result_after_calculation">கணக்கீட்டிற்குப் பிறகு முடிவு</string>
+    <string name="share_pdf">📄 PDF பகிரவும்</string>
+    <string name="setting">அமைப்புகள்</string>
+    <string name="change_language">மொழியை மாற்றவும்</string>
+    <string name="theme">தீம்</string>
+    <string name="privacy_policy">தனியுரிமைக் கொள்கை</string>
+    <string name="share_app">ஆப்பைப் பகிரவும்</string>
+    <string name="rate_us">எங்களுக்கு மதிப்பீடு அளிக்கவும்</string>
+    <string name="version">பதிப்பு</string>
+    <string name="rate_select_star">எங்களை மதிப்பிட ஒரு நட்சத்திரத்தைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="thanks_for_your_support">உங்கள் ஆதரவுக்கு நன்றி!\n😍</string>
+    <string name="rate_desc">சிறந்த பயனர் அனுபவத்திற்காக நாங்கள் கடினமாக உழைத்து வருகிறோம்.\nநீங்கள் எங்களுக்கு மதிப்பீடு அளித்தால் மிகவும் பாராட்டுவோம்.</string>
+    <string name="the_best_we_can_get">நாங்கள் பெறக்கூடிய சிறந்த ஆதரவு</string>
+    <string name="rate">மதிப்பிடவும்</string>
+    <string name="choose_your_theme">உங்கள் தீமைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="_default">இயல்புநிலை</string>
+    <string name="dark_theme">டார்க் தீம்</string>
+    <string name="light_theme">லைட் தீம்</string>
+    <string name="save">சேமிக்கவும்</string>
+
+    <string name="age_calculator">வயது கால்குலேட்டர்</string>
+    <string name="date_of_birth">பிறந்த தேதி</string>
+    <string name="years">ஆண்டுகள்</string>
+    <string name="calculate_age">வயதைக் கணக்கிடவும்</string>
+    <string name="your_age">உங்கள் வயது</string>
+    <string name="as_of_today">இன்றைய நிலவரப்படி</string>
+    <string name="months">மாதங்கள்</string>
+    <string name="days">நாட்கள்</string>
+    <string name="next_birthday">அடுத்த பிறந்தநாள்</string>
+
+    <string name="loan_amount">கடன் தொகை</string>
+    <string name="interest_rate">வட்டி விகிதம்</string>
+    <string name="loan_term">கடன் காலம்</string>
+    <string name="start_date">தொடக்க தேதி</string>
+    <string name="reset_fields">புலங்களை மீட்டமைக்கவும்</string>
+    <string name="calculate">கணக்கிடவும்</string>
+    <string name="auto_loan_result">வாகனக் கடன் முடிவு</string>
+    <string name="monthly_payment">மாதாந்திர கட்டணம்</string>
+    <string name="total_payment">மொத்த கட்டணம்</string>
+    <string name="total_interest_paid">செலுத்திய மொத்த வட்டி</string>
+    <string name="pay_off_date">கடனை முழுமையாக செலுத்தும் தேதி</string>
+    <string name="enter_the_loan_amount">கடன் தொகையை உள்ளிடவும்</string>
+    <string name="enter_annual_interest_rate">ஆண்டு வட்டி விகிதத்தை உள்ளிடவும்</string>
+    <string name="select_loan_term_and_unit">கடன் காலம் மற்றும் அலகைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="select_the_loan_start_date">கடன் தொடக்கத் தேதியைத் தேர்ந்தெடுக்கவும்</string>
+
+    <string name="cash_calculator">பணக் கால்குலேட்டர்</string>
+    <string name="currency">நாணயம்</string>
+    <string name="select_currency">நாணயத்தைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="denomination">மதிப்பு</string>
+    <string name="number_of_notes">நோட்டுகளின் எண்ணிக்கை</string>
+    <string name="total_amount">மொத்த தொகை</string>
+    <string name="currency_unit">நாணய அலகு</string>
+    <string name="exchange_rate">மாற்று விகிதம்</string>
+    <string name="from">இருந்து</string>
+    <string name="to">வரை</string>
+
+    <string name="fd_calculator">FD கால்குலேட்டர்</string>
+    <string name="enter_the_investment_amount">முதலீட்டுத் தொகையை உள்ளிடவும்</string>
+    <string name="expected_interest_rate">எதிர்பார்க்கப்படும் வட்டி விகிதம்</string>
+    <string name="time_interest">வட்டி காலம்</string>
+    <string name="number_of_time_interest">வட்டி காலங்களின் எண்ணிக்கை</string>
+    <string name="fix_deposite_result">நிலையான வைப்பு முடிவு</string>
+    <string name="down_payment">முன்பணம்</string>
+    <string name="total_investment_amount">மொத்த முதலீட்டுத் தொகை</string>
+    <string name="total_interest_value">மொத்த வட்டி மதிப்பு</string>
+    <string name="maturity_value">முதிர்வு மதிப்பு</string>
+    <string name="enter_amount">தொகையை உள்ளிடவும்</string>
+    <string name="enter_rate">விகிதத்தை உள்ளிடவும்</string>
+
+    <string name="length_converter">நீள மாற்றி</string>
+    <string name="personal_loan">தனிநபர் கடன்</string>
+    <string name="personal_loan_result">தனிநபர் கடன் முடிவு</string>
+    <string name="rd_calculator">RD கால்குலேட்டர்</string>
+    <string name="monthly">மாதாந்திரம்</string>
+    <string name="speed_converter">வேக மாற்றி</string>
+    <string name="temperature_converter">வெப்பநிலை மாற்றி</string>
+    <string name="weight_converter">எடை மாற்றி</string>
+    <string name="history">வரலாறு</string>
+
+    <string name="loan_calculators">கடன் கால்குலேட்டர்கள்</string>
+    <string name="calculate_your_emi_total_interest_10_and_loan_tenure">உங்கள் EMI, மொத்த வட்டி\nமற்றும் கடன் காலத்தை கணக்கிடுங்கள்.</string>
+    <string name="calculate_business_loan_easily">வணிகக் கடனை எளிதாகக் கணக்கிடுங்கள்.</string>
+    <string name="calculate_and_plan_your_dream_ride">உங்கள் கனவு வாகனத்திற்கான கணக்கீடு மற்றும் திட்டமிடலைச் செய்யுங்கள்.</string>
+    <string name="calculate_your_home_loan_emi_easily">உங்கள் வீட்டுக் கடன் EMI-ஐ எளிதாகக் கணக்கிடுங்கள்.</string>
+    <string name="smart_planning_for_your_education">உங்கள் கல்விக்கான ஸ்மார்ட் திட்டமிடல்</string>
+
+    <string name="financial_calculator">நிதி கால்குலேட்டர்</string>
+    <string name="calculate_cash_values">பண மதிப்புகளைக் கணக்கிடுங்கள்</string>
+    <string name="calculate_fixed_deposit_returns">நிலையான வைப்பு வருமானத்தைக் கணக்கிடுங்கள்</string>
+    <string name="calculate_recurring_deposit_returns">தொடர் வைப்பு வருமானத்தைக் கணக்கிடுங்கள்</string>
+
+    <string name="tools">கருவிகள்</string>
+    <string name="useful_calculator_and_converter">பயனுள்ள கால்குலேட்டர் மற்றும் மாற்றி</string>
+    <string name="setting_subtitle">விருப்பத்தேர்வுகள் மற்றும் ஆப் அமைப்புகளை நிர்வகிக்கவும்</string>
+    <string name="converters">மாற்றிகள்</string>
+    <string name="convert_between_currencies">நாணயங்களுக்கு இடையே மாற்றவும்</string>
+    <string name="convert_between_length_units">நீள அலகுகளுக்கு இடையே மாற்றவும்</string>
+    <string name="convert_between_weight_units">எடை அலகுகளுக்கு இடையே மாற்றவும்</string>
+    <string name="calculate_your_exact_age">உங்கள் சரியான வயதைக் கணக்கிடுங்கள்</string>
+    <string name="convert_between_speed_units">வேக அலகுகளுக்கு இடையே மாற்றவும்</string>
+    <string name="convert_temperature_units">வெப்பநிலை அலகுகளை மாற்றவும்</string>
+    <string name="month">மாதம்</string>
+    <string name="select_investment_term_unit">முதலீட்டு கால அலகைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="cancel">ரத்துசெய்</string>
+    <string name="compounding_frequency">கூட்டு வட்டி அதிர்வெண்</string>
+    <string name="recurring_deposit_result">தொடர் வைப்பு முடிவு</string>
+</resources>
