@@ -18,6 +18,9 @@
             android:name=".Activities.RdCalculatorResultActivity"
             android:exported="false" />
         <activity
+            android:name=".Activities.PersonalLoanResultActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.StudentLoanRsultActivity"
             android:exported="false" />
         <activity

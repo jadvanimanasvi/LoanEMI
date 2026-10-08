@@ -10,6 +10,12 @@
     <string name="tools_native_medium" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
     <string name="setting_native_medium" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
     <string name="auto_loan_result_native_medium" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="business_loan_result_native_medium" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="fd_calc_result_native_medium" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="home_loan_result_native_medium" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="personal_loan_result_native_medium" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="rd_calc_result_native_medium" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="student_loan_result_native_medium" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
     <string name="splash_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
     <string name="splash_inter_1" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
     <string name="splash_inter_2" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
