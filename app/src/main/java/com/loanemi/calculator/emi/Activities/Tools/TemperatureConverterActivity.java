@@ -2,6 +2,7 @@ package com.loanemi.calculator.emi.Activities.Tools;
 
 import static com.loanemi.calculator.emi.utils.Util.setupEdgeToEdge;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.loanemi.calculator.emi.R;
 import com.google.android.libraries.ads.mobile.sdk.banner.AdView;
 import com.loanemi.calculator.emi.Ads.AdsHelper;
+import com.loanemi.calculator.emi.language.LocaleHelper;
 import com.loanemi.calculator.emi.utils.Util;
 import java.util.LinkedHashMap;
 import java.util.Locale;
@@ -40,6 +42,11 @@ public class TemperatureConverterActivity extends AppCompatActivity {
     private String fromUnit = "Celsius";
     private String toUnit = "Fahrenheit";
     private final Map<String, String> temperatureSymbols = new LinkedHashMap<>();
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.setLocale(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

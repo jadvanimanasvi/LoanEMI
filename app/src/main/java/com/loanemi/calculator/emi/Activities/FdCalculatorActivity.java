@@ -4,6 +4,7 @@ import static com.loanemi.calculator.emi.utils.Util.setupEdgeToEdge;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -25,6 +26,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.libraries.ads.mobile.sdk.banner.AdView;
 import com.loanemi.calculator.emi.Ads.AdsHelper;
 import com.loanemi.calculator.emi.R;
+import com.loanemi.calculator.emi.language.LocaleHelper;
 import com.loanemi.calculator.emi.utils.LoanHistoryManager;
 import com.loanemi.calculator.emi.utils.Util;
 
@@ -75,6 +77,10 @@ public class FdCalculatorActivity extends AppCompatActivity {
 
     private LoanHistoryManager loanHistoryManager;
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.setLocale(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

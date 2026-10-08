@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.loanemi.calculator.emi.R;
 import com.google.android.libraries.ads.mobile.sdk.banner.AdView;
 import com.loanemi.calculator.emi.Ads.AdsHelper;
+import com.loanemi.calculator.emi.language.LocaleHelper;
 import com.loanemi.calculator.emi.utils.Util;
 
 import org.json.JSONObject;
@@ -97,6 +98,11 @@ public class CashCalculatorActivity extends AppCompatActivity {
             tvTotalAmount.setText(formatAmount(0));
         }
     });
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.setLocale(newBase));
+    }
 
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
 

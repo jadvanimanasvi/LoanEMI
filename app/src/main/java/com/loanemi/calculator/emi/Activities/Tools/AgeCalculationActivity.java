@@ -2,6 +2,7 @@ package com.loanemi.calculator.emi.Activities.Tools;
 
 import static com.loanemi.calculator.emi.utils.Util.setupEdgeToEdge;
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.loanemi.calculator.emi.R;
 import com.google.android.libraries.ads.mobile.sdk.banner.AdView;
 import com.loanemi.calculator.emi.Ads.AdsHelper;
+import com.loanemi.calculator.emi.language.LocaleHelper;
 import com.loanemi.calculator.emi.utils.Util;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -44,6 +46,11 @@ public class AgeCalculationActivity extends AppCompatActivity {
 
     private final SimpleDateFormat displayDateFormat = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault());
 
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.setLocale(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

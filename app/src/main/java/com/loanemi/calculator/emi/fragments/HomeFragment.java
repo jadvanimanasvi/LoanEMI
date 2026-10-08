@@ -1,5 +1,6 @@
 package com.loanemi.calculator.emi.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import com.loanemi.calculator.emi.Activities.PersonalLoanActivity;
 import com.loanemi.calculator.emi.Activities.RdCalculatorActivity;
 import com.loanemi.calculator.emi.Activities.StudentLoanActivity;
 import com.loanemi.calculator.emi.Ads.NativeAdPreloader;
+import com.loanemi.calculator.emi.language.LocaleHelper;
 import com.loanemi.calculator.emi.utils.Util;
 
 public class HomeFragment extends Fragment {
@@ -33,6 +35,11 @@ public class HomeFragment extends Fragment {
     private TextView tvLoanSmart;
     public RelativeLayout cardLoanCalculator,cardBusinessLoan,cardHomeLoan,cardAutoLoan,cardStudentLoan;
     public CardView cardCash,cardFd,cardRd;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(LocaleHelper.setLocale(context));
+    }
 
     public HomeFragment() {
         // Required empty public constructor

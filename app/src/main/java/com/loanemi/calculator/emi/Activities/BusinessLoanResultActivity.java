@@ -1,10 +1,12 @@
 package com.loanemi.calculator.emi.Activities;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.loanemi.calculator.emi.R;
+import com.loanemi.calculator.emi.language.LocaleHelper;
 import com.loanemi.calculator.emi.utils.Util;
 
 import java.text.DecimalFormat;
@@ -21,6 +23,11 @@ public class BusinessLoanResultActivity extends AppCompatActivity {
     private TextView tvStartDate;
     private TextView tvMonthlyInstallment;
     private TextView tvMonthlyPayment;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.setLocale(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

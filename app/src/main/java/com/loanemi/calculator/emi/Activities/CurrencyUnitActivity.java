@@ -3,6 +3,7 @@ package com.loanemi.calculator.emi.Activities;
 import static com.loanemi.calculator.emi.utils.Util.setupEdgeToEdge;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import com.google.android.libraries.ads.mobile.sdk.banner.AdView;
 import com.loanemi.calculator.emi.Adapters.CurrencyAdapter;
 import com.loanemi.calculator.emi.Ads.AdsHelper;
 import com.loanemi.calculator.emi.Models.CurrencyItem;
+import com.loanemi.calculator.emi.language.LocaleHelper;
 import com.loanemi.calculator.emi.utils.Util;
 
 import java.util.ArrayList;
@@ -34,6 +36,11 @@ public class CurrencyUnitActivity extends AppCompatActivity {
 
     private AdView bannerAdView;
     private FrameLayout adContainer;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.setLocale(newBase));
+    }
 
     @SuppressLint("MissingInflatedId")
     @Override

@@ -2,6 +2,7 @@ package com.loanemi.calculator.emi.Activities;
 
 import static com.loanemi.calculator.emi.utils.Util.setupEdgeToEdge;
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.loanemi.calculator.emi.R;
+import com.loanemi.calculator.emi.language.LocaleHelper;
 import com.loanemi.calculator.emi.utils.LoanHistoryManager;
 import com.loanemi.calculator.emi.utils.Util;
 import java.text.NumberFormat;
@@ -47,6 +49,10 @@ public class AutoLoanActivity extends AppCompatActivity {
 
     private final NumberFormat indianNumberFormat = NumberFormat.getNumberInstance(new Locale("en", "IN"));
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.setLocale(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

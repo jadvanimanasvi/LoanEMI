@@ -1,6 +1,8 @@
 package com.loanemi.calculator.emi.Activities;
 
 import static com.loanemi.calculator.emi.utils.Util.setupEdgeToEdge;
+
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -9,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.loanemi.calculator.emi.R;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.loanemi.calculator.emi.Ads.NativeAdPreloader;
+import com.loanemi.calculator.emi.language.LocaleHelper;
 import com.loanemi.calculator.emi.utils.Util;
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -24,6 +27,11 @@ public class AutoLoanResultActivity extends AppCompatActivity {
     private TextView tvTotalInterest;
     private TextView tvTotalPayment;
     private ImageView ivBack;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.setLocale(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

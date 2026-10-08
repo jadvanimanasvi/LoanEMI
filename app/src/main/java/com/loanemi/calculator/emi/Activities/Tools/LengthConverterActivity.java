@@ -1,6 +1,8 @@
 package com.loanemi.calculator.emi.Activities.Tools;
 
 import static com.loanemi.calculator.emi.utils.Util.setupEdgeToEdge;
+
+import android.content.Context;
 import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -14,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.loanemi.calculator.emi.R;
 import com.google.android.libraries.ads.mobile.sdk.banner.AdView;
 import com.loanemi.calculator.emi.Ads.AdsHelper;
+import com.loanemi.calculator.emi.language.LocaleHelper;
 import com.loanemi.calculator.emi.utils.Util;
 import java.text.DecimalFormat;
 import java.util.LinkedHashMap;
@@ -46,6 +49,12 @@ public class LengthConverterActivity extends AppCompatActivity {
     private final DecimalFormat decimalFormat = new DecimalFormat("0.##########");
 
     private final Map<String, Double> unitToMeter = new LinkedHashMap<>();
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.setLocale(newBase));
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

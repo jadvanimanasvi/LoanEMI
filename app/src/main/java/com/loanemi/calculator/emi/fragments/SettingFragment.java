@@ -31,6 +31,7 @@ import com.loanemi.calculator.emi.MainActivity;
 import com.loanemi.calculator.emi.helper.PlayStoreHelper;
 import com.loanemi.calculator.emi.helper.RateUsDialogHelper;
 import com.loanemi.calculator.emi.language.LanguageActivity;
+import com.loanemi.calculator.emi.language.LocaleHelper;
 import com.loanemi.calculator.emi.utils.AppPreference;
 import com.loanemi.calculator.emi.utils.MyApplication;
 import com.loanemi.calculator.emi.utils.UiSafe;
@@ -40,6 +41,11 @@ public class SettingFragment extends Fragment {
 
     CardView cardLanguage,cardPrivacy,cardShareApp,cardRate,cardTheme;
     TextView txtVersion;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(LocaleHelper.setLocale(context));
+    }
 
     @Nullable
     @Override

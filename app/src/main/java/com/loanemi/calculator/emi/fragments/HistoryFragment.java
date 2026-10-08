@@ -1,5 +1,6 @@
 package com.loanemi.calculator.emi.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.loanemi.calculator.emi.R;
 import com.loanemi.calculator.emi.Adapters.HistoryAdapter;
 import com.loanemi.calculator.emi.Models.HistoryItem;
+import com.loanemi.calculator.emi.language.LocaleHelper;
 import com.loanemi.calculator.emi.utils.LoanHistoryManager;
 
 import java.util.ArrayList;
@@ -34,6 +36,11 @@ public class HistoryFragment extends Fragment {
     private LoanHistoryManager historyManager;
 
     private final List<HistoryItem> historyList = new ArrayList<>();
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(LocaleHelper.setLocale(context));
+    }
 
     @Nullable
     @Override

@@ -1,5 +1,6 @@
 package com.loanemi.calculator.emi.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,11 +22,17 @@ import com.loanemi.calculator.emi.Activities.Tools.TemperatureConverterActivity;
 import com.loanemi.calculator.emi.Activities.Tools.WeightConverterActivity;
 import com.loanemi.calculator.emi.Ads.NativeAdPreloader;
 import com.loanemi.calculator.emi.MainActivity;
+import com.loanemi.calculator.emi.language.LocaleHelper;
 import com.loanemi.calculator.emi.utils.Util;
 
 public class ToolsFragment extends Fragment {
 
     private LinearLayout length, ExchangeRate, Weight, Age, speed, Temperature;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(LocaleHelper.setLocale(context));
+    }
 
     @Nullable
     @Override

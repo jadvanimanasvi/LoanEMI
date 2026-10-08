@@ -2,6 +2,7 @@ package com.loanemi.calculator.emi.Activities;
 
 import static com.loanemi.calculator.emi.utils.Util.setupEdgeToEdge;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.FrameLayout;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.loanemi.calculator.emi.R;
+import com.loanemi.calculator.emi.language.LocaleHelper;
 import com.loanemi.calculator.emi.utils.Util;
 
 import java.text.NumberFormat;
@@ -41,6 +43,11 @@ public class FdCalculatorResultActivity extends AppCompatActivity {
     private String currencySymbol;
     private String currencyCountry;
     private int currencyFlag;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.setLocale(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
