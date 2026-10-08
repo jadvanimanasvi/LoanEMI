@@ -349,7 +349,7 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <FrameLayout
-            android:id="@+id/setting_native_layout"
+            android:id="@+id/rd_calc_native_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

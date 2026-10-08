@@ -5,11 +5,14 @@ import static com.loanemi.calculator.emi.utils.Util.setupEdgeToEdge;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
+import com.loanemi.calculator.emi.Ads.NativeAdPreloader;
 import com.loanemi.calculator.emi.R;
 import com.loanemi.calculator.emi.language.LocaleHelper;
 import com.loanemi.calculator.emi.utils.Util;
@@ -65,6 +68,7 @@ public class HomeLoanResultActivity extends AppCompatActivity {
         setupEdgeToEdge(this, R.id.main);
 
         initViews();
+        setUpAds();
         readIntentData();
         showResults();
         setupButtons();
@@ -93,6 +97,19 @@ public class HomeLoanResultActivity extends AppCompatActivity {
         btnHome = findViewById(R.id.btnHome);
     }
 
+    private void setUpAds() {
+        if (Util.isInternetAvailable(this)) {
+            FrameLayout nativeLayout = findViewById(R.id.home_loan_native_layout);
+            ShimmerFrameLayout shimmerNative = findViewById(R.id.nativeShimmerLayout);
+
+            NativeAdPreloader.show(
+                    this,
+                    nativeLayout,
+                    getString(R.string.home_loan_result_native_medium),
+                    shimmerNative
+            );
+        }
+    }
     private void readIntentData() {
 
         Intent intent = getIntent();

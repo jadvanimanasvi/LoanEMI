@@ -2,9 +2,13 @@ package com.loanemi.calculator.emi.Activities;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.facebook.shimmer.ShimmerFrameLayout;
+import com.loanemi.calculator.emi.Ads.NativeAdPreloader;
 import com.loanemi.calculator.emi.R;
 import com.loanemi.calculator.emi.language.LocaleHelper;
 import com.loanemi.calculator.emi.utils.Util;
@@ -36,7 +40,7 @@ public class BusinessLoanResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_business_loan_result);
 
         initViews();
-
+        setUpAds();
         setupClickListeners();
 
         showResult();
@@ -59,6 +63,20 @@ public class BusinessLoanResultActivity extends AppCompatActivity {
         tvMonthlyInstallment = findViewById(R.id.tvMonthlyInstallment);
 
         tvMonthlyPayment = findViewById(R.id.tvMonthlyPayment);
+    }
+
+    private void setUpAds() {
+        if (Util.isInternetAvailable(this)) {
+            FrameLayout nativeLayout = findViewById(R.id.business_loan_native_layout);
+            ShimmerFrameLayout shimmerNative = findViewById(R.id.nativeShimmerLayout);
+
+            NativeAdPreloader.show(
+                    this,
+                    nativeLayout,
+                    getString(R.string.business_loan_result_native_medium),
+                    shimmerNative
+            );
+        }
     }
 
     private void setupClickListeners() {

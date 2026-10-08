@@ -9,6 +9,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.facebook.shimmer.ShimmerFrameLayout;
+import com.loanemi.calculator.emi.Ads.NativeAdPreloader;
 import com.loanemi.calculator.emi.R;
 import com.loanemi.calculator.emi.language.LocaleHelper;
 import com.loanemi.calculator.emi.utils.Util;
@@ -58,7 +61,7 @@ public class FdCalculatorResultActivity extends AppCompatActivity {
         setupEdgeToEdge(this, R.id.main);
 
         initViews();
-
+        setUpAds();
         getIntentData();
 
         setupToolbar();
@@ -90,6 +93,20 @@ public class FdCalculatorResultActivity extends AppCompatActivity {
 
         // Native ad
         nativeContainer = findViewById(R.id.nativeContainer);
+    }
+
+    private void setUpAds() {
+        if (Util.isInternetAvailable(this)) {
+            FrameLayout nativeLayout = findViewById(R.id.fd_calc_native_layout);
+            ShimmerFrameLayout shimmerNative = findViewById(R.id.nativeShimmerLayout);
+
+            NativeAdPreloader.show(
+                    this,
+                    nativeLayout,
+                    getString(R.string.fd_calc_result_native_medium),
+                    shimmerNative
+            );
+        }
     }
 
 
