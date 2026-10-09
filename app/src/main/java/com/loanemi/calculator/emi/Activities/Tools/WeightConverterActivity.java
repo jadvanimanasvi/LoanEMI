@@ -1,6 +1,8 @@
 package com.loanemi.calculator.emi.Activities.Tools;
 
 import static com.loanemi.calculator.emi.utils.Util.setupEdgeToEdge;
+
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -207,6 +209,7 @@ public class WeightConverterActivity extends AppCompatActivity {
         updateInfoTexts();
     }
 
+    @SuppressLint("SetTextI18n")
     private void updateInfoTexts() {
 
         if (tvFromInfo != null) {

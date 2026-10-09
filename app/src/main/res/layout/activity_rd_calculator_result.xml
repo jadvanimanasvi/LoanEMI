@@ -48,7 +48,7 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:layout_marginEnd="12dp"
             android:padding="9dp"
-            android:src="@drawable/home_ic"
+            android:src="@drawable/result_home_ic"
             app:tint="@color/header_blue_dark" />
 
     </RelativeLayout>

@@ -173,16 +173,7 @@ public class FdCalculatorResultActivity extends AppCompatActivity {
 
         btnBack.setOnClickListener(v -> finish());
 
-        btnHome.setOnClickListener(v -> {
-
-            Intent intent = new Intent(FdCalculatorResultActivity.this, FdCalculatorActivity.class);
-
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-
-            startActivity(intent);
-
-            finish();
-        });
+        btnHome.setOnClickListener(v -> finish());
     }
 
     private void displayResult() {

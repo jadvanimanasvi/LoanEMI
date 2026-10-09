@@ -52,6 +52,58 @@
     <string name="student_loan_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
 
 
+    <!--Live ads id-->
+    <!--
+        <string name="splash_banner" translatable="false">ca-app-pub-8392696347189009/8475013046</string>
+
+        <string name="home_native_medium" translatable="false">ca-app-pub-8392696347189009/5437041305</string>
+        <string name="tools_native_medium" translatable="false">ca-app-pub-8392696347189009/8321215780</string>
+        <string name="setting_native_medium" translatable="false">ca-app-pub-8392696347189009/6161956306</string>
+        <string name="auto_loan_result_native_medium" translatable="false">ca-app-pub-8392696347189009/4156494085</string>
+        <string name="language_first_native_1" translatable="false">ca-app-pub-8392696347189009/7871632954</string>
+        <string name="language_first_native_2" translatable="false">ca-app-pub-8392696347189009/4152624656</string>
+        <string name="language_second_native_1" translatable="false">ca-app-pub-8392696347189009/3541416413</string>
+        <string name="language_second_native_2" translatable="false">ca-app-pub-8392696347189009/3068889108</string>
+        <string name="native_get_started_1" translatable="false">ca-app-pub-8392696347189009/2957208461</string>
+        <string name="native_get_started_2" translatable="false">ca-app-pub-8392696347189009/2839542981</string>
+        <string name="auto_loan_banner" translatable="false">ca-app-pub-8392696347189009/8199680870</string>
+        <string name="age_calc_banner" translatable="false">ca-app-pub-8392696347189009/1306224608</string>
+        <string name="exchange_rate_banner" translatable="false">ca-app-pub-8392696347189009/3535792968</string>
+        <string name="length_convert_banner" translatable="false">ca-app-pub-8392696347189009/9251154075</string>
+        <string name="speed_convert_banner" translatable="false">ca-app-pub-8392696347189009/6624990739</string>
+        <string name="temperature_convert_banner" translatable="false">ca-app-pub-8392696347189009/3998827399</string>
+        <string name="weight_convert_banner" translatable="false">ca-app-pub-8392696347189009/2961077890</string>
+        <string name="business_loan_banner" translatable="false">ca-app-pub-8392696347189009/2574065081</string>
+        <string name="cash_calc_banner" translatable="false">ca-app-pub-8392696347189009/1372664053</string>
+        -->
+
+    <!--    baki-->
+    <!--<string name="currency_unit_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
+    <string name="fd_loan_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
+    <string name="home_loan_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
+    <string name="personal_loan_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
+    <string name="rd_calc_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
+    <string name="student_loan_banner" translatable="false">ca-app-pub-3940256099942544/9214589741</string>
+
+    <string name="splash_inter_1" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="splash_inter_2" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+
+    <string name="language_done_fullscreen_native_1" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="language_done_fullscreen_native_2" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+
+    <string name="first_onboarding_native_1" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="first_onboarding_native_2" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+
+    <string name="full_first_native_1" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="full_first_native_2" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="full_second_native_1" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="full_second_native_2" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+
+    <string name="done_inter_language_1" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="done_inter_language_2" translatable="false">ca-app-pub-3940256099942544/1033173712</string>-->
+
+
+
     <string name="privacy_policy_url" translatable="false"></string>
     <string name="share_text" translatable="false">LoanEMI App with Privacy. Click here…: https://play.google.com/store/apps/details?id=</string>
 
@@ -199,5 +251,6 @@
     <string name="cancel">Cancel</string>
     <string name="compounding_frequency">Compounding Frequency</string>
     <string name="recurring_deposit_result">Recurring Deposit Result</string>
+    <string name="number" translatable="false">Number</string>
 
 </resources>

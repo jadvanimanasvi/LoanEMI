@@ -33,7 +33,6 @@ public class CurrencyUnitActivity extends AppCompatActivity {
 
     private CurrencyAdapter adapter;
     private CurrencyItem selectedItem;
-
     private AdView bannerAdView;
     private FrameLayout adContainer;
 

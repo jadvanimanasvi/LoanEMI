@@ -6,13 +6,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/screen_bg">
+    android:background="@color/background_color">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="@dimen/_40sdp"
-        android:background="@color/screen_bg"
+        android:background="@color/background_color"
         android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -20,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/ivBack"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:src="@drawable/back_ic"
@@ -41,7 +42,7 @@
         android:id="@+id/scrollContent"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/screen_bg"
+        android:background="@color/background_color"
         android:clipToPadding="false"
         android:paddingBottom="24dp"
         app:layout_constraintBottom_toTopOf="@id/bottomButtons"
@@ -277,14 +278,13 @@
                         android:orientation="horizontal"
                         android:paddingHorizontal="16dp">
 
-                        <EditText
+                        <TextView
                             android:id="@+id/tvdownpaymentrate"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:background="@null"
-                            android:hint="@string/enter_rate"
-                            android:inputType="numberDecimal"
+                            android:hint="@string/number"
                             android:textColor="@color/text_color"
                             android:textColorHint="@color/grey"
                             android:textSize="16sp" />
@@ -523,7 +523,7 @@
         android:id="@+id/bottomButtons"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/screen_bg"
+        android:background="@color/background_color"
         android:orientation="horizontal"
         android:paddingStart="20dp"
         android:paddingTop="10dp"
@@ -598,7 +598,6 @@
         android:id="@+id/bannerContainer"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/screen_bg"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

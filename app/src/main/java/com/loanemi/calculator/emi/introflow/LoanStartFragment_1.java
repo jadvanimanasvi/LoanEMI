@@ -97,7 +97,8 @@ public class LoanStartFragment_1 extends Fragment {
         if (!isAdded() || getActivity() == null) {
             return;
         }
-        if (!LoanStartFlowAdHelper.isFlagOn(getActivity(), AppPreference.is_first_intro_native_show, true) || !LoanStartFlowAdHelper.isNetworkConnected(getActivity())) {
+        if (!LoanStartFlowAdHelper.isFlagOn(getActivity(), AppPreference.is_first_intro_native_show, true)
+                || !LoanStartFlowAdHelper.isNetworkConnected(getActivity())) {
             binding.layoutAdNative.setVisibility(View.INVISIBLE);
             binding.layouinclude.shimmerContainerNativeLarge.setVisibility(View.GONE);
             return;

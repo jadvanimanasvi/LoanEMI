@@ -84,7 +84,7 @@ public class LoanStartFragment_3 extends Fragment {
     }
 
     private void loadActivity() {
-        startActivity(new Intent(requireActivity(), AllScreenIntro.class));
+        startActivity(new Intent(requireActivity(), GetStartActivity.class));
     }
 
     private void startButtonPulseAnimation() {

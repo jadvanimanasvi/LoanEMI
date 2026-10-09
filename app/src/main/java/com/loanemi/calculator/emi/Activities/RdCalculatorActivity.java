@@ -43,7 +43,7 @@ public class RdCalculatorActivity extends AppCompatActivity {
     private TextView tvStartDate;
     private TextView tvCurrencyCode;
 
-    private ImageView ivCurrencyFlag;
+    private ImageView ivCurrencyFlag,ivBack;
 
     private LinearLayout currencySelector;
     private LinearLayout btnReset;
@@ -117,6 +117,8 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
     private void initViews() {
 
+        ivBack = findViewById(R.id.ivBack);
+
         etLoanAmount = findViewById(R.id.etLoanAmount);
 
         etInterestRate = findViewById(R.id.etInterestRate);
@@ -188,6 +190,11 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
     private void updateCurrencyUI() {
 
+        if (ivBack != null) {
+
+            ivBack.setOnClickListener(v -> finish());
+        }
+
         if (tvCurrencyCode != null) {
 
             tvCurrencyCode.setText(selectedCurrencyCode);
@@ -219,22 +226,12 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
 
             @Override
-            public void beforeTextChanged(
-                    CharSequence s,
-                    int start,
-                    int count,
-                    int after
-            ) {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
 
             @Override
-            public void onTextChanged(
-                    CharSequence s,
-                    int start,
-                    int before,
-                    int count
-            ) {
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
             }
 
 
@@ -256,9 +253,7 @@ public class RdCalculatorActivity extends AppCompatActivity {
                 }
 
 
-                String cleanValue = value
-                        .replace(",", "")
-                        .replaceAll("[^0-9.]", "");
+                String cleanValue = value.replace(",", "").replaceAll("[^0-9.]", "");
 
 
                 if (cleanValue.isEmpty()) {
@@ -272,16 +267,11 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
                 if (firstDot >= 0) {
 
-                    String beforeDot =
-                            cleanValue.substring(0, firstDot);
+                    String beforeDot = cleanValue.substring(0, firstDot);
 
-                    String afterDot =
-                            cleanValue
-                                    .substring(firstDot + 1)
-                                    .replace(".", "");
+                    String afterDot = cleanValue.substring(firstDot + 1).replace(".", "");
 
-                    cleanValue =
-                            beforeDot + "." + afterDot;
+                    cleanValue = beforeDot + "." + afterDot;
                 }
 
 
@@ -300,15 +290,11 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
                     if (cleanValue.contains(".")) {
 
-                        String[] parts =
-                                cleanValue.split("\\.", -1);
+                        String[] parts = cleanValue.split("\\.", -1);
 
                         integerPart = parts[0];
 
-                        decimalPart =
-                                parts.length > 1
-                                        ? parts[1]
-                                        : "";
+                        decimalPart = parts.length > 1 ? parts[1] : "";
 
                     } else {
 
@@ -322,23 +308,16 @@ public class RdCalculatorActivity extends AppCompatActivity {
                     }
 
 
-                    integerPart =
-                            integerPart.replaceFirst(
-                                    "^0+(?!$)",
-                                    ""
-                            );
+                    integerPart = integerPart.replaceFirst("^0+(?!$)", "");
 
 
-                    DecimalFormat formatter =
-                            new DecimalFormat("#,##0");
+                    DecimalFormat formatter = new DecimalFormat("#,##0");
 
 
-                    long integerValue =
-                            Long.parseLong(integerPart);
+                    long integerValue = Long.parseLong(integerPart);
 
 
-                    String formatted =
-                            formatter.format(integerValue);
+                    String formatted = formatter.format(integerValue);
 
 
                     if (decimalPart != null) {
@@ -352,8 +331,7 @@ public class RdCalculatorActivity extends AppCompatActivity {
                         isFormatting = true;
 
 
-                        int oldCursor =
-                                etLoanAmount.getSelectionStart();
+                        int oldCursor = etLoanAmount.getSelectionStart();
 
 
                         if (oldCursor < 0) {
@@ -362,53 +340,22 @@ public class RdCalculatorActivity extends AppCompatActivity {
                         }
 
 
-                        int commasBefore =
-                                countCommas(
-                                        value.substring(
-                                                0,
-                                                Math.min(
-                                                        oldCursor,
-                                                        value.length()
-                                                )
-                                        )
-                                );
+                        int commasBefore = countCommas(value.substring(0, Math.min(oldCursor, value.length())));
 
 
                         etLoanAmount.setText(formatted);
 
 
-                        int cursorWithoutFormatting =
-                                Math.min(
-                                        oldCursor,
-                                        formatted.length()
-                                );
+                        int cursorWithoutFormatting = Math.min(oldCursor, formatted.length());
 
 
-                        int commasAfter =
-                                countCommas(
-                                        formatted.substring(
-                                                0,
-                                                Math.min(
-                                                        cursorWithoutFormatting,
-                                                        formatted.length()
-                                                )
-                                        )
-                                );
+                        int commasAfter = countCommas(formatted.substring(0, Math.min(cursorWithoutFormatting, formatted.length())));
 
 
-                        int newCursor =
-                                oldCursor
-                                        + (commasAfter - commasBefore);
+                        int newCursor = oldCursor + (commasAfter - commasBefore);
 
 
-                        newCursor =
-                                Math.max(
-                                        0,
-                                        Math.min(
-                                                newCursor,
-                                                formatted.length()
-                                        )
-                                );
+                        newCursor = Math.max(0, Math.min(newCursor, formatted.length()));
 
 
                         etLoanAmount.setSelection(newCursor);
@@ -448,12 +395,7 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
     private double getInvestmentAmount() {
 
-        String value =
-                etLoanAmount
-                        .getText()
-                        .toString()
-                        .replace(",", "")
-                        .trim();
+        String value = etLoanAmount.getText().toString().replace(",", "").trim();
 
 
         if (value.isEmpty()) {
@@ -487,88 +429,51 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
         currencySelector.setOnClickListener(v -> {
 
-            Intent intent =
-                    new Intent(
-                            RdCalculatorActivity.this,
-                            CurrencyUnitActivity.class
-                    );
+            Intent intent = new Intent(RdCalculatorActivity.this, CurrencyUnitActivity.class);
 
 
-            intent.putExtra(
-                    CurrencyUnitActivity.EXTRA_CURRENT_CODE,
-                    selectedCurrencyCode
-            );
+            intent.putExtra(CurrencyUnitActivity.EXTRA_CURRENT_CODE, selectedCurrencyCode);
 
 
-            intent.putExtra(
-                    CurrencyUnitActivity.EXTRA_CURRENCY_SELECT_TYPE,
-                    "RD"
-            );
+            intent.putExtra(CurrencyUnitActivity.EXTRA_CURRENCY_SELECT_TYPE, "RD");
 
 
-            startActivityForResult(
-                    intent,
-                    REQUEST_CURRENCY
-            );
+            startActivityForResult(intent, REQUEST_CURRENCY);
         });
     }
 
 
     @Override
-    protected void onActivityResult(
-            int requestCode,
-            int resultCode,
-            Intent data
-    ) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        super.onActivityResult(
-                requestCode,
-                resultCode,
-                data
-        );
+        super.onActivityResult(requestCode, resultCode, data);
 
 
-        if (
-                requestCode != REQUEST_CURRENCY
-                        || resultCode != RESULT_OK
-                        || data == null
-        ) {
+        if (requestCode != REQUEST_CURRENCY || resultCode != RESULT_OK || data == null) {
 
             return;
         }
 
 
-        String code =
-                data.getStringExtra(
-                        CurrencyUnitActivity.EXTRA_SELECTED_CODE
-                );
+        String code = data.getStringExtra(CurrencyUnitActivity.EXTRA_SELECTED_CODE);
 
 
         if (code != null && !code.trim().isEmpty()) {
 
-            selectedCurrencyCode =
-                    code.trim().toUpperCase(Locale.US);
+            selectedCurrencyCode = code.trim().toUpperCase(Locale.US);
         }
 
 
-        String country =
-                data.getStringExtra(
-                        CurrencyUnitActivity.EXTRA_SELECTED_COUNTRY
-                );
+        String country = data.getStringExtra(CurrencyUnitActivity.EXTRA_SELECTED_COUNTRY);
 
 
         if (country != null && !country.trim().isEmpty()) {
 
-            selectedCurrencyCountry =
-                    country.trim();
+            selectedCurrencyCountry = country.trim();
         }
 
 
-        int flag =
-                data.getIntExtra(
-                        CurrencyUnitActivity.EXTRA_SELECTED_FLAG,
-                        0
-                );
+        int flag = data.getIntExtra(CurrencyUnitActivity.EXTRA_SELECTED_FLAG, 0);
 
 
         if (flag != 0) {
@@ -581,10 +486,7 @@ public class RdCalculatorActivity extends AppCompatActivity {
         }
 
 
-        selectedCurrencySymbol =
-                getCurrencySymbol(
-                        selectedCurrencyCode
-                );
+        selectedCurrencySymbol = getCurrencySymbol(selectedCurrencyCode);
 
 
         updateCurrencyUI();
@@ -607,64 +509,56 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
             case "USD":
 
-                selectedCurrencyFlag =
-                        R.drawable.icn_flagus;
+                selectedCurrencyFlag = R.drawable.icn_flagus;
 
                 break;
 
 
             case "GBP":
 
-                selectedCurrencyFlag =
-                        R.drawable.icn_flagengland;
+                selectedCurrencyFlag = R.drawable.icn_flagengland;
 
                 break;
 
 
             case "CNY":
 
-                selectedCurrencyFlag =
-                        R.drawable.icn_flagchinese;
+                selectedCurrencyFlag = R.drawable.icn_flagchinese;
 
                 break;
 
 
             case "INR":
 
-                selectedCurrencyFlag =
-                        R.drawable.icn_flaghindi;
+                selectedCurrencyFlag = R.drawable.icn_flaghindi;
 
                 break;
 
 
             case "VND":
 
-                selectedCurrencyFlag =
-                        R.drawable.icn_flagvietnamese;
+                selectedCurrencyFlag = R.drawable.icn_flagvietnamese;
 
                 break;
 
 
             case "THB":
 
-                selectedCurrencyFlag =
-                        R.drawable.icn_flagthailand;
+                selectedCurrencyFlag = R.drawable.icn_flagthailand;
 
                 break;
 
 
             case "IDR":
 
-                selectedCurrencyFlag =
-                        R.drawable.icn_flagindonesia;
+                selectedCurrencyFlag = R.drawable.icn_flagindonesia;
 
                 break;
 
 
             default:
 
-                selectedCurrencyFlag =
-                        R.drawable.icn_flagus;
+                selectedCurrencyFlag = R.drawable.icn_flagus;
 
                 break;
         }
@@ -745,54 +639,35 @@ public class RdCalculatorActivity extends AppCompatActivity {
         }
 
 
-        View unitLayout =
-                (View) tvLoanUnit.getParent();
+        View unitLayout = (View) tvLoanUnit.getParent();
 
 
         if (unitLayout != null) {
 
-            unitLayout.setOnClickListener(
-                    v -> showLoanUnitDialog()
-            );
+            unitLayout.setOnClickListener(v -> showLoanUnitDialog());
         }
 
 
-        tvLoanUnit.setOnClickListener(
-                v -> showLoanUnitDialog()
-        );
+        tvLoanUnit.setOnClickListener(v -> showLoanUnitDialog());
     }
 
 
     private void showLoanUnitDialog() {
 
-        final String[] units =
-                {"Months", "Years"};
+        final String[] units = {"Months", "Years"};
 
 
-        int selectedIndex =
-                selectedLoanUnit.equalsIgnoreCase("Years")
-                        ? 1
-                        : 0;
+        int selectedIndex = selectedLoanUnit.equalsIgnoreCase("Years") ? 1 : 0;
 
 
-        new AlertDialog.Builder(this)
-                .setTitle("Select RD Term Unit")
-                .setSingleChoiceItems(
-                        units,
-                        selectedIndex,
-                        (dialog, which) -> {
+        new AlertDialog.Builder(this).setTitle("Select RD Term Unit").setSingleChoiceItems(units, selectedIndex, (dialog, which) -> {
 
-                            selectedLoanUnit =
-                                    units[which];
+            selectedLoanUnit = units[which];
 
-                            tvLoanUnit.setText(
-                                    selectedLoanUnit
-                            );
+            tvLoanUnit.setText(selectedLoanUnit);
 
-                            dialog.dismiss();
-                        }
-                )
-                .show();
+            dialog.dismiss();
+        }).show();
     }
 
 
@@ -802,11 +677,7 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
     private int getTotalMonths() {
 
-        String termText =
-                tvLoanTerm
-                        .getText()
-                        .toString()
-                        .trim();
+        String termText = tvLoanTerm.getText().toString().trim();
 
 
         if (termText.isEmpty()) {
@@ -820,8 +691,7 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
         try {
 
-            term =
-                    Integer.parseInt(termText);
+            term = Integer.parseInt(termText);
 
         } catch (Exception e) {
 
@@ -835,10 +705,7 @@ public class RdCalculatorActivity extends AppCompatActivity {
         }
 
 
-        if (
-                selectedLoanUnit
-                        .equalsIgnoreCase("Years")
-        ) {
+        if (selectedLoanUnit.equalsIgnoreCase("Years")) {
 
             if (term > 50) {
 
@@ -879,31 +746,22 @@ public class RdCalculatorActivity extends AppCompatActivity {
         etTimeInterest.setClickable(true);
 
 
-        etTimeInterest.setOnClickListener(
-                v -> showCompoundingDialog()
-        );
+        etTimeInterest.setOnClickListener(v -> showCompoundingDialog());
 
 
-        View parent =
-                (View) etTimeInterest.getParent();
+        View parent = (View) etTimeInterest.getParent();
 
 
         if (parent != null) {
 
-            parent.setOnClickListener(
-                    v -> showCompoundingDialog()
-            );
+            parent.setOnClickListener(v -> showCompoundingDialog());
         }
     }
 
 
     private void showCompoundingDialog() {
 
-        final String[] frequencyNames = {
-                "Annually",
-                "Quarterly",
-                "Monthly"
-        };
+        final String[] frequencyNames = {"Annually", "Quarterly", "Monthly"};
 
 
         int selectedIndex = 2;
@@ -911,10 +769,7 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
         for (int i = 0; i < frequencyNames.length; i++) {
 
-            if (
-                    frequencyNames[i]
-                            .equals(selectedCompounding)
-            ) {
+            if (frequencyNames[i].equals(selectedCompounding)) {
 
                 selectedIndex = i;
 
@@ -923,24 +778,14 @@ public class RdCalculatorActivity extends AppCompatActivity {
         }
 
 
-        new AlertDialog.Builder(this)
-                .setTitle("Compounding Frequency")
-                .setSingleChoiceItems(
-                        frequencyNames,
-                        selectedIndex,
-                        (dialog, which) -> {
+        new AlertDialog.Builder(this).setTitle("Compounding Frequency").setSingleChoiceItems(frequencyNames, selectedIndex, (dialog, which) -> {
 
-                            selectedCompounding =
-                                    frequencyNames[which];
+            selectedCompounding = frequencyNames[which];
 
-                            etTimeInterest.setText(
-                                    selectedCompounding
-                            );
+            etTimeInterest.setText(selectedCompounding);
 
-                            dialog.dismiss();
-                        }
-                )
-                .show();
+            dialog.dismiss();
+        }).show();
     }
 
 
@@ -956,76 +801,40 @@ public class RdCalculatorActivity extends AppCompatActivity {
         }
 
 
-        View parent =
-                (View) tvStartDate.getParent();
+        View parent = (View) tvStartDate.getParent();
 
 
         if (parent != null) {
 
-            parent.setOnClickListener(
-                    v -> showDatePicker()
-            );
+            parent.setOnClickListener(v -> showDatePicker());
         }
 
 
-        tvStartDate.setOnClickListener(
-                v -> showDatePicker()
-        );
+        tvStartDate.setOnClickListener(v -> showDatePicker());
     }
 
 
     private void showDatePicker() {
 
-        Calendar currentDate =
-                selectedDate != null
-                        ? selectedDate
-                        : Calendar.getInstance();
+        Calendar currentDate = selectedDate != null ? selectedDate : Calendar.getInstance();
 
 
-        DatePickerDialog datePickerDialog =
-                new DatePickerDialog(
-                        this,
-                        (
-                                DatePicker view,
-                                int year,
-                                int month,
-                                int dayOfMonth
-                        ) -> {
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, (DatePicker view, int year, int month, int dayOfMonth) -> {
 
-                            selectedDate =
-                                    Calendar.getInstance();
+            selectedDate = Calendar.getInstance();
 
 
-                            selectedDate.set(
-                                    Calendar.YEAR,
-                                    year
-                            );
+            selectedDate.set(Calendar.YEAR, year);
 
 
-                            selectedDate.set(
-                                    Calendar.MONTH,
-                                    month
-                            );
+            selectedDate.set(Calendar.MONTH, month);
 
 
-                            selectedDate.set(
-                                    Calendar.DAY_OF_MONTH,
-                                    dayOfMonth
-                            );
+            selectedDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
 
-                            updateStartDateText();
-                        },
-                        currentDate.get(
-                                Calendar.YEAR
-                        ),
-                        currentDate.get(
-                                Calendar.MONTH
-                        ),
-                        currentDate.get(
-                                Calendar.DAY_OF_MONTH
-                        )
-                );
+            updateStartDateText();
+        }, currentDate.get(Calendar.YEAR), currentDate.get(Calendar.MONTH), currentDate.get(Calendar.DAY_OF_MONTH));
 
 
         datePickerDialog.show();
@@ -1034,27 +843,16 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
     private void updateStartDateText() {
 
-        if (
-                selectedDate == null
-                        || tvStartDate == null
-        ) {
+        if (selectedDate == null || tvStartDate == null) {
 
             return;
         }
 
 
-        SimpleDateFormat dateFormat =
-                new SimpleDateFormat(
-                        "dd/MM/yyyy",
-                        Locale.getDefault()
-                );
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
 
 
-        tvStartDate.setText(
-                dateFormat.format(
-                        selectedDate.getTime()
-                )
-        );
+        tvStartDate.setText(dateFormat.format(selectedDate.getTime()));
     }
 
 
@@ -1066,17 +864,13 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
         if (btnReset != null) {
 
-            btnReset.setOnClickListener(
-                    v -> resetFields()
-            );
+            btnReset.setOnClickListener(v -> resetFields());
         }
 
 
         if (btnCalculate != null) {
 
-            btnCalculate.setOnClickListener(
-                    v -> calculateRD()
-            );
+            btnCalculate.setOnClickListener(v -> calculateRD());
         }
     }
 
@@ -1110,15 +904,13 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
         selectedCurrencySymbol = "$";
 
-        selectedCurrencyFlag =
-                R.drawable.icn_flagus;
+        selectedCurrencyFlag = R.drawable.icn_flagus;
 
 
         updateCurrencyUI();
 
 
-        selectedDate =
-                Calendar.getInstance();
+        selectedDate = Calendar.getInstance();
 
 
         updateStartDateText();
@@ -1134,15 +926,12 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
     private void calculateRD() {
 
-        double monthlyDeposit =
-                getInvestmentAmount();
+        double monthlyDeposit = getInvestmentAmount();
 
 
         if (monthlyDeposit <= 0) {
 
-            etLoanAmount.setError(
-                    "Enter investment amount"
-            );
+            etLoanAmount.setError("Enter investment amount");
 
             etLoanAmount.requestFocus();
 
@@ -1150,18 +939,12 @@ public class RdCalculatorActivity extends AppCompatActivity {
         }
 
 
-        String interestText =
-                etInterestRate
-                        .getText()
-                        .toString()
-                        .trim();
+        String interestText = etInterestRate.getText().toString().trim();
 
 
         if (interestText.isEmpty()) {
 
-            etInterestRate.setError(
-                    "Enter interest rate"
-            );
+            etInterestRate.setError("Enter interest rate");
 
             etInterestRate.requestFocus();
 
@@ -1174,16 +957,11 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
         try {
 
-            annualRate =
-                    Double.parseDouble(
-                            interestText
-                    );
+            annualRate = Double.parseDouble(interestText);
 
         } catch (Exception e) {
 
-            etInterestRate.setError(
-                    "Enter valid interest rate"
-            );
+            etInterestRate.setError("Enter valid interest rate");
 
             etInterestRate.requestFocus();
 
@@ -1193,9 +971,7 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
         if (annualRate < 0 || annualRate > 100) {
 
-            etInterestRate.setError(
-                    "Interest rate must be between 0 and 100"
-            );
+            etInterestRate.setError("Interest rate must be between 0 and 100");
 
             etInterestRate.requestFocus();
 
@@ -1203,18 +979,12 @@ public class RdCalculatorActivity extends AppCompatActivity {
         }
 
 
-        String termText =
-                tvLoanTerm
-                        .getText()
-                        .toString()
-                        .trim();
+        String termText = tvLoanTerm.getText().toString().trim();
 
 
         if (termText.isEmpty()) {
 
-            tvLoanTerm.setError(
-                    "Enter RD term"
-            );
+            tvLoanTerm.setError("Enter RD term");
 
             tvLoanTerm.requestFocus();
 
@@ -1227,14 +997,11 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
         try {
 
-            enteredTerm =
-                    Integer.parseInt(termText);
+            enteredTerm = Integer.parseInt(termText);
 
         } catch (Exception e) {
 
-            tvLoanTerm.setError(
-                    "Enter a valid whole number"
-            );
+            tvLoanTerm.setError("Enter a valid whole number");
 
             tvLoanTerm.requestFocus();
 
@@ -1244,9 +1011,7 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
         if (enteredTerm <= 0) {
 
-            tvLoanTerm.setError(
-                    "RD term must be greater than 0"
-            );
+            tvLoanTerm.setError("RD term must be greater than 0");
 
             tvLoanTerm.requestFocus();
 
@@ -1254,15 +1019,9 @@ public class RdCalculatorActivity extends AppCompatActivity {
         }
 
 
-        if (
-                selectedLoanUnit
-                        .equalsIgnoreCase("Years")
-                        && enteredTerm > 50
-        ) {
+        if (selectedLoanUnit.equalsIgnoreCase("Years") && enteredTerm > 50) {
 
-            tvLoanTerm.setError(
-                    "Maximum RD term is 50 years"
-            );
+            tvLoanTerm.setError("Maximum RD term is 50 years");
 
             tvLoanTerm.requestFocus();
 
@@ -1270,15 +1029,9 @@ public class RdCalculatorActivity extends AppCompatActivity {
         }
 
 
-        if (
-                selectedLoanUnit
-                        .equalsIgnoreCase("Months")
-                        && enteredTerm > 600
-        ) {
+        if (selectedLoanUnit.equalsIgnoreCase("Months") && enteredTerm > 600) {
 
-            tvLoanTerm.setError(
-                    "Maximum RD term is 600 months"
-            );
+            tvLoanTerm.setError("Maximum RD term is 600 months");
 
             tvLoanTerm.requestFocus();
 
@@ -1286,15 +1039,12 @@ public class RdCalculatorActivity extends AppCompatActivity {
         }
 
 
-        int totalMonths =
-                getTotalMonths();
+        int totalMonths = getTotalMonths();
 
 
         if (totalMonths <= 0) {
 
-            tvLoanTerm.setError(
-                    "Enter valid RD term"
-            );
+            tvLoanTerm.setError("Enter valid RD term");
 
             tvLoanTerm.requestFocus();
 
@@ -1306,27 +1056,16 @@ public class RdCalculatorActivity extends AppCompatActivity {
         // CALCULATE RD
         // =====================================================
 
-        double maturityValue =
-                calculateRDMaturity(
-                        monthlyDeposit,
-                        annualRate,
-                        totalMonths,
-                        selectedCompounding
-                );
+        double maturityValue = calculateRDMaturity(monthlyDeposit, annualRate, totalMonths, selectedCompounding);
 
 
-        double totalInvestment =
-                monthlyDeposit * totalMonths;
+        double totalInvestment = monthlyDeposit * totalMonths;
 
 
-        double totalInterest =
-                maturityValue - totalInvestment;
+        double totalInterest = maturityValue - totalInvestment;
 
 
-        if (
-                totalInterest < 0
-                        && totalInterest > -0.01
-        ) {
+        if (totalInterest < 0 && totalInterest > -0.01) {
 
             totalInterest = 0;
         }
@@ -1338,159 +1077,69 @@ public class RdCalculatorActivity extends AppCompatActivity {
         }
 
 
-        String startDate =
-                tvStartDate != null
-                        ? tvStartDate.getText().toString()
-                        : "";
+        String startDate = tvStartDate != null ? tvStartDate.getText().toString() : "";
+
+        Intent intent = new Intent(RdCalculatorActivity.this, RdCalculatorResultActivity.class);
 
 
-        // =====================================================
-        // SAVE TO HISTORY
-        // =====================================================
-
-        saveRDHistory(
-                monthlyDeposit,
-                annualRate,
-                enteredTerm,
-                selectedLoanUnit,
-                totalMonths,
-                totalInterest,
-                maturityValue,
-                startDate
-        );
+        intent.putExtra("monthly_deposit", monthlyDeposit);
 
 
-        // =====================================================
-        // OPEN RESULT
-        // =====================================================
-
-        Intent intent =
-                new Intent(
-                        RdCalculatorActivity.this,
-                        RdCalculatorResultActivity.class
-                );
+        intent.putExtra("investment_amount", monthlyDeposit);
 
 
-        intent.putExtra(
-                "monthly_deposit",
-                monthlyDeposit
-        );
+        intent.putExtra("interest_rate", annualRate);
 
 
-        intent.putExtra(
-                "investment_amount",
-                monthlyDeposit
-        );
+        intent.putExtra("loan_term", enteredTerm);
 
 
-        intent.putExtra(
-                "interest_rate",
-                annualRate
-        );
+        intent.putExtra("investment_term", enteredTerm);
 
 
-        intent.putExtra(
-                "loan_term",
-                enteredTerm
-        );
+        intent.putExtra("loan_term_unit", selectedLoanUnit);
 
 
-        intent.putExtra(
-                "investment_term",
-                enteredTerm
-        );
+        intent.putExtra("investment_term_unit", selectedLoanUnit);
 
 
-        intent.putExtra(
-                "loan_term_unit",
-                selectedLoanUnit
-        );
+        intent.putExtra("total_months", totalMonths);
 
 
-        intent.putExtra(
-                "investment_term_unit",
-                selectedLoanUnit
-        );
+        intent.putExtra("compounding", selectedCompounding);
 
 
-        intent.putExtra(
-                "total_months",
-                totalMonths
-        );
+        intent.putExtra("compounding_frequency", getCompoundingFrequency(selectedCompounding));
 
 
-        intent.putExtra(
-                "compounding",
-                selectedCompounding
-        );
+        intent.putExtra("start_date", startDate);
 
 
-        intent.putExtra(
-                "compounding_frequency",
-                getCompoundingFrequency(
-                        selectedCompounding
-                )
-        );
+        intent.putExtra("total_investment", totalInvestment);
 
 
-        intent.putExtra(
-                "start_date",
-                startDate
-        );
+        intent.putExtra("total_interest", totalInterest);
 
 
-        intent.putExtra(
-                "total_investment",
-                totalInvestment
-        );
+        intent.putExtra("maturity_value", maturityValue);
 
 
-        intent.putExtra(
-                "total_interest",
-                totalInterest
-        );
+        intent.putExtra("currency_code", selectedCurrencyCode);
 
 
-        intent.putExtra(
-                "maturity_value",
-                maturityValue
-        );
+        intent.putExtra("currency_country", selectedCurrencyCountry);
 
 
-        intent.putExtra(
-                "currency_code",
-                selectedCurrencyCode
-        );
+        intent.putExtra("currency_name", selectedCurrencyCountry);
 
 
-        intent.putExtra(
-                "currency_country",
-                selectedCurrencyCountry
-        );
+        intent.putExtra("currency_symbol", selectedCurrencySymbol);
 
 
-        intent.putExtra(
-                "currency_name",
-                selectedCurrencyCountry
-        );
+        intent.putExtra("currency_flag", selectedCurrencyFlag);
 
 
-        intent.putExtra(
-                "currency_symbol",
-                selectedCurrencySymbol
-        );
-
-
-        intent.putExtra(
-                "currency_flag",
-                selectedCurrencyFlag
-        );
-
-
-        intent.putExtra(
-                "loan_type",
-                "Recurring Deposit"
-        );
+        intent.putExtra("loan_type", "Recurring Deposit");
 
 
         startActivity(intent);
@@ -1501,80 +1150,19 @@ public class RdCalculatorActivity extends AppCompatActivity {
     // SAVE RD HISTORY
     // =========================================================
 
-    private void saveRDHistory(
-            double monthlyDeposit,
-            double annualRate,
-            int enteredTerm,
-            String termUnit,
-            int totalMonths,
-            double totalInterest,
-            double maturityValue,
-            String startDate
-    ) {
+    private void saveRDHistory(double monthlyDeposit, double annualRate, int enteredTerm, String termUnit, int totalMonths, double totalInterest, double maturityValue, String startDate) {
 
         if (loanHistoryManager == null) {
 
-            loanHistoryManager =
-                    new LoanHistoryManager(this);
+            loanHistoryManager = new LoanHistoryManager(this);
         }
 
 
         // Current date for history item.
-        SimpleDateFormat historyDateFormat =
-                new SimpleDateFormat(
-                        "dd/MM/yyyy",
-                        Locale.getDefault()
-                );
+        SimpleDateFormat historyDateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
 
 
-        String historyDate =
-                historyDateFormat.format(
-                        Calendar.getInstance().getTime()
-                );
-
-
-        /*
-         * HistoryItem does not have a separate RD-specific
-         * field for monthly deposit.
-         *
-         * Therefore:
-         *
-         * loanAmount    = monthly deposit
-         * monthlyEmi    = monthly deposit
-         * totalPayment  = maturity value
-         * totalInterest = RD interest
-         */
-
-        loanHistoryManager.addHistory(
-
-                "Recurring Deposit",
-
-                historyDate,
-
-                monthlyDeposit,
-
-                annualRate,
-
-                enteredTerm,
-
-                termUnit,
-
-                totalMonths,
-
-                monthlyDeposit,
-
-                totalInterest,
-
-                maturityValue,
-
-                startDate,
-
-                selectedCurrencyCode,
-
-                selectedCurrencySymbol,
-
-                R.drawable.rd_clc
-        );
+        String historyDate = historyDateFormat.format(Calendar.getInstance().getTime());
     }
 
 
@@ -1582,9 +1170,7 @@ public class RdCalculatorActivity extends AppCompatActivity {
     // COMPOUNDING FREQUENCY
     // =========================================================
 
-    private int getCompoundingFrequency(
-            String compounding
-    ) {
+    private int getCompoundingFrequency(String compounding) {
 
         if (compounding == null) {
 
@@ -1617,17 +1203,9 @@ public class RdCalculatorActivity extends AppCompatActivity {
     // RD MATURITY CALCULATION
     // =========================================================
 
-    private double calculateRDMaturity(
-            double monthlyDeposit,
-            double annualRate,
-            int months,
-            String compounding
-    ) {
+    private double calculateRDMaturity(double monthlyDeposit, double annualRate, int months, String compounding) {
 
-        if (
-                monthlyDeposit <= 0
-                        || months <= 0
-        ) {
+        if (monthlyDeposit <= 0 || months <= 0) {
 
             return 0;
         }
@@ -1639,48 +1217,27 @@ public class RdCalculatorActivity extends AppCompatActivity {
         }
 
 
-        int compoundsPerYear =
-                getCompoundingFrequency(
-                        compounding
-                );
+        int compoundsPerYear = getCompoundingFrequency(compounding);
 
 
-        double annualRateDecimal =
-                annualRate / 100.0;
+        double annualRateDecimal = annualRate / 100.0;
 
 
-        double monthlyRate =
-                Math.pow(
-                        1.0
-                                + annualRateDecimal
-                                / compoundsPerYear,
-                        compoundsPerYear / 12.0
-                ) - 1.0;
+        double monthlyRate = Math.pow(1.0 + annualRateDecimal / compoundsPerYear, compoundsPerYear / 12.0) - 1.0;
 
 
         double maturityValue = 0;
 
 
-        for (
-                int month = 0;
-                month < months;
-                month++
-        ) {
+        for (int month = 0; month < months; month++) {
 
-            int remainingMonths =
-                    months - month;
+            int remainingMonths = months - month;
 
 
-            double installmentValue =
-                    monthlyDeposit
-                            * Math.pow(
-                            1.0 + monthlyRate,
-                            remainingMonths
-                    );
+            double installmentValue = monthlyDeposit * Math.pow(1.0 + monthlyRate, remainingMonths);
 
 
-            maturityValue +=
-                    installmentValue;
+            maturityValue += installmentValue;
         }
 
 
@@ -1694,42 +1251,25 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
     private void setUpAd() {
 
-        if (
-                !Util.isInternetAvailable(this)
-                        || bannerContainer == null
-        ) {
+        if (!Util.isInternetAvailable(this) || bannerContainer == null) {
 
             return;
         }
 
 
-        bannerAdView =
-                new AdView(this);
+        bannerAdView = new AdView(this);
 
 
         if (bannerAdView.getParent() != null) {
 
-            (
-                    (ViewGroup)
-                            bannerAdView.getParent()
-            ).removeView(
-                    bannerAdView
-            );
+            ((ViewGroup) bannerAdView.getParent()).removeView(bannerAdView);
         }
 
 
-        bannerContainer.addView(
-                bannerAdView
-        );
+        bannerContainer.addView(bannerAdView);
 
 
-        AdsHelper.loadAdaptiveBanner(
-                bannerAdView,
-                this,
-                getString(
-                        R.string.rd_calc_banner
-                )
-        );
+        AdsHelper.loadAdaptiveBanner(bannerAdView, this, getString(R.string.rd_calc_banner));
     }
 
 
@@ -1755,16 +1295,12 @@ public class RdCalculatorActivity extends AppCompatActivity {
 
         if (bannerAdView != null) {
 
-            ViewGroup parent =
-                    (ViewGroup)
-                            bannerAdView.getParent();
+            ViewGroup parent = (ViewGroup) bannerAdView.getParent();
 
 
             if (parent != null) {
 
-                parent.removeView(
-                        bannerAdView
-                );
+                parent.removeView(bannerAdView);
             }
 
 

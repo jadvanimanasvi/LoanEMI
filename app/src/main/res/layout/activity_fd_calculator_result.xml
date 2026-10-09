@@ -228,7 +228,7 @@
             android:layout_height="wrap_content"
             android:text="@string/total_investment_amount"
             android:textColor="@color/grey"
-            android:textSize="16sp"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/tvMonthlyPayment"
             app:layout_constraintTop_toTopOf="@id/tvMonthlyPayment"

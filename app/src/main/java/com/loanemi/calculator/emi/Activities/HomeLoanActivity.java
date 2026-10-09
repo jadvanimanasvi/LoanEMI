@@ -35,10 +35,9 @@ public class HomeLoanActivity extends AppCompatActivity {
 
     private AdView bannerAdView;
     private FrameLayout adContainer;
-
     private EditText etLoanAmount;
     private EditText tvdownpayment;
-    private EditText tvdownpaymentrate;
+    private TextView tvdownpaymentrate;
     private EditText etInterestRate;
     private EditText tvLoanTerm;
 
@@ -46,7 +45,7 @@ public class HomeLoanActivity extends AppCompatActivity {
     private TextView tvCurrencyCode;
     private TextView tvCurrencySymbol;
 
-    private ImageView ivCurrencyFlag;
+    private ImageView ivCurrencyFlag,ivBack;
 
     private LinearLayout currencySelector;
     private LinearLayout btnReset;
@@ -92,8 +91,9 @@ public class HomeLoanActivity extends AppCompatActivity {
         setUpAd();
     }
 
-
     private void initViews() {
+
+        ivBack = findViewById(R.id.ivBack);
 
         etLoanAmount = findViewById(R.id.etLoanAmount);
 
@@ -124,8 +124,9 @@ public class HomeLoanActivity extends AppCompatActivity {
         updateCurrencyUI();
     }
 
-
     private void updateCurrencyUI() {
+
+        findViewById(R.id.ivBack).setOnClickListener(v -> finish());
 
         if (tvCurrencyCode != null) {
             tvCurrencyCode.setText(selectedCurrencyCode);
@@ -140,50 +141,33 @@ public class HomeLoanActivity extends AppCompatActivity {
         }
     }
 
+    private boolean updatingDownPaymentFields = false;
 
     private void setupListeners() {
-
         View toolbar = findViewById(R.id.toolbar);
-
         if (toolbar != null) {
-
             toolbar.setOnClickListener(v -> finish());
         }
 
-
         if (currencySelector != null) {
-
             currencySelector.setOnClickListener(v -> openCurrencyActivity());
         }
 
-
         if (tvLoanUnit != null) {
-
             tvLoanUnit.setOnClickListener(v -> showLoanUnitDialog());
         }
 
-
         if (btnReset != null) {
-
             btnReset.setOnClickListener(v -> resetFields());
         }
 
-
         if (btnCalculate != null) {
-
             btnCalculate.setOnClickListener(v -> calculateHomeLoan());
         }
 
-
-        // =====================================================
-        // DOWN PAYMENT AMOUNT
-        // =====================================================
-
         if (tvdownpayment != null) {
-
             tvdownpayment.addTextChangedListener(new TextWatcher() {
-
-                private boolean editing;
+                private boolean formatting;
 
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -194,35 +178,37 @@ public class HomeLoanActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void afterTextChanged(Editable s) {
-
-                    if (editing) {
+                public void afterTextChanged(Editable editable) {
+                    if (formatting || updatingDownPaymentFields) {
                         return;
                     }
 
-                    if (s.length() > 0 && tvdownpaymentrate != null && tvdownpaymentrate.length() > 0) {
+                    String value = editable.toString();
+                    String cleanValue = value.replace(",", "").trim();
 
-                        editing = true;
-
-                        tvdownpaymentrate.setText("");
-
-                        editing = false;
+                    if (!cleanValue.isEmpty()) {
+                        try {
+                            if (!cleanValue.contains(".")) {
+                                long amount = Long.parseLong(cleanValue);
+                                String formatted = indianNumberFormat.format(amount);
+                                if (!formatted.equals(value)) {
+                                    formatting = true;
+                                    tvdownpayment.setText(formatted);
+                                    tvdownpayment.setSelection(formatted.length());
+                                    formatting = false;
+                                }
+                            }
+                        } catch (NumberFormatException ignored) {
+                        }
                     }
+
+                    updateDownPaymentRateFromAmount();
                 }
             });
         }
 
-
-        // =====================================================
-        // DOWN PAYMENT RATE
-        // =====================================================
-
         if (tvdownpaymentrate != null) {
-
             tvdownpaymentrate.addTextChangedListener(new TextWatcher() {
-
-                private boolean editing;
-
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 }
@@ -232,25 +218,70 @@ public class HomeLoanActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void afterTextChanged(Editable s) {
-
-                    if (editing) {
+                public void afterTextChanged(Editable editable) {
+                    if (updatingDownPaymentFields) {
                         return;
                     }
 
-                    if (s.length() > 0 && tvdownpayment != null && tvdownpayment.length() > 0) {
+                    String rateText = editable.toString().trim();
+                    String loanText = etLoanAmount == null ? "" : etLoanAmount.getText().toString().replace(",", "").trim();
 
-                        editing = true;
+                    if (rateText.isEmpty() || loanText.isEmpty()) {
+                        return;
+                    }
 
-                        tvdownpayment.setText("");
+                    try {
+                        double rate = Double.parseDouble(rateText);
+                        double propertyAmount = Double.parseDouble(loanText);
 
-                        editing = false;
+                        if (rate < 0 || rate > 100 || propertyAmount <= 0) {
+                            return;
+                        }
+
+                        double amount = propertyAmount * rate / 100.0;
+                        String formatted = indianNumberFormat.format(Math.round(amount));
+
+                        updatingDownPaymentFields = true;
+                        tvdownpayment.setText(formatted);
+                        tvdownpayment.setSelection(formatted.length());
+                        updatingDownPaymentFields = false;
+                    } catch (NumberFormatException ignored) {
                     }
                 }
             });
         }
     }
 
+    private void updateDownPaymentRateFromAmount() {
+        if (updatingDownPaymentFields || etLoanAmount == null || tvdownpayment == null || tvdownpaymentrate == null) {
+            return;
+        }
+
+        String loanText = etLoanAmount.getText().toString().replace(",", "").trim();
+        String downText = tvdownpayment.getText().toString().replace(",", "").trim();
+
+        if (loanText.isEmpty() || downText.isEmpty()) {
+            return;
+        }
+
+        try {
+            double propertyAmount = Double.parseDouble(loanText);
+            double downAmount = Double.parseDouble(downText);
+
+            if (propertyAmount <= 0 || downAmount < 0) {
+                return;
+            }
+
+            double rate = downAmount / propertyAmount * 100.0;
+            String rateValue = String.format(Locale.US, "%.2f", rate);
+            rateValue = rateValue.replaceAll("\\.?0+$", "");
+
+            updatingDownPaymentFields = true;
+            tvdownpaymentrate.setText(rateValue);
+            updatingDownPaymentFields = false;
+        } catch (NumberFormatException ignored) {
+        }
+    }
 
     private void setupLoanTermUnit() {
 
@@ -263,13 +294,11 @@ public class HomeLoanActivity extends AppCompatActivity {
         selectedLoanUnit = "Month";
     }
 
-
     private void showLoanUnitDialog() {
 
         final String[] units = {getString(R.string.month), getString(R.string.years)};
 
         int selectedPosition = selectedLoanUnit.equalsIgnoreCase("Month") ? 0 : 1;
-
 
         AlertDialog dialog = new AlertDialog.Builder(this).setTitle("Select Loan Term Unit").setSingleChoiceItems(units, selectedPosition, (dialogInterface, which) -> {
 
@@ -283,101 +312,66 @@ public class HomeLoanActivity extends AppCompatActivity {
         dialog.show();
     }
 
-
-    // =========================================================
-    // LOAN AMOUNT FORMATTING
-    // =========================================================
-
     private void setupAmountFormatting() {
-
         if (etLoanAmount == null) {
             return;
         }
 
-
         etLoanAmount.addTextChangedListener(new TextWatcher() {
-
-            private boolean isEditing;
-
+            private boolean formatting;
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
             }
 
-
             @Override
             public void afterTextChanged(Editable editable) {
-
-                if (isEditing) {
+                if (formatting) {
                     return;
                 }
-
 
                 String value = editable.toString();
-
-
                 if (value.isEmpty()) {
+                    if (tvdownpaymentrate != null) {
+                        tvdownpaymentrate.setText("");
+                    }
                     return;
                 }
 
-
                 String cleanValue = value.replace(",", "");
-
-
                 try {
-
                     if (cleanValue.contains(".")) {
                         return;
                     }
 
-
                     long amount = Long.parseLong(cleanValue);
-
-
                     String formatted = indianNumberFormat.format(amount);
 
-
                     if (!formatted.equals(value)) {
-
-                        isEditing = true;
-
+                        formatting = true;
                         etLoanAmount.setText(formatted);
-
                         etLoanAmount.setSelection(formatted.length());
-
-                        isEditing = false;
+                        formatting = false;
                     }
 
-                } catch (Exception ignored) {
+                    updateDownPaymentRateFromAmount();
+                } catch (NumberFormatException ignored) {
                 }
             }
         });
     }
 
-
-    // =========================================================
-    // CALCULATE HOME LOAN
-    // =========================================================
-
     private void calculateHomeLoan() {
 
         String loanAmountText = etLoanAmount.getText().toString().replace(",", "").trim();
 
-
         String interestText = etInterestRate.getText().toString().trim();
 
-
         String termText = tvLoanTerm.getText().toString().trim();
-
-
-        // =====================================================
-        // VALIDATE LOAN AMOUNT
-        // =====================================================
 
         if (loanAmountText.isEmpty()) {
 
@@ -388,11 +382,6 @@ public class HomeLoanActivity extends AppCompatActivity {
             return;
         }
 
-
-        // =====================================================
-        // VALIDATE INTEREST
-        // =====================================================
-
         if (interestText.isEmpty()) {
 
             etInterestRate.setError("Enter interest rate");
@@ -401,11 +390,6 @@ public class HomeLoanActivity extends AppCompatActivity {
 
             return;
         }
-
-
-        // =====================================================
-        // VALIDATE TERM
-        // =====================================================
 
         if (termText.isEmpty()) {
 
@@ -416,21 +400,17 @@ public class HomeLoanActivity extends AppCompatActivity {
             return;
         }
 
-
         double propertyLoanAmount;
 
         double interestRate;
 
         double loanTerm;
 
-
         try {
 
             propertyLoanAmount = Double.parseDouble(loanAmountText);
 
-
             interestRate = Double.parseDouble(interestText);
-
 
             loanTerm = Double.parseDouble(termText);
 
@@ -441,11 +421,6 @@ public class HomeLoanActivity extends AppCompatActivity {
             return;
         }
 
-
-        // =====================================================
-        // VALIDATE VALUES
-        // =====================================================
-
         if (propertyLoanAmount <= 0) {
 
             etLoanAmount.setError("Enter valid loan amount");
@@ -454,7 +429,6 @@ public class HomeLoanActivity extends AppCompatActivity {
 
             return;
         }
-
 
         if (interestRate < 0) {
 
@@ -465,7 +439,6 @@ public class HomeLoanActivity extends AppCompatActivity {
             return;
         }
 
-
         if (interestRate > 100) {
 
             etInterestRate.setError("Interest rate cannot exceed 100%");
@@ -474,7 +447,6 @@ public class HomeLoanActivity extends AppCompatActivity {
 
             return;
         }
-
 
         if (loanTerm <= 0) {
 
@@ -485,16 +457,9 @@ public class HomeLoanActivity extends AppCompatActivity {
             return;
         }
 
-
-        // =====================================================
-        // TOTAL MONTHS
-        // =====================================================
-
         String selectedUnit = tvLoanUnit.getText().toString();
 
-
         int totalMonths;
-
 
         if (selectedUnit.equalsIgnoreCase("Year") || selectedUnit.equalsIgnoreCase("Years")) {
 
@@ -506,7 +471,6 @@ public class HomeLoanActivity extends AppCompatActivity {
 
                 return;
             }
-
 
             totalMonths = (int) Math.round(loanTerm * 12);
 
@@ -521,10 +485,8 @@ public class HomeLoanActivity extends AppCompatActivity {
                 return;
             }
 
-
             totalMonths = (int) Math.round(loanTerm);
         }
-
 
         if (totalMonths <= 0) {
 
@@ -533,19 +495,11 @@ public class HomeLoanActivity extends AppCompatActivity {
             return;
         }
 
-
-        // =====================================================
-        // DOWN PAYMENT
-        // =====================================================
-
         double downPaymentAmount = 0;
-
 
         String downAmountText = tvdownpayment.getText().toString().replace(",", "").trim();
 
-
         String downRateText = tvdownpaymentrate.getText().toString().trim();
-
 
         if (!downAmountText.isEmpty()) {
 
@@ -568,7 +522,6 @@ public class HomeLoanActivity extends AppCompatActivity {
 
                 double downPaymentRate = Double.parseDouble(downRateText);
 
-
                 if (downPaymentRate < 0 || downPaymentRate > 100) {
 
                     tvdownpaymentrate.setError("Enter percentage between 0 and 100");
@@ -577,7 +530,6 @@ public class HomeLoanActivity extends AppCompatActivity {
 
                     return;
                 }
-
 
                 downPaymentAmount = propertyLoanAmount * downPaymentRate / 100.0;
 
@@ -591,12 +543,10 @@ public class HomeLoanActivity extends AppCompatActivity {
             }
         }
 
-
         if (downPaymentAmount < 0) {
 
             downPaymentAmount = 0;
         }
-
 
         if (downPaymentAmount >= propertyLoanAmount) {
 
@@ -605,23 +555,11 @@ public class HomeLoanActivity extends AppCompatActivity {
             return;
         }
 
-
-        // =====================================================
-        // PRINCIPAL AFTER DOWN PAYMENT
-        // =====================================================
-
         double principal = propertyLoanAmount - downPaymentAmount;
-
-
-        // =====================================================
-        // EMI CALCULATION
-        // =====================================================
 
         double monthlyInterestRate = interestRate / 12.0 / 100.0;
 
-
         double monthlyEMI;
-
 
         if (monthlyInterestRate == 0) {
 
@@ -631,179 +569,79 @@ public class HomeLoanActivity extends AppCompatActivity {
 
             double power = Math.pow(1 + monthlyInterestRate, totalMonths);
 
-
             monthlyEMI = principal * monthlyInterestRate * power / (power - 1);
         }
 
-
         double totalPayment = monthlyEMI * totalMonths;
 
-
         double totalInterest = totalPayment - principal;
-
 
         if (totalInterest < 0 && totalInterest > -0.01) {
 
             totalInterest = 0;
         }
 
-
-        // =====================================================
-        // DATES
-        // =====================================================
-
         Calendar startCalendar = Calendar.getInstance();
-
 
         Calendar payoffCalendar = (Calendar) startCalendar.clone();
 
-
         payoffCalendar.add(Calendar.MONTH, totalMonths);
-
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
 
-
         String startDate = dateFormat.format(startCalendar.getTime());
 
-
         String payoffDate = dateFormat.format(payoffCalendar.getTime());
-
-
-        // =====================================================
-        // SAVE HOME LOAN TO HISTORY
-        // =====================================================
 
         if (loanHistoryManager == null) {
 
             loanHistoryManager = new LoanHistoryManager(this);
         }
 
-
-        loanHistoryManager.addHistory(
-
-                // Loan type
-                "Home Loan",
-
-                // History date
-                startDate,
-
-                // Loan/property amount
-                propertyLoanAmount,
-
-                // Interest rate
-                interestRate,
-
-                // Original loan term
-                loanTerm,
-
-                // Month / Year
-                selectedUnit,
-
-                // Total months
-                totalMonths,
-
-                // Monthly EMI
-                monthlyEMI,
-
-                // Total interest
-                totalInterest,
-
-                // Total payment
-                totalPayment,
-
-                // Start date
-                startDate,
-
-                // Currency code
-                selectedCurrencyCode,
-
-                // Currency symbol
-                selectedCurrencySymbol,
-
-                // Home Loan icon
-                R.drawable.home_ic);
-
-
-        // =====================================================
-        // OPEN RESULT ACTIVITY
-        // =====================================================
+        loanHistoryManager.addHistory("Home Loan", startDate, propertyLoanAmount, interestRate, loanTerm, selectedUnit, totalMonths, monthlyEMI, totalInterest, totalPayment, startDate, selectedCurrencyCode, selectedCurrencySymbol, R.drawable.home_ic);
 
         Intent intent = new Intent(HomeLoanActivity.this, HomeLoanResultActivity.class);
 
-
         intent.putExtra("loan_amount", propertyLoanAmount);
-
 
         intent.putExtra("down_payment", downPaymentAmount);
 
-
         intent.putExtra("principal", principal);
-
 
         intent.putExtra("interest_rate", interestRate);
 
-
         intent.putExtra("loan_term", loanTerm);
-
 
         intent.putExtra("loan_term_unit", selectedUnit);
 
-
         intent.putExtra("total_months", totalMonths);
-
 
         intent.putExtra("monthly_emi", monthlyEMI);
 
-
         intent.putExtra("total_payment", totalPayment);
-
 
         intent.putExtra("total_interest", totalInterest);
 
-
-        // =====================================================
-        // CURRENCY
-        // =====================================================
-
         intent.putExtra("currency_code", selectedCurrencyCode);
-
 
         intent.putExtra("currency_name", selectedCurrencyName);
 
-
         intent.putExtra("currency_symbol", selectedCurrencySymbol);
-
 
         intent.putExtra("currency_flag", selectedCurrencyFlag);
 
-
         intent.putExtra("loan_type", "Home Loan");
-
-
-        // =====================================================
-        // DATES
-        // =====================================================
 
         intent.putExtra("start_date", startDate);
 
-
         intent.putExtra("payoff_date", payoffDate);
-
 
         intent.putExtra("start_date_millis", startCalendar.getTimeInMillis());
 
-
         intent.putExtra("payoff_date_millis", payoffCalendar.getTimeInMillis());
-
 
         startActivity(intent);
     }
-
-
-    // =========================================================
-    // RESET
-    // =========================================================
 
     private void resetFields() {
 
@@ -817,19 +655,12 @@ public class HomeLoanActivity extends AppCompatActivity {
 
         tvLoanTerm.setText("");
 
-
         selectedLoanUnit = "Month";
-
 
         if (tvLoanUnit != null) {
 
             tvLoanUnit.setText("Month");
         }
-
-
-        // =====================================================
-        // RESET CURRENCY
-        // =====================================================
 
         selectedCurrencyCode = "USD";
 
@@ -839,106 +670,60 @@ public class HomeLoanActivity extends AppCompatActivity {
 
         selectedCurrencyFlag = R.drawable.icn_flagus;
 
-
         updateCurrencyUI();
-
 
         etLoanAmount.requestFocus();
     }
-
-
-    // =========================================================
-    // OPEN CURRENCY ACTIVITY
-    // =========================================================
 
     private void openCurrencyActivity() {
 
         Intent intent = new Intent(HomeLoanActivity.this, CurrencyUnitActivity.class);
 
-
         intent.putExtra(CurrencyUnitActivity.EXTRA_CURRENT_CODE, selectedCurrencyCode);
-
 
         intent.putExtra(CurrencyUnitActivity.EXTRA_CURRENCY_SELECT_TYPE, "HOME_LOAN");
 
-
         startActivityForResult(intent, REQUEST_CURRENCY);
     }
-
-
-    // =========================================================
-    // CURRENCY RESULT
-    // =========================================================
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         super.onActivityResult(requestCode, resultCode, data);
 
-
         if (requestCode != REQUEST_CURRENCY || resultCode != RESULT_OK || data == null) {
 
             return;
         }
 
-
-        // =====================================================
-        // CURRENCY CODE
-        // =====================================================
-
         String code = data.getStringExtra(CurrencyUnitActivity.EXTRA_SELECTED_CODE);
-
 
         if (code != null && !code.trim().isEmpty()) {
 
             selectedCurrencyCode = code.trim().toUpperCase(Locale.US);
         }
 
-
-        // =====================================================
-        // CURRENCY NAME
-        // =====================================================
-
         String name = data.getStringExtra(CurrencyUnitActivity.EXTRA_SELECTED_COUNTRY);
-
 
         if (name != null && !name.trim().isEmpty()) {
 
             selectedCurrencyName = name.trim();
         }
 
-
-        // =====================================================
-        // CURRENCY FLAG
-        // =====================================================
-
         int flag = data.getIntExtra(CurrencyUnitActivity.EXTRA_SELECTED_FLAG, R.drawable.icn_flagus);
-
 
         selectedCurrencyFlag = flag;
 
-
-        // =====================================================
-        // CURRENCY SYMBOL
-        // =====================================================
-
         selectedCurrencySymbol = getCurrencySymbol(selectedCurrencyCode);
-
 
         updateCurrencyUI();
     }
-
-
-    // =========================================================
-    // GET CURRENCY SYMBOL
-    // =========================================================
 
     private String getCurrencySymbol(String code) {
 
         if (code == null) {
             return "$";
         }
-
 
         switch (code.toUpperCase(Locale.US)) {
 
@@ -995,11 +780,6 @@ public class HomeLoanActivity extends AppCompatActivity {
         }
     }
 
-
-    // =========================================================
-    // BANNER
-    // =========================================================
-
     private void setUpAd() {
 
         if (!Util.isInternetAvailable(this) || adContainer == null) {
@@ -1007,26 +787,17 @@ public class HomeLoanActivity extends AppCompatActivity {
             return;
         }
 
-
         bannerAdView = new AdView(this);
-
 
         if (bannerAdView.getParent() != null) {
 
             ((ViewGroup) bannerAdView.getParent()).removeView(bannerAdView);
         }
 
-
         adContainer.addView(bannerAdView);
-
 
         AdsHelper.loadAdaptiveBanner(bannerAdView, this, getString(R.string.home_loan_banner));
     }
-
-
-    // =========================================================
-    // RESUME
-    // =========================================================
 
     @Override
     protected void onResume() {
@@ -1036,11 +807,6 @@ public class HomeLoanActivity extends AppCompatActivity {
         Util.hide(this);
     }
 
-
-    // =========================================================
-    // DESTROY AD
-    // =========================================================
-
     @Override
     protected void onDestroy() {
 
@@ -1048,18 +814,15 @@ public class HomeLoanActivity extends AppCompatActivity {
 
             ViewGroup parent = (ViewGroup) bannerAdView.getParent();
 
-
             if (parent != null) {
 
                 parent.removeView(bannerAdView);
             }
 
-
             bannerAdView.destroy();
 
             bannerAdView = null;
         }
-
 
         super.onDestroy();
     }

@@ -54,19 +54,19 @@ public class AllScreenIntro extends BaseActivity {
             isWithNativeAd = true;
             native1PageIndex = 2;
             start3PageIndex = 3;
-            fragments = CollectionsKt.arrayListOf(new LoanStartFragment_2(), new LoanStartFragment_2(), new LoanNativeAdFragment1(), new LoanStartFragment_2());
+            fragments = CollectionsKt.arrayListOf(new LoanStartFragment_1(), new LoanStartFragment_2(), new LoanNativeAdFragment1(), new LoanStartFragment_3());
             fragSize = fragments.size();
             value = 1;
         } else if (showNative2) {
             isWithNativeAd = true;
             showsecond = 1;
             native2PageIndex = 3;
-            fragments = CollectionsKt.arrayListOf(new LoanStartFragment_2(), new LoanStartFragment_2(), new LoanStartFragment_2(), new LoanNativeAdFragment2());
+            fragments = CollectionsKt.arrayListOf(new LoanStartFragment_1(), new LoanStartFragment_2(), new LoanStartFragment_3(), new LoanNativeAdFragment2());
             fragSize = fragments.size();
             value = 2;
         } else {
             isWithNativeAd = false;
-            fragments = CollectionsKt.arrayListOf(new LoanStartFragment_2(), new LoanStartFragment_2(), new LoanStartFragment_2());
+            fragments = CollectionsKt.arrayListOf(new LoanStartFragment_1(), new LoanStartFragment_2(), new LoanStartFragment_3());
             fragSize = fragments.size();
             value = 4;
             binding.viewPager.setUserInputEnabled(false);
@@ -92,7 +92,7 @@ public class AllScreenIntro extends BaseActivity {
                         LoanActivityTracker.setCurrentFragment(new LoanStartFragment_2());
                         MyApplication.instance.applyStartFlowSystemBars(AllScreenIntro.this, findViewById(R.id.main));
                     } else if (i == start3PageIndex) {
-                        LoanActivityTracker.setCurrentFragment(new LoanStartFragment_2());
+                        LoanActivityTracker.setCurrentFragment(new LoanStartFragment_3());
                         MyApplication.instance.applyStartFlowSystemBars(AllScreenIntro.this, findViewById(R.id.main));
                     }
                 }
