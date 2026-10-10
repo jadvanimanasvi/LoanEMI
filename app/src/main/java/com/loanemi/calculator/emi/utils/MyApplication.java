@@ -9,6 +9,7 @@ import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -17,12 +18,17 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.lifecycle.MutableLiveData;
+
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.loanemi.calculator.emi.R;
 import com.facebook.shimmer.BuildConfig;
 import com.google.android.libraries.ads.mobile.sdk.MobileAds;
 import com.google.android.libraries.ads.mobile.sdk.common.RequestConfiguration;
 import com.google.android.libraries.ads.mobile.sdk.initialization.InitializationConfig;
 import com.loanemi.calculator.emi.Ads.ApNativeAd;
+import com.loanemi.calculator.emi.language.LocaleHelper;
+import com.loanemi.calculator.emi.remote.RemoteConfigManager;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -43,12 +49,14 @@ public class MyApplication extends Application {
     public MutableLiveData<ApNativeAd> FullScreenSecondNativeAd = new MutableLiveData<>();
     public MutableLiveData<ApNativeAd> GetStartedNativeAd = new MutableLiveData<>();
 
-
-
     public static MyApplication getApplication() {
         return context;
     }
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+    }
 
     @Override
     public void onCreate() {
@@ -60,6 +68,35 @@ public class MyApplication extends Application {
 
         initializeMobileAdsSdk();
 
+        FirebaseApp.initializeApp(MyApplication.this);
+        FirebaseAnalytics.getInstance(this);
+
+        /*try {
+            RemoteConfigManager.getInstance().init();
+            RemoteConfigManager.getInstance().loadCachedConfig(getApplicationContext());
+            if (Util.isInternetAvailable(this)) {
+                RemoteConfigManager.getInstance().fetchAppConfig(() -> {
+                    // intro flags live on IntroConfig / PrefsUtil
+                });
+            }
+        } catch (Exception e) {
+            //Exception
+        }*/
+
+        try {
+            Log.d("RC_DEBUG", "App onCreate: init remote config");
+            RemoteConfigManager.getInstance().init();
+            RemoteConfigManager.getInstance().loadCachedConfig(getApplicationContext());
+
+            boolean online = Util.isInternetAvailable(this);
+            Log.d("RC_DEBUG", "App onCreate: online=" + online);
+            if (online) {
+                RemoteConfigManager.getInstance().fetchAppConfig(() ->
+                        Log.d("RC_DEBUG", "App onCreate: fetch callback done"));
+            }
+        } catch (Exception e) {
+            Log.e("RC_DEBUG", "App onCreate: remote config crashed", e);
+        }
     }
 
     public static void setLanguage(Context context, String languageCode) {

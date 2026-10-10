@@ -9,7 +9,6 @@ import com.loanemi.calculator.emi.databinding.ActivityAllScreenIntroBinding;
 import com.loanemi.calculator.emi.introflow.adapter.IntroScreenPagerAdapter;
 import com.loanemi.calculator.emi.utils.AppPreference;
 import com.loanemi.calculator.emi.utils.MyApplication;
-
 import java.util.ArrayList;
 import kotlin.collections.CollectionsKt;
 

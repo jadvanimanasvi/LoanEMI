@@ -1,6 +1,7 @@
 package com.loanemi.calculator.emi.fragments;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -17,14 +18,17 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.OnBackPressedCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+
+import com.loanemi.calculator.emi.BuildConfig;
 import com.loanemi.calculator.emi.R;
-import com.facebook.shimmer.BuildConfig;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.loanemi.calculator.emi.Ads.NativeAdPreloader;
 import com.loanemi.calculator.emi.MainActivity;
@@ -41,6 +45,17 @@ public class SettingFragment extends Fragment {
 
     CardView cardLanguage,cardPrivacy,cardShareApp,cardRate,cardTheme;
     TextView txtVersion;
+
+    private final ActivityResultLauncher<Intent> languageLauncher =
+            registerForActivityResult(
+                    new ActivityResultContracts.StartActivityForResult(),
+                    result -> {
+                        if (result.getResultCode() == Activity.RESULT_OK
+                                && isAdded() && getActivity() != null) {
+                            // re-runs attachBaseContext, so every screen reloads in the new language
+                            requireActivity().recreate();
+                        }
+                    });
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -79,11 +94,8 @@ public class SettingFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(requireContext(), LanguageActivity.class);
-                intent.putExtra(
-                        AppPreference.EXTRA_LANG_OPENED_IN_SETTINGS,
-                        true
-                );
-                startActivity(intent);
+                intent.putExtra(AppPreference.EXTRA_LANG_OPENED_IN_SETTINGS, true);
+                languageLauncher.launch(intent);
             }
         });
         cardPrivacy.setOnClickListener(v -> privacyPolicy());

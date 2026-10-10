@@ -1,6 +1,7 @@
 package com.loanemi.calculator.emi;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import com.loanemi.calculator.emi.fragments.HistoryFragment;
 import com.loanemi.calculator.emi.fragments.HomeFragment;
 import com.loanemi.calculator.emi.fragments.SettingFragment;
 import com.loanemi.calculator.emi.fragments.ToolsFragment;
+import com.loanemi.calculator.emi.language.LocaleHelper;
 import com.loanemi.calculator.emi.utils.Util;
 
 
@@ -36,6 +38,11 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
             );
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.setLocale(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

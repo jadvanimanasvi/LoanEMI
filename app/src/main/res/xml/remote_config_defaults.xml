@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+
+    <!-- ===== Intro  ===== -->
+    <entry>
+        <key>loan_intro</key>
+        <value>
+            [
+            {
+            "btnNext_bottom_space": 10,
+            "get_started_bottom_space": 10,
+            "show_get_started_btn": true,
+            "is_splash_banner_show": true,
+            "is_splash_inter_show": true,
+            "is_language_native1_show": true,
+            "is_language_native2_show": true,
+            "is_language_done_native_show": true,
+            "is_language_done_inter_show": true,
+            "is_language_done_new_native_ui_show": true,
+            "is_first_intro_native1_show": true,
+            "is_first_intro_native2_show": true,
+            "is_intro_full_screen_native_1_show": true,
+            "is_intro_full_screen_native_2_show": true,
+            "is_intro_full_screen_native_1_new_ui_show": true,
+            "is_intro_full_screen_native_2_new_ui_show": true,
+            "is_get_started_native_show": true,
+            "is_first_intro_new_next_btn_show": true,
+            "full_native_skip_timer": 4,
+            "full_native_close_timer": 1,
+            "is_rev_back_to": 0.5
+            }
+            ]
+        </value>
+    </entry>
+
+</defaultsMap>

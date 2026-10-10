@@ -2,6 +2,7 @@ package com.loanemi.calculator.emi.introflow;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import com.google.android.libraries.ads.mobile.sdk.common.LoadAdError;
 import com.loanemi.calculator.emi.Ads.AdCallback;
 import com.loanemi.calculator.emi.Ads.ApNativeAd;
 import com.loanemi.calculator.emi.databinding.LoanFragmentInfo3Binding;
+import com.loanemi.calculator.emi.language.LocaleHelper;
 import com.loanemi.calculator.emi.utils.AppPreference;
 import com.loanemi.calculator.emi.utils.Constant;
 import com.loanemi.calculator.emi.utils.MyApplication;
@@ -30,6 +32,11 @@ public class LoanStartFragment_3 extends Fragment {
         preloadGetStartedNative();
         MyApplication.instance.applyStartFlowSystemBars(requireActivity(), binding.main);
         return binding.getRoot();
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(LocaleHelper.setLocale(context));
     }
 
     public void onViewCreated(@NonNull View view, Bundle bundle) {

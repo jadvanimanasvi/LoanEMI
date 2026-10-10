@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import androidx.activity.OnBackPressedCallback;
@@ -27,9 +28,11 @@ import com.loanemi.calculator.emi.introflow.LoanActivityTracker;
 import com.loanemi.calculator.emi.introflow.LoanStartFlowAdHelper;
 import com.loanemi.calculator.emi.language.LanguageActivity;
 import com.loanemi.calculator.emi.language.LocaleHelper;
+import com.loanemi.calculator.emi.remote.RemoteConfigManager;
 import com.loanemi.calculator.emi.utils.AppPreference;
 import com.loanemi.calculator.emi.utils.Constant;
 import com.loanemi.calculator.emi.utils.MyApplication;
+import com.loanemi.calculator.emi.utils.PrefsUtil;
 import com.loanemi.calculator.emi.utils.Util;
 
 @SuppressLint("CustomSplashScreen")
@@ -56,6 +59,13 @@ public class SplashActivity extends AppCompatActivity {
     private static final float FIRST_LAUNCH_SPEED = 0.5f;   // full animation: about 5.4 s
     private static final float REPEAT_LAUNCH_SPEED = 0.5f;  // repeat animation: about 4.1 s
     private final Runnable consentWaitTimeout = this::continueIfConsentStuck;
+    private static final long RC_WAIT_MS = 3000;
+    private final Runnable rcWaitTimeout = this::loadSplash;
+
+    /** Reads the flag from the parsed Remote Config; false if unknown. */
+    private boolean flag(String key) {
+        return RemoteConfigManager.getInstance().requireIntroConfig().readToggle(key, false);
+    }
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -127,7 +137,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void init() {
-//        RemoteConfigManager.getInstance().loadCachedConfig(getApplicationContext());
+        RemoteConfigManager.getInstance().loadCachedConfig(getApplicationContext());
         startSplashProgress();
         startConsentThenAds();
         mHandler.postDelayed(consentWaitTimeout, 8000);
@@ -210,10 +220,10 @@ public class SplashActivity extends AppCompatActivity {
         }
         splashFlowStarted = true;
         mHandler.removeCallbacks(consentWaitTimeout);
-//        RemoteConfigManager.getInstance().loadCachedConfig(getApplicationContext());
+        RemoteConfigManager.getInstance().loadCachedConfig(getApplicationContext());
         loadSplash();
         if (LoanStartFlowAdHelper.isNetworkConnected(this)) {
-//            RemoteConfigManager.getInstance().fetchAppConfig(ignored -> runOnUiThread(this::loadSplashInterIfNeeded));
+            RemoteConfigManager.getInstance().fetchAppConfig(() -> runOnUiThread(this::loadSplashInterIfNeeded));
         }
     }
 
@@ -222,7 +232,7 @@ public class SplashActivity extends AppCompatActivity {
             return;
         }
 
-//        RemoteConfigManager.getInstance().loadCachedConfig(getApplicationContext());
+        RemoteConfigManager.getInstance().loadCachedConfig(getApplicationContext());
         if (LoanStartFlowAdHelper.isNetworkConnected(this) && LoanStartFlowAdHelper.isFlagOn(this, AppPreference.is_splash_inter_show, true) && !LoanStartFlowAdHelper.isInterstitialLoaded() && !LoanStartFlowAdHelper.isInterstitialLoading()) {
             loadSplashInterstitialInBackground();
         }
@@ -256,6 +266,7 @@ public class SplashActivity extends AppCompatActivity {
             preloadLanguageSecond();
         }
     }
+
 
     private void loadSplashInterstitialInBackground() {
         LoanStartFlowAdHelper.loadInterstitialOnly(this, getString(R.string.splash_inter_1), getString(R.string.splash_inter_2));
