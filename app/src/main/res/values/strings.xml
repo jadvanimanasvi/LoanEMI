@@ -104,7 +104,8 @@
 
 
 
-    <string name="privacy_policy_url" translatable="false"></string>
+      <string name="privacy_policy_url" translatable="false">https://loanemi-a700e.web.app/privacy-policy.html</string>
+    <string name="terms_conditions_url" translatable="false">https://loanemi-a700e.web.app/terms-and-conditions.html</string>
     <string name="share_text" translatable="false">LoanEMI App with Privacy. Click here…: https://play.google.com/store/apps/details?id=</string>
 
     <string name="tagline">Smart Calculations, Instant Results</string>
