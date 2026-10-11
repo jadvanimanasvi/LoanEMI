@@ -6,8 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.loanemi.calculator.emi.R;
 import com.loanemi.calculator.emi.Models.HistoryItem;
 
@@ -22,11 +24,17 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
         void onSelectionChanged(int count);
     }
 
+    public interface OnHistoryClickListener {
+        void onHistoryClick(HistoryItem item);
+    }
+
     private final Context context;
     private final List<HistoryItem> historyList;
     private final List<Long> selectedIds = new ArrayList<>();
+
     private boolean selectionMode = false;
     private OnSelectionChangedListener selectionChangedListener;
+    private OnHistoryClickListener historyClickListener;
 
     public HistoryAdapter(Context context, List<HistoryItem> historyList) {
         this.context = context;
@@ -34,11 +42,14 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     }
 
     public void setOnSelectionChangedListener(OnSelectionChangedListener listener) {
-        this.selectionChangedListener = listener;
+        selectionChangedListener = listener;
+    }
+
+    public void setOnHistoryClickListener(OnHistoryClickListener listener) {
+        historyClickListener = listener;
     }
 
     public void setSelectionMode(boolean enabled) {
-
         selectionMode = enabled;
 
         if (!enabled) {
@@ -46,7 +57,6 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
         }
 
         notifyDataSetChanged();
-
         notifySelectionChanged();
     }
 
@@ -55,9 +65,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     }
 
     public void toggleSelection(long id) {
-
         if (selectedIds.contains(id)) {
-            selectedIds.remove(id);
+            selectedIds.remove(Long.valueOf(id));
         } else {
             selectedIds.add(id);
         }
@@ -75,7 +84,6 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     }
 
     private void notifySelectionChanged() {
-
         if (selectionChangedListener != null) {
             selectionChangedListener.onSelectionChanged(selectedIds.size());
         }
@@ -83,72 +91,71 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
 
     @NonNull
     @Override
-    public HistoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public HistoryViewHolder onCreateViewHolder(
+            @NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.item_history, parent, false);
+        View view = LayoutInflater.from(context)
+                .inflate(R.layout.item_history, parent, false);
 
         return new HistoryViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HistoryViewHolder holder, int position) {
+    public void onBindViewHolder(
+            @NonNull HistoryViewHolder holder, int position) {
 
         HistoryItem item = historyList.get(position);
 
         holder.tvLoanType.setText(item.getLoanType());
         holder.tvDate.setText(item.getDate());
-
         holder.tvInterest.setText(formatInterest(item.getInterestRate()));
-
         holder.tvDuration.setText(item.getDuration());
+        holder.tvAmount.setText(
+                formatAmount(item.getLoanAmount(), item.getCurrencySymbol()));
 
-        holder.tvAmount.setText(formatAmount(item.getLoanAmount(), item.getCurrencySymbol()));
-
-        // Calculator icon
         setLoanIcon(holder.ivHistoryIcon, item.getLoanType());
 
-        // Check icon
+        boolean selected = selectedIds.contains(item.getId());
+
         if (selectionMode) {
-
             holder.ivHistoryCheck.setVisibility(View.VISIBLE);
-
-            if (selectedIds.contains(item.getId())) {
-
-                holder.ivHistoryCheck.setImageResource(R.drawable.ic_check_selected);
-
-            } else {
-
-                holder.ivHistoryCheck.setImageResource(R.drawable.ic_check_unselected);
-            }
-
+            holder.ivHistoryCheck.setImageResource(
+                    selected
+                            ? R.drawable.ic_check_selected
+                            : R.drawable.ic_check_unselected);
         } else {
-
             holder.ivHistoryCheck.setVisibility(View.GONE);
         }
 
-        // Item click
         holder.itemView.setOnClickListener(v -> {
+            int currentPosition = holder.getBindingAdapterPosition();
+
+            if (currentPosition == RecyclerView.NO_POSITION) {
+                return;
+            }
+
+            HistoryItem clickedItem = historyList.get(currentPosition);
 
             if (selectionMode) {
-
-                toggleSelection(item.getId());
-
-            } else {
-
-                // Normal history item click.
-                // You can open a result/detail screen here later.
+                toggleSelection(clickedItem.getId());
+            } else if (historyClickListener != null) {
+                historyClickListener.onHistoryClick(clickedItem);
             }
         });
 
-        // Long press starts selection
         holder.itemView.setOnLongClickListener(v -> {
+            int currentPosition = holder.getBindingAdapterPosition();
+
+            if (currentPosition == RecyclerView.NO_POSITION) {
+                return false;
+            }
+
+            HistoryItem clickedItem = historyList.get(currentPosition);
 
             if (!selectionMode) {
-
                 selectionMode = true;
-
                 selectedIds.clear();
-                selectedIds.add(item.getId());
+                selectedIds.add(clickedItem.getId());
 
                 notifyDataSetChanged();
                 notifySelectionChanged();
@@ -161,7 +168,6 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     }
 
     private void setLoanIcon(ImageView imageView, String loanType) {
-
         if (loanType == null) {
             imageView.setImageResource(R.drawable.personal_ic);
             imageView.setBackgroundResource(R.drawable.bg_icon_blue);
@@ -171,38 +177,32 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
         String type = loanType.toLowerCase(Locale.US);
 
         if (type.contains("personal")) {
-
             imageView.setImageResource(R.drawable.personal_ic);
             imageView.setBackgroundResource(R.drawable.bg_icon_blue);
 
         } else if (type.contains("business")) {
-
             imageView.setImageResource(R.drawable.business_ic);
             imageView.setBackgroundResource(R.drawable.bg_icon_purple);
 
         } else if (type.contains("auto") || type.contains("car")) {
-
             imageView.setImageResource(R.drawable.ic_car);
             imageView.setBackgroundResource(R.drawable.bg_icon_pink);
 
         } else if (type.contains("home")) {
-
             imageView.setImageResource(R.drawable.home_ic);
             imageView.setBackgroundResource(R.drawable.bg_icon_orange);
 
         } else if (type.contains("school") || type.contains("student")) {
-
             imageView.setImageResource(R.drawable.school_ic);
             imageView.setBackgroundResource(R.drawable.bg_icon_teal);
 
         } else {
-
             imageView.setImageResource(R.drawable.personal_ic);
             imageView.setBackgroundResource(R.drawable.bg_icon_blue);
         }
     }
-    private String formatInterest(double interest) {
 
+    private String formatInterest(double interest) {
         if (interest == (long) interest) {
             return String.format(Locale.US, "%.0f%%", interest);
         }
@@ -211,13 +211,12 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     }
 
     private String formatAmount(double amount, String symbol) {
-
         NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.US);
 
         numberFormat.setMaximumFractionDigits(2);
         numberFormat.setMinimumFractionDigits(0);
 
-        return numberFormat.format(amount) + symbol;
+        return numberFormat.format(amount) + (symbol == null ? "" : symbol);
     }
 
     @Override
@@ -226,7 +225,6 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     }
 
     public void updateList(List<HistoryItem> newList) {
-
         historyList.clear();
         historyList.addAll(newList);
 
@@ -250,17 +248,11 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
             super(itemView);
 
             ivHistoryIcon = itemView.findViewById(R.id.ivHistoryIcon);
-
             ivHistoryCheck = itemView.findViewById(R.id.ivHistoryCheck);
-
             tvLoanType = itemView.findViewById(R.id.tvHistoryLoanType);
-
             tvDate = itemView.findViewById(R.id.tvHistoryDate);
-
             tvInterest = itemView.findViewById(R.id.tvHistoryInterest);
-
             tvDuration = itemView.findViewById(R.id.tvHistoryDuration);
-
             tvAmount = itemView.findViewById(R.id.tvHistoryAmount);
         }
     }

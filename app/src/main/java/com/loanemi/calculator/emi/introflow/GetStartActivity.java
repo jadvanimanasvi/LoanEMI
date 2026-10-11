@@ -13,6 +13,8 @@ import com.loanemi.calculator.emi.R;
 import com.loanemi.calculator.emi.Ads.AdConfig;
 import com.loanemi.calculator.emi.BaseActivity;
 import com.loanemi.calculator.emi.MainActivity;
+import com.loanemi.calculator.emi.remote.LoanIntroConfig;
+import com.loanemi.calculator.emi.remote.RemoteConfigManager;
 import com.loanemi.calculator.emi.utils.AppPreference;
 import com.loanemi.calculator.emi.utils.MyApplication;
 
@@ -84,11 +86,11 @@ public class GetStartActivity extends BaseActivity {
     private void setupUiGetStarted() {
         int spaceDp = 10;
         boolean showButton = true;
-//        LoanIntroConfig config = RemoteConfigManager.getInstance().galleryIntroConfig;
-        /*if (config != null) {
+        LoanIntroConfig config = RemoteConfigManager.getInstance().loanIntroConfig;
+        if (config != null) {
             spaceDp = config.getGet_started_bottom_space();
             showButton = config.isShow_get_started_btn();
-        }*/
+        }
         int spacePx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, spaceDp, getResources().getDisplayMetrics());
         if (showButton) {
             btnGetStart.setVisibility(View.VISIBLE);

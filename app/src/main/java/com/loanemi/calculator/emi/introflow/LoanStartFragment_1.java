@@ -3,6 +3,7 @@ package com.loanemi.calculator.emi.introflow;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.TypedValue;
@@ -23,6 +24,7 @@ import com.loanemi.calculator.emi.Ads.AdCallback;
 import com.loanemi.calculator.emi.Ads.AdConfig;
 import com.loanemi.calculator.emi.Ads.ApNativeAd;
 import com.loanemi.calculator.emi.databinding.LoanFragmentInfo1Binding;
+import com.loanemi.calculator.emi.language.LocaleHelper;
 import com.loanemi.calculator.emi.utils.AppPreference;
 import com.loanemi.calculator.emi.utils.Constant;
 import com.loanemi.calculator.emi.utils.MyApplication;
@@ -43,6 +45,11 @@ public class LoanStartFragment_1 extends Fragment {
             }
         }
     };
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(LocaleHelper.setLocale(context));
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -97,7 +104,8 @@ public class LoanStartFragment_1 extends Fragment {
         if (!isAdded() || getActivity() == null) {
             return;
         }
-        if (!LoanStartFlowAdHelper.isFlagOn(getActivity(), AppPreference.is_first_intro_native_show, true) || !LoanStartFlowAdHelper.isNetworkConnected(getActivity())) {
+        if (!LoanStartFlowAdHelper.isFlagOn(getActivity(), AppPreference.is_first_intro_native_show, true)
+                || !LoanStartFlowAdHelper.isNetworkConnected(getActivity())) {
             binding.layoutAdNative.setVisibility(View.INVISIBLE);
             binding.layouinclude.shimmerContainerNativeLarge.setVisibility(View.GONE);
             return;

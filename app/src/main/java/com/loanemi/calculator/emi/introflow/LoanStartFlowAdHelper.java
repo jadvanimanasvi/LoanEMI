@@ -98,6 +98,7 @@ public final class LoanStartFlowAdHelper {
         }
     }
 
+/*
     public static boolean isFlagOn(Context context, String key, boolean defaultValue) {
         try {
             AppPreference pref = AppPreference.getInstance(context);
@@ -115,7 +116,16 @@ public final class LoanStartFlowAdHelper {
         }
         return defaultValue;
     }
+*/
 
+    public static boolean isFlagOn(Context context, String key, boolean defaultValue) {
+        try {
+            LoanIntroConfig intro = RemoteConfigManager.getInstance().requireIntroConfig();
+            return intro.readToggle(key, defaultValue);
+        } catch (Exception ignored) {
+        }
+        return defaultValue;
+    }
     public static int startFlowGap(Context context, String key, int defaultValue) {
         try {
             LoanIntroConfig intro = RemoteConfigManager.getInstance().requireIntroConfig();

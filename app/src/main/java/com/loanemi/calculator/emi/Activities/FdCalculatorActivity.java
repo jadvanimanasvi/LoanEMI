@@ -492,11 +492,6 @@ public class FdCalculatorActivity extends AppCompatActivity {
 
     private void showCompoundingDialog() {
 
-        /*
-         * 1 = Annually
-         * 4 = Quarterly
-         * 12 = Monthly
-         */
 
         String[] frequencyNames = {"1", "4", "12"};
 
@@ -820,62 +815,6 @@ public class FdCalculatorActivity extends AppCompatActivity {
 
 
         String formattedMaturityDate = dateFormat.format(maturityDate.getTime());
-
-
-        /*
-         * =====================================================
-         * SAVE FD CALCULATION TO HISTORY
-         * =====================================================
-         */
-
-        int totalMonths;
-
-        if (selectedLoanUnit.equalsIgnoreCase("Year")) {
-
-            totalMonths = term * 12;
-
-        } else {
-
-            totalMonths = term;
-        }
-
-
-        /*
-         * FD does not have EMI.
-         * Therefore monthlyEmi is saved as 0.
-         *
-         * totalInterest = FD interest
-         * totalPayment = maturity amount
-         */
-        loanHistoryManager.addHistory(
-
-                "Fixed Deposit",
-
-                formattedStartDate,
-
-                principal,
-
-                annualRate,
-
-                term,
-
-                selectedLoanUnit,
-
-                totalMonths,
-
-                0.0,
-
-                totalInterest,
-
-                maturityAmount,
-
-                formattedStartDate,
-
-                selectedCurrencyCode,
-
-                selectedCurrencySymbol,
-
-                R.drawable.fd_clc);
 
 
         Intent intent = new Intent(FdCalculatorActivity.this, FdCalculatorResultActivity.class);

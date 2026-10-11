@@ -1,11 +1,14 @@
 package com.loanemi.calculator.emi.Activities;
 
+import static com.loanemi.calculator.emi.utils.Util.setupEdgeToEdge;
+
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.activity.EdgeToEdge;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -22,7 +25,8 @@ import java.util.Locale;
 
 public class PersonalLoanResultActivity extends AppCompatActivity {
 
-    private ImageView btnBack;
+    private ImageView btnBack, btnHome;
+
     private TextView tvLoanAmount;
     private TextView tvInterestRate;
     private TextView tvLoanTerm;
@@ -31,6 +35,7 @@ public class PersonalLoanResultActivity extends AppCompatActivity {
     private TextView tvTotalInterest;
     private TextView tvTotalPayment;
     private TextView tvPayOffDate;
+
     private String selectedCurrencyCode = "USD";
 
     @Override
@@ -42,9 +47,9 @@ public class PersonalLoanResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        EdgeToEdge.enable(this);
-
         setContentView(R.layout.activity_personal_loan_result);
+
+        setupEdgeToEdge(this, R.id.main);
 
         initViews();
         setUpAds();
@@ -54,31 +59,30 @@ public class PersonalLoanResultActivity extends AppCompatActivity {
     private void initViews() {
 
         btnBack = findViewById(R.id.btnBack);
+        btnHome = findViewById(R.id.btnHome);
 
         tvLoanAmount = findViewById(R.id.tvLoanAmount);
-
         tvInterestRate = findViewById(R.id.tvInterestRate);
-
         tvLoanTerm = findViewById(R.id.tvLoanTerm);
-
         tvStartDate = findViewById(R.id.tvStartDate);
-
         tvMonthlyPayment = findViewById(R.id.tvMonthlyPayment);
-
         tvTotalInterest = findViewById(R.id.tvTotalInterest);
-
         tvTotalPayment = findViewById(R.id.tvTotalPayment);
-
         tvPayOffDate = findViewById(R.id.tvPayOffDate);
 
-
         btnBack.setOnClickListener(v -> finish());
+        btnHome.setOnClickListener(v -> finish());
     }
 
     private void setUpAds() {
+
         if (Util.isInternetAvailable(this)) {
-            FrameLayout nativeLayout = findViewById(R.id.personal_loan_native_layout);
-            ShimmerFrameLayout shimmerNative = findViewById(R.id.nativeShimmerLayout);
+
+            FrameLayout nativeLayout =
+                    findViewById(R.id.personal_loan_native_layout);
+
+            ShimmerFrameLayout shimmerNative =
+                    findViewById(R.id.nativeShimmerLayout);
 
             NativeAdPreloader.show(
                     this,
@@ -91,79 +95,118 @@ public class PersonalLoanResultActivity extends AppCompatActivity {
 
     private void loadLoanResult() {
 
-        double loanAmount = getIntent().getDoubleExtra("loan_amount", 0);
+        Intent intent = getIntent();
 
-        double interestRate = getIntent().getDoubleExtra("interest_rate", 0);
+        double loanAmount =
+                intent.getDoubleExtra("loan_amount", 0);
 
-        double loanTerm = getIntent().getDoubleExtra("loan_term", 0);
+        double interestRate =
+                intent.getDoubleExtra("interest_rate", 0);
 
-        String loanTermUnit = getIntent().getStringExtra("loan_term_unit");
+        // FIX 1: Read loan_term as int, because the first Activity
+        // sends it using intent.putExtra("loan_term", term).
+        int loanTerm =
+                intent.getIntExtra("loan_term", 0);
 
-        String startDate = getIntent().getStringExtra("start_date");
+        String loanTermUnit =
+                intent.getStringExtra("loan_term_unit");
 
-        String receivedCurrency = getIntent().getStringExtra("currency_code");
+        String startDate =
+                intent.getStringExtra("start_date");
 
-        if (receivedCurrency != null && !receivedCurrency.trim().isEmpty()) {
+        String receivedCurrency =
+                intent.getStringExtra("currency_code");
 
-            selectedCurrencyCode = receivedCurrency.trim().toUpperCase(Locale.US);
+        if (receivedCurrency != null
+                && !receivedCurrency.trim().isEmpty()) {
+
+            selectedCurrencyCode =
+                    receivedCurrency.trim().toUpperCase(Locale.US);
 
         } else {
 
             selectedCurrencyCode = "USD";
         }
 
-        int totalMonths = getIntent().getIntExtra("total_months", 0);
+        int totalMonths =
+                intent.getIntExtra("total_months", 0);
 
-        if (totalMonths <= 0) {
+        // FIX 2: Calculate total months if missing.
+        if (totalMonths <= 0 && loanTerm > 0) {
 
-            if (loanTermUnit != null && (loanTermUnit.equalsIgnoreCase("Year") || loanTermUnit.equalsIgnoreCase("Years"))) {
+            if ("Year".equalsIgnoreCase(loanTermUnit)
+                    || "Years".equalsIgnoreCase(loanTermUnit)) {
 
-                totalMonths = (int) Math.round(loanTerm * 12);
+                totalMonths = loanTerm * 12;
 
             } else {
 
-                totalMonths = (int) Math.round(loanTerm);
+                totalMonths = loanTerm;
             }
         }
 
-        double monthlyPayment = getIntent().getDoubleExtra("monthly_emi", 0);
+        double monthlyPayment =
+                intent.getDoubleExtra("monthly_emi", 0);
 
-        double totalInterest = getIntent().getDoubleExtra("total_interest", 0);
+        double totalInterest =
+                intent.getDoubleExtra("total_interest", 0);
 
-        double totalPayment = getIntent().getDoubleExtra("total_payment", 0);
+        double totalPayment =
+                intent.getDoubleExtra("total_payment", 0);
 
+        // Loan amount
         tvLoanAmount.setText(formatCurrency(loanAmount));
 
+        // Interest rate
         tvInterestRate.setText(formatDecimal(interestRate) + "%");
+
+        // FIX 3: Display the original entered term with its unit.
+        String unit;
+
+        if ("Year".equalsIgnoreCase(loanTermUnit)
+                || "Years".equalsIgnoreCase(loanTermUnit)) {
+
+            unit = "Year";
+
+        } else {
+
+            unit = "Month";
+        }
 
         String termText;
 
-        if (loanTermUnit != null && (loanTermUnit.equalsIgnoreCase("Year") || loanTermUnit.equalsIgnoreCase("Years"))) {
+        if (loanTerm > 0) {
 
-            if (loanTerm == 1) {
+            termText = loanTerm + " " + unit;
 
-                termText = formatDecimal(loanTerm) + " Year";
+            if (loanTerm != 1) {
+                termText += "s";
+            }
+
+        } else if (totalMonths > 0) {
+
+            // Fallback when the original loan term is unavailable.
+            if (totalMonths % 12 == 0) {
+
+                int years = totalMonths / 12;
+
+                termText = years + (years == 1 ? " Year" : " Years");
 
             } else {
 
-                termText = formatDecimal(loanTerm) + " Years";
+                termText = totalMonths
+                        + (totalMonths == 1 ? " Month" : " Months");
             }
 
         } else {
 
-            if (loanTerm == 1) {
-
-                termText = formatDecimal(loanTerm) + " Month";
-
-            } else {
-
-                termText = formatDecimal(loanTerm) + " Months";
-            }
+            termText = "-";
         }
 
         tvLoanTerm.setText(termText);
 
-        if (startDate != null && !startDate.isEmpty()) {
+        // Start date
+        if (startDate != null && !startDate.trim().isEmpty()) {
 
             tvStartDate.setText(startDate);
 
@@ -172,14 +215,14 @@ public class PersonalLoanResultActivity extends AppCompatActivity {
             tvStartDate.setText("-");
         }
 
-        String payoffDate = calculatePayoffDate(startDate, totalMonths);
+        // Payoff date
+        tvPayOffDate.setText(
+                calculatePayoffDate(startDate, totalMonths)
+        );
 
-        tvPayOffDate.setText(payoffDate);
-
+        // Payment details
         tvMonthlyPayment.setText(formatCurrency(monthlyPayment));
-
         tvTotalInterest.setText(formatCurrency(totalInterest));
-
         tvTotalPayment.setText(formatCurrency(totalPayment));
     }
 
@@ -187,61 +230,65 @@ public class PersonalLoanResultActivity extends AppCompatActivity {
 
         if (value == (long) value) {
 
-            return String.format(Locale.getDefault(), "%d", (long) value);
+            return String.format(
+                    Locale.getDefault(),
+                    "%d",
+                    (long) value
+            );
         }
 
-        return String.format(Locale.getDefault(), "%.2f", value);
+        return String.format(
+                Locale.getDefault(),
+                "%.2f",
+                value
+        );
     }
 
     private String formatCurrency(double value) {
 
-        long roundedValue = Math.round(value);
+        NumberFormat format =
+                NumberFormat.getCurrencyInstance(Locale.US);
 
-
-        NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
+        Currency currency;
 
         try {
 
-            Currency currency = Currency.getInstance(selectedCurrencyCode);
-
-            format.setCurrency(currency);
+            currency = Currency.getInstance(selectedCurrencyCode);
 
         } catch (Exception e) {
 
-            Currency currency = Currency.getInstance("USD");
-
-            format.setCurrency(currency);
+            currency = Currency.getInstance("USD");
         }
 
+        format.setCurrency(currency);
         format.setMaximumFractionDigits(0);
-
         format.setMinimumFractionDigits(0);
 
+        String number = format.format(Math.round(value));
 
-        String number = format.format(roundedValue);
-
-
-        String currencySymbol = format.getCurrency().getSymbol(Locale.US);
+        String currencySymbol = currency.getSymbol(Locale.US);
 
         if (number.startsWith(currencySymbol)) {
 
             number = number.substring(currencySymbol.length()).trim();
         }
 
-
         return number + currencySymbol;
     }
 
-    private String calculatePayoffDate(String startDate, int totalMonths) {
+    private String calculatePayoffDate(
+            String startDate,
+            int totalMonths
+    ) {
 
         if (startDate == null || startDate.trim().isEmpty()) {
-
             return "-";
         }
 
         try {
 
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+            SimpleDateFormat sdf =
+                    new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
 
             sdf.setLenient(false);
 
@@ -250,7 +297,6 @@ public class PersonalLoanResultActivity extends AppCompatActivity {
             calendar.setTime(sdf.parse(startDate));
 
             calendar.add(Calendar.MONTH, totalMonths);
-
 
             return sdf.format(calendar.getTime());
 
@@ -263,7 +309,6 @@ public class PersonalLoanResultActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
         Util.hide(this);
     }
 }

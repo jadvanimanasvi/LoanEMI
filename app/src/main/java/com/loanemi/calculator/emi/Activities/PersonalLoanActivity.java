@@ -48,7 +48,7 @@ public class PersonalLoanActivity extends AppCompatActivity {
     private ImageView ivBack;
 
     private LinearLayout layoutCurrency;
-    private LinearLayout btnReset;
+    private LinearLayout btnReset, selectCountry;
     private LinearLayout btnCalculate;
 
     private String selectedLoanUnit = "Month";
@@ -95,12 +95,11 @@ public class PersonalLoanActivity extends AppCompatActivity {
         ivFromFlag = findViewById(R.id.ivFromFlag);
         ivBack = findViewById(R.id.ivBack);
 
-        layoutCurrency = findViewById(R.id.layoutCurrency);
-
         btnReset = findViewById(R.id.btnReset);
         btnCalculate = findViewById(R.id.btnCalculate);
 
         adContainer = findViewById(R.id.bannerContainer);
+        selectCountry = findViewById(R.id.layoutCurrency);
     }
 
     private void setupDefaultValues() {
@@ -144,6 +143,7 @@ public class PersonalLoanActivity extends AppCompatActivity {
         if (btnCalculate != null) {
             btnCalculate.setOnClickListener(v -> calculateLoan());
         }
+        selectCountry.setOnClickListener(v -> openCurrencyActivity());
     }
 
     private void setupAmountFormatting() {
@@ -240,7 +240,6 @@ public class PersonalLoanActivity extends AppCompatActivity {
     }
 
     private void openCurrencyActivity() {
-
         Intent intent = new Intent(PersonalLoanActivity.this, CurrencyUnitActivity.class);
 
         intent.putExtra(CurrencyUnitActivity.EXTRA_CURRENT_CODE, selectedCurrencyCode);
@@ -252,49 +251,46 @@ public class PersonalLoanActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode != REQUEST_CURRENCY || resultCode != RESULT_OK || data == null) {
+        if (requestCode != REQUEST_CURRENCY
+                || resultCode != RESULT_OK
+                || data == null) {
             return;
         }
 
-        String code = data.getStringExtra(CurrencyUnitActivity.EXTRA_SELECTED_CODE);
+        String code = data.getStringExtra(
+                CurrencyUnitActivity.EXTRA_SELECTED_CODE
+        );
 
-        String name = data.getStringExtra(CurrencyUnitActivity.EXTRA_SELECTED_COUNTRY);
+        String name = data.getStringExtra(
+                CurrencyUnitActivity.EXTRA_SELECTED_COUNTRY
+        );
 
-        int flag = data.getIntExtra(CurrencyUnitActivity.EXTRA_SELECTED_FLAG, 0);
+        int flag = data.getIntExtra(
+                CurrencyUnitActivity.EXTRA_SELECTED_FLAG,
+                R.drawable.icn_flagus
+        );
 
-        int currencyIcon = data.getIntExtra(CurrencyUnitActivity.EXTRA_SELECTED_CURRENCY_ICON, 0);
+        int currencyIcon = data.getIntExtra(
+                CurrencyUnitActivity.EXTRA_SELECTED_CURRENCY_ICON,
+                R.drawable.usd_currency
+        );
 
         if (code != null && !code.trim().isEmpty()) {
-
             selectedCurrencyCode = code.trim().toUpperCase(Locale.US);
-
-            if (tvCurrencyCode != null) {
-                tvCurrencyCode.setText(selectedCurrencyCode);
-            }
-
+            tvCurrencyCode.setText(selectedCurrencyCode);
             selectedCurrencySymbol = getCurrencySymbol(selectedCurrencyCode);
         }
 
         if (name != null && !name.trim().isEmpty()) {
-
             selectedCurrencyName = name.trim();
         }
 
-        if (flag != 0) {
+        selectedCurrencyFlag = flag;
+        ivFromFlag.setImageResource(selectedCurrencyFlag);
 
-            selectedCurrencyFlag = flag;
-
-            if (ivFromFlag != null) {
-                ivFromFlag.setImageResource(selectedCurrencyFlag);
-            }
-        }
-
-        if (currencyIcon != 0) {
-            selectedCurrencyIcon = currencyIcon;
-        }
+        selectedCurrencyIcon = currencyIcon;
     }
 
     private String getCurrencySymbol(String code) {

@@ -11,6 +11,7 @@ import android.text.TextWatcher;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,7 +45,7 @@ public class StudentLoanActivity extends AppCompatActivity {
     private LinearLayout btnCalculate;
     private LinearLayout btnReset;
     private LinearLayout currencySelector;
-
+    private ImageView ivBack;
     private TextView tvCurrencyCode;
     private TextView tvCurrencyFlag;
 
@@ -88,6 +89,8 @@ public class StudentLoanActivity extends AppCompatActivity {
     }
 
     private void initViews() {
+
+        ivBack = findViewById(R.id.ivBack);
 
         etLoanAmount = findViewById(R.id.etLoanAmount);
 
@@ -236,6 +239,11 @@ public class StudentLoanActivity extends AppCompatActivity {
 
 
     private void updateCurrencyUI() {
+
+        if (ivBack != null) {
+
+            ivBack.setOnClickListener(v -> finish());
+        }
 
         if (tvCurrencyCode != null) {
 

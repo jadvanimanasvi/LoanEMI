@@ -22,6 +22,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/ivBack"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:src="@drawable/back_ic"
@@ -137,6 +138,7 @@
                         android:inputType="numberDecimal" />
 
                     <LinearLayout
+                        android:id="@+id/layoutCurrency"
                         android:layout_width="wrap_content"
                         android:layout_height="36dp"
                         android:orientation="horizontal"
@@ -144,18 +146,19 @@
                         android:background="@drawable/bg_currency_pill"
                         android:paddingHorizontal="12dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="🇺🇸"
-                            android:textSize="16sp" />
+                        <ImageView
+                            android:id="@+id/ivFromFlag"
+                            android:layout_width="20dp"
+                            android:layout_height="26dp"
+                            android:src="@drawable/icn_flagus" />
 
                         <TextView
+                            android:id="@+id/tvCurrencyCode"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="6dp"
                             android:text="USD"
-                            android:textColor="@color/blue"
+                            android:textColor="@color/reset_txt"
                             android:textStyle="bold"
                             android:textSize="15sp" />
 

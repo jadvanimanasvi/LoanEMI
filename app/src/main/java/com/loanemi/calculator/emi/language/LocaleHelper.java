@@ -32,13 +32,12 @@ public class LocaleHelper {
 
     public static Context wrap(Context context, String langCode) {
         langCode = normalizeLanguageTag(langCode);
-
         Locale locale = Locale.forLanguageTag(langCode);
-
         Locale.setDefault(locale);
 
         Configuration config = new Configuration(context.getResources().getConfiguration());
         config.setLocale(locale);
+        config.setLocales(new android.os.LocaleList(locale));
         config.setLayoutDirection(locale);
 
         return context.createConfigurationContext(config);

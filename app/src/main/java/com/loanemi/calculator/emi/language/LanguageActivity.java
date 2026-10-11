@@ -393,12 +393,26 @@ public class LanguageActivity extends BaseActivity {
     }
 
 
-    private void saveLanguage() {
+    /*private void saveLanguage() {
         if (languagePosition < 0 || languagePosition >= languageModels.size()) {
             return;
         }
         String selectedLanguage = languageModels.get(languagePosition).getLanguageCode();
         zwePreferences.setPreferencesStrCommit(AppPreference.SELECT_LAN, selectedLanguage);
+        MyApplication.setLanguage(this, selectedLanguage);
+    }*/
+    private void saveLanguage() {
+        if (languagePosition < 0 || languagePosition >= languageModels.size()) {
+            return;
+        }
+        String selectedLanguage = languageModels.get(languagePosition).getLanguageCode();
+
+        // used by the language screen (highlights the saved item)
+        zwePreferences.setPreferencesStrCommit(AppPreference.SELECT_LAN, selectedLanguage);
+
+        // used by LocaleHelper (applies the language on every launch)
+        AppPreference.getInstance(this).setString(AppPreference.SELECTED_LANGUAGE, selectedLanguage);
+
         MyApplication.setLanguage(this, selectedLanguage);
     }
 
