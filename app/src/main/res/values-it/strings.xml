@@ -36,8 +36,6 @@
     <string name="get_start_title">Conserva i tuoi ricordi \n<font color="#2196F3">al sicuro e privati</font></string>
     <string name="getstart_dis">Proteggi le tue foto e i tuoi video con privacy e sicurezza.</string>
     <string name="get_start">Inizia</string>
-    <string name="smart_gallery_for_every_moment">Galleria intelligente\n Per <font color="#2196F3">ogni momento</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">Tutti i tuoi ricordi organizzati \ncon cura in un unico posto.</string>
     <string name="next">Avanti</string>
     <string name="fast_access_to_nyour_photos_amp_videos">Accesso rapido alle \ntue <font color="#2196F3">foto e ai video</font></string>
     <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">Trova e visualizza rapidamente tutte le tue\nfoto e i tuoi video preferiti.</string>
@@ -146,4 +144,20 @@
     <string name="cancel">Annulla</string>
     <string name="compounding_frequency">Frequenza di capitalizzazione</string>
     <string name="recurring_deposit_result">Risultato del deposito ricorrente</string>
+    <string name="no_history_yet">Nessuna cronologia disponibile</string>
+    <string name="terms_conditions">Termini e condizioni</string>
+    <string name="privacy_page_headline">La tua privacy è importante</string>
+    <string name="privacy_page_body">Loan EMI memorizza la cronologia dei calcoli e le tue preferenze sul tuo dispositivo. Potremmo utilizzare servizi pubblicitari e di notifica per migliorare l\'esperienza nell\'app.\n\nNon chiediamo le credenziali di accesso alla banca, i dati della carta o la password del tuo account.\n\nTocca il pulsante qui sotto per leggere l\'informativa sulla privacy completa.</string>
+    <string name="terms_page_headline">Consulta i nostri termini</string>
+    <string name="terms_page_body">Utilizzando Loan EMI, accetti di usare i calcolatori esclusivamente a scopo informativo. I risultati sono stime e possono differire dai dati effettivi delle banche o degli istituti di credito.\n\nL\'app viene fornita così com\'è, senza alcuna garanzia di consulenza finanziaria.\n\nTocca il pulsante qui sotto per leggere tutti i termini e le condizioni.</string>
+    <string name="view_full_privacy">Visualizza l\'informativa sulla privacy completa</string>
+    <string name="view_full_terms">Visualizza tutti i termini e le condizioni</string>
+    <string name="screen1_title">Calcolatore di prestiti \nPer <font color="#2196F3">ogni obiettivo finanziario</font></string>
+    <string name="screen1_dis">Calcola le rate mensili e gestisci facilmente i tuoi prestiti in un unico posto.</string>
+    <string name="screen2_title">Calcolo rapido delle rate \nVeloce, <font color="#2196F3">semplice e preciso</font></string>
+    <string name="scree2_dis">Calcola la tua rata mensile in pochi secondi con pochi tocchi.</string>
+    <string name="screen4_title">Il tuo percorso finanziario \n<font color="#2196F3">Sicuro e protetto</font></string>
+    <string name="screen4_dis">Organizza i calcoli dei tuoi prestiti e goditi un'esperienza di calcolo sicura.</string>
+    <string name="screen3_title">Pianificazione intelligente dei prestiti \nMantieni il <font color="#2196F3">controllo</font></string>
+    <string name="screen3_dis">Gestisci i calcoli dei tuoi prestiti e prendi decisioni finanziarie più intelligenti.</string>
 </resources>

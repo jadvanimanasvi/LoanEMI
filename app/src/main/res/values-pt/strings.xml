@@ -34,27 +34,13 @@
     <string name="loading_ads">Carregando anúncios…</string>
     <string name="skip_in">Pular em %1$d\u0073</string>
     <string name="please_select_language">Selecione um idioma</string>
-
-    <string name="get_start_title">Mantenha suas memórias \n<font color="#2196F3">Seguras e Privadas</font></string>
-    <string name="getstart_dis">Proteja suas fotos e vídeos com privacidade e segurança.</string>
     <string name="get_start">Começar</string>
-
-    <string name="smart_gallery_for_every_moment">Galeria Inteligente\n Para <font color="#2196F3">Todos os Momentos</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">Todas as suas memórias organizadas \nlindamente em um só lugar.</string>
     <string name="next">Próximo</string>
-
-    <string name="fast_access_to_nyour_photos_amp_videos">Acesso Rápido às \nSuas <font color="#2196F3">Fotos e Vídeos</font></string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">Encontre e visualize rapidamente todas as suas\nfotos e vídeos favoritos.</string>
-
-    <string name="fragment_3_title">Crie e Gerencie  \nSeus <font color="#2196F3">Álbuns</font></string>
-    <string name="fragment_3_dis">Organize suas memórias em álbuns e mantenha tudo armazenado.</string>
-
     <string name="investment_amount">Valor do Investimento</string>
     <string name="loan_information">Informações do Empréstimo</string>
     <string name="result_after_calculation">Resultado do Cálculo</string>
     <string name="share_pdf">📄 Compartilhar PDF</string>
     <string name="setting">Configurações</string>
-
     <string name="change_language">Alterar idioma</string>
     <string name="theme">Tema</string>
     <string name="privacy_policy">Política de privacidade</string>
@@ -152,6 +138,20 @@
     <string name="cancel">Cancelar</string>
     <string name="compounding_frequency">Frequência de Capitalização</string>
     <string name="recurring_deposit_result">Resultado do Depósito Recorrente</string>
-
-
+    <string name="no_history_yet">Ainda não há histórico</string>
+    <string name="terms_conditions">Termos e condições</string>
+    <string name="privacy_page_headline">A sua privacidade é importante</string>
+    <string name="privacy_page_body">O Loan EMI armazena o seu histórico de cálculos e as suas preferências no seu dispositivo. Podemos utilizar serviços de publicidade e notificações para melhorar a experiência na aplicação.\n\nNão solicitamos os seus dados de acesso bancário, os dados do cartão nem a palavra-passe da sua conta.\n\nToque no botão abaixo para ler a Política de Privacidade completa.</string>
+    <string name="terms_page_headline">Leia os nossos termos</string>
+    <string name="terms_page_body">Ao utilizar o Loan EMI, concorda em utilizar as calculadoras apenas para fins informativos. Os resultados são estimativas e podem diferir dos valores reais dos bancos ou credores.\n\nA aplicação é fornecida tal como está, sem garantia de aconselhamento financeiro.\n\nToque no botão abaixo para ler os Termos e Condições completos.</string>
+    <string name="view_full_privacy">Ver a Política de Privacidade completa</string>
+    <string name="view_full_terms">Ver os Termos e Condições completos</string>
+    <string name="screen1_title">Calculadora de empréstimos \nPara <font color="#2196F3">todos os objetivos financeiros</font></string>
+    <string name="screen1_dis">Calcule as prestações mensais e gira os seus empréstimos facilmente, tudo num só lugar.</string>
+    <string name="screen2_title">Cálculo rápido de prestações \nRápido, <font color="#2196F3">simples e preciso</font></string>
+    <string name="scree2_dis">Calcule a sua prestação mensal em segundos com apenas alguns toques.</string>
+    <string name="screen4_title">A sua jornada financeira \n<font color="#2196F3">Segura e protegida</font></string>
+    <string name="screen4_dis">Organize os cálculos dos seus empréstimos e desfrute de uma experiência de cálculo segura.</string>
+    <string name="screen3_title">Planeamento inteligente de empréstimos \nMantenha o <font color="#2196F3">controlo</font></string>
+    <string name="screen3_dis">Gira os cálculos dos seus empréstimos e tome decisões financeiras mais inteligentes.</string>
 </resources>

@@ -33,16 +33,8 @@
     <string name="loading_ads">Cargando anuncios…</string>
     <string name="skip_in">Omitir en %1$d\u0073</string>
     <string name="please_select_language">Selecciona un idioma</string>
-    <string name="get_start_title">Mantén tus recuerdos \n<font color="#2196F3">seguros y privados</font></string>
-    <string name="getstart_dis">Protege tus fotos y vídeos con privacidad y seguridad.</string>
     <string name="get_start">Comenzar</string>
-    <string name="smart_gallery_for_every_moment">Galería inteligente\n Para <font color="#2196F3">cada momento</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">Todos tus recuerdos organizados \nhermosamente en un solo lugar.</string>
-    <string name="next">Siguiente</string>
-    <string name="fast_access_to_nyour_photos_amp_videos">Acceso rápido a \ntus <font color="#2196F3">fotos y vídeos</font></string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">Encuentra y visualiza rápidamente todas tus\nfotos y vídeos favoritos.</string>
-    <string name="fragment_3_title">Crea y administra  \ntus <font color="#2196F3">álbumes</font></string>
-    <string name="fragment_3_dis">Organiza tus recuerdos en álbumes y mantenlos almacenados.</string>
+   <string name="next">Siguiente</string>
     <string name="investment_amount">Monto de inversión</string>
     <string name="loan_information">Información del préstamo</string>
     <string name="result_after_calculation">Resultado del cálculo</string>
@@ -145,5 +137,21 @@
     <string name="cancel">Cancelar</string>
     <string name="compounding_frequency">Frecuencia de capitalización</string>
     <string name="recurring_deposit_result">Resultado del depósito recurrente</string>
+    <string name="no_history_yet">Aún no hay historial</string>
+    <string name="terms_conditions">Términos y condiciones</string>
+    <string name="privacy_page_headline">Tu privacidad es importante</string>
+    <string name="privacy_page_body">Loan EMI guarda tu historial de cálculos y tus preferencias en tu dispositivo. Podemos utilizar servicios de publicidad y notificaciones para mejorar la experiencia con la aplicación.\n\nNo solicitamos tus credenciales bancarias, los datos de tu tarjeta ni la contraseña de tu cuenta.\n\nPulsa el botón de abajo para leer la Política de privacidad completa.</string>
+    <string name="terms_page_headline">Consulta nuestros términos</string>
+    <string name="terms_page_body">Al utilizar Loan EMI, aceptas usar las calculadoras únicamente con fines informativos. Los resultados son estimaciones y pueden diferir de las cifras reales de los bancos o prestamistas.\n\nLa aplicación se proporciona tal cual, sin garantía de asesoramiento financiero.\n\nPulsa el botón de abajo para leer los Términos y condiciones completos.</string>
+    <string name="view_full_privacy">Ver la política de privacidad completa</string>
+    <string name="view_full_terms">Ver todos los términos y condiciones</string>
+    <string name="screen1_title">Calculadora de préstamos \nPara <font color="#2196F3">cada objetivo financiero</font></string>
+    <string name="screen1_dis">Calcula las cuotas mensuales y gestiona tus préstamos fácilmente, todo en un solo lugar.</string>
+    <string name="screen2_title">Cálculo rápido de cuotas \nRápido, <font color="#2196F3">sencillo y preciso</font></string>
+    <string name="scree2_dis">Calcula tu cuota mensual en segundos con solo unos toques.</string>
+    <string name="screen4_title">Tu camino financiero \n<font color="#2196F3">Seguro y protegido</font></string>
+    <string name="screen4_dis">Organiza tus cálculos de préstamos y disfruta de una experiencia de cálculo segura.</string>
+    <string name="screen3_title">Planificación inteligente de préstamos \nMantén el <font color="#2196F3">control</font></string>
+    <string name="screen3_dis">Gestiona tus cálculos de préstamos y toma decisiones financieras más inteligentes.</string>
 
 </resources>

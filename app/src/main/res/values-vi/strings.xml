@@ -33,16 +33,8 @@
     <string name="loading_ads">Đang tải quảng cáo…</string>
     <string name="skip_in">Bỏ qua sau %1$d\u0073</string>
     <string name="please_select_language">Vui lòng chọn ngôn ngữ</string>
-    <string name="get_start_title">Giữ những kỷ niệm của bạn \n<font color="#2196F3">an toàn &amp; riêng tư</font></string>
-    <string name="getstart_dis">Bảo vệ ảnh và video của bạn bằng tính năng riêng tư và bảo mật.</string>
     <string name="get_start">Bắt đầu</string>
-    <string name="smart_gallery_for_every_moment">Thư viện thông minh\n Cho <font color="#2196F3">mọi khoảnh khắc</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">Tất cả kỷ niệm của bạn được sắp xếp \nđẹp mắt tại một nơi.</string>
     <string name="next">Tiếp theo</string>
-    <string name="fast_access_to_nyour_photos_amp_videos">Truy cập nhanh vào \n<font color="#2196F3">ảnh &amp; video</font> của bạn</string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">Nhanh chóng tìm và xem tất cả\nảnh và video yêu thích của bạn.</string>
-    <string name="fragment_3_title">Tạo &amp; quản lý \n<font color="#2196F3">album</font> của bạn</string>
-    <string name="fragment_3_dis">Sắp xếp kỷ niệm của bạn vào các album và lưu giữ chúng an toàn.</string>
     <string name="investment_amount">Số tiền đầu tư</string>
     <string name="loan_information">Thông tin khoản vay</string>
     <string name="result_after_calculation">Kết quả sau khi tính toán</string>
@@ -146,4 +138,20 @@
     <string name="cancel">Hủy</string>
     <string name="compounding_frequency">Tần suất tính lãi kép</string>
     <string name="recurring_deposit_result">Kết quả tiền gửi định kỳ</string>
+    <string name="no_history_yet">Chưa có lịch sử</string>
+    <string name="terms_conditions">Điều khoản và điều kiện</string>
+    <string name="privacy_page_headline">Quyền riêng tư của bạn rất quan trọng</string>
+    <string name="privacy_page_body">Loan EMI lưu lịch sử tính toán và các tùy chọn của bạn trên thiết bị. Chúng tôi có thể sử dụng dịch vụ quảng cáo và thông báo để cải thiện trải nghiệm ứng dụng.\n\nChúng tôi không yêu cầu thông tin đăng nhập ngân hàng, chi tiết thẻ hoặc mật khẩu tài khoản của bạn.\n\nNhấn vào nút bên dưới để đọc toàn bộ Chính sách quyền riêng tư.</string>
+    <string name="terms_page_headline">Vui lòng xem lại các điều khoản</string>
+    <string name="terms_page_body">Khi sử dụng Loan EMI, bạn đồng ý chỉ sử dụng các công cụ tính toán cho mục đích cung cấp thông tin. Kết quả chỉ là ước tính và có thể khác với số liệu thực tế của ngân hàng hoặc bên cho vay.\n\nỨng dụng được cung cấp nguyên trạng và không đảm bảo về tư vấn tài chính.\n\nNhấn vào nút bên dưới để đọc toàn bộ Điều khoản và điều kiện.</string>
+    <string name="view_full_privacy">Xem toàn bộ Chính sách quyền riêng tư</string>
+    <string name="view_full_terms">Xem toàn bộ Điều khoản và điều kiện</string>
+    <string name="screen1_title">Máy tính khoản vay \nCho <font color="#2196F3">mọi mục tiêu tài chính</font></string>
+    <string name="screen1_dis">Tính khoản trả góp hàng tháng và quản lý các khoản vay dễ dàng tại một nơi.</string>
+    <string name="screen2_title">Tính EMI nhanh chóng \nNhanh, <font color="#2196F3">đơn giản và chính xác</font></string>
+    <string name="scree2_dis">Tính khoản trả góp hàng tháng chỉ trong vài giây với vài lần chạm.</string>
+    <string name="screen4_title">Hành trình tài chính của bạn \n<font color="#2196F3">An toàn và bảo mật</font></string>
+    <string name="screen4_dis">Sắp xếp các phép tính khoản vay và tận hưởng trải nghiệm tính toán an toàn.</string>
+    <string name="screen3_title">Lập kế hoạch vay thông minh \nLuôn <font color="#2196F3">làm chủ</font></string>
+    <string name="screen3_dis">Quản lý các phép tính khoản vay và đưa ra quyết định tài chính thông minh hơn.</string>
 </resources>

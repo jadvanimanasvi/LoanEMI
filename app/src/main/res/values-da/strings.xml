@@ -33,16 +33,8 @@
     <string name="loading_ads">Indlæser annoncer…</string>
     <string name="skip_in">Spring over om %1$d\u0073</string>
     <string name="please_select_language">Vælg venligst sprog</string>
-    <string name="get_start_title">Hold dine minder \n<font color="#2196F3">sikre og private</font></string>
-    <string name="getstart_dis">Beskyt dine fotos og videoer med privatliv og sikkerhed.</string>
     <string name="get_start">Kom i gang</string>
-    <string name="smart_gallery_for_every_moment">Smart galleri\n til <font color="#2196F3">hvert øjeblik</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">Alle dine minder organiseret \nsmukt på ét sted.</string>
     <string name="next">Næste</string>
-    <string name="fast_access_to_nyour_photos_amp_videos">Hurtig adgang til \ndine <font color="#2196F3">fotos og videoer</font></string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">Find og se hurtigt alle dine\nfavoritfotos og videoer.</string>
-    <string name="fragment_3_title">Opret og administrer  \ndine <font color="#2196F3">albummer</font></string>
-    <string name="fragment_3_dis">Organiser dine minder i albummer, og hold dem gemt.</string>
     <string name="investment_amount">Investeringsbeløb</string>
     <string name="loan_information">Låneoplysninger</string>
     <string name="result_after_calculation">Resultat efter beregning</string>
@@ -146,4 +138,20 @@
     <string name="cancel">Annuller</string>
     <string name="compounding_frequency">Rentetilskrivningsfrekvens</string>
     <string name="recurring_deposit_result">Resultat for løbende indskud</string>
+    <string name="no_history_yet">Ingen historik endnu</string>
+    <string name="terms_conditions">Vilkår og betingelser</string>
+    <string name="privacy_page_headline">Dit privatliv er vigtigt</string>
+    <string name="privacy_page_body">Loan EMI gemmer din beregningshistorik og dine præferencer på din enhed. Vi kan bruge annonce- og notifikationstjenester til at forbedre appoplevelsen.\n\nVi beder ikke om dine bankloginoplysninger, kortoplysninger eller adgangskode til din konto.\n\nTryk på knappen nedenfor for at læse hele privatlivspolitikken.</string>
+    <string name="terms_page_headline">Læs venligst vores vilkår</string>
+    <string name="terms_page_body">Ved at bruge Loan EMI accepterer du, at beregnerne kun bruges til informationsformål. Resultaterne er estimater og kan afvige fra bankernes eller långivernes faktiske tal.\n\nAppen leveres, som den er, uden garanti for finansiel rådgivning.\n\nTryk på knappen nedenfor for at læse de fulde vilkår og betingelser.</string>
+    <string name="view_full_privacy">Se hele privatlivspolitikken</string>
+    <string name="view_full_terms">Se alle vilkår og betingelser</string>
+    <string name="screen1_title">Låneberegner \nTil <font color="#2196F3">alle dine økonomiske mål</font></string>
+    <string name="screen1_dis">Beregn månedlige afdrag, og administrer dine lån nemt på ét sted.</string>
+    <string name="screen2_title">Hurtig beregning af afdrag \nHurtig, <font color="#2196F3">enkel og præcis</font></string>
+    <string name="scree2_dis">Beregn din månedlige ydelse på få sekunder med et par tryk.</string>
+    <string name="screen4_title">Din økonomiske rejse \n<font color="#2196F3">Tryg og sikker</font></string>
+    <string name="screen4_dis">Hold styr på dine låneberegninger, og få en sikker beregningsoplevelse.</string>
+    <string name="screen3_title">Smart låneplanlægning \nBevar <font color="#2196F3">kontrollen</font></string>
+    <string name="screen3_dis">Administrer dine låneberegninger, og træf smartere økonomiske beslutninger.</string>
 </resources>

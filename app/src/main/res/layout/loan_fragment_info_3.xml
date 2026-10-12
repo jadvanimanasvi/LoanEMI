@@ -7,7 +7,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color"
+    android:background="@drawable/screen3"
     android:clipToPadding="false"
     android:fitsSystemWindows="false">
 
@@ -34,14 +34,14 @@
             android:layout_marginEnd="@dimen/_20sdp"
             android:gravity="center"
             android:lineSpacingExtra="0dp"
-            android:text="@string/fragment_3_title"
+            android:text="@string/screen3_title"
             android:textColor="@color/text_color"
             android:textSize="@dimen/_20ssp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="@dimen/_48sdp" />
+            android:layout_marginTop="@dimen/_40sdp" />
 
         <!-- Description -->
         <TextView
@@ -53,9 +53,10 @@
             android:layout_marginBottom="@dimen/_58sdp"
             android:gravity="center"
             android:lineSpacingExtra="1dp"
-            android:text="@string/fragment_3_dis"
+            android:maxLines="2"
+            android:text="@string/screen3_dis"
             android:textColor="@color/text_color"
-            android:textSize="@dimen/_16ssp"
+            android:textSize="@dimen/_14ssp"
             app:layout_constraintBottom_toTopOf="@id/agreeContainer"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />

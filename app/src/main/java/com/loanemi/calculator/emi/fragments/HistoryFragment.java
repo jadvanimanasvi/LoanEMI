@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.loanemi.calculator.emi.Activities.AutoLoanResultActivity;
 import com.loanemi.calculator.emi.Activities.BusinessLoanResultActivity;
 import com.loanemi.calculator.emi.Activities.HomeLoanResultActivity;
@@ -38,6 +39,8 @@ public class HistoryFragment extends Fragment {
     private FrameLayout deleteButtonContainer;
     private ImageView ivDelete;
     private TextView tvDelete;
+    private View emptyStateContainer;
+    private LottieAnimationView lottieEmpty;
     private HistoryAdapter historyAdapter;
     private LoanHistoryManager historyManager;
     private View rootView;
@@ -85,6 +88,8 @@ public class HistoryFragment extends Fragment {
         deleteButtonContainer = view.findViewById(R.id.deleteButtonContainer);
         ivDelete = view.findViewById(R.id.ivDelete);
         tvDelete = view.findViewById(R.id.tvDelete);
+        emptyStateContainer = view.findViewById(R.id.emptyStateContainer);
+        lottieEmpty = view.findViewById(R.id.lottieEmpty);
     }
 
     private void setupRecyclerView() {
@@ -195,7 +200,8 @@ public class HistoryFragment extends Fragment {
     }
 
     private void updateEmptyState() {
-        if (rvHistory == null || btnEdit == null) {
+        if (rvHistory == null || btnEdit == null
+                || emptyStateContainer == null || lottieEmpty == null) {
             return;
         }
 
@@ -203,10 +209,17 @@ public class HistoryFragment extends Fragment {
 
         rvHistory.setVisibility(isEmpty ? View.GONE : View.VISIBLE);
         btnEdit.setVisibility(isEmpty ? View.INVISIBLE : View.VISIBLE);
+        emptyStateContainer.setVisibility(isEmpty ? View.VISIBLE : View.GONE);
 
         if (isEmpty) {
             exitSelectionMode();
             btnEdit.setVisibility(View.INVISIBLE);
+
+            if (!lottieEmpty.isAnimating()) {
+                lottieEmpty.playAnimation();
+            }
+        } else {
+            lottieEmpty.cancelAnimation();
         }
     }
 
@@ -235,11 +248,11 @@ public class HistoryFragment extends Fragment {
             intent = new Intent(
                     requireContext(), AutoLoanResultActivity.class);
 
-        }else if (loanType.equalsIgnoreCase("Home Loan")) {
+        } else if (loanType.equalsIgnoreCase("Home Loan")) {
             intent = new Intent(
                     requireContext(), HomeLoanResultActivity.class);
 
-        }else if (loanType.equalsIgnoreCase("Student Loan")) {
+        } else if (loanType.equalsIgnoreCase("Student Loan")) {
             intent = new Intent(
                     requireContext(), StudentLoanRsultActivity.class);
 
@@ -274,12 +287,18 @@ public class HistoryFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
 
+        if (lottieEmpty != null) {
+            lottieEmpty.cancelAnimation();
+        }
+
         rootView = null;
         rvHistory = null;
         btnEdit = null;
         deleteButtonContainer = null;
         ivDelete = null;
         tvDelete = null;
+        emptyStateContainer = null;
+        lottieEmpty = null;
         historyAdapter = null;
     }
 }

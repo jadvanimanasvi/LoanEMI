@@ -33,16 +33,8 @@
     <string name="loading_ads">Werbung wird geladen…</string>
     <string name="skip_in">Überspringen in %1$d\u0073</string>
     <string name="please_select_language">Bitte Sprache auswählen</string>
-    <string name="get_start_title">Bewahren Sie Ihre Erinnerungen \n<font color="#2196F3">sicher &amp; privat</font> auf</string>
-    <string name="getstart_dis">Schützen Sie Ihre Fotos und Videos mit Datenschutz und Sicherheit.</string>
     <string name="get_start">Starten</string>
-    <string name="smart_gallery_for_every_moment">Intelligente Galerie\n Für <font color="#2196F3">jeden Moment</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">Alle Ihre Erinnerungen übersichtlich \nund schön an einem Ort organisiert.</string>
     <string name="next">Weiter</string>
-    <string name="fast_access_to_nyour_photos_amp_videos">Schneller Zugriff auf \nIhre <font color="#2196F3">Fotos &amp; Videos</font></string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">Finden und betrachten Sie schnell alle Ihre\nLieblingsfotos und -videos.</string>
-    <string name="fragment_3_title">Erstellen &amp; verwalten Sie \nIhre <font color="#2196F3">Alben</font></string>
-    <string name="fragment_3_dis">Organisieren Sie Ihre Erinnerungen in Alben und bewahren Sie sie sicher auf.</string>
     <string name="investment_amount">Investitionsbetrag</string>
     <string name="loan_information">Kreditinformationen</string>
     <string name="result_after_calculation">Ergebnis nach der Berechnung</string>
@@ -146,4 +138,20 @@
     <string name="cancel">Abbrechen</string>
     <string name="compounding_frequency">Zinseszins-Häufigkeit</string>
     <string name="recurring_deposit_result">Ergebnis der Sparplananlage</string>
+    <string name="no_history_yet">Noch kein Verlauf</string>
+    <string name="terms_conditions">Allgemeine Geschäftsbedingungen</string>
+    <string name="privacy_page_headline">Ihre Privatsphäre ist uns wichtig</string>
+    <string name="privacy_page_body">Loan EMI speichert Ihren Berechnungsverlauf und Ihre Einstellungen auf Ihrem Gerät. Wir verwenden möglicherweise Werbe- und Benachrichtigungsdienste, um die App-Erfahrung zu verbessern.\n\nWir fragen weder nach Ihren Bankzugangsdaten noch nach Kartendaten oder Ihrem Kontopasswort.\n\nTippen Sie auf die Schaltfläche unten, um die vollständige Datenschutzerklärung zu lesen.</string>
+    <string name="terms_page_headline">Bitte lesen Sie unsere Nutzungsbedingungen</string>
+    <string name="terms_page_body">Durch die Nutzung von Loan EMI stimmen Sie zu, die Rechner ausschließlich zu Informationszwecken zu verwenden. Die Ergebnisse sind Schätzungen und können von den tatsächlichen Angaben der Banken oder Kreditgeber abweichen.\n\nDie App wird ohne Gewähr bereitgestellt und bietet keine Garantie für eine Finanzberatung.\n\nTippen Sie auf die Schaltfläche unten, um die vollständigen Nutzungsbedingungen zu lesen.</string>
+    <string name="view_full_privacy">Vollständige Datenschutzerklärung anzeigen</string>
+    <string name="view_full_terms">Vollständige Nutzungsbedingungen anzeigen</string>
+    <string name="screen1_title">Kreditrechner \nFür <font color="#2196F3">jedes finanzielle Ziel</font></string>
+    <string name="screen1_dis">Berechnen Sie Ihre monatlichen Raten und verwalten Sie Ihre Kredite ganz einfach an einem Ort.</string>
+    <string name="screen2_title">Schnelle Ratenberechnung \nSchnell, <font color="#2196F3">einfach und präzise</font></string>
+    <string name="scree2_dis">Berechnen Sie Ihre monatliche Rate in Sekunden mit nur wenigen Fingertipps.</string>
+    <string name="screen4_title">Ihre finanzielle Reise \n<font color="#2196F3">Sicher und geschützt</font></string>
+    <string name="screen4_dis">Behalten Sie Ihre Kreditberechnungen im Blick und profitieren Sie von einer sicheren Berechnung.</string>
+    <string name="screen3_title">Intelligente Kreditplanung \nBehalten Sie die <font color="#2196F3">Kontrolle</font></string>
+    <string name="screen3_dis">Verwalten Sie Ihre Kreditberechnungen und treffen Sie intelligentere Finanzentscheidungen.</string>
 </resources>

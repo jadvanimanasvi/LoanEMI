@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
@@ -32,9 +35,10 @@ import com.loanemi.calculator.emi.utils.Util;
 public class HomeFragment extends Fragment {
 
     private RelativeLayout btnNotification;
-    private TextView tvLoanSmart;
     public RelativeLayout cardLoanCalculator,cardBusinessLoan,cardHomeLoan,cardAutoLoan,cardStudentLoan;
     public CardView cardCash,cardFd,cardRd;
+    private long backPressedTime = 0;
+    private static final long BACK_PRESS_INTERVAL = 2000;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -55,6 +59,7 @@ public class HomeFragment extends Fragment {
         setupClickListeners();
         setupAds(view);
 //        setupLoanSmartText();
+        setupDoubleBackToExit();
 
         return view;
     }
@@ -197,6 +202,28 @@ public class HomeFragment extends Fragment {
             Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
         }
     }
+    private void setupDoubleBackToExit() {
+        requireActivity().getOnBackPressedDispatcher().addCallback(
+                getViewLifecycleOwner(),
+                new OnBackPressedCallback(true) {
+                    @Override
+                    public void handleOnBackPressed() {
+                        long currentTime = SystemClock.elapsedRealtime();
 
+                        if (currentTime - backPressedTime < BACK_PRESS_INTERVAL) {
+                            requireActivity().finishAffinity();
+                        } else {
+                            backPressedTime = currentTime;
+
+                            Toast.makeText(
+                                    requireContext(),
+                                    "Press back again to exit",
+                                    Toast.LENGTH_SHORT
+                            ).show();
+                        }
+                    }
+                }
+        );
+    }
 
 }

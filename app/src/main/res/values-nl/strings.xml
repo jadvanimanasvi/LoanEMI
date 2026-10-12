@@ -33,16 +33,8 @@
     <string name="loading_ads">Advertenties worden geladen…</string>
     <string name="skip_in">Overslaan over %1$d\u0073</string>
     <string name="please_select_language">Selecteer een taal</string>
-    <string name="get_start_title">Houd uw herinneringen \n<font color="#2196F3">Veilig &amp; Privé</font></string>
-    <string name="getstart_dis">Bescherm uw foto\'s en video\'s met privacy en beveiliging.</string>
     <string name="get_start">Start</string>
-    <string name="smart_gallery_for_every_moment">Slimme galerij\n Voor <font color="#2196F3">Elk Moment</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">Al uw herinneringen georganiseerd \nmooi op één plek.</string>
     <string name="next">Volgende</string>
-    <string name="fast_access_to_nyour_photos_amp_videos">Snelle toegang tot \nUw <font color="#2196F3">Foto\'s &amp; Video\'s</font></string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">Vind en bekijk snel al uw\nfavoriete foto\'s en video\'s.</string>
-    <string name="fragment_3_title">Maak &amp; Beheer  \nUw <font color="#2196F3">Albums</font></string>
-    <string name="fragment_3_dis">Organiseer uw herinneringen in albums en bewaar ze veilig.</string>
     <string name="investment_amount">Investeringsbedrag</string>
     <string name="loan_information">Leninginformatie</string>
     <string name="result_after_calculation">Resultaat na berekening</string>
@@ -146,4 +138,21 @@
     <string name="cancel">Annuleren</string>
     <string name="compounding_frequency">Samengestelde renteperiode</string>
     <string name="recurring_deposit_result">Resultaat periodieke deposito</string>
+    <string name="no_history_yet">Nog geen geschiedenis</string>
+    <string name="terms_conditions">Algemene voorwaarden</string>
+    <string name="privacy_page_headline">Uw privacy is belangrijk</string>
+    <string name="privacy_page_body">Loan EMI slaat uw berekeningsgeschiedenis en voorkeuren op uw apparaat op. We kunnen advertentie- en meldingsdiensten gebruiken om de app-ervaring te verbeteren.\n\nWe vragen niet om uw bankinloggegevens, kaartgegevens of accountwachtwoord.\n\nTik op de knop hieronder om het volledige privacybeleid te lezen.</string>
+    <string name="terms_page_headline">Lees onze voorwaarden zorgvuldig door</string>
+    <string name="terms_page_body">Door Loan EMI te gebruiken, gaat u ermee akkoord de rekenhulpmiddelen uitsluitend voor informatiedoeleinden te gebruiken. De resultaten zijn schattingen en kunnen afwijken van de werkelijke cijfers van banken of kredietverstrekkers.\n\nDe app wordt geleverd zoals deze is, zonder garantie op financieel advies.\n\nTik op de knop hieronder om de volledige algemene voorwaarden te lezen.</string>
+    <string name="view_full_privacy">Volledig privacybeleid bekijken</string>
+    <string name="view_full_terms">Volledige algemene voorwaarden bekijken</string>
+    <string name="screen1_title">Leningcalculator \nVoor <font color="#2196F3">elk financieel doel</font></string>
+    <string name="screen1_dis">Bereken maandelijkse aflossingen en beheer je leningen eenvoudig op één plek.</string>
+    <string name="screen2_title">Snelle EMI-berekening \nSnel, <font color="#2196F3">eenvoudig en nauwkeurig</font></string>
+    <string name="scree2_dis">Bereken je maandelijkse aflossing binnen enkele seconden met een paar tikken.</string>
+    <string name="screen4_title">Jouw financiële reis \n<font color="#2196F3">Veilig en betrouwbaar</font></string>
+    <string name="screen4_dis">Houd je leningberekeningen overzichtelijk en geniet van een veilige rekenervaring.</string>
+    <string name="screen3_title">Slimme leningplanning \nHoud de <font color="#2196F3">controle</font></string>
+    <string name="screen3_dis">Beheer je leningberekeningen en neem slimmere financiële beslissingen.</string>
+
 </resources>

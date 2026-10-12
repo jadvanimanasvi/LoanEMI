@@ -578,8 +578,6 @@ public class AutoLoanActivity extends AppCompatActivity {
 
             case "CHF": return "CHF ";
 
-            case "AED": return "د.إ ";
-
             case "SAR": return "﷼";
 
             case "THB": return "฿";

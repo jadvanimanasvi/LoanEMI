@@ -33,16 +33,8 @@
     <string name="loading_ads">Memuat Iklan…</string>
     <string name="skip_in">Lewati dalam %1$d\u0073</string>
     <string name="please_select_language">Silakan Pilih Bahasa</string>
-    <string name="get_start_title">Jaga Kenangan Anda \n<font color="#2196F3">Aman &amp; Privat</font></string>
-    <string name="getstart_dis">Lindungi foto dan video Anda dengan privasi dan keamanan.</string>
     <string name="get_start">Mulai</string>
-    <string name="smart_gallery_for_every_moment">Galeri Cerdas\n Untuk <font color="#2196F3">Setiap Momen</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">Semua kenangan Anda tertata \ndengan indah di satu tempat.</string>
     <string name="next">Berikutnya</string>
-    <string name="fast_access_to_nyour_photos_amp_videos">Akses Cepat ke \n<font color="#2196F3">Foto &amp; Video</font> Anda</string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">Temukan dan lihat semua foto dan video\nfavorit Anda dengan cepat.</string>
-    <string name="fragment_3_title">Buat &amp; Kelola \n<font color="#2196F3">Album</font> Anda</string>
-    <string name="fragment_3_dis">Atur kenangan Anda ke dalam album dan simpan dengan rapi.</string>
     <string name="investment_amount">Jumlah Investasi</string>
     <string name="loan_information">Informasi Pinjaman</string>
     <string name="result_after_calculation">Hasil Perhitungan</string>
@@ -144,4 +136,21 @@
     <string name="cancel">Batal</string>
     <string name="compounding_frequency">Frekuensi Bunga Majemuk</string>
     <string name="recurring_deposit_result">Hasil Deposito Berulang</string>
+    <string name="no_history_yet">Belum ada riwayat</string>
+    <string name="terms_conditions">Syarat &amp; Ketentuan</string>
+    <string name="privacy_page_headline">Privasi Anda penting bagi kami</string>
+    <string name="privacy_page_body">Loan EMI menyimpan riwayat perhitungan dan preferensi Anda di perangkat Anda. Kami dapat menggunakan layanan iklan dan notifikasi untuk meningkatkan pengalaman penggunaan aplikasi.\n\nKami tidak meminta informasi login bank, detail kartu, atau kata sandi akun Anda.\n\nKetuk tombol di bawah untuk membaca Kebijakan Privasi lengkap.</string>
+    <string name="terms_page_headline">Harap tinjau ketentuan kami</string>
+    <string name="terms_page_body">Dengan menggunakan Loan EMI, Anda setuju untuk menggunakan kalkulator hanya untuk tujuan informasi. Hasil yang ditampilkan merupakan perkiraan dan dapat berbeda dari angka sebenarnya yang diberikan oleh bank atau pemberi pinjaman.\n\nAplikasi disediakan apa adanya, tanpa jaminan atas nasihat keuangan.\n\nKetuk tombol di bawah untuk membaca Syarat &amp; Ketentuan lengkap.</string>
+    <string name="view_full_privacy">Lihat Kebijakan Privasi Lengkap</string>
+    <string name="view_full_terms">Lihat Syarat &amp; Ketentuan Lengkap</string>
+    <string name="screen1_title">Kalkulator Pinjaman \nUntuk <font color="#2196F3">Setiap Tujuan Keuangan</font></string>
+    <string name="screen1_dis">Hitung cicilan bulanan dan kelola pinjaman dengan mudah dalam satu tempat.</string>
+    <string name="screen2_title">Perhitungan Cicilan Cepat \nCepat, <font color="#2196F3">Mudah &amp; Akurat</font></string>
+    <string name="scree2_dis">Hitung cicilan bulanan Anda dalam hitungan detik hanya dengan beberapa ketukan.</string>
+    <string name="screen4_title">Perjalanan Keuangan Anda \n<font color="#2196F3">Aman &amp; Terlindungi</font></string>
+    <string name="screen4_dis">Atur perhitungan pinjaman Anda dan nikmati pengalaman perhitungan yang aman.</string>
+    <string name="screen3_title">Perencanaan Pinjaman Cerdas \nTetap <font color="#2196F3">Terkendali</font></string>
+    <string name="screen3_dis">Kelola perhitungan pinjaman dan buat keputusan keuangan yang lebih cerdas.</string>
+
 </resources>

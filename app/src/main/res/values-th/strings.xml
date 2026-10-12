@@ -33,16 +33,8 @@
     <string name="loading_ads">กำลังโหลดโฆษณา…</string>
     <string name="skip_in">ข้ามใน %1$d\u0073</string>
     <string name="please_select_language">โปรดเลือกภาษา</string>
-    <string name="get_start_title">เก็บความทรงจำของคุณให้ \n<font color="#2196F3">ปลอดภัยและเป็นส่วนตัว</font></string>
-    <string name="getstart_dis">ปกป้องรูปภาพและวิดีโอของคุณด้วยความเป็นส่วนตัวและความปลอดภัย</string>
     <string name="get_start">เริ่มต้น</string>
-    <string name="smart_gallery_for_every_moment">แกลเลอรีอัจฉริยะ\nสำหรับ <font color="#2196F3">ทุกช่วงเวลา</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">จัดระเบียบความทรงจำทั้งหมดของคุณ\nอย่างสวยงามในที่เดียว</string>
     <string name="next">ถัดไป</string>
-    <string name="fast_access_to_nyour_photos_amp_videos">เข้าถึงได้อย่างรวดเร็ว \nรูปภาพ <font color="#2196F3">และวิดีโอของคุณ</font></string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">ค้นหาและดูรูปภาพและวิดีโอที่คุณชื่นชอบ\nได้อย่างรวดเร็ว</string>
-    <string name="fragment_3_title">สร้างและจัดการ  \n<font color="#2196F3">อัลบั้ม</font>ของคุณ</string>
-    <string name="fragment_3_dis">จัดระเบียบความทรงจำของคุณเป็นอัลบั้มและจัดเก็บไว้อย่างเป็นระเบียบ</string>
     <string name="investment_amount">จำนวนเงินลงทุน</string>
     <string name="loan_information">ข้อมูลสินเชื่อ</string>
     <string name="result_after_calculation">ผลลัพธ์หลังการคำนวณ</string>
@@ -146,4 +138,20 @@
     <string name="cancel">ยกเลิก</string>
     <string name="compounding_frequency">ความถี่ในการทบต้น</string>
     <string name="recurring_deposit_result">ผลลัพธ์เงินฝากประจำแบบสะสม</string>
+    <string name="no_history_yet">ยังไม่มีประวัติ</string>
+    <string name="terms_conditions">ข้อกำหนดและเงื่อนไข</string>
+    <string name="privacy_page_headline">เราให้ความสำคัญกับความเป็นส่วนตัวของคุณ</string>
+    <string name="privacy_page_body">Loan EMI จัดเก็บประวัติการคำนวณและการตั้งค่าของคุณไว้ในอุปกรณ์ เราอาจใช้บริการโฆษณาและการแจ้งเตือนเพื่อปรับปรุงประสบการณ์การใช้งานแอป\n\nเราไม่ขอข้อมูลเข้าสู่ระบบธนาคาร รายละเอียดบัตร หรือรหัสผ่านบัญชีของคุณ\n\nแตะปุ่มด้านล่างเพื่ออ่านนโยบายความเป็นส่วนตัวฉบับเต็ม</string>
+    <string name="terms_page_headline">โปรดตรวจสอบข้อกำหนดของเรา</string>
+    <string name="terms_page_body">เมื่อใช้ Loan EMI คุณตกลงที่จะใช้เครื่องคำนวณเพื่อให้ข้อมูลเท่านั้น ผลลัพธ์เป็นค่าประมาณและอาจแตกต่างจากตัวเลขจริงของธนาคารหรือผู้ให้กู้\n\nแอปนี้ให้บริการตามสภาพที่เป็นอยู่ โดยไม่มีการรับประกันเกี่ยวกับคำแนะนำทางการเงิน\n\nแตะปุ่มด้านล่างเพื่ออ่านข้อกำหนดและเงื่อนไขฉบับเต็ม</string>
+    <string name="view_full_privacy">ดูนโยบายความเป็นส่วนตัวฉบับเต็ม</string>
+    <string name="view_full_terms">ดูข้อกำหนดและเงื่อนไขฉบับเต็ม</string>
+    <string name="screen1_title">เครื่องคำนวณสินเชื่อ \nสำหรับทุก<font color="#2196F3">เป้าหมายทางการเงิน</font></string>
+    <string name="screen1_dis">คำนวณค่างวดรายเดือนและจัดการสินเชื่อของคุณได้อย่างง่ายดายในที่เดียว</string>
+    <string name="screen2_title">คำนวณ EMI ได้รวดเร็ว \nรวดเร็ว <font color="#2196F3">ง่าย และแม่นยำ</font></string>
+    <string name="scree2_dis">คำนวณค่างวดรายเดือนของคุณได้ในไม่กี่วินาที เพียงแตะไม่กี่ครั้ง</string>
+    <string name="screen4_title">เส้นทางการเงินของคุณ \n<font color="#2196F3">ปลอดภัยและมั่นใจ</font></string>
+    <string name="screen4_dis">จัดระเบียบการคำนวณสินเชื่อและใช้งานเครื่องคำนวณได้อย่างปลอดภัย</string>
+    <string name="screen3_title">วางแผนสินเชื่ออย่างชาญฉลาด \nควบคุมได้<font color="#2196F3">ด้วยตัวคุณ</font></string>
+    <string name="screen3_dis">จัดการการคำนวณสินเชื่อและตัดสินใจทางการเงินได้อย่างชาญฉลาดยิ่งขึ้น</string>
 </resources>

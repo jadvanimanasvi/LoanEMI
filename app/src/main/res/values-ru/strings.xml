@@ -33,17 +33,8 @@
     <string name="loading_ads">Загрузка рекламы…</string>
     <string name="skip_in">Пропустить через %1$d с</string>
     <string name="please_select_language">Пожалуйста, выберите язык</string>
-
-    <string name="get_start_title">Храните свои воспоминания \n<font color="#2196F3">в безопасности и конфиденциальности</font></string>
-    <string name="getstart_dis">Защитите свои фотографии и видео с помощью конфиденциальности и безопасности.</string>
     <string name="get_start">Начать</string>
-    <string name="smart_gallery_for_every_moment">Умная галерея\n<font color="#2196F3">для каждого момента</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">Все ваши воспоминания собраны\nкрасиво и удобно в одном месте.</string>
-    <string name="next">Далее</string>
-    <string name="fast_access_to_nyour_photos_amp_videos">Быстрый доступ к вашим\n<font color="#2196F3">фотографиям и видео</font></string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">Быстро находите и просматривайте\nлюбимые фотографии и видео.</string>
-    <string name="fragment_3_title">Создавайте и управляйте\nсвоими <font color="#2196F3">альбомами</font></string>
-    <string name="fragment_3_dis">Организуйте свои воспоминания в альбомы и храните их в безопасности.</string>
+   <string name="next">Далее</string>
     <string name="investment_amount">Сумма инвестиций</string>
     <string name="loan_information">Информация о кредите</string>
     <string name="result_after_calculation">Результат после расчёта</string>
@@ -152,4 +143,20 @@
     <string name="cancel">Отмена</string>
     <string name="compounding_frequency">Частота начисления сложных процентов</string>
     <string name="recurring_deposit_result">Результат расчёта регулярного депозита</string>
+    <string name="no_history_yet">История пока отсутствует</string>
+    <string name="terms_conditions">Условия использования</string>
+    <string name="privacy_page_headline">Ваша конфиденциальность важна для нас</string>
+    <string name="privacy_page_body">Loan EMI сохраняет историю расчётов и ваши настройки на вашем устройстве. Мы можем использовать рекламные сервисы и службы уведомлений для улучшения работы приложения.\n\nМы не запрашиваем данные для входа в банковский аккаунт, данные карты или пароль от аккаунта.\n\nНажмите кнопку ниже, чтобы прочитать полную Политику конфиденциальности.</string>
+    <string name="terms_page_headline">Пожалуйста, ознакомьтесь с условиями</string>
+    <string name="terms_page_body">Используя Loan EMI, вы соглашаетесь применять калькуляторы исключительно в информационных целях. Результаты являются приблизительными и могут отличаться от фактических данных банков или кредиторов.\n\nПриложение предоставляется «как есть» без каких-либо гарантий предоставления финансовых консультаций.\n\nНажмите кнопку ниже, чтобы прочитать полные Условия использования.</string>
+    <string name="view_full_privacy">Открыть политику конфиденциальности</string>
+    <string name="view_full_terms">Открыть полные условия использования</string>
+    <string name="screen1_title">Кредитный калькулятор \nДля <font color="#2196F3">любых финансовых целей</font></string>
+    <string name="screen1_dis">Рассчитывайте ежемесячные платежи и легко управляйте кредитами в одном месте.</string>
+    <string name="screen2_title">Быстрый расчёт платежей \nБыстро, <font color="#2196F3">просто и точно</font></string>
+    <string name="scree2_dis">Рассчитайте ежемесячный платёж за несколько секунд всего за пару нажатий.</string>
+    <string name="screen4_title">Ваш финансовый путь \n<font color="#2196F3">Надёжно и безопасно</font></string>
+    <string name="screen4_dis">Упорядочивайте расчёты по кредитам и пользуйтесь безопасным калькулятором.</string>
+    <string name="screen3_title">Умное планирование кредита \nДержите всё под <font color="#2196F3">контролем</font></string>
+    <string name="screen3_dis">Управляйте кредитными расчётами и принимайте более разумные финансовые решения.</string>
 </resources>

@@ -33,16 +33,8 @@
     <string name="loading_ads">Ładowanie reklam…</string>
     <string name="skip_in">Pomiń za %1$d\u0073</string>
     <string name="please_select_language">Wybierz język</string>
-    <string name="get_start_title">Chroń swoje wspomnienia \n<font color="#2196F3">Bezpiecznie i prywatnie</font></string>
-    <string name="getstart_dis">Chroń swoje zdjęcia i filmy dzięki prywatności i bezpieczeństwu.</string>
     <string name="get_start">Rozpocznij</string>
-    <string name="smart_gallery_for_every_moment">Inteligentna galeria\n Na <font color="#2196F3">każdą chwilę</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">Wszystkie wspomnienia uporządkowane \npięknie w jednym miejscu.</string>
     <string name="next">Dalej</string>
-    <string name="fast_access_to_nyour_photos_amp_videos">Szybki dostęp do \nTwoich <font color="#2196F3">zdjęć i filmów</font></string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">Szybko znajdź i przeglądaj wszystkie swoje\nulubione zdjęcia i filmy.</string>
-    <string name="fragment_3_title">Twórz i zarządzaj  \nSwoimi <font color="#2196F3">albumami</font></string>
-    <string name="fragment_3_dis">Organizuj swoje wspomnienia w albumach i przechowuj je bezpiecznie.</string>
     <string name="investment_amount">Kwota inwestycji</string>
     <string name="loan_information">Informacje o kredycie</string>
     <string name="result_after_calculation">Wynik obliczeń</string>
@@ -146,4 +138,20 @@
     <string name="cancel">Anuluj</string>
     <string name="compounding_frequency">Częstotliwość kapitalizacji</string>
     <string name="recurring_deposit_result">Wynik lokaty cyklicznej</string>
+    <string name="no_history_yet">Brak historii</string>
+    <string name="terms_conditions">Warunki korzystania</string>
+    <string name="privacy_page_headline">Twoja prywatność jest dla nas ważna</string>
+    <string name="privacy_page_body">Loan EMI przechowuje historię obliczeń i Twoje preferencje na urządzeniu. Możemy korzystać z usług reklamowych i powiadomień, aby ulepszać działanie aplikacji.\n\nNie prosimy o dane logowania do banku, dane karty ani hasło do konta.\n\nDotknij przycisku poniżej, aby przeczytać pełną Politykę prywatności.</string>
+    <string name="terms_page_headline">Zapoznaj się z naszymi warunkami</string>
+    <string name="terms_page_body">Korzystając z Loan EMI, zgadzasz się używać kalkulatorów wyłącznie w celach informacyjnych. Wyniki są szacunkowe i mogą różnić się od rzeczywistych danych banków lub pożyczkodawców.\n\nAplikacja jest udostępniana w stanie, w jakim się znajduje, bez gwarancji udzielania porad finansowych.\n\nDotknij przycisku poniżej, aby przeczytać pełne Warunki korzystania.</string>
+    <string name="view_full_privacy">Zobacz pełną Politykę prywatności</string>
+    <string name="view_full_terms">Zobacz pełne Warunki korzystania</string>
+    <string name="screen1_title">Kalkulator kredytowy \nNa <font color="#2196F3">każdy cel finansowy</font></string>
+    <string name="screen1_dis">Oblicz miesięczne raty i wygodnie zarządzaj kredytami w jednym miejscu.</string>
+    <string name="screen2_title">Szybkie obliczanie rat \nSzybko, <font color="#2196F3">prosto i dokładnie</font></string>
+    <string name="scree2_dis">Oblicz miesięczną ratę w kilka sekund za pomocą kilku dotknięć.</string>
+    <string name="screen4_title">Twoja finansowa podróż \n<font color="#2196F3">Bezpiecznie i pewnie</font></string>
+    <string name="screen4_dis">Uporządkuj obliczenia kredytowe i korzystaj z bezpiecznego kalkulatora.</string>
+    <string name="screen3_title">Inteligentne planowanie kredytu \nZachowaj <font color="#2196F3">kontrolę</font></string>
+    <string name="screen3_dis">Zarządzaj obliczeniami kredytowymi i podejmuj lepsze decyzje finansowe.</string>
 </resources>

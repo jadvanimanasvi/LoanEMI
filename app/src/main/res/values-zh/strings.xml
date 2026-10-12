@@ -33,16 +33,8 @@
     <string name="loading_ads">广告加载中…</string>
     <string name="skip_in">%1$d\u0073 后跳过</string>
     <string name="please_select_language">请选择语言</string>
-    <string name="get_start_title">守护您的美好回忆 \n<font color="#2196F3">安全且私密</font></string>
-    <string name="getstart_dis">通过隐私和安全功能保护您的照片和视频。</string>
     <string name="get_start">开始</string>
-    <string name="smart_gallery_for_every_moment">每一个瞬间的\n<font color="#2196F3">智能相册</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">将您的所有回忆\n美好地整理在一个地方。</string>
     <string name="next">下一步</string>
-    <string name="fast_access_to_nyour_photos_amp_videos">快速访问\n您的<font color="#2196F3">照片和视频</font></string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">快速查找和查看您\n喜爱的照片和视频。</string>
-    <string name="fragment_3_title">创建和管理\n您的<font color="#2196F3">相册</font></string>
-    <string name="fragment_3_dis">将您的回忆整理到相册中并妥善保存。</string>
     <string name="investment_amount">投资金额</string>
     <string name="loan_information">贷款信息</string>
     <string name="result_after_calculation">计算结果</string>
@@ -146,4 +138,20 @@
     <string name="cancel">取消</string>
     <string name="compounding_frequency">复利频率</string>
     <string name="recurring_deposit_result">定期储蓄结果</string>
+    <string name="no_history_yet">暂无历史记录</string>
+    <string name="terms_conditions">条款和条件</string>
+    <string name="privacy_page_headline">您的隐私对我们很重要</string>
+    <string name="privacy_page_body">Loan EMI 会将您的计算历史记录和偏好设置保存在您的设备上。我们可能会使用广告和通知服务来改善应用体验。\n\n我们不会要求您提供银行登录信息、银行卡详细信息或账户密码。\n\n点击下方按钮，阅读完整的隐私政策。</string>
+    <string name="terms_page_headline">请阅读我们的条款</string>
+    <string name="terms_page_body">使用 Loan EMI 即表示您同意仅将计算器用于信息参考。计算结果为估算值，可能与银行或贷款机构的实际数据有所不同。\n\n本应用按现状提供，不保证提供任何财务建议。\n\n点击下方按钮，阅读完整的条款和条件。</string>
+    <string name="view_full_privacy">查看完整隐私政策</string>
+    <string name="view_full_terms">查看完整条款和条件</string>
+    <string name="screen1_title">贷款计算器 \n满足每个<font color="#2196F3">财务目标</font></string>
+    <string name="screen1_dis">轻松计算每月还款额，并在一个地方管理所有贷款。</string>
+    <string name="screen2_title">快速计算 EMI \n快速、<font color="#2196F3">简单又准确</font></string>
+    <string name="scree2_dis">只需轻点几下，即可在几秒钟内计算每月还款额。</string>
+    <string name="screen4_title">您的财务之旅 \n<font color="#2196F3">安全可靠</font></string>
+    <string name="screen4_dis">有序管理贷款计算记录，享受安全便捷的计算体验。</string>
+    <string name="screen3_title">智能贷款规划 \n始终<font color="#2196F3">掌握主动</font></string>
+    <string name="screen3_dis">管理贷款计算，做出更明智的财务决策。</string>
 </resources>

@@ -35,23 +35,57 @@
             android:layout_marginEnd="12dp"
             android:background="@android:color/transparent"
             android:padding="10dp"
-            android:src="@drawable/edit_ic" />
+            android:src="@drawable/edit_ic"
+            app:tint="@color/text_color" />
 
     </RelativeLayout>
 
-
-    <!-- History List -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvHistory"
+    <!-- History List + Empty State -->
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="20dp"
-        android:clipToPadding="false"
-        android:overScrollMode="never" />
+        android:layout_weight="1">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvHistory"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="20dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never" />
+
+        <!-- Empty State -->
+        <LinearLayout
+            android:id="@+id/emptyStateContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieEmpty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:lottie_rawRes="@raw/empty_history"
+                app:lottie_autoPlay="false"
+                app:lottie_loop="true" />
+
+            <TextView
+                android:id="@+id/tvEmpty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/no_history_yet"
+                android:textColor="@color/history_txt"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </FrameLayout>
 
     <!-- Delete Button -->
     <FrameLayout

@@ -33,16 +33,8 @@
     <string name="loading_ads">Kulayishwa izikhangiso…</string>
     <string name="skip_in">Yeqa ngemva kuka-%1$d\u0073</string>
     <string name="please_select_language">Sicela Ukhethe Ulimi</string>
-    <string name="get_start_title">Gcina Izinkumbulo Zakho \n<font color="#2196F3">Ziphephile Futhi Ziyimfihlo</font></string>
-    <string name="getstart_dis">Vikela izithombe namavidiyo akho ngobumfihlo nokuphepha.</string>
     <string name="get_start">Qalisa</string>
-    <string name="smart_gallery_for_every_moment">Igalari Ehlakaniphile\n Yazo <font color="#2196F3">Zonke Izikhathi</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">Zonke izinkumbulo zakho zihlelwe \nkahle endaweni eyodwa.</string>
-    <string name="next">Okulandelayo</string>
-    <string name="fast_access_to_nyour_photos_amp_videos">Ukufinyelela Okusheshayo \nEzithombeni <font color="#2196F3">Nakumavidiyo Akho</font></string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">Thola futhi ubuke ngokushesha zonke\nizithombe namavidiyo owathandayo.</string>
-    <string name="fragment_3_title">Dala Futhi Uphathe  \nAma-<font color="#2196F3">Albhamu</font> Akho</string>
-    <string name="fragment_3_dis">Hlela izinkumbulo zakho zibe ama-albhamu futhi uzigcine.</string>
+   <string name="next">Okulandelayo</string>
     <string name="investment_amount">Inani Lotshalomali</string>
     <string name="loan_information">Ulwazi Lwemalimboleko</string>
     <string name="result_after_calculation">Umphumela Ngemva Kokubala</string>
@@ -146,4 +138,20 @@
     <string name="cancel">Khansela</string>
     <string name="compounding_frequency">Imvamisa Yokuhlanganiswa Kwenzalo</string>
     <string name="recurring_deposit_result">Umphumela Wediphozithi Ephindaphindwayo</string>
+    <string name="no_history_yet">Awukho umlando okwamanje</string>
+    <string name="terms_conditions">Imigomo Nemibandela</string>
+    <string name="privacy_page_headline">Ubumfihlo bakho bubalulekile kithi</string>
+    <string name="privacy_page_body">I-Loan EMI igcina umlando wezibalo zakho nezintandokazi zakho kudivayisi yakho. Singasebenzisa izinsizakalo zokukhangisa nezaziso ukuze sithuthukise ulwazi lokusebenzisa uhlelo lokusebenza.\n\nAsiceli imininingwane yokungena ebhange lakho, imininingwane yekhadi noma iphasiwedi ye-akhawunti yakho.\n\nThepha inkinobho engezansi ukuze ufunde Inqubomgomo Yobumfihlo ephelele.</string>
+    <string name="terms_page_headline">Sicela ubuyekeze imigomo yethu</string>
+    <string name="terms_page_body">Ngokusebenzisa i-Loan EMI, uyavuma ukusebenzisa izibali ngezinjongo zokuthola ulwazi kuphela. Imiphumela iyizilinganiso futhi ingahluka ezinombolweni zangempela zamabhange noma zababolekisi.\n\nUhlelo lokusebenza lunikezwa njengoba lunjalo, ngaphandle kwesiqinisekiso seseluleko sezezimali.\n\nThepha inkinobho engezansi ukuze ufunde yonke Imigomo Nemibandela.</string>
+    <string name="view_full_privacy">Buka Inqubomgomo Yobumfihlo Ephelele</string>
+    <string name="view_full_terms">Buka Yonke Imigomo Nemibandela</string>
+    <string name="screen1_title">Isibali Semalimboleko \nKuzo <font color="#2196F3">Zonke Izinhloso Zezimali</font></string>
+    <string name="screen1_dis">Bala izinkokhelo zanyanga zonke futhi uphathe imali oyibolekile kalula endaweni eyodwa.</string>
+    <string name="screen2_title">Ukubalwa Kwe-EMI Okusheshayo \nKuyashesha, <font color="#2196F3">Kulula Futhi Kunembile</font></string>
+    <string name="scree2_dis">Bala inkokhelo yakho yanyanga zonke ngemizuzwana ngokuthepha izikhathi ezimbalwa kuphela.</string>
+    <string name="screen4_title">Uhambo Lwakho Lwezezimali \n<font color="#2196F3">Kuphephile Futhi Kuvikelekile</font></string>
+    <string name="screen4_dis">Gcina izibalo zakho zemalimboleko zihlelekile futhi ujabulele ukubala okuphephile.</string>
+    <string name="screen3_title">Ukuhlela Imalimboleko Ngobuhlakani \nHlala <font color="#2196F3">Ulilawula</font></string>
+    <string name="screen3_dis">Phatha izibalo zakho zemalimboleko futhi wenze izinqumo zezezimali ezihlakaniphile.</string>
 </resources>

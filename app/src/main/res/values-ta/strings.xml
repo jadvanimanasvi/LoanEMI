@@ -33,21 +33,8 @@
     <string name="loading_ads">விளம்பரங்கள் ஏற்றப்படுகின்றன…</string>
     <string name="skip_in">%1$d வினாடிகளில் தவிர்க்கவும்</string>
     <string name="please_select_language">தயவுசெய்து மொழியைத் தேர்ந்தெடுக்கவும்</string>
-
-    <string name="get_start_title">உங்கள் நினைவுகளை \n<font color="#2196F3">பாதுகாப்பாகவும் தனிப்பட்டதாகவும் வைத்திருங்கள்</font></string>
-    <string name="getstart_dis">உங்கள் புகைப்படங்கள் மற்றும் வீடியோக்களை தனியுரிமை மற்றும் பாதுகாப்புடன் பாதுகாக்கவும்.</string>
     <string name="get_start">தொடங்குங்கள்</string>
-
-    <string name="smart_gallery_for_every_moment">ஒவ்வொரு தருணத்திற்கும்\n<font color="#2196F3">ஸ்மார்ட் கேலரி</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">உங்கள் அனைத்து நினைவுகளையும் ஒரே இடத்தில்\nஅழகாக ஒழுங்குபடுத்துங்கள்.</string>
     <string name="next">அடுத்து</string>
-
-    <string name="fast_access_to_nyour_photos_amp_videos">உங்கள் <font color="#2196F3">புகைப்படங்கள் &amp; வீடியோக்களுக்கு</font>\nவிரைவான அணுகல்</string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">உங்களுக்குப் பிடித்த புகைப்படங்கள் மற்றும் வீடியோக்களை\nவிரைவாகக் கண்டுபிடித்து பார்க்கவும்.</string>
-
-    <string name="fragment_3_title">உங்கள் <font color="#2196F3">ஆல்பங்களை</font>\nஉருவாக்கி நிர்வகிக்கவும்</string>
-    <string name="fragment_3_dis">உங்கள் நினைவுகளை ஆல்பங்களில் ஒழுங்குபடுத்தி பாதுகாப்பாக வைத்திருக்கவும்.</string>
-
     <string name="investment_amount">முதலீட்டுத் தொகை</string>
     <string name="loan_information">கடன் தகவல்</string>
     <string name="result_after_calculation">கணக்கீட்டிற்குப் பிறகு முடிவு</string>
@@ -157,4 +144,20 @@
     <string name="cancel">ரத்துசெய்</string>
     <string name="compounding_frequency">கூட்டு வட்டி அதிர்வெண்</string>
     <string name="recurring_deposit_result">தொடர் வைப்பு முடிவு</string>
+    <string name="no_history_yet">இதுவரை வரலாறு இல்லை</string>
+    <string name="terms_conditions">விதிமுறைகள் மற்றும் நிபந்தனைகள்</string>
+    <string name="privacy_page_headline">உங்கள் தனியுரிமை எங்களுக்கு முக்கியம்</string>
+    <string name="privacy_page_body">Loan EMI உங்கள் கணக்கீட்டு வரலாறு மற்றும் விருப்பங்களை உங்கள் சாதனத்தில் சேமிக்கிறது. பயன்பாட்டு அனுபவத்தை மேம்படுத்த விளம்பர மற்றும் அறிவிப்பு சேவைகளை நாங்கள் பயன்படுத்தலாம்.\n\nஉங்கள் வங்கி உள்நுழைவு விவரங்கள், அட்டை விவரங்கள் அல்லது கணக்கின் கடவுச்சொல்லை நாங்கள் கேட்பதில்லை.\n\nமுழுமையான தனியுரிமைக் கொள்கையைப் படிக்க கீழே உள்ள பொத்தானைத் தட்டவும்.</string>
+    <string name="terms_page_headline">எங்கள் விதிமுறைகளைப் பார்வையிடவும்</string>
+    <string name="terms_page_body">Loan EMI-ஐப் பயன்படுத்துவதன் மூலம், கணிப்பான்களைத் தகவல் நோக்கங்களுக்காக மட்டுமே பயன்படுத்த ஒப்புக்கொள்கிறீர்கள். முடிவுகள் மதிப்பீடுகள் மட்டுமே; வங்கிகள் அல்லது கடன் வழங்குநர்களின் உண்மையான கணக்குகளிலிருந்து மாறுபடலாம்.\n\nஇந்தப் பயன்பாடு உள்ளபடியே வழங்கப்படுகிறது; நிதி ஆலோசனைக்கான எந்த உத்தரவாதமும் வழங்கப்படவில்லை.\n\nமுழுமையான விதிமுறைகள் மற்றும் நிபந்தனைகளைப் படிக்க கீழே உள்ள பொத்தானைத் தட்டவும்.</string>
+    <string name="view_full_privacy">முழுமையான தனியுரிமைக் கொள்கையைப் பார்க்கவும்</string>
+    <string name="view_full_terms">முழு விதிமுறைகள் மற்றும் நிபந்தனைகளைப் பார்க்கவும்</string>
+    <string name="screen1_title">கடன் கணிப்பான் \nஒவ்வொரு <font color="#2196F3">நிதி இலக்கிற்கும்</font></string>
+    <string name="screen1_dis">மாதாந்திர EMI-ஐ கணக்கிட்டு, உங்கள் கடன்களை ஒரே இடத்தில் எளிதாக நிர்வகிக்கவும்.</string>
+    <string name="screen2_title">விரைவான EMI கணக்கீடு \nவேகமான, <font color="#2196F3">எளிய மற்றும் துல்லியமான</font></string>
+    <string name="scree2_dis">சில தொடுதல்களில் சில நொடிகளில் உங்கள் மாதாந்திர EMI-ஐ கணக்கிடுங்கள்.</string>
+    <string name="screen4_title">உங்கள் நிதிப் பயணம் \n<font color="#2196F3">பாதுகாப்பானது</font></string>
+    <string name="screen4_dis">உங்கள் கடன் கணக்கீடுகளை ஒழுங்குபடுத்தி, பாதுகாப்பான கணக்கீட்டு அனுபவத்தைப் பெறுங்கள்.</string>
+    <string name="screen3_title">சிறந்த கடன் திட்டமிடல் \n<font color="#2196F3">கட்டுப்பாட்டில்</font> இருங்கள்</string>
+    <string name="screen3_dis">உங்கள் கடன் கணக்கீடுகளை நிர்வகித்து, சிறந்த நிதி முடிவுகளை எடுங்கள்.</string>
 </resources>

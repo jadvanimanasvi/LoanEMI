@@ -34,16 +34,8 @@
     <string name="loading_ads">جارٍ تحميل الإعلانات…</string>
     <string name="skip_in">تخطي خلال %1$d\u0073</string>
     <string name="please_select_language">يرجى اختيار اللغة</string>
-    <string name="get_start_title">حافظ على ذكرياتك \n<font color="#2196F3">آمنة وخاصة</font></string>
-    <string name="getstart_dis">احمِ صورك ومقاطع الفيديو الخاصة بك بالخصوصية والأمان.</string>
     <string name="get_start">ابدأ</string>
-    <string name="smart_gallery_for_every_moment">معرض ذكي\n لكل <font color="#2196F3">لحظة</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">جميع ذكرياتك منظمة \nبشكل جميل في مكان واحد.</string>
     <string name="next">التالي</string>
-    <string name="fast_access_to_nyour_photos_amp_videos">وصول سريع إلى \nصورك و<font color="#2196F3">مقاطع الفيديو</font></string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">اعثر على جميع صورك ومقاطع الفيديو المفضلة لديك\nواعرضها بسرعة.</string>
-    <string name="fragment_3_title">أنشئ وأدر \n<font color="#2196F3">ألبوماتك</font></string>
-    <string name="fragment_3_dis">نظّم ذكرياتك في ألبومات واحتفظ بها بشكل منظم.</string>
     <string name="investment_amount">مبلغ الاستثمار</string>
     <string name="loan_information">معلومات القرض</string>
     <string name="result_after_calculation">النتيجة بعد الحساب</string>
@@ -145,4 +137,20 @@
     <string name="cancel">إلغاء</string>
     <string name="compounding_frequency">معدل تكرار احتساب الفائدة</string>
     <string name="recurring_deposit_result">نتيجة الوديعة المتكررة</string>
+    <string name="no_history_yet">لا يوجد سجل حتى الآن</string>
+    <string name="terms_conditions">الشروط والأحكام</string>
+    <string name="privacy_page_headline">خصوصيتك تهمنا</string>
+    <string name="privacy_page_body">يخزّن تطبيق Loan EMI سجل حساباتك وتفضيلاتك على جهازك. قد نستخدم خدمات الإعلانات والإشعارات لتحسين تجربة استخدام التطبيق.\n\nلا نطلب بيانات تسجيل الدخول المصرفية أو تفاصيل البطاقة أو كلمة مرور الحساب.\n\nاضغط على الزر أدناه لقراءة سياسة الخصوصية كاملة.</string>
+    <string name="terms_page_headline">يرجى مراجعة الشروط والأحكام</string>
+    <string name="terms_page_body">باستخدام تطبيق Loan EMI، فإنك توافق على استخدام الحاسبات لأغراض معلوماتية فقط. النتائج تقديرية وقد تختلف عن الأرقام الفعلية للبنوك أو جهات الإقراض.\n\nيُقدَّم التطبيق كما هو، دون أي ضمان لتقديم استشارات مالية.\n\nاضغط على الزر أدناه لقراءة الشروط والأحكام كاملة.</string>
+    <string name="view_full_privacy">عرض سياسة الخصوصية كاملة</string>
+    <string name="view_full_terms">عرض الشروط والأحكام كاملة</string>
+    <string name="screen1_title">حاسبة القروض \nلكل <font color="#2196F3">أهدافك المالية</font></string>
+    <string name="screen1_dis">احسب الأقساط الشهرية وأدر قروضك بسهولة، كل ذلك في مكان واحد.</string>
+    <string name="screen2_title">حساب سريع للأقساط \nسريع، <font color="#2196F3">بسيط ودقيق</font></string>
+    <string name="scree2_dis">احسب قسطك الشهري خلال ثوانٍ وببضع نقرات فقط.</string>
+    <string name="screen4_title">رحلتك المالية \n<font color="#2196F3">آمنة ومحمية</font></string>
+    <string name="screen4_dis">نظّم حسابات قروضك واستمتع بتجربة حساب آمنة.</string>
+    <string name="screen3_title">تخطيط ذكي للقروض \nابقَ <font color="#2196F3">متحكماً</font></string>
+    <string name="screen3_dis">أدر حسابات قروضك واتخذ قرارات مالية أكثر ذكاءً.</string>
 </resources>

@@ -33,16 +33,8 @@
     <string name="loading_ads">Reklamlar Yükleniyor…</string>
     <string name="skip_in">%1$d\u0073 içinde geç</string>
     <string name="please_select_language">Lütfen Dil Seçin</string>
-    <string name="get_start_title">Anılarınızı \n<font color="#2196F3">Güvenli ve Özel</font> Tutun</string>
-    <string name="getstart_dis">Fotoğraf ve videolarınızı gizlilik ve güvenlik ile koruyun.</string>
     <string name="get_start">Başla</string>
-    <string name="smart_gallery_for_every_moment">Her An İçin\n<font color="#2196F3">Akıllı Galeri</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">Tüm anılarınız tek bir yerde \ngüzelce düzenlensin.</string>
     <string name="next">İleri</string>
-    <string name="fast_access_to_nyour_photos_amp_videos">Fotoğraf ve Videolarınıza \n<font color="#2196F3">Hızlı Erişim</font></string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">En sevdiğiniz fotoğraf ve videoları\nhızla bulun ve görüntüleyin.</string>
-    <string name="fragment_3_title">Albümlerinizi \n<font color="#2196F3">Oluşturun ve Yönetin</font></string>
-    <string name="fragment_3_dis">Anılarınızı albümler halinde düzenleyin ve saklayın.</string>
     <string name="investment_amount">Yatırım Tutarı</string>
     <string name="loan_information">Kredi Bilgileri</string>
     <string name="result_after_calculation">Hesaplama Sonucu</string>
@@ -146,4 +138,20 @@
     <string name="cancel">İptal</string>
     <string name="compounding_frequency">Bileşik Faiz Sıklığı</string>
     <string name="recurring_deposit_result">Düzenli Mevduat Sonucu</string>
+    <string name="no_history_yet">Henüz geçmiş yok</string>
+    <string name="terms_conditions">Şartlar ve Koşullar</string>
+    <string name="privacy_page_headline">Gizliliğiniz bizim için önemli</string>
+    <string name="privacy_page_body">Loan EMI, hesaplama geçmişinizi ve tercihlerinizi cihazınızda saklar. Uygulama deneyimini iyileştirmek için reklam ve bildirim hizmetlerini kullanabiliriz.\n\nBanka giriş bilgilerinizi, kart bilgilerinizi veya hesap şifrenizi istemiyoruz.\n\nGizlilik Politikasının tamamını okumak için aşağıdaki düğmeye dokunun.</string>
+    <string name="terms_page_headline">Lütfen şartlarımızı inceleyin</string>
+    <string name="terms_page_body">Loan EMI uygulamasını kullanarak hesap makinelerini yalnızca bilgilendirme amacıyla kullanmayı kabul edersiniz. Sonuçlar tahminidir ve bankaların veya kredi verenlerin gerçek rakamlarından farklı olabilir.\n\nUygulama olduğu gibi sunulur ve finansal danışmanlık konusunda herhangi bir garanti verilmez.\n\nŞartlar ve Koşulların tamamını okumak için aşağıdaki düğmeye dokunun.</string>
+    <string name="view_full_privacy">Gizlilik Politikasının Tamamını Görüntüle</string>
+    <string name="view_full_terms">Şartlar ve Koşulların Tamamını Görüntüle</string>
+    <string name="screen1_title">Kredi Hesaplayıcı \nHer <font color="#2196F3">Finansal Hedef İçin</font></string>
+    <string name="screen1_dis">Aylık taksitleri hesaplayın ve kredilerinizi tek bir yerden kolayca yönetin.</string>
+    <string name="screen2_title">Hızlı EMI Hesaplama \nHızlı, <font color="#2196F3">Basit ve Doğru</font></string>
+    <string name="scree2_dis">Birkaç dokunuşla aylık taksitinizi saniyeler içinde hesaplayın.</string>
+    <string name="screen4_title">Finansal Yolculuğunuz \n<font color="#2196F3">Güvenli ve Korunaklı</font></string>
+    <string name="screen4_dis">Kredi hesaplamalarınızı düzenli tutun ve güvenli bir hesaplama deneyiminin keyfini çıkarın.</string>
+    <string name="screen3_title">Akıllı Kredi Planlaması \nKontrolü <font color="#2196F3">Elinizde Tutun</font></string>
+    <string name="screen3_dis">Kredi hesaplamalarınızı yönetin ve daha akıllı finansal kararlar alın.</string>
 </resources>

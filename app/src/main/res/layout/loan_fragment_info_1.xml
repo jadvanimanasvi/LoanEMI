@@ -26,13 +26,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:textColor="@color/text_color"
-        android:text="@string/smart_gallery_for_every_moment" />
+        android:text="@string/screen1_title" />
 
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgOnboarding"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:src="@drawable/screen1"
         android:layout_marginStart="@dimen/_14sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_14sdp"
@@ -63,7 +64,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imgOnboarding"
         app:layout_constraintBottom_toTopOf="@id/rlnext"
-        android:text="@string/all_your_memories_organized_beautifully_in_one_place" />
+        android:text="@string/screen1_dis" />
 
     <RelativeLayout
         android:id="@+id/rlnext"

@@ -33,16 +33,8 @@
     <string name="loading_ads">Chargement des publicités…</string>
     <string name="skip_in">Passer dans %1$d\u0073</string>
     <string name="please_select_language">Veuillez sélectionner une langue</string>
-    <string name="get_start_title">Gardez vos souvenirs \n<font color="#2196F3">en sécurité et privés</font></string>
-    <string name="getstart_dis">Protégez vos photos et vidéos grâce à la confidentialité et à la sécurité.</string>
     <string name="get_start">Commencer</string>
-    <string name="smart_gallery_for_every_moment">Galerie intelligente\n Pour <font color="#2196F3">chaque moment</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">Tous vos souvenirs organisés \navec élégance au même endroit.</string>
     <string name="next">Suivant</string>
-    <string name="fast_access_to_nyour_photos_amp_videos">Accès rapide à vos \n<font color="#2196F3">photos et vidéos</font></string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">Trouvez et consultez rapidement toutes vos\nphotos et vidéos préférées.</string>
-    <string name="fragment_3_title">Créez et gérez \nvos <font color="#2196F3">albums</font></string>
-    <string name="fragment_3_dis">Organisez vos souvenirs dans des albums et conservez-les en toute sécurité.</string>
     <string name="investment_amount">Montant de l’investissement</string>
     <string name="loan_information">Informations sur le prêt</string>
     <string name="result_after_calculation">Résultat après calcul</string>
@@ -146,4 +138,20 @@
     <string name="cancel">Annuler</string>
     <string name="compounding_frequency">Fréquence de capitalisation</string>
     <string name="recurring_deposit_result">Résultat du dépôt récurrent</string>
+    <string name="no_history_yet">Aucun historique pour le moment</string>
+    <string name="terms_conditions">Conditions générales</string>
+    <string name="privacy_page_headline">Votre vie privée compte</string>
+    <string name="privacy_page_body">Loan EMI enregistre votre historique de calculs et vos préférences sur votre appareil. Nous pouvons utiliser des services publicitaires et de notification afin d\'améliorer l\'expérience utilisateur de l\'application.\n\nNous ne vous demandons pas vos identifiants bancaires, les informations de votre carte ni le mot de passe de votre compte.\n\nAppuyez sur le bouton ci-dessous pour lire l\'intégralité de la politique de confidentialité.</string>
+    <string name="terms_page_headline">Veuillez consulter nos conditions</string>
+    <string name="terms_page_body">En utilisant Loan EMI, vous acceptez d\'utiliser les calculateurs uniquement à des fins informatives. Les résultats sont des estimations et peuvent différer des chiffres réels des banques ou des prêteurs.\n\nL\'application est fournie en l\'état, sans garantie de conseil financier.\n\nAppuyez sur le bouton ci-dessous pour lire l\'intégralité des conditions générales.</string>
+    <string name="view_full_privacy">Voir la politique de confidentialité complète</string>
+    <string name="view_full_terms">Voir toutes les conditions générales</string>
+    <string name="screen1_title">Calculateur de prêt \nPour <font color="#2196F3">tous vos objectifs financiers</font></string>
+    <string name="screen1_dis">Calculez vos mensualités et gérez vos prêts facilement, au même endroit.</string>
+    <string name="screen2_title">Calcul rapide des mensualités \nRapide, <font color="#2196F3">simple et précis</font></string>
+    <string name="scree2_dis">Calculez votre mensualité en quelques secondes et en quelques clics.</string>
+    <string name="screen4_title">Votre parcours financier \n<font color="#2196F3">Sûr et sécurisé</font></string>
+    <string name="screen4_dis">Organisez vos calculs de prêt et profitez d\'une expérience de calcul sécurisée.</string>
+    <string name="screen3_title">Planification intelligente des prêts \nGardez le <font color="#2196F3">contrôle</font></string>
+    <string name="screen3_dis">Gérez vos calculs de prêt et prenez des décisions financières plus judicieuses.</string>
 </resources>

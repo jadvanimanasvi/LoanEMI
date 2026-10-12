@@ -34,19 +34,8 @@
     <string name="skip_in">%1$d सेकंदांत वगळा</string>
     <string name="please_select_language">कृपया भाषा निवडा</string>
 
-    <string name="get_start_title">तुमच्या आठवणी \n<font color="#2196F3">सुरक्षित आणि खाजगी ठेवा</font></string>
-    <string name="getstart_dis">तुमचे फोटो आणि व्हिडिओ गोपनीयता व सुरक्षिततेसह सुरक्षित ठेवा.</string>
     <string name="get_start">सुरुवात करा</string>
-
-    <string name="smart_gallery_for_every_moment">प्रत्येक क्षणासाठी\n<font color="#2196F3">स्मार्ट गॅलरी</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">तुमच्या सर्व आठवणी एका ठिकाणी\nसुंदरपणे व्यवस्थित ठेवा.</string>
     <string name="next">पुढे</string>
-
-    <string name="fast_access_to_nyour_photos_amp_videos">तुमच्या <font color="#2196F3">फोटो आणि व्हिडिओंना</font>\nजलद प्रवेश</string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">तुमचे आवडते फोटो आणि व्हिडिओ\nत्वरित शोधा आणि पहा.</string>
-
-    <string name="fragment_3_title">तुमचे <font color="#2196F3">अल्बम</font> तयार करा\nआणि व्यवस्थापित करा</string>
-    <string name="fragment_3_dis">तुमच्या आठवणी अल्बममध्ये व्यवस्थित करा आणि त्या सुरक्षित ठेवा.</string>
 
     <string name="investment_amount">गुंतवणूक रक्कम</string>
     <string name="loan_information">कर्जाची माहिती</string>
@@ -158,4 +147,20 @@
     <string name="cancel">रद्द करा</string>
     <string name="compounding_frequency">चक्रवाढीची वारंवारता</string>
     <string name="recurring_deposit_result">आवर्ती ठेवीचा निकाल</string>
+    <string name="no_history_yet">अद्याप कोणताही इतिहास नाही</string>
+    <string name="terms_conditions">अटी आणि शर्ती</string>
+    <string name="privacy_page_headline">तुमची गोपनीयता आमच्यासाठी महत्त्वाची आहे</string>
+    <string name="privacy_page_body">Loan EMI तुमचा गणनेचा इतिहास आणि प्राधान्ये तुमच्या डिव्हाइसवर साठवते. अ‍ॅपचा अनुभव सुधारण्यासाठी आम्ही जाहिरात आणि सूचना सेवा वापरू शकतो.\n\nआम्ही तुमचे बँक लॉगिन तपशील, कार्डची माहिती किंवा खात्याचा पासवर्ड मागत नाही.\n\nसंपूर्ण गोपनीयता धोरण वाचण्यासाठी खालील बटणावर टॅप करा.</string>
+    <string name="terms_page_headline">कृपया आमच्या अटी तपासा</string>
+    <string name="terms_page_body">Loan EMI वापरून तुम्ही कॅल्क्युलेटरचा वापर केवळ माहितीच्या उद्देशाने करण्यास सहमती देता. निकाल अंदाजे असतात आणि बँक किंवा कर्जदात्यांच्या प्रत्यक्ष आकड्यांपेक्षा वेगळे असू शकतात.\n\nअ‍ॅप जसे आहे तसे उपलब्ध करून दिले जाते आणि आर्थिक सल्ल्याची कोणतीही हमी दिली जात नाही.\n\nसंपूर्ण अटी आणि शर्ती वाचण्यासाठी खालील बटणावर टॅप करा.</string>
+    <string name="view_full_privacy">संपूर्ण गोपनीयता धोरण पहा</string>
+    <string name="view_full_terms">संपूर्ण अटी आणि शर्ती पहा</string>
+    <string name="screen1_title">कर्ज कॅल्क्युलेटर \nप्रत्येक <font color="#2196F3">आर्थिक उद्दिष्टासाठी</font></string>
+    <string name="screen1_dis">मासिक EMI मोजा आणि तुमची सर्व कर्जे एकाच ठिकाणी सहज व्यवस्थापित करा.</string>
+    <string name="screen2_title">जलद EMI गणना \nजलद, <font color="#2196F3">सोपी आणि अचूक</font></string>
+    <string name="scree2_dis">फक्त काही टॅपमध्ये काही सेकंदांत तुमचा मासिक EMI हिशोब करा.</string>
+    <string name="screen4_title">तुमचा आर्थिक प्रवास \n<font color="#2196F3">सुरक्षित आणि संरक्षित</font></string>
+    <string name="screen4_dis">तुमच्या कर्जाच्या गणना व्यवस्थित ठेवा आणि सुरक्षित गणना अनुभवाचा आनंद घ्या.</string>
+    <string name="screen3_title">स्मार्ट कर्ज नियोजन \nराहा <font color="#2196F3">नियंत्रणात</font></string>
+    <string name="screen3_dis">तुमच्या कर्जाच्या गणना व्यवस्थापित करा आणि अधिक चांगले आर्थिक निर्णय घ्या.</string>
 </resources>

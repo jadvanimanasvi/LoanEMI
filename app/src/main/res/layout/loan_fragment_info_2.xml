@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color"
+    android:background="@drawable/screen2"
     android:clipToPadding="false"
     android:fitsSystemWindows="false">
 
@@ -42,7 +42,7 @@
             android:layout_marginTop="@dimen/_48sdp"
             android:gravity="center"
             android:lineSpacingExtra="0dp"
-            android:text="@string/fast_access_to_nyour_photos_amp_videos"
+            android:text="@string/screen2_title"
             android:textColor="@color/text_color"
             android:textSize="@dimen/_20ssp"
             android:textStyle="bold"
@@ -59,7 +59,8 @@
             android:layout_marginBottom="@dimen/_58sdp"
             android:gravity="center"
             android:lineSpacingExtra="1dp"
-            android:text="@string/quickly_find_and_view_all_your_nfavorite_photos_and_videos"
+            android:maxLines="2"
+            android:text="@string/scree2_dis"
             android:textColor="@color/text_color"
             android:textSize="@dimen/_16ssp"
             app:layout_constraintBottom_toTopOf="@id/agreeContainer"

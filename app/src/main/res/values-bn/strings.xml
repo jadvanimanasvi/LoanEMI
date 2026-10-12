@@ -33,16 +33,8 @@
     <string name="loading_ads">বিজ্ঞাপন লোড হচ্ছে…</string>
     <string name="skip_in">%1$d সেকেন্ড পরে স্কিপ করুন</string>
     <string name="please_select_language">অনুগ্রহ করে ভাষা নির্বাচন করুন</string>
-    <string name="get_start_title">আপনার স্মৃতিগুলো রাখুন \n<font color="#2196F3">নিরাপদ ও ব্যক্তিগত</font></string>
-    <string name="getstart_dis">গোপনীয়তা ও নিরাপত্তার সাথে আপনার ছবি এবং ভিডিও সুরক্ষিত রাখুন।</string>
     <string name="get_start">শুরু করুন</string>
-    <string name="smart_gallery_for_every_moment">স্মার্ট গ্যালারি\n প্রতিটি <font color="#2196F3">মুহূর্তের জন্য</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">আপনার সমস্ত স্মৃতি সুন্দরভাবে \nএক জায়গায় সাজিয়ে রাখুন।</string>
     <string name="next">পরবর্তী</string>
-    <string name="fast_access_to_nyour_photos_amp_videos">দ্রুত অ্যাক্সেস করুন \nআপনার <font color="#2196F3">ছবি ও ভিডিওতে</font></string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">আপনার প্রিয় সব ছবি ও ভিডিও \nদ্রুত খুঁজে দেখুন।</string>
-    <string name="fragment_3_title">তৈরি করুন ও পরিচালনা করুন \nআপনার <font color="#2196F3">অ্যালবাম</font></string>
-    <string name="fragment_3_dis">আপনার স্মৃতিগুলো অ্যালবামে সাজিয়ে রাখুন এবং নিরাপদে সংরক্ষণ করুন।</string>
     <string name="investment_amount">বিনিয়োগের পরিমাণ</string>
     <string name="loan_information">লোনের তথ্য</string>
     <string name="result_after_calculation">হিসাবের পর ফলাফল</string>
@@ -144,5 +136,20 @@
     <string name="cancel">বাতিল</string>
     <string name="compounding_frequency">চক্রবৃদ্ধির হার</string>
     <string name="recurring_deposit_result">রিকারিং ডিপোজিটের ফলাফল</string>
-
+    <string name="no_history_yet">এখনও কোনো ইতিহাস নেই</string>
+    <string name="terms_conditions">শর্তাবলি</string>
+    <string name="privacy_page_headline">আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ</string>
+    <string name="privacy_page_body">Loan EMI অ্যাপ আপনার গণনার ইতিহাস এবং পছন্দগুলি আপনার ডিভাইসে সংরক্ষণ করে। অ্যাপের অভিজ্ঞতা উন্নত করতে আমরা বিজ্ঞাপন ও বিজ্ঞপ্তি পরিষেবা ব্যবহার করতে পারি।\n\nআমরা আপনার ব্যাংক লগইন তথ্য, কার্ডের বিবরণ বা অ্যাকাউন্টের পাসওয়ার্ড চাই না।\n\nসম্পূর্ণ গোপনীয়তা নীতি পড়তে নিচের বোতামে ট্যাপ করুন।</string>
+    <string name="terms_page_headline">আমাদের শর্তাবলি পর্যালোচনা করুন</string>
+    <string name="terms_page_body">Loan EMI ব্যবহার করার মাধ্যমে আপনি ক্যালকুলেটরগুলি শুধুমাত্র তথ্যের উদ্দেশ্যে ব্যবহার করতে সম্মত হচ্ছেন। ফলাফলগুলি আনুমানিক এবং ব্যাংক বা ঋণদাতার প্রকৃত হিসাবের সঙ্গে ভিন্ন হতে পারে।\n\nঅ্যাপটি যেমন আছে তেমনভাবেই প্রদান করা হয়; আর্থিক পরামর্শের কোনো নিশ্চয়তা দেওয়া হয় না।\n\nসম্পূর্ণ শর্তাবলি পড়তে নিচের বোতামে ট্যাপ করুন।</string>
+    <string name="view_full_privacy">সম্পূর্ণ গোপনীয়তা নীতি দেখুন</string>
+    <string name="view_full_terms">সম্পূর্ণ শর্তাবলি দেখুন</string>
+    <string name="screen1_title">লোন ক্যালকুলেটর \nপ্রতিটি <font color="#2196F3">আর্থিক লক্ষ্যের</font> জন্য</string>
+    <string name="screen1_dis">সহজেই মাসিক EMI হিসাব করুন এবং আপনার সমস্ত লোন এক জায়গায় পরিচালনা করুন।</string>
+    <string name="screen2_title">দ্রুত EMI হিসাব \nদ্রুত, <font color="#2196F3">সহজ ও নির্ভুল</font></string>
+    <string name="scree2_dis">মাত্র কয়েকটি ট্যাপেই কয়েক সেকেন্ডের মধ্যে আপনার মাসিক EMI হিসাব করুন।</string>
+    <string name="screen4_title">আপনার আর্থিক যাত্রা \n<font color="#2196F3">নিরাপদ ও সুরক্ষিত</font></string>
+    <string name="screen4_dis">আপনার লোনের হিসাবগুলো গুছিয়ে রাখুন এবং নিরাপদে হিসাব করার অভিজ্ঞতা উপভোগ করুন।</string>
+    <string name="screen3_title">স্মার্ট লোন পরিকল্পনা \nথাকুন <font color="#2196F3">নিয়ন্ত্রণে</font></string>
+    <string name="screen3_dis">আপনার লোনের হিসাব পরিচালনা করুন এবং আরও বুদ্ধিমানের সঙ্গে আর্থিক সিদ্ধান্ত নিন।</string>
 </resources>

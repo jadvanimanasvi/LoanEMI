@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <resources>
+<resources>
 
     <string name="app_name" translatable="false">Loan EMI</string>
 
@@ -103,8 +103,7 @@
     <string name="done_inter_language_2" translatable="false">ca-app-pub-3940256099942544/1033173712</string>-->
 
 
-
-      <string name="privacy_policy_url" translatable="false">https://loanemi-a700e.web.app/privacy-policy.html</string>
+    <string name="privacy_policy_url" translatable="false">https://loanemi-a700e.web.app/privacy-policy.html</string>
     <string name="terms_conditions_url" translatable="false">https://loanemi-a700e.web.app/terms-and-conditions.html</string>
     <string name="share_text" translatable="false">LoanEMI App with Privacy. Click here…: https://play.google.com/store/apps/details?id=</string>
 
@@ -141,16 +140,8 @@
     <string name="loading_ads">Ads Loading…</string>
     <string name="skip_in">Skip in %1$d\u0073</string>
     <string name="please_select_language">Please Select Language</string>
-    <string name="get_start_title">Keep Your Memories \n<font color="#2196F3">Safe &amp; Private</font></string>
-    <string name="getstart_dis">Protect your photos and videos with privacy and security.</string>
     <string name="get_start">Get Start</string>
-    <string name="smart_gallery_for_every_moment">Smart Gallery\n For <font color="#2196F3">Every Moment</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">All your memories organized \nbeautifully in one place.</string>
     <string name="next">Next</string>
-    <string name="fast_access_to_nyour_photos_amp_videos">Fast Access to \nYour <font color="#2196F3">Photos &amp; Videos</font></string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">Quickly find and view all your\nfavorite photos and videos.</string>
-    <string name="fragment_3_title">Create &amp; Manage  \nYour <font color="#2196F3">Albums</font></string>
-    <string name="fragment_3_dis">Organize your memories into albums and keep them stored.</string>
     <string name="investment_amount">Investment Amount</string>
     <string name="loan_information">Loan Information</string>
     <string name="result_after_calculation">Result After Calculation</string>
@@ -159,13 +150,6 @@
     <string name="change_language">Change Language</string>
     <string name="theme">Theme</string>
     <string name="privacy_policy">Privacy policy</string>
-    <string name="terms_conditions">Terms &amp; Conditions</string>
-    <string name="privacy_page_headline">Your privacy matters</string>
-    <string name="privacy_page_body">Loan EMI stores your calculation history and preferences on your device. We may use advertising and notification services to improve the app experience.\n\nWe do not ask for your bank login, card details, or account password.\n\nTap the button below to read the full Privacy Policy.</string>
-    <string name="terms_page_headline">Please review our terms</string>
-    <string name="terms_page_body">By using Loan EMI, you agree to use the calculators for informational purposes only. Results are estimates and may differ from actual bank or lender figures.\n\nThe app is provided as-is, without any financial advice guarantee.\n\nTap the button below to read the full Terms &amp; Conditions.</string>
-    <string name="view_full_privacy">View Full Privacy Policy</string>
-    <string name="view_full_terms">View Full Terms &amp; Conditions</string>
     <string name="share_app">Share App</string>
     <string name="rate_us">Rate Us</string>
     <string name="version">Version</string>
@@ -261,4 +245,21 @@
     <string name="recurring_deposit_result">Recurring Deposit Result</string>
     <string name="number" translatable="false">Number</string>
 
+    <string name="no_history_yet">No history yet</string>
+    <string name="terms_conditions">Terms &amp; Conditions</string>
+    <string name="privacy_page_headline">Your privacy matters</string>
+    <string name="privacy_page_body">Loan EMI stores your calculation history and preferences on your device. We may use advertising and notification services to improve the app experience.\n\nWe do not ask for your bank login, card details, or account password.\n\nTap the button below to read the full Privacy Policy.</string>
+    <string name="terms_page_headline">Please review our terms</string>
+    <string name="terms_page_body">By using Loan EMI, you agree to use the calculators for informational purposes only. Results are estimates and may differ from actual bank or lender figures.\n\nThe app is provided as-is, without any financial advice guarantee.\n\nTap the button below to read the full Terms &amp; Conditions.</string>
+    <string name="view_full_privacy">View Full Privacy Policy</string>
+    <string name="view_full_terms">View Full Terms &amp; Conditions</string>
+
+    <string name="screen1_title">Loan Calculator \nFor <font color="#2196F3">Every Financial Goal</font></string>
+    <string name="screen1_dis">Calculate EMI and manage your loans effortlessly, all in one place.</string>
+    <string name="screen2_title">Fast EMI Calculation \nQuick <font color="#2196F3">Simple &amp; Accurate</font></string>
+    <string name="scree2_dis">Calculate your monthly EMI in seconds with just a few taps.</string>
+    <string name="screen4_title">Your Financial Journey \n<font color="#2196F3">Safe &amp; Secure</font></string>
+    <string name="screen4_dis">Keep your loan calculations organized and enjoy a safe calculation experience.</string>
+    <string name="screen3_title">Smart Loan Planning \nStay in <font color="#2196F3">Control</font></string>
+    <string name="screen3_dis">Manage your loan calculations and make smarter financial decisions.</string>
 </resources>

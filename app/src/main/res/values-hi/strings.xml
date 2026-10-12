@@ -34,16 +34,8 @@
     <string name="loading_ads">विज्ञापन लोड हो रहे हैं…</string>
     <string name="skip_in">%1$d सेकंड में छोड़ें</string>
     <string name="please_select_language">कृपया भाषा चुनें</string>
-    <string name="get_start_title">अपनी यादों को \n<font color="#2196F3">सुरक्षित और निजी</font> रखें</string>
-    <string name="getstart_dis">अपनी फ़ोटो और वीडियो को गोपनीयता और सुरक्षा के साथ सुरक्षित रखें।</string>
     <string name="get_start">शुरू करें</string>
-    <string name="smart_gallery_for_every_moment">हर पल के लिए\n <font color="#2196F3">स्मार्ट गैलरी</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">अपनी सभी यादों को\nएक ही जगह पर खूबसूरती से व्यवस्थित करें।</string>
     <string name="next">आगे</string>
-    <string name="fast_access_to_nyour_photos_amp_videos">अपनी <font color="#2196F3">फ़ोटो और वीडियो</font> तक\nतेज़ पहुँच</string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">अपनी सभी पसंदीदा फ़ोटो और वीडियो\nजल्दी से खोजें और देखें।</string>
-    <string name="fragment_3_title">अपने <font color="#2196F3">एल्बम</font> बनाएं और\nप्रबंधित करें</string>
-    <string name="fragment_3_dis">अपनी यादों को एल्बम में व्यवस्थित करें और उन्हें सुरक्षित रखें।</string>
     <string name="investment_amount">निवेश राशि</string>
     <string name="loan_information">लोन की जानकारी</string>
     <string name="result_after_calculation">गणना के बाद परिणाम</string>
@@ -145,4 +137,20 @@
     <string name="cancel">रद्द करें</string>
     <string name="compounding_frequency">चक्रवृद्धि की आवृत्ति</string>
     <string name="recurring_deposit_result">रिकरिंग डिपॉज़िट परिणाम</string>
+    <string name="no_history_yet">अभी तक कोई इतिहास नहीं</string>
+    <string name="terms_conditions">नियम और शर्तें</string>
+    <string name="privacy_page_headline">आपकी गोपनीयता हमारे लिए महत्वपूर्ण है</string>
+    <string name="privacy_page_body">लोन ईएमआई आपके गणना इतिहास और प्राथमिकताओं को आपके डिवाइस पर संग्रहीत करता है। ऐप का अनुभव बेहतर बनाने के लिए हम विज्ञापन और सूचना सेवाओं का उपयोग कर सकते हैं।\n\nहम आपसे बैंक लॉगिन विवरण, कार्ड की जानकारी या खाते का पासवर्ड नहीं मांगते हैं।\n\nपूरी गोपनीयता नीति पढ़ने के लिए नीचे दिए गए बटन पर टैप करें।</string>
+    <string name="terms_page_headline">कृपया हमारी शर्तें पढ़ें</string>
+    <string name="terms_page_body">लोन ईएमआई का उपयोग करके आप कैलकुलेटर का उपयोग केवल जानकारी प्राप्त करने के उद्देश्य से करने के लिए सहमत होते हैं। परिणाम अनुमानित हैं और बैंकों या ऋणदाताओं के वास्तविक आंकड़ों से भिन्न हो सकते हैं।\n\nऐप को वर्तमान स्थिति में उपलब्ध कराया जाता है और वित्तीय सलाह की कोई गारंटी नहीं दी जाती है।\n\nपूरे नियम और शर्तें पढ़ने के लिए नीचे दिए गए बटन पर टैप करें।</string>
+    <string name="view_full_privacy">पूरी गोपनीयता नीति देखें</string>
+    <string name="view_full_terms">पूरे नियम और शर्तें देखें</string>
+    <string name="screen1_title">लोन कैलकुलेटर \nहर <font color="#2196F3">वित्तीय लक्ष्य</font> के लिए</string>
+    <string name="screen1_dis">मासिक EMI की गणना करें और अपने सभी लोन आसानी से एक ही जगह पर मैनेज करें।</string>
+    <string name="screen2_title">तेज़ EMI गणना \nतेज़, <font color="#2196F3">आसान और सटीक</font></string>
+    <string name="scree2_dis">बस कुछ टैप में कुछ ही सेकंड में अपनी मासिक EMI की गणना करें।</string>
+    <string name="screen4_title">आपकी वित्तीय यात्रा \n<font color="#2196F3">सुरक्षित और भरोसेमंद</font></string>
+    <string name="screen4_dis">अपने लोन की गणनाओं को व्यवस्थित रखें और सुरक्षित अनुभव का आनंद लें।</string>
+    <string name="screen3_title">स्मार्ट लोन प्लानिंग \nरहें <font color="#2196F3">नियंत्रण में</font></string>
+    <string name="screen3_dis">अपनी लोन गणनाओं को मैनेज करें और बेहतर वित्तीय निर्णय लें।</string>
 </resources>

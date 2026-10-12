@@ -33,16 +33,8 @@
     <string name="loading_ads">Fógraí á Lódáil…</string>
     <string name="skip_in">Scipeáil i %1$d\u0073</string>
     <string name="please_select_language">Roghnaigh Teanga le do thoil</string>
-    <string name="get_start_title">Coinnigh do Chuimhní \n<font color="#2196F3">Sábháilte &amp; Príobháideach</font></string>
-    <string name="getstart_dis">Cosain do ghrianghraif agus físeáin le príobháideachas agus slándáil.</string>
     <string name="get_start">Tosaigh</string>
-    <string name="smart_gallery_for_every_moment">Gailearaí Cliste\n Do <font color="#2196F3">Gach Nóiméad</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">Do chuimhní go léir eagraithe \ngo hálainn in aon áit amháin.</string>
     <string name="next">Ar Aghaidh</string>
-    <string name="fast_access_to_nyour_photos_amp_videos">Rochtain Thapa ar \nDo <font color="#2196F3">Ghrianghraif &amp; Físeáin</font></string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">Aimsigh agus féach go tapa ar do\nngrianghraif agus físeáin is ansa leat.</string>
-    <string name="fragment_3_title">Cruthaigh &amp; Bainistigh  \nDo <font color="#2196F3">Albaim</font></string>
-    <string name="fragment_3_dis">Eagraigh do chuimhní in albaim agus coinnigh stóráilte iad.</string>
     <string name="investment_amount">Méid Infheistíochta</string>
     <string name="loan_information">Eolas faoin Iasacht</string>
     <string name="result_after_calculation">Toradh Tar éis Ríomh</string>
@@ -146,4 +138,20 @@
     <string name="cancel">Cealaigh</string>
     <string name="compounding_frequency">Minicíocht Chumaisc</string>
     <string name="recurring_deposit_result">Toradh Taisce Athfhillteach</string>
+    <string name="no_history_yet">Níl aon stair ann fós</string>
+    <string name="terms_conditions">Téarmaí agus Coinníollacha</string>
+    <string name="privacy_page_headline">Tá do phríobháideachas tábhachtach dúinn</string>
+    <string name="privacy_page_body">Stórálann Loan EMI stair do chuid ríomhanna agus do shainroghanna ar do ghléas. D’fhéadfaimis seirbhísí fógraíochta agus fógraí a úsáid chun eispéireas na haipe a fheabhsú.\n\nNí iarraimid sonraí logála isteach do bhainc, sonraí do chárta ná pasfhocal do chuntais.\n\nTapáil an cnaipe thíos chun an Beartas Príobháideachais iomlán a léamh.</string>
+    <string name="terms_page_headline">Déan athbhreithniú ar ár dtéarmaí le do thoil</string>
+    <string name="terms_page_body">Trí Loan EMI a úsáid, aontaíonn tú na háireamháin a úsáid chun críocha faisnéise amháin. Is meastacháin iad na torthaí agus d’fhéadfadh siad a bheith éagsúil ó fhigiúirí iarbhír na mbanc nó na n-iasachtóirí.\n\nCuirtear an aip ar fáil mar atá, gan ráthaíocht maidir le comhairle airgeadais.\n\nTapáil an cnaipe thíos chun na Téarmaí agus Coinníollacha iomlána a léamh.</string>
+    <string name="view_full_privacy">Féach ar an mBeartas Príobháideachais Iomlán</string>
+    <string name="view_full_terms">Féach ar na Téarmaí agus Coinníollacha Iomlána</string>
+    <string name="screen1_title">Áireamhán Iasachtaí \nDo <font color="#2196F3">Gach Sprioc Airgeadais</font></string>
+    <string name="screen1_dis">Ríomh íocaíochtaí míosúla agus bainistigh d’iasachtaí go héasca in aon áit amháin.</string>
+    <string name="screen2_title">Ríomh Tapa Tráthchodanna \nTapa, <font color="#2196F3">Simplí agus Cruinn</font></string>
+    <string name="scree2_dis">Ríomh d’íocaíocht mhíosúil i gceann soicind le cúpla sconna.</string>
+    <string name="screen4_title">Do Thuras Airgeadais \n<font color="#2196F3">Sábháilte agus Slán</font></string>
+    <string name="screen4_dis">Coinnigh do ríomhanna iasachta eagraithe agus bain sult as eispéireas ríofa slán.</string>
+    <string name="screen3_title">Pleanáil Chliste Iasachtaí \nFan i <font color="#2196F3">gCeannas</font></string>
+    <string name="screen3_dis">Bainistigh do ríomhanna iasachta agus déan cinntí airgeadais níos cliste.</string>
 </resources>

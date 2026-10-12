@@ -33,21 +33,8 @@
     <string name="loading_ads">ప్రకటనలు లోడ్ అవుతున్నాయి…</string>
     <string name="skip_in">%1$d సెకన్లలో దాటవేయండి</string>
     <string name="please_select_language">దయచేసి భాషను ఎంచుకోండి</string>
-
-    <string name="get_start_title">మీ జ్ఞాపకాలను \n<font color="#2196F3">సురక్షితంగా &amp; ప్రైవేట్‌గా ఉంచండి</font></string>
-    <string name="getstart_dis">మీ ఫోటోలు మరియు వీడియోలను గోప్యత మరియు భద్రతతో రక్షించండి.</string>
     <string name="get_start">ప్రారంభించండి</string>
-
-    <string name="smart_gallery_for_every_moment">ప్రతి క్షణం కోసం\n<font color="#2196F3">స్మార్ట్ గ్యాలరీ</font></string>
-    <string name="all_your_memories_organized_beautifully_in_one_place">మీ జ్ఞాపకాలన్నింటినీ ఒకే చోట\nఅందంగా క్రమబద్ధీకరించండి.</string>
     <string name="next">తదుపరి</string>
-
-    <string name="fast_access_to_nyour_photos_amp_videos">మీ <font color="#2196F3">ఫోటోలు &amp; వీడియోలకు</font>\nవేగవంతమైన యాక్సెస్</string>
-    <string name="quickly_find_and_view_all_your_nfavorite_photos_and_videos">మీకు ఇష్టమైన ఫోటోలు మరియు వీడియోలను\nత్వరగా కనుగొని వీక్షించండి.</string>
-
-    <string name="fragment_3_title">మీ <font color="#2196F3">ఆల్బమ్‌లను</font>\nసృష్టించి &amp; నిర్వహించండి</string>
-    <string name="fragment_3_dis">మీ జ్ఞాపకాలను ఆల్బమ్‌లలో క్రమబద్ధీకరించి సురక్షితంగా ఉంచండి.</string>
-
     <string name="investment_amount">పెట్టుబడి మొత్తం</string>
     <string name="loan_information">లోన్ సమాచారం</string>
     <string name="result_after_calculation">లెక్కింపు తర్వాత ఫలితం</string>
@@ -157,4 +144,20 @@
     <string name="cancel">రద్దు చేయండి</string>
     <string name="compounding_frequency">చక్రవడ్డీ తరచుదనం</string>
     <string name="recurring_deposit_result">రికరింగ్ డిపాజిట్ ఫలితం</string>
+    <string name="no_history_yet">ఇంకా చరిత్ర లేదు</string>
+    <string name="terms_conditions">నిబంధనలు మరియు షరతులు</string>
+    <string name="privacy_page_headline">మీ గోప్యత మాకు ముఖ్యం</string>
+    <string name="privacy_page_body">Loan EMI మీ లెక్కల చరిత్ర మరియు ప్రాధాన్యతలను మీ పరికరంలో నిల్వ చేస్తుంది. యాప్ అనుభవాన్ని మెరుగుపరచడానికి మేము ప్రకటనలు మరియు నోటిఫికేషన్ సేవలను ఉపయోగించవచ్చు.\n\nమేము మీ బ్యాంక్ లాగిన్ వివరాలు, కార్డు వివరాలు లేదా ఖాతా పాస్‌వర్డ్‌ను అడగము.\n\nపూర్తి గోప్యతా విధానాన్ని చదవడానికి దిగువ బటన్‌ను నొక్కండి.</string>
+    <string name="terms_page_headline">దయచేసి మా నిబంధనలను సమీక్షించండి</string>
+    <string name="terms_page_body">Loan EMIని ఉపయోగించడం ద్వారా, మీరు కాలిక్యులేటర్లను సమాచార ప్రయోజనాల కోసం మాత్రమే ఉపయోగించడానికి అంగీకరిస్తున్నారు. ఫలితాలు అంచనాలు మాత్రమే; బ్యాంకులు లేదా రుణదాతల వాస్తవ గణాంకాలకు భిన్నంగా ఉండవచ్చు.\n\nఈ యాప్ ఉన్న విధంగానే అందించబడుతుంది; ఆర్థిక సలహాకు ఎలాంటి హామీ ఇవ్వబడదు.\n\nపూర్తి నిబంధనలు మరియు షరతులను చదవడానికి దిగువ బటన్‌ను నొక్కండి.</string>
+    <string name="view_full_privacy">పూర్తి గోప్యతా విధానాన్ని చూడండి</string>
+    <string name="view_full_terms">పూర్తి నిబంధనలు మరియు షరతులను చూడండి</string>
+    <string name="screen1_title">లోన్ కాలిక్యులేటర్ \nప్రతి <font color="#2196F3">ఆర్థిక లక్ష్యం</font> కోసం</string>
+    <string name="screen1_dis">నెలవారీ EMIని లెక్కించి, మీ రుణాలను ఒకే చోట సులభంగా నిర్వహించండి.</string>
+    <string name="screen2_title">వేగవంతమైన EMI లెక్కింపు \nవేగంగా, <font color="#2196F3">సులభంగా మరియు ఖచ్చితంగా</font></string>
+    <string name="scree2_dis">కొన్ని ట్యాప్‌లతోనే క్షణాల్లో మీ నెలవారీ EMIని లెక్కించండి.</string>
+    <string name="screen4_title">మీ ఆర్థిక ప్రయాణం \n<font color="#2196F3">సురక్షితం మరియు భద్రం</font></string>
+    <string name="screen4_dis">మీ రుణ లెక్కలను క్రమబద్ధంగా ఉంచి, సురక్షితమైన లెక్కింపు అనుభవాన్ని పొందండి.</string>
+    <string name="screen3_title">స్మార్ట్ లోన్ ప్లానింగ్ \n<font color="#2196F3">నియంత్రణలో</font> ఉండండి</string>
+    <string name="screen3_dis">మీ రుణ లెక్కలను నిర్వహించి, మరింత తెలివైన ఆర్థిక నిర్ణయాలు తీసుకోండి.</string>
 </resources>
