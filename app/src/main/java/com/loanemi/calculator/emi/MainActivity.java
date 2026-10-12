@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         Util.hide(this);
         setupWindowInsets();
         initViews();
-        setupBottomNavigation();
+        setupBottomNavigation(savedInstanceState);
         requestNotificationPermission();
         // Open HomeFragment by default
         if (savedInstanceState == null) {
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNav = findViewById(R.id.bottomNav);
     }
 
-    private void setupBottomNavigation() {
+    private void setupBottomNavigation(Bundle savedInstanceState) {
         bottomNav.setSelectedItemId(R.id.nav_home);
         bottomNav.setOnItemSelectedListener(item -> {
 

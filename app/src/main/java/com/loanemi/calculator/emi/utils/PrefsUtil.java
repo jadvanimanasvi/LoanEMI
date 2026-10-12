@@ -61,6 +61,9 @@ public class PrefsUtil {
         prefs.edit().putBoolean(key, value).apply();
     }
 
+    public final String getPreferencesStr(String str, String str2) {
+        return this.prefs.getString(str, str2);
+    }
     public static final class Companion {
         public Companion(DefaultConstructorMarker defaultConstructorMarker) {
             this();

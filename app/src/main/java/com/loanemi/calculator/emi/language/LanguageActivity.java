@@ -1,6 +1,7 @@
 package com.loanemi.calculator.emi.language;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
@@ -48,6 +49,7 @@ public class LanguageActivity extends BaseActivity {
     boolean isLangClick = false;
     FrameLayout ivDone;
     ImageView ivBack;
+    TextView tvTitle;
     boolean fromSettings;
     ArrayList<LanguageModel> languageModels = new ArrayList<>();
     RecyclerView rvLanguage;
@@ -60,6 +62,11 @@ public class LanguageActivity extends BaseActivity {
     private Runnable splashInterShowRunnable;
 
     @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.setLocale(newBase));
+    }
+
+    @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         binding = ActivityLanguageBinding.inflate(getLayoutInflater());
@@ -68,19 +75,16 @@ public class LanguageActivity extends BaseActivity {
         zwePreferences = AppPreference.Companion.getInstance(this);
         LoanActivityTracker.setCurrentActivity(this);
         MyApplication.instance.applyStartFlowSystemBars(this, findViewById(R.id.main));
-        fromSettings = getIntent() != null
-                && getIntent().getBooleanExtra(
-                AppPreference.EXTRA_LANG_OPENED_IN_SETTINGS,
-                false
-        );
 
         isLangClick = false;
         bindViews();
         initView();
         addListener();
+        updateTitleForLanguage(LocaleHelper.getLanguage(this));
+
+        fromSettings = getIntent() != null && getIntent().getBooleanExtra(AppPreference.EXTRA_LANG_OPENED_IN_SETTINGS, false);
 
         if (fromSettings) {
-
            binding.ivBack.setVisibility(View.VISIBLE);
             ivDone.setVisibility(View.VISIBLE);
             showNativeOne();
@@ -91,30 +95,27 @@ public class LanguageActivity extends BaseActivity {
 
 //        showNativeOne();
 
-        getOnBackPressedDispatcher().addCallback(
-                this,
-                new OnBackPressedCallback(true) {
-
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
                     @Override
                     public void handleOnBackPressed() {
                         if (fromSettings) {
                             Constant.isLanguageChanging = false;
                         }
-
                         finish();
                     }
                 }
         );
 
         // Only normal first-time flow
-        if (!fromSettings
-                && LoanStartFlowAdHelper.isFlagOn(
-                this,
-                AppPreference.is_first_intro_native_show,
-                true
-        )) {
+        if (!fromSettings && LoanStartFlowAdHelper.isFlagOn(this, AppPreference.is_first_intro_native_show, true)) {
             preloadIntroFirst();
         }
+    }
+
+    private void updateTitleForLanguage(String langCode) {
+        if (tvTitle == null || langCode == null) return;
+        Context localized = LocaleHelper.createLocalizedContext(this, langCode);
+        tvTitle.setText(localized.getString(R.string.language));
     }
 
 
@@ -122,12 +123,13 @@ public class LanguageActivity extends BaseActivity {
         ivBack = findViewById(R.id.ivBack);
         ivDone = findViewById(R.id.ivDone);
         rvLanguage = findViewById(R.id.rvLanguage);
+        tvTitle = findViewById(R.id.Lock);
     }
 
     public void initView() {
         languageModels.clear();
-        languageModels.add(new LanguageModel(R.drawable.icn_flagengland, "English", "en-rGB"));
         languageModels.add(new LanguageModel(R.drawable.icn_flagus, "English", "en"));
+        languageModels.add(new LanguageModel(R.drawable.icn_flagengland, "English", "en-rGB"));
         languageModels.add(new LanguageModel(R.drawable.icn_flaghindi, "Hindi", "hi"));
         languageModels.add(new LanguageModel(R.drawable.icn_bangla, "Bangla", "bn"));
         languageModels.add(new LanguageModel(R.drawable.icn_flagbrazil, "Portuguese", "pt-rBR"));
@@ -337,17 +339,17 @@ public class LanguageActivity extends BaseActivity {
             }
             isDoneClicked = true;
             saveLanguage();
-            /*if (getIntent() != null && getIntent().getBooleanExtra(AppPreference.EXTRA_LANG_OPENED_IN_SETTINGS, false)) {
-                setResult(RESULT_OK);
-                finish();
-                return;
-            }*/
-            if (fromSettings) {
-                Constant.isLanguageChanging = false;
+            if (getIntent() != null && getIntent().getBooleanExtra(AppPreference.EXTRA_LANG_OPENED_IN_SETTINGS, false)) {
                 setResult(RESULT_OK);
                 finish();
                 return;
             }
+           /* if (fromSettings) {
+                Constant.isLanguageChanging = false;
+                setResult(RESULT_OK);
+                finish();
+                return;
+            }*/
             LoanStartFlowAdHelper.markLanguageDoneAdsPending();
             LoanStartFlowAdHelper.discardPendingInterstitial();
             boolean online = LoanStartFlowAdHelper.isNetworkConnected(this);
@@ -392,29 +394,15 @@ public class LanguageActivity extends BaseActivity {
         });
     }
 
-
-    /*private void saveLanguage() {
-        if (languagePosition < 0 || languagePosition >= languageModels.size()) {
-            return;
-        }
-        String selectedLanguage = languageModels.get(languagePosition).getLanguageCode();
-        zwePreferences.setPreferencesStrCommit(AppPreference.SELECT_LAN, selectedLanguage);
-        MyApplication.setLanguage(this, selectedLanguage);
-    }*/
     private void saveLanguage() {
         if (languagePosition < 0 || languagePosition >= languageModels.size()) {
             return;
         }
         String selectedLanguage = languageModels.get(languagePosition).getLanguageCode();
-
-        // used by the language screen (highlights the saved item)
-        zwePreferences.setPreferencesStrCommit(AppPreference.SELECT_LAN, selectedLanguage);
-
-        // used by LocaleHelper (applies the language on every launch)
-        AppPreference.getInstance(this).setString(AppPreference.SELECTED_LANGUAGE, selectedLanguage);
-
+        LocaleHelper.saveLanguage(this, selectedLanguage);
         MyApplication.setLanguage(this, selectedLanguage);
     }
+
 
     private void loadActivity() {
         if (AppPreference.getInstance(this).getBoolean(AppPreference.KEY_IS_USER, false)) {

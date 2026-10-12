@@ -157,7 +157,7 @@
     <string name="screen2_title">Calcolo rapido delle rate \nVeloce, <font color="#2196F3">semplice e preciso</font></string>
     <string name="scree2_dis">Calcola la tua rata mensile in pochi secondi con pochi tocchi.</string>
     <string name="screen4_title">Il tuo percorso finanziario \n<font color="#2196F3">Sicuro e protetto</font></string>
-    <string name="screen4_dis">Organizza i calcoli dei tuoi prestiti e goditi un'esperienza di calcolo sicura.</string>
+    <string name="screen4_dis">Organizza i calcoli dei tuoi prestiti e goditi un\'esperienza di calcolo sicura.</string>
     <string name="screen3_title">Pianificazione intelligente dei prestiti \nMantieni il <font color="#2196F3">controllo</font></string>
     <string name="screen3_dis">Gestisci i calcoli dei tuoi prestiti e prendi decisioni finanziarie più intelligenti.</string>
 </resources>

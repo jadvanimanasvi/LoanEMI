@@ -1,5 +1,9 @@
 package com.loanemi.calculator.emi.fragments;
 
+import static android.app.Activity.RESULT_OK;
+
+import static androidx.core.app.ActivityCompat.recreate;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -36,7 +40,9 @@ import com.loanemi.calculator.emi.helper.RateUsDialogHelper;
 import com.loanemi.calculator.emi.language.LanguageActivity;
 import com.loanemi.calculator.emi.language.LocaleHelper;
 import com.loanemi.calculator.emi.utils.AppPreference;
+import com.loanemi.calculator.emi.utils.Constant;
 import com.loanemi.calculator.emi.utils.MyApplication;
+import com.loanemi.calculator.emi.utils.PrefsUtil;
 import com.loanemi.calculator.emi.utils.UiSafe;
 import com.loanemi.calculator.emi.utils.Util;
 
@@ -44,22 +50,21 @@ public class SettingFragment extends Fragment {
 
     CardView cardLanguage, cardPrivacy, cardTerms, cardShareApp, cardRate, cardTheme;
     TextView txtVersion;
+    private PrefsUtil prefsUtil;
+    private String appliedLanguageCode;
 
+    // NEW: reloads the screen in the new language after Done in LanguageActivity
     private final ActivityResultLauncher<Intent> languageLauncher =
-            registerForActivityResult(
-                    new ActivityResultContracts.StartActivityForResult(),
-                    result -> {
-                        if (result.getResultCode() == Activity.RESULT_OK
-                                && isAdded() && getActivity() != null) {
-                            // re-runs attachBaseContext, so every screen reloads in the new language
-                            requireActivity().recreate();
-                        }
-                    });
+            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+                if (result.getResultCode() == RESULT_OK) {
+                    Constant.settingsLanguageRecreatePending = true;
+                    Constant.isLanguageChanging = true;
+                    requireActivity().recreate();
+                    return;
+                }
+                Constant.isLanguageChanging = false;
+            });
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(LocaleHelper.setLocale(context));
-    }
 
     @Nullable
     @Override
@@ -67,13 +72,16 @@ public class SettingFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_setting, container, false);
 
+        prefsUtil = new PrefsUtil(requireContext());
+
         initViews(view);
         setupAds(view);
+        appliedLanguageCode = LocaleHelper.getLanguage(requireContext());
+        applyLanguageRecreateIfNeeded();
         setupClickListeners();
         setupBackPressed();
         return view;
     }
-
 
 
     @SuppressLint("SetTextI18n")
@@ -93,9 +101,10 @@ public class SettingFragment extends Fragment {
         cardLanguage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(requireContext(), LanguageActivity.class);
-                intent.putExtra(AppPreference.EXTRA_LANG_OPENED_IN_SETTINGS, true);
-                languageLauncher.launch(intent);
+                Constant.isLanguageChanging = true;
+                Intent langIntent = new Intent(requireContext(), LanguageActivity.class);
+                langIntent.putExtra(AppPreference.EXTRA_LANG_OPENED_IN_SETTINGS, true);
+                languageLauncher.launch(langIntent);
             }
         });
         cardPrivacy.setOnClickListener(v ->
@@ -105,6 +114,16 @@ public class SettingFragment extends Fragment {
         cardTheme.setOnClickListener(v -> showThemeDialog());
         cardShareApp.setOnClickListener(v -> shareApp(requireContext()));
         cardRate.setOnClickListener(v -> showRateFromMenu());
+    }
+
+    private void applyLanguageRecreateIfNeeded() {
+        if (!Constant.settingsLanguageRecreatePending) {
+            return;
+        }
+        Constant.settingsLanguageRecreatePending = false;
+        appliedLanguageCode = prefsUtil.getPreferencesStr(AppPreference.SELECT_LAN, "en");
+        MyApplication.setLanguage(getContext(), appliedLanguageCode);
+        MyApplication.setLanguage(requireContext(), appliedLanguageCode);
     }
 
     private void showThemeDialog() {
@@ -247,5 +266,13 @@ public class SettingFragment extends Fragment {
                     }
                 }
         );
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (Constant.isLanguageChanging && !Constant.settingsLanguageRecreatePending) {
+            Constant.isLanguageChanging = false;
+        }
     }
 }

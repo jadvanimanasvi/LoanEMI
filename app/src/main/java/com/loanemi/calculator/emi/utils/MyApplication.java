@@ -103,7 +103,7 @@ public class MyApplication extends Application {
         if (context == null || languageCode == null || languageCode.isEmpty()) {
             return;
         }
-        Locale locale = toLocale(languageCode);
+        Locale locale = LocaleHelper.toLocale(languageCode);   // <-- CHANGED (fixes en-rGB, pt-rBR, ar-rSA...)
         Locale.setDefault(locale);
         Resources resources = context.getResources();
         Configuration config = new Configuration(resources.getConfiguration());
