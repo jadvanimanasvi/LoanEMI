@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
@@ -16,7 +15,6 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.activity.OnBackPressedCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -31,6 +29,7 @@ import com.loanemi.calculator.emi.BuildConfig;
 import com.loanemi.calculator.emi.R;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.loanemi.calculator.emi.Ads.NativeAdPreloader;
+import com.loanemi.calculator.emi.Activities.LegalPageActivity;
 import com.loanemi.calculator.emi.MainActivity;
 import com.loanemi.calculator.emi.helper.PlayStoreHelper;
 import com.loanemi.calculator.emi.helper.RateUsDialogHelper;
@@ -43,7 +42,7 @@ import com.loanemi.calculator.emi.utils.Util;
 
 public class SettingFragment extends Fragment {
 
-    CardView cardLanguage,cardPrivacy,cardShareApp,cardRate,cardTheme;
+    CardView cardLanguage, cardPrivacy, cardTerms, cardShareApp, cardRate, cardTheme;
     TextView txtVersion;
 
     private final ActivityResultLauncher<Intent> languageLauncher =
@@ -82,6 +81,7 @@ public class SettingFragment extends Fragment {
         cardLanguage = view.findViewById(R.id.cardLanguage);
         cardTheme = view.findViewById(R.id.cardTheme);
         cardPrivacy = view.findViewById(R.id.cardPrivacy);
+        cardTerms = view.findViewById(R.id.cardTerms);
         cardShareApp = view.findViewById(R.id.cardShareApp);
         cardRate = view.findViewById(R.id.cardRate);
         txtVersion = view.findViewById(R.id.txtVersion);
@@ -98,19 +98,13 @@ public class SettingFragment extends Fragment {
                 languageLauncher.launch(intent);
             }
         });
-        cardPrivacy.setOnClickListener(v -> privacyPolicy());
+        cardPrivacy.setOnClickListener(v ->
+                startActivity(LegalPageActivity.createIntent(requireContext(), LegalPageActivity.TYPE_PRIVACY)));
+        cardTerms.setOnClickListener(v ->
+                startActivity(LegalPageActivity.createIntent(requireContext(), LegalPageActivity.TYPE_TERMS)));
         cardTheme.setOnClickListener(v -> showThemeDialog());
         cardShareApp.setOnClickListener(v -> shareApp(requireContext()));
         cardRate.setOnClickListener(v -> showRateFromMenu());
-    }
-
-    private void privacyPolicy() {
-        try {
-            startActivity(new Intent(Intent.ACTION_VIEW,
-                    Uri.parse(getString(R.string.privacy_policy_url))));
-        } catch (Exception e) {
-            Toast.makeText(requireContext(), R.string.we_maintain_our_policy, Toast.LENGTH_SHORT).show();
-        }
     }
 
     private void showThemeDialog() {
