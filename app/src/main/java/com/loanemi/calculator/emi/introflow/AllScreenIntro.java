@@ -24,6 +24,7 @@ public class AllScreenIntro extends BaseActivity {
     public int native1PageIndex = -1;
 
     @Override
+
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         binding = ActivityAllScreenIntroBinding.inflate(getLayoutInflater());
