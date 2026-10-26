@@ -17,6 +17,8 @@ googleGmsGoogleServices = "4.5.0"
 firebaseMessaging = "25.1.3"
 firebaseConfig = "23.1.0"
 firebaseAnalytics = "23.2.0"
+firebaseCrashlytics = "21.0.1"
+googleFirebaseCrashlytics = "3.0.8"
 
 
 [libraries]
@@ -37,8 +39,10 @@ lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
 firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging", version.ref = "firebaseMessaging" }
 firebase-config = { group = "com.google.firebase", name = "firebase-config", version.ref = "firebaseConfig" }
 firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics", version.ref = "firebaseAnalytics" }
+firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics", version.ref = "firebaseCrashlytics" }
 
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
+google-firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "googleFirebaseCrashlytics" }

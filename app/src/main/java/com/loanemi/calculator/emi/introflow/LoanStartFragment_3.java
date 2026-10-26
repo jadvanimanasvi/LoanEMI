@@ -80,12 +80,12 @@ public class LoanStartFragment_3 extends Fragment {
                     @Override
                     public void onAdFailedToLoad(LoadAdError loadAdError) {
                         super.onAdFailedToLoad(loadAdError);
-                        MyApplication.instance.GetStartedNativeAd.setValue(null);
+                        MyApplication.instance.GetStartedNativeAd.postValue(null);
                     }
                 });
                 return;
             }
-            MyApplication.instance.GetStartedNativeAd.setValue(null);
+            MyApplication.instance.GetStartedNativeAd.postValue(null);
         } catch (Exception ignored) {
         }
     }
